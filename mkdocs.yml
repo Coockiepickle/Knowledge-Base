@@ -1,13 +1,5 @@
 site_name: Base de connaissances Damien Reynaud
-theme:
-  name: shadcn
-  show_title: true
-  show_stargazers: false
-  pygments_style:
-      light: shadcn-light
-      dark: github-dark-colorblind
-  topbar_sections: false
-  language: fr
+site_url: https://coockiepickle.github.io/Knowledge-Base
 nav:
   - Accueil: index.md
   - Configurations:
@@ -17,8 +9,17 @@ nav:
       - Ansible: conf/ansible.md
   - Sécurité:
       - Firewall: securite/firewall.md
-  - Daily: 
-      - 28-10-25: daily/28-10-25.md      
+  - Daily:
+      - 28-10-25: daily/28-10-25.md
+theme:
+  name: shadcn
+  show_title: true
+  show_stargazers: false
+  pygments_style:
+      light: shadcn-light
+      dark: github-dark-colorblind
+  topbar_sections: false
+  language: fr
 markdown_extensions:
   - admonition
   - codehilite
