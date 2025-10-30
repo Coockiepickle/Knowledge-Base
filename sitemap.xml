@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/conf/ansible/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/conf/cisco-48p/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/conf/guac/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/conf/mkdocs/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/daily/28-10-25/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://coockiepickle.github.io/Knowledge-Base/securite/firewall/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
 </urlset>
