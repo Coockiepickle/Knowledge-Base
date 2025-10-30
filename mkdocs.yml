@@ -1,0 +1,36 @@
+site_name: Base de connaissances Damien Reynaud
+theme:
+  name: shadcn
+  show_title: true
+  show_stargazers: false
+  pygments_style:
+      light: shadcn-light
+      dark: github-dark-colorblind
+  topbar_sections: false
+  language: fr
+nav:
+  - Accueil: index.md
+  - Configurations:
+      - Switch Cisco 48 Ports: conf/cisco-48p.md
+      - Guacamole: conf/guac.md
+      - MKDocs: conf/mkdocs.md
+      - Ansible: conf/ansible.md
+  - Sécurité:
+      - Firewall: securite/firewall.md
+  - Daily: 
+      - 28-10-25: daily/28-10-25.md      
+markdown_extensions:
+  - admonition
+  - codehilite
+  - attr_list
+  - shadcn.extensions.iconify
+  - shadcn.extensions.codexec
+  - shadcn.extensions.echarts.alpha
+  - pymdownx.blocks.caption
+  - pymdownx.blocks.details
+  - pymdownx.blocks.tab
+  - pymdownx.progressbar
+  - toc:
+      permalink: true
+plugins:
+  - search
