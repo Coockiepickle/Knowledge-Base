@@ -9,9 +9,9 @@ alpha: true
 
 ## Cette base peut contenir
 
-* Des fichiers de configurations entiers. ex : [cisco-48p](./conf/cisco-48p.md),
-* Des guides d'installations. ex : [mkdocs](./conf/mkdocs.md),
-* Des petites infos diverses dans des fichiers datés. ex : [28-10-25](./daily/28-10-25.md).
+* Des fichiers de configurations entiers. ex : [cisco-48p](./ais/conf/cisco-48p.md),
+* Des guides d'installations. ex : [mkdocs](./general/mkdocs.md),
+* Des petites infos diverses dans des fichiers datés. ex : [27-01-25](./daily/27-01-25.md).
 
 ## Quelques liens utiles
 
