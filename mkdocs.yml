@@ -1,16 +1,99 @@
 site_name: Base de connaissances Damien Reynaud
-site_url: https://coockiepickle.github.io/Knowledge-Base
+site_url: https://coockiepickle.github.io/
+repo_url: https://github.com/Coockiepickle/Knowledge-Base
+use_directory_urls: true
 nav:
   - Accueil: index.md
-  - Configurations:
-      - Switch Cisco 48 Ports: conf/cisco-48p.md
-      - Guacamole: conf/guac.md
-      - MKDocs: conf/mkdocs.md
-      - Ansible: conf/ansible.md
-  - Sécurité:
-      - Firewall: securite/firewall.md
-  - Daily:
-      - 28-10-25: daily/28-10-25.md
+  - DEC Techniques de l'Informatique:
+      - dec.md
+      - Cybersécurité:
+          - AAA: dec/cyber/aaa.md
+          - Access Control List: dec/cyber/acl.md
+          - ZPF: dec/cyber/zpf.md
+          - Actions ZPF: dec/cyber/actions-zpf.md
+          - DHCP Snooping: dec/cyber/dhcp-snooping.md
+          - Sécurité des ports: dec/cyber/port-security.md
+      - Routeurs et Commutateurs:
+          - Changer Passerelle par défaut: dec/routing-switching/change-default-gateway.md
+          - DHCP: dec/routing-switching/dhcp.md
+          - Trunk: dec/routing-switching/trunk.md
+          - EtherChannel: dec/routing-switching/etherchannel.md
+          - Modes EtherChannel: dec/routing-switching/etherchannel-modes.md
+          - HSRP: dec/routing-switching/hsrp.md
+          - IPv6: dec/routing-switching/ipv6.md
+          - Mots de passe: dec/routing-switching/passwords.md
+          - Routes statiques IPv4/IPv6: dec/routing-switching/static-routes-ipv46.md
+          - SSH: dec/routing-switching/ssh.md
+          - Fonctionnalités utiles: dec/routing-switching/useful.md
+      - Système d'exploitation:
+          - Interpréteur de commandes (CLI): dec/os/cli.md
+          - Noyau (Kernel): dec/os/kernel.md
+          - Système d'Exploitation: dec/os/se.md
+          - Windows Server: dec/os/ws.md
+          - Administration Windows: dec/os/win-admin.md
+      - Web Dynamique:
+          - VSCode: dec/web/vscode.md
+          - Infos utiles CSS: dec/web/useful-css.md
+      - Epreuve Synthèse de Programme:
+          - Proof Of Concept: dec/esp/poc.md
+          - Présentation Orale: dec/esp/pres-orale.md
+          - Réalisation du projet: dec/esp/real-projet.md
+      - Autre:
+          - Administration de Serveurs Web TP2: dec/autre/tp2-asw.md
+  - Bachelor AIS:
+      - ais.md
+      - Configurations:
+          - Switch Cisco 48 Ports: ais/conf/cisco-48p.md
+          - Switch Cisco 24 Ports: ais/conf/cisco-24p.md
+          - Switch Aruba: ais/conf/aruba.md
+          - Guacamole: ais/conf/guac.md
+          - MySQL: ais/conf/mysql.md
+          - Zabbix: ais/conf/zabbix.md
+          - Routes Windows: ais/conf/routes-windows.md
+      - Cybersécurité:
+          - Politique de sauvegarde: ais/cyber/pol-de-sauvegarde.md
+          - Plan de Reprise d'Activités: ais/cyber/pra.md
+          - Politique de Sécurité du Système d'Informations: ais/cyber/pssi.md
+      - Dossier de projet:
+          - dossier-projet.md
+          - Administrer et sécuriser les infrastructures: ais/dossier-projet/bloc-1-ais.md
+          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-projet/bloc-2-ais.md
+          - Participer à la gestion de la cybersécurité: ais/dossier-projet/bloc-3-ais.md
+          - Introduction: ais/dossier-projet/intro.md
+          - Projets d'entreprise: ais/dossier-projet/projets-entre.md
+          - Projets d'entreprise rédigés: ais/dossier-projet/projet-entre-rediges.md
+      - Dossier professionnel:
+          - dossier-pro.md
+          - Administrer et sécuriser les infrastructures: ais/dossier-pro/bloc-1-ais.md
+          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-pro/bloc-2-ais.md
+          - Participer à la gestion de la cybersécurité: ais/dossier-pro/bloc-3-ais.md
+          - Exemples: ais/dossier-pro/exemples-dp.md
+          - Expériences: ais/dossier-pro/exp-dp.md
+          - Projets: ais/dossier-pro/projets.md
+          - Template Activités: ais/dossier-pro/template-act-dp.md
+      - Autre:
+          - Les Antivirus - Vulgarisation: ais/autre/vulg-av.md
+  - Master ERIS:
+      - eris.md
+      - Droit:
+        - Cahier des charges: eris/droit/cahier-charges.md
+        - Cas pratique: eris/droit/cas-pratique.md
+        - Clauses: eris/droit/clauses.md
+        - Droit: eris/droit/droit.md
+        - Gestion des coûts: eris/droit/gestion-couts.md
+        - Gestion des équipes: eris/droit/gestion-equipes.md
+      - Infra:
+        - Cours: eris/infra/cours.md
+        - Mise en place de l'infra: eris/infra/mise-en-place-infra.md
+        - IT Service Management: eris/infra/itsm.md
+        - Machines Virtuelles: eris/infra/vms.md
+  - Général:
+      - MKDocs: general/mkdocs.md
+      - Ansible: general/ansible.md
+  - Quotidien:
+      - 14-10-25: daily/14-10-25.md
+      - 27-01-25: daily/27-01-25.md
+      - 24-10-25: daily/24-01-25.md
 theme:
   name: shadcn
   show_title: true
@@ -18,7 +101,7 @@ theme:
   pygments_style:
       light: shadcn-light
       dark: github-dark-colorblind
-  topbar_sections: false
+  topbar_sections: true
   language: fr
 markdown_extensions:
   - admonition
