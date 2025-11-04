@@ -29,8 +29,8 @@ This site contains detailed technical guides, configuration manuals, and referen
 ## 🤝 Contributing
 
 Contributions and suggestions are welcome!  
-- Open an issue with documentation feedback
-- Submit pull requests for improvements, corrections or things you want to see on the docs
+
+See [CONTRIBUTING.md](https://github.com/Coockiepickle/Knowledge-Base/blob/main/CONTRIBUTING.md)
 
 ## 💡 About
 
