@@ -342,7 +342,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../dec/">
+        data-slot="button" href="../../dec/cyber/aaa/">
         DEC Techniques de l'Informatique
     </a>
     
@@ -350,7 +350,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../ais/">
+        data-slot="button" href="../../ais/conf/cisco-48p/">
         Bachelor AIS
     </a>
     
@@ -358,17 +358,12 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../eris/">
+        data-slot="button" href="../../eris/droit/cahier-charges/">
         Master ERIS
     </a>
     
     
     
-    
-    <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../general/mkdocs/">
-        Général
-    </a>
     
     
     
@@ -629,7 +624,37 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    
+    <h2 id="virtualhost-443-zabbix">VirtualHost 443 Zabbix<a class="headerlink" href="#virtualhost-443-zabbix" title="Permanent link">&para;</a></h2>
+<h4 id="creer-certificat">Créer certificat<a class="headerlink" href="#creer-certificat" title="Permanent link">&para;</a></h4>
+<p><code>openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/localcerts/zabbix.key -out /etc/ssl/localcerts/zabbix.pem</code></p>
+<h4 id="virtualhost">VirtualHost<a class="headerlink" href="#virtualhost" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code>&lt;VirtualHost *:443&gt;
+
+    ServerAdmin webmaster@localhost
+
+    DocumentRoot /home/htdocs/zabbix
+    ServerName  Zabbix
+
+    SSLEngine on
+
+    SSLCertificateFile    /etc/ssl/localcerts/zabbix.pem
+    SSLCertificateKeyFile /etc/ssl/localcerts/zabbix.key
+
+    &lt;Directory /home/htdocs/zabbix/&gt;
+        Require all granted
+        AllowOverride All
+        Options FollowSymLinks MultiViews
+
+        &lt;IfModule mod_dav.c&gt;
+            Dav off
+        &lt;/IfModule&gt;
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h4 id="nom-de-domaine-pour-opnsense">Nom de domaine pour OPNSense<a class="headerlink" href="#nom-de-domaine-pour-opnsense" title="Permanent link">&para;</a></h4>
+<p>![[Pasted image 20250124092411.png]]</p>
+<p>![[Pasted image 20250124092427.png]]</p>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
@@ -683,12 +708,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../dec/">
-                            
-                            Dec
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -697,12 +716,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Bachelor AIS</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../ais/">
-                            
-                            Ais
-                            
-                        </a>
                         
                     </div>
                     
@@ -713,12 +726,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../eris/">
-                            
-                            Eris
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -727,18 +734,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Général</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../general/mkdocs/">
-                            
-                            MKDocs
-                            
-                        </a>
-                        
-                        <a class="text-2xl font-medium" href="../../general/ansible/">
-                            
-                            Ansible
-                            
-                        </a>
                         
                     </div>
                     
@@ -785,6 +780,36 @@
                                 <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
+        
+        
+        
+        
+        <a href="#creer-certificat"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Créer certificat
+        </a>
+        
+
+        
+        <a href="#virtualhost"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            VirtualHost
+        </a>
+        
+
+        
+        <a href="#nom-de-domaine-pour-opnsense"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Nom de domaine pour OPNSense
+        </a>
+        
+
+        
+        
+        
         
 
     </div>

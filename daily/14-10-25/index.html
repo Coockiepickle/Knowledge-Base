@@ -342,7 +342,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../dec/">
+        data-slot="button" href="../../dec/cyber/aaa/">
         DEC Techniques de l'Informatique
     </a>
     
@@ -350,7 +350,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../ais/">
+        data-slot="button" href="../../ais/conf/cisco-48p/">
         Bachelor AIS
     </a>
     
@@ -358,17 +358,12 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../eris/">
+        data-slot="button" href="../../eris/droit/cahier-charges/">
         Master ERIS
     </a>
     
     
     
-    
-    <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../general/mkdocs/">
-        Général
-    </a>
     
     
     
@@ -598,7 +593,7 @@
             data-slot="button"
             id="previous-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/general/ansible/"
+            href="/eris/infra/vms/"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -654,14 +649,29 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    
+    <h3 id="powershell-admin">PowerShell admin<a class="headerlink" href="#powershell-admin" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code>$Server = &quot;ERIS1-HYPERV&quot; 
+$IP = &quot;172.16.199.101&quot; 
+$User   = &quot;Server\Administrateur&quot; 
+
+winrm quickconfig 
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value &quot;$Server,$IP&quot; -Force 
+Restart-Service WinRM 
+cmdkey /add:ERIS1-HYPERV /user:ERIS1-HYPERV\Administrateur /pass:Console@19 
+cmdkey /add:172.16.199.101 /user:ERIS1-HYPERV\Administrateur /pass:Console@19 
+
+Test-WSMan $Server 
+</code></pre>
+
+<h3 id="lajouter-sur-hyper-v">L’ajouter sur Hyper V<a class="headerlink" href="#lajouter-sur-hyper-v" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="data:image/png;base64,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" /></p>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
     
     <a data-slot="button"
         class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5 shadow-none"
-        href="/general/ansible/">
+        href="/eris/infra/vms/">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="tabler-icon tabler-icon-arrow-left ">
@@ -669,7 +679,7 @@
             <path d="M5 12l6 6"></path>
             <path d="M5 12l6 -6"></path>
         </svg>
-        <span class="max-[500px]:hidden">Ansible</span>
+        <span class="max-[500px]:hidden">Machines Virtuelles</span>
     </a>
     
     
@@ -721,12 +731,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../dec/">
-                            
-                            Dec
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -735,12 +739,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Bachelor AIS</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../ais/">
-                            
-                            Ais
-                            
-                        </a>
                         
                     </div>
                     
@@ -751,12 +749,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../eris/">
-                            
-                            Eris
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -765,18 +757,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Général</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../general/mkdocs/">
-                            
-                            MKDocs
-                            
-                        </a>
-                        
-                        <a class="text-2xl font-medium" href="../../general/ansible/">
-                            
-                            Ansible
-                            
-                        </a>
                         
                     </div>
                     
@@ -823,6 +803,28 @@
                                 <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
+        
+        
+        
+        
+        <a href="#powershell-admin"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            PowerShell admin
+        </a>
+        
+
+        
+        <a href="#lajouter-sur-hyper-v"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            L’ajouter sur Hyper V
+        </a>
+        
+
+        
+        
+        
         
 
     </div>

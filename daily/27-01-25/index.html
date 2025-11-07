@@ -342,7 +342,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../dec/">
+        data-slot="button" href="../../dec/cyber/aaa/">
         DEC Techniques de l'Informatique
     </a>
     
@@ -350,7 +350,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../ais/">
+        data-slot="button" href="../../ais/conf/cisco-48p/">
         Bachelor AIS
     </a>
     
@@ -358,17 +358,12 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../eris/">
+        data-slot="button" href="../../eris/droit/cahier-charges/">
         Master ERIS
     </a>
     
     
     
-    
-    <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../general/mkdocs/">
-        Général
-    </a>
     
     
     
@@ -654,7 +649,157 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    
+    <h3 id="installer-et-lancer-open-webui">Installer et lancer Open-Webui<a class="headerlink" href="#installer-et-lancer-open-webui" title="Permanent link">&para;</a></h3>
+<p>```batch title:"Ollama"
+docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama</p>
+<pre class="codehilite"><code>```batch title:&quot;Ollama&quot;
+docker run -d --network=host --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+</code></pre>
+
+<p>```batch title:"With Image Generation"
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -e AUTOMATIC1111_BASE_URL=http://host.docker.internal:7860/ -e ENABLE_IMAGE_GENERATION=True -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</p>
+<pre class="codehilite"><code>## Scripts Powershell
+
+```Powershell title:&quot;Écrire du contenu dans un fichier&quot;
+#Défini le chemin du répertoire
+$folder = &quot;C:\Users\Coockiepickle&quot;
+
+#Supprime le dossier du script précédent
+Remove-Item -Recurse &quot;$folder\Test&quot;
+Write-Output &quot; &quot;
+Write-Output &quot;Un dossier 'Test' existe déjà, il a donc été supprimé&quot;
+
+#Créer le dossier &quot;Test&quot;
+New-Item -ItemType directory -Path $folder -Name Test
+
+#Vérifie que le dossier a été crée
+if (Test-Path -Path $folder) {
+    Write-Output &quot; &quot;
+    Write-Output &quot;Dossier crée avec succès&quot;
+    Write-Output &quot; &quot;
+    } else {
+    Write-Output &quot;Le dossier n'a pas été crée&quot;
+    }
+
+#Défini le chemin du fichier txt
+$filePath = &quot;$folder\Test\coucou.txt&quot;
+
+#Contenu à écrire dans le fichier txt
+Write-Output &quot; &quot;
+$content = &quot;La vie, c'est comme une boîte de chocolat&quot;
+
+#Ajoute le contenu dans le fichier txt
+Add-Content -Path $filePath -Value $content
+
+#Affiche le contenu du fichier txt
+Write-Output &quot;Le fichier a été crée&quot;
+Write-Output &quot; &quot;
+Write-Output &quot;Le fichier contient : &quot;
+Write-Output &quot; &quot;
+Get-Content -Path $filePath
+</code></pre>
+
+<p>```Powershell title:"Tester si un nombre est pair ou impair"</p>
+<h1 id="fonction-pour-tester-si-le-chiffre-est-pair-ou-impair">Fonction pour tester si le chiffre est pair ou impair<a class="headerlink" href="#fonction-pour-tester-si-le-chiffre-est-pair-ou-impair" title="Permanent link">&para;</a></h1>
+<p>function testPairImpair {
+    param (
+        [int]$nbr
+    )
+    # Teste le modulo du chiffre par 2
+    $resultat = ($nbr % 2)
+    # Retourne pair ou impair en fonction du résultat
+    if ($resultat -eq 0) {
+        return "$nbr est pair"
+    } else {
+        return "$nbr est impair"
+    }
+}</p>
+<h1 id="defini-le-chemin-du-fichier-txt">Défini le chemin du fichier txt<a class="headerlink" href="#defini-le-chemin-du-fichier-txt" title="Permanent link">&para;</a></h1>
+<p>$fichier = "C:\Users\Coockiepickle\Test\pairimpair.txt"</p>
+<h1 id="boucle-for-de-1-a-10">Boucle for de 1 à 10<a class="headerlink" href="#boucle-for-de-1-a-10" title="Permanent link">&para;</a></h1>
+<p>for ($i = 1; $i -le 10; $i++) {
+    # Appelle la fonction pour chaque valeur de i et stocke le résultat
+    $res = testPairImpair $i</p>
+<pre class="codehilite"><code># Écrit le résultat de chaque chiffre à la fin du fichier
+Add-Content -Path $fichier -Value $res
+</code></pre>
+
+<p>}</p>
+<pre class="codehilite"><code>```Powershell title:&quot;Mineur ou majeur&quot;
+#Demande l'âge de l'utilisateur
+$age = Read-Host &quot;Quel âge avez-vous ?&quot;
+
+#Compare l'âge avec la majorité
+if ($age -lt 18) {
+    Write-Output &quot;Vous êtes mineur&quot;
+    } else {
+    Write-Output &quot;Vous êtes majeur&quot;
+    }
+</code></pre>
+
+<p>```Powershell title:"Liste de pays"</p>
+<h1 id="liste-des-pays">Liste des pays<a class="headerlink" href="#liste-des-pays" title="Permanent link">&para;</a></h1>
+<p>$liste_pays = @("France", "Angleterre", "Brésil", "Japon", "États-Unis", "Chine", "Irlande", "Allemagne")</p>
+<h1 id="affiche-les-pays-de-la-liste">Affiche les pays de la liste<a class="headerlink" href="#affiche-les-pays-de-la-liste" title="Permanent link">&para;</a></h1>
+<p>foreach ($pays in $liste_pays) {
+    Write-Output $pays
+}</p>
+<pre class="codehilite"><code>```Powershell title:&quot;Lister les fichiers&quot;
+#Supprime le dossier du script précédent
+Remove-Item -Recurse &quot;$folderPath\Rapport_Fichiers&quot;
+
+$folderPath = &quot;C:\Users\$Env:UserName&quot;
+
+# Créer répertoire
+New-Item -ItemType directory -Name &quot;Rapport_Fichiers&quot; -Path $folderPath
+
+# Récupère la liste des dossiers
+$liste_rep = @(Get-ChildItem &quot;$folderPath\Documents&quot;)
+
+# Écrire la liste dans un fichier txt
+$rapport = &quot;$folderPath\Rapport_Fichiers\rapport.txt&quot;
+foreach ($item in $liste_rep) {
+    $name = $item.Name
+    $length = $item.Length
+    $creationTime = $item.CreationTime
+    $name, $length, $creationTime | Out-File -FilePath $rapport -Append
+}
+
+Write-Output &quot;Les données ont été écrites dans $rapport&quot;
+</code></pre>
+
+<p>```Powershell title:"Surveillance utilisation RAM"</p>
+<h1 id="obtenir-la-memoire-totale-du-systeme">Obtenir la mémoire totale du système<a class="headerlink" href="#obtenir-la-memoire-totale-du-systeme" title="Permanent link">&para;</a></h1>
+<p>$TotalMemory = (Get-CimInstance -ClassName Win32_ComputerSystem).TotalPhysicalMemory</p>
+<h1 id="convertir-la-memoire-totale-en-mo">Convertir la mémoire totale en Mo<a class="headerlink" href="#convertir-la-memoire-totale-en-mo" title="Permanent link">&para;</a></h1>
+<p>$TotalMemoryMB = [math]::Round($TotalMemory / 1MB, 2)</p>
+<p>Write-Output "Mémoire totale disponible : $TotalMemoryMB MB"</p>
+<p>while ($true) {
+    Clear-Host
+    Write-Output "Vérification de l'utilisation de la mémoire en temps réel..."</p>
+<pre class="codehilite"><code># Récupérer tous les processus utilisateur et leur utilisation mémoire
+$processes = Get-Process | Where-Object { $_.Path -ne $null } | Select-Object Name, @{Name='MemoryMB';Expression={[math]::Round($_.WorkingSet / 1MB, 2)}}
+
+foreach ($process in $processes) {
+    # Calculer le pourcentage de mémoire utilisée par chaque processus
+    $memoryUsagePercent = ($process.MemoryMB / $TotalMemoryMB) * 100
+
+    # Afficher les informations du processus avec alignement des colonnes
+    $name = $process.Name.PadRight(30)
+    $memory = &quot;$($process.MemoryMB) MB&quot;.PadLeft(15)
+    Write-Output &quot;Nom : $name | $memory&quot;
+
+    # Alerte si le processus utilise plus de 80% de la mémoire
+    if ($memoryUsagePercent -gt 80) {
+        Write-Warning &quot;Alerte: Le processus $($process.Name)) utilise plus de 80% de la mémoire du système!&quot;
+    }
+}
+
+Start-Sleep -Seconds 5  # Pause de 5 secondes avant la prochaine vérification
+</code></pre>
+
+<p>}
+```</p>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
@@ -721,12 +866,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../dec/">
-                            
-                            Dec
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -735,12 +874,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Bachelor AIS</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../ais/">
-                            
-                            Ais
-                            
-                        </a>
                         
                     </div>
                     
@@ -751,12 +884,6 @@
                     
                     <div class="flex flex-col gap-3">
                         
-                        <a class="text-2xl font-medium" href="../../eris/">
-                            
-                            Eris
-                            
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -765,18 +892,6 @@
                     <div class="text-muted-foreground text-sm font-medium">Général</div>
                     
                     <div class="flex flex-col gap-3">
-                        
-                        <a class="text-2xl font-medium" href="../../general/mkdocs/">
-                            
-                            MKDocs
-                            
-                        </a>
-                        
-                        <a class="text-2xl font-medium" href="../../general/ansible/">
-                            
-                            Ansible
-                            
-                        </a>
                         
                     </div>
                     
@@ -823,6 +938,76 @@
                                 <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
+        
+        
+        
+        
+        <a href="#installer-et-lancer-open-webui"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Installer et lancer Open-Webui
+        </a>
+        
+
+        
+        <a href="#fonction-pour-tester-si-le-chiffre-est-pair-ou-impair"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Fonction pour tester si le chiffre est pair ou impair
+        </a>
+        
+
+        
+        <a href="#defini-le-chemin-du-fichier-txt"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Défini le chemin du fichier txt
+        </a>
+        
+
+        
+        <a href="#boucle-for-de-1-a-10"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Boucle for de 1 à 10
+        </a>
+        
+
+        
+        <a href="#liste-des-pays"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Liste des pays
+        </a>
+        
+
+        
+        <a href="#affiche-les-pays-de-la-liste"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Affiche les pays de la liste
+        </a>
+        
+
+        
+        <a href="#obtenir-la-memoire-totale-du-systeme"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Obtenir la mémoire totale du système
+        </a>
+        
+
+        
+        <a href="#convertir-la-memoire-totale-en-mo"
+            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+            data-active="false" data-depth="2">
+            Convertir la mémoire totale en Mo
+        </a>
+        
+
+        
+        
+        
         
 
     </div>
