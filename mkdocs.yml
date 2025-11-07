@@ -22,7 +22,7 @@ nav:
           - HSRP: dec/routing-switching/hsrp.md
           - IPv6: dec/routing-switching/ipv6.md
           - Mots de passe: dec/routing-switching/passwords.md
-          - Routes statiques IPv4/IPv6: dec/routing-switching/static-routes-ipv46.md
+          - Routes statiques IPv4/IPv6: dec/routing-switching/static-routes.md
           - SSH: dec/routing-switching/ssh.md
           - Fonctionnalités utiles: dec/routing-switching/useful.md
       - Système d'exploitation:
