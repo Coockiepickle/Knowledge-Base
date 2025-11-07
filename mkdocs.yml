@@ -51,22 +51,22 @@ nav:
           - Zabbix: ais/conf/zabbix.md
           - Routes Windows: ais/conf/routes-windows.md
       - Cybersécurité:
-          - Politique de sauvegarde: ais/cyber/pol-de-sauvegarde.md
+          - Politique de sauvegarde: ais/cyber/pol-sauvegarde.md
           - Plan de Reprise d'Activités: ais/cyber/pra.md
           - Politique de Sécurité du Système d'Informations: ais/cyber/pssi.md
       - Dossier de projet:
           - dossier-projet.md
-          - Administrer et sécuriser les infrastructures: ais/dossier-projet/bloc-1-ais.md
-          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-projet/bloc-2-ais.md
-          - Participer à la gestion de la cybersécurité: ais/dossier-projet/bloc-3-ais.md
+          - Administrer et sécuriser les infrastructures: ais/dossier-projet/bloc-1.md
+          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-projet/bloc-2.md
+          - Participer à la gestion de la cybersécurité: ais/dossier-projet/bloc-3.md
           - Introduction: ais/dossier-projet/intro.md
           - Projets d'entreprise: ais/dossier-projet/projets-entre.md
           - Projets d'entreprise rédigés: ais/dossier-projet/projet-entre-rediges.md
       - Dossier professionnel:
           - dossier-pro.md
-          - Administrer et sécuriser les infrastructures: ais/dossier-pro/bloc-1-ais.md
-          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-pro/bloc-2-ais.md
-          - Participer à la gestion de la cybersécurité: ais/dossier-pro/bloc-3-ais.md
+          - Administrer et sécuriser les infrastructures: ais/dossier-pro/bloc-1.md
+          - Concevoir et mettre en oeuvre une solution en réponse à un besoin d'évolution: ais/dossier-pro/bloc-2.md
+          - Participer à la gestion de la cybersécurité: ais/dossier-pro/bloc-3.md
           - Exemples: ais/dossier-pro/exemples-dp.md
           - Expériences: ais/dossier-pro/exp-dp.md
           - Projets: ais/dossier-pro/projets.md

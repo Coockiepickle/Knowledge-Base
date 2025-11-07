@@ -1,0 +1,1 @@
+`sudo route add -net XX.XX.XX.XX netmask 255.XX.XX.XX gw XX.XX.XX.XX`

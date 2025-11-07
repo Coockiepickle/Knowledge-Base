@@ -5,13 +5,13 @@ alpha: true
 
 !!! info "Ce que vous trouverez ici : "
 
-    Dans cette base de connaissances, je vais répertorier tout ce que j'apprends et que je trouve intéressant de savoir dans mon métier (Administrateur Systèmes, Réseaux et Sécurité).
+    Dans cette base de connaissances, je vais répertorier tout ce que j'ai appris et que je trouve intéressant de savoir dans mon métier (Administrateur Systèmes, Réseaux et Sécurité).
 
-## Cette base peut contenir
+## Contenu types de la base
 
-* Des fichiers de configurations entiers. ex : [cisco-48p](./ais/conf/cisco-48p.md),
-* Des guides d'installations. ex : [mkdocs](./general/mkdocs.md),
-* Des petites infos diverses dans des fichiers datés. ex : [27-01-25](./daily/27-01-25.md).
+* Fichiers de configurations entiers. ex : [cisco-48p](./ais/conf/cisco-48p.md),
+* Guides d'installations. ex : [mkdocs](./general/mkdocs.md),
+* Petites infos diverses dans des fichiers datés. ex : [27-01-25](./daily/27-01-25.md).
 
 ## Quelques liens utiles
 
@@ -69,10 +69,3 @@ const option = {
 ## Theme Docs
 
 [mkdocs-shadcn docs](https://asiffer.github.io/mkdocs-shadcn/) | [iconify](https://icon-sets.iconify.design/)
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
