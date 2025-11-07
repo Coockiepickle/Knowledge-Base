@@ -1,7 +1,6 @@
 site_name: Base de connaissances Damien Reynaud
 site_url: https://docs.dreynaud.ipv64.net/
 repo_url: https://github.com/Coockiepickle/Knowledge-Base
-icon: line-md:home-twotone
 site_author: Damien Reynaud
 site_description: Personal Knowledge Base where I write everything I want to remember.
 copyright: Damien Reynaud | © CC BY-NC-SA 4.0 | 2025
@@ -107,6 +106,7 @@ theme:
       dark: github-dark-colorblind
   topbar_sections: true
   language: fr
+  icon: line-md:home-twotone
 markdown_extensions:
   - admonition
   - codehilite
