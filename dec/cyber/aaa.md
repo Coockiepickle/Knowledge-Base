@@ -6,8 +6,8 @@ conf t
 aaa new-model
 ```
 
-> [!WARNING]
-> Il est recommandé de définir un nom d'utilisateur et un mot de passe sur le serveur d'accès avant de démarrer la configuration AAA, afin de ne pas être verrouillé hors du routeur.
+!!! danger
+    Il est recommandé de définir un nom d'utilisateur et un mot de passe sur le serveur d'accès avant de démarrer la configuration AAA, afin de ne pas être verrouillé hors du routeur.
 
 
 ### Spécifier le serveur AAA externe

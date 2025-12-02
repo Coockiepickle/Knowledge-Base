@@ -34,11 +34,11 @@ ou
 match class-map (nom_du_mappage_de_classe)
 ```
 
-> [!NOTE]
-> *Pour le protocole, lorsqu'on autorise le trafic HTTP par exemple, il est recommandé d'inclure le trafic DNS, donc les commandes seront :*
-	match protocol http
-	match protocol https
-	match protocol dns
+!!! note
+	*Pour le protocole, lorsqu'on autorise le trafic HTTP par exemple, il est recommandé d'inclure le trafic DNS, donc les commandes seront :*
+	    match protocol http
+	    match protocol https
+	    match protocol dns
 
 
 ### Étape 3 : Définir une action
@@ -48,8 +48,8 @@ policy-map type inspect (nom_du_mappage_de_politiques)
 class type inspect (nom_de_la_classe_de_mappage)
 {inspect | drop | pass}
 ```
-> [!NOTE]
-[[Actions ZPF |Voir la définition des actions ZPF]]
+!!! note
+    [Actions ZPF |Voir la définition des actions ZPF]
 
 ### Étape 4 : Identifier une paire de zones et l'associer à une politique
 
@@ -66,5 +66,5 @@ conf t
 zone-member security (nom_de_la_zone)
 ```
 
->[!WARNING]
->Il faut évidemment attribuer deux interfaces, par exemple une interface publique et une interface privée
+!!! info
+	Il faut évidemment attribuer deux interfaces, par exemple une interface publique et une interface privée

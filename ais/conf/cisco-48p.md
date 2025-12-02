@@ -1,3 +1,4 @@
+```
 interface GigabitEthernet1/0/1
  description "SRV-eno1"
  switchport access vlan 10
@@ -63,3 +64,4 @@ interface Vlan30
  ip address 10.23.128.128 255.255.192.0
 !
 ip default-gateway 10.23.63.254
+```

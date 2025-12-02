@@ -1,6 +1,6 @@
 
->[!INFO]
->**Visual Studio Code** est un [éditeur de code](https://fr.wikipedia.org/wiki/%C3%89diteur_de_texte) extensible développé par [Microsoft](https://fr.wikipedia.org/wiki/Microsoft "Microsoft") pour [Windows](https://fr.wikipedia.org/wiki/Microsoft_Windows "Microsoft Windows"), [Linux](https://fr.wikipedia.org/wiki/Linux "Linux") et [macOS](https://fr.wikipedia.org/wiki/MacOS "MacOS").
+!!! info
+    **Visual Studio Code** est un [éditeur de code](https://fr.wikipedia.org/wiki/%C3%89diteur_de_texte) extensible développé par [Microsoft](https://fr.wikipedia.org/wiki/Microsoft "Microsoft") pour [Windows](https://fr.wikipedia.org/wiki/Microsoft_Windows "Microsoft Windows"), [Linux](https://fr.wikipedia.org/wiki/Linux "Linux") et [macOS](https://fr.wikipedia.org/wiki/MacOS "MacOS").
 
 Shift + Alt + F = Prettier
 

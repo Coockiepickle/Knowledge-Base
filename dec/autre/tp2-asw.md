@@ -1,6 +1,6 @@
 
-> [!IMPORTANT]
-> J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'afficher ce bloc de manière :sparkles: jolie :sparkles:, je recommande donc de l'ouvrir avec Obsidian
+!!! info
+	J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'afficher ce bloc de manière :sparkles: jolie :sparkles:, je recommande donc de l'ouvrir avec Obsidian
 
 ---
 
@@ -43,8 +43,8 @@ Import-Module ADDSDeployment
 Install-ADDSForest -DomainName infodec.quebec -InstallDNS
 ```
 
-> [!IMPORTANT] 
-> Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage
+!!! info 
+	Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage
 
 
 ---
@@ -88,8 +88,8 @@ Chemin des datas :
 Install-WindowsFeature Web-Server -IncludeManagementTools
 ```
 
-> [!WARNING]
-> Après chaque modification, taper la commande `iisreset`
+!!! warning
+	Après chaque modification, taper la commande `iisreset`
 
 ---
 
@@ -220,8 +220,8 @@ icacls "W:\antares" /grant "IIS_IUSRS:(OI)(CI)F"
 
 On peut maintenant accéder à [Wordpress](https://antares.local) et suivre les instructions d'installation.
 
-> [!TIP] Pour voir les images
-> `<mimeMap fileExtension=".webp" mimeType="image/webp" />`
+!!! note "Pour voir les images"
+	`<mimeMap fileExtension=".webp" mimeType="image/webp" />`
 
 ---
 
@@ -242,7 +242,7 @@ On peut maintenant accéder à [Wordpress](https://antares.local) et suivre les 
 
 ---
 
->[!QUESTION]- Auteur
->Documentation réalisée par Damien Reynaud le 22 Mars 2024
+!!! note "- Auteur"
+	Documentation réalisée par Damien Reynaud le 22 Mars 2024
 
 

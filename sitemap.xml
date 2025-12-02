@@ -2,286 +2,270 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.dreynaud.ipv64.net/</loc>
-         <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.dreynaud.ipv64.net/ais/</loc>
-         <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.dreynaud.ipv64.net/dec/</loc>
-         <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.dreynaud.ipv64.net/eris/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/autre/vulg-av/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/aruba/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/cisco-24p/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/cisco-48p/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/guac/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/mysql/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/routes-windows/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/conf/zabbix/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/cyber/pol-sauvegarde/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/cyber/pra/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/cyber/pssi/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/bloc-1/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/bloc-2/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/bloc-3/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/dossier-pro/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/exemples-dp/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/exp-dp/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/projets/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-pro/templates-act-dp/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/bloc-1/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/bloc-2/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/bloc-3/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/dossier-projet/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/intro/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/projet-entre-rediges/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/ais/dossier-projet/projets-entre/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/daily/14-10-25/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/daily/24-01-25/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/daily/27-01-25/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/autre/tp2-asw/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/aaa/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/acl/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/actions-zpf/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/dhcp-snooping/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/port-security/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/cyber/zpf/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/esp/poc/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/esp/pres-orale/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/esp/real-projet/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/os/cli/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/os/kernel/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/os/se/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/os/win-admin/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/os/ws/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/change-default-gateway/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/dhcp/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/etherchannel-modes/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/etherchannel/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/hsrp/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/ipv6/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/passwords/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/ssh/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/static-routes/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/trunk/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/routing-switching/useful/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/web/useful-css/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/dec/web/vscode/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/droit/cahier-charges/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/droit/cas-pratique/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/droit/clauses/</loc>
-         <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.dreynaud.ipv64.net/eris/droit/droit/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/droit/gestion-couts/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/droit/gestion-equipes/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/infra/cours/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/infra/itsm/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/infra/mise-en-place-infra/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
          <loc>https://docs.dreynaud.ipv64.net/eris/infra/vms/</loc>
-         <lastmod>2025-11-07</lastmod>
+         <lastmod>2025-12-02</lastmod>
     </url>
 </urlset>

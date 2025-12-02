@@ -1,6 +1,3 @@
-> [!IMPORTANT]
-> J'ai réalisé cette documentation avec Obsidian, pour afficher les blocs de manière :sparkles: jolie :sparkles:, je recommande de l'ouvrir avec Obsidian
-
 # Démarrage du Raspberry Pi
 
 Il y a 2 solutions pour démarrer le RPI :
@@ -9,8 +6,8 @@ Il y a 2 solutions pour démarrer le RPI :
 - Brancher un câble USB-C sur le Raspberry.
 ![[usbc.jpg|300]]
 
->[!INFO]
->Le temps de démarrage du Raspberry est d'environ 20 secondes.
+!!! info
+	Le temps de démarrage du Raspberry est d'environ 20 secondes.
 
 ---
 # Éteindre le Raspberry
@@ -38,16 +35,17 @@ Il y a 2 solutions pour démarrer le RPI :
 	- Identifiant : pi
 	- Mot de passe : Billon
 
->[!TIP] Félicitations, vous êtes connecté !
+!!! note 
+	Félicitations, vous êtes connecté !
 
-> [!WARNING]
-> Il est également possible de se connecter simplement en SSH, seulement, j'ai préféré utiliser une vue graphique pour tester l'attaque de phishing en local
+!!! warning
+	Il est également possible de se connecter simplement en SSH, seulement, j'ai préféré utiliser une vue graphique pour tester l'attaque de phishing en local
 
 ---
 # Lancement des applications de pentesting
 
-> [!INFO]
-> Toutes les applications se lancent depuis le terminal
+!!! info
+	Toutes les applications se lancent depuis le terminal
 
 # Applications testées
 
@@ -90,7 +88,8 @@ sudo dhcpig -c -v3 -l -a -i -o wlan0
 ```
 Ensuite, attendre.
 
->[!INFO] Si souhaite arrêter l'attaque : CTRL + C
+!!! info
+	Si on souhaite arrêter l'attaque : CTRL + C
 
 ---
 ## Lynis
@@ -143,10 +142,11 @@ Attendre que quelqu'un se connecte au réseau.
 ---
 # Tester le Packet Tracer
 
-> [!INFO]
-> Le but du Packet Tracer est d'illustrer une attaque Evil Twin sur un réseau
+!!! info
+	Le but du Packet Tracer est d'illustrer une attaque Evil Twin sur un réseau
 
-> [!TIP] Ouvrir le fichier **ESP_PT_neuf.pkt**
+!!! note
+	Ouvrir le fichier **ESP_PT_neuf.pkt**
 ![[Cégep/ESP_PT_neuf.pkt]]
 ## Se connecter au Wi-Fi
 
@@ -165,8 +165,8 @@ Cliquer sur **Connect**
 
 Si vous avez choisi le **faux Wi-Fi** : Vous êtes connecté
 
-> [!WARNING] À savoir
-> Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel sera valable, il n'est juste pas possible de faire un réseau avec une authentification mais un mot de passe vide dans Packet Tracer
+!!! warning "À savoir"
+	Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel sera valable, il n'est juste pas possible de faire un réseau avec une authentification mais un mot de passe vide dans Packet Tracer
 
 Si vous avez choisi le **vrai Wi-Fi** :
 ![[Pasted image 20240527172049.png]]
