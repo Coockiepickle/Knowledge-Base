@@ -64,9 +64,7 @@ docker ps
 
 ##### Validate
 
-```bash
-systemctl is-active docker
-```
+`systemctl is-active docker`
 
 
 ---
@@ -86,6 +84,7 @@ rm minikube-linux-amd64
 
 
 ---
+
 
 ## Install kubectl
 
@@ -137,6 +136,7 @@ If `minikube start` fails, common fixes:
 
 
 ---
+
 
 ## Quick sanity test: Hello Minikube
 

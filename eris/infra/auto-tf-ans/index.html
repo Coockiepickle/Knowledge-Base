@@ -903,168 +903,168 @@ helm<span class="w"> </span>install<span class="w"> </span>jenkins<span class="w
 </code></pre></div>
 
 <h3 id="providerstf">providers.tf<a class="headerlink" href="#providerstf" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">kubernetes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/kubernetes&quot;</span>
-<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.25&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>required_providers<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">kubernetes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nb">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/kubernetes&quot;</span>
+<span class="w">      </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.25&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;kubernetes&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">config_path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.kube/config&quot;</span>
-<span class="w">  </span><span class="na">config_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;minikube&quot;</span>
-<span class="p">}</span>
+provider<span class="w"> </span><span class="s2">&quot;kubernetes&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">config_path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.kube/config&quot;</span>
+<span class="w">  </span><span class="nv">config_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;minikube&quot;</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="namespacetf">namespace.tf<a class="headerlink" href="#namespacetf" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_namespace&quot;</span><span class="w"> </span><span class="nv">&quot;devops_lab&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;devops-lab&quot;</span>
-<span class="w">    </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">env</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;local&quot;</span>
-<span class="w">      </span><span class="na">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>resource<span class="w"> </span><span class="s2">&quot;kubernetes_namespace&quot;</span><span class="w"> </span><span class="s2">&quot;devops_lab&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;devops-lab&quot;</span>
+<span class="w">    </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">env</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;local&quot;</span>
+<span class="w">      </span><span class="nv">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="linux-vmtf-debian-vm-pod">linux-vm.tf - “Debian VM” Pod<a class="headerlink" href="#linux-vmtf-debian-vm-pod" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="nv">&quot;linux_vm&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
-<span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">kubernetes_namespace.devops_lab.metadata[0].name</span>
-<span class="w">    </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">app</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
-<span class="w">      </span><span class="na">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;simulated-vm&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>resource<span class="w"> </span><span class="s2">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="s2">&quot;linux_vm&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
+<span class="w">    </span><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>kubernetes_namespace.devops_lab.metadata<span class="o">[</span><span class="m">0</span><span class="o">]</span>.name
+<span class="w">    </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">app</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
+<span class="w">      </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;simulated-vm&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
 
-<span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 
-<span class="w">    </span><span class="nb">selector</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nb">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>selector<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span>template<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">}</span>
 
-<span class="w">      </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">container</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="na">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian-linux&quot;</span>
-<span class="w">          </span><span class="na">image</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian:stable-slim&quot;</span>
-<span class="w">          </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;--&quot;</span><span class="p">]</span>
-<span class="w">          </span><span class="na">args</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;while true; do sleep 30; done&quot;</span><span class="p">]</span>
+<span class="w">      </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>container<span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="nv">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian-linux&quot;</span>
+<span class="w">          </span><span class="nv">image</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian:stable-slim&quot;</span>
+<span class="w">          </span><span class="nb">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;/bin/bash&quot;</span>,<span class="w"> </span><span class="s2">&quot;-c&quot;</span>,<span class="w"> </span><span class="s2">&quot;--&quot;</span><span class="o">]</span>
+<span class="w">          </span><span class="nv">args</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;while true; do sleep 30; done&quot;</span><span class="o">]</span>
 
-<span class="w">          </span><span class="nb">resources</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nb">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="na">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;100m&quot;</span>
-<span class="w">              </span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;128Mi&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="nb">limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="na">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;250m&quot;</span>
-<span class="w">              </span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;256Mi&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="w">          </span>resources<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="nv">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">              </span><span class="nv">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;100m&quot;</span>
+<span class="w">              </span><span class="nv">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;128Mi&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">            </span><span class="nv">limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">              </span><span class="nv">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;250m&quot;</span>
+<span class="w">              </span><span class="nv">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;256Mi&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">          </span><span class="o">}</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="nginxtf-deployment-service">nginx.tf - Deployment + Service<a class="headerlink" href="#nginxtf-deployment-service" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="nv">&quot;nginx&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx-server&quot;</span>
-<span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">kubernetes_namespace.devops_lab.metadata[0].name</span>
-<span class="w">    </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>resource<span class="w"> </span><span class="s2">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx-server&quot;</span>
+<span class="w">    </span><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>kubernetes_namespace.devops_lab.metadata<span class="o">[</span><span class="m">0</span><span class="o">]</span>.name
+<span class="w">    </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
 
-<span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 
-<span class="w">    </span><span class="nb">selector</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nb">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>selector<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span>template<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">}</span>
 
-<span class="w">      </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">container</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="na">name</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
-<span class="w">          </span><span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx:latest&quot;</span>
+<span class="w">      </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>container<span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="nv">name</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
+<span class="w">          </span><span class="nv">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx:latest&quot;</span>
 
-<span class="w">          </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="na">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
-<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span>port<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="nv">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">          </span><span class="o">}</span>
 
-<span class="w">          </span><span class="nb">resources</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nb">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="na">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;250m&quot;</span>
-<span class="w">              </span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;50Mi&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="nb">limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="na">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;500m&quot;</span>
-<span class="w">              </span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;512Mi&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="w">          </span>resources<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="nv">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">              </span><span class="nv">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;250m&quot;</span>
+<span class="w">              </span><span class="nv">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;50Mi&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">            </span><span class="nv">limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">              </span><span class="nv">cpu</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;500m&quot;</span>
+<span class="w">              </span><span class="nv">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;512Mi&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">          </span><span class="o">}</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_service&quot;</span><span class="w"> </span><span class="nv">&quot;nginx&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx-service&quot;</span>
-<span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">kubernetes_namespace.devops_lab.metadata[0].name</span>
-<span class="w">  </span><span class="p">}</span>
+resource<span class="w"> </span><span class="s2">&quot;kubernetes_service&quot;</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx-service&quot;</span>
+<span class="w">    </span><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>kubernetes_namespace.devops_lab.metadata<span class="o">[</span><span class="m">0</span><span class="o">]</span>.name
+<span class="w">  </span><span class="o">}</span>
 
-<span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span>
+<span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
-<span class="w">      </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
-<span class="w">      </span><span class="na">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30080</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>port<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">      </span><span class="nv">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">      </span><span class="nv">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30080</span>
+<span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;NodePort&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;NodePort&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <p><code>NodePort</code> service on port <code>30080</code></p>
 <h3 id="outputstf">outputs.tf<a class="headerlink" href="#outputstf" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;nginx_access_url&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;URL to Nginx via Minikube&quot;</span>
-<span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://$(minikube ip):30080&quot;</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>output<span class="w"> </span><span class="s2">&quot;nginx_access_url&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;URL to Nginx via Minikube&quot;</span>
+<span class="w">  </span><span class="nv">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="k">$(</span>minikube<span class="w"> </span>ip<span class="k">)</span><span class="s2">:30080&quot;</span>
+<span class="o">}</span>
 
-<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;linux_vm_pod_name&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Linux VM pod&quot;</span>
-<span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;kubectl exec -it -n devops-lab deploy/linux-vm -- /bin/bash&quot;</span>
-<span class="p">}</span>
+output<span class="w"> </span><span class="s2">&quot;linux_vm_pod_name&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Linux VM pod&quot;</span>
+<span class="w">  </span><span class="nv">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;kubectl exec -it -n devops-lab deploy/linux-vm -- /bin/bash&quot;</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="full-workflow">Full workflow<a class="headerlink" href="#full-workflow" title="Permanent link">&para;</a></h3>
@@ -1237,81 +1237,81 @@ vm-linux : ok=6  changed=0  unreachable=0  failed=0  skipped=0
 </code></pre></div>
 
 <h3 id="terraformmaintf-vm-simulated-as-pod-nodeport">terraform/main.tf (VM simulated as Pod + NodePort)<a class="headerlink" href="#terraformmaintf-vm-simulated-as-pod-nodeport" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">kubernetes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/kubernetes&quot;</span>
-<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.25&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>required_providers<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">kubernetes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nb">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/kubernetes&quot;</span>
+<span class="w">      </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.25&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;kubernetes&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">config_path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.kube/config&quot;</span>
-<span class="w">  </span><span class="na">config_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;minikube&quot;</span>
-<span class="p">}</span>
+provider<span class="w"> </span><span class="s2">&quot;kubernetes&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">config_path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.kube/config&quot;</span>
+<span class="w">  </span><span class="nv">config_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;minikube&quot;</span>
+<span class="o">}</span>
 
-<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_namespace&quot;</span><span class="w"> </span><span class="nv">&quot;webstack&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;webstack&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
+resource<span class="w"> </span><span class="s2">&quot;kubernetes_namespace&quot;</span><span class="w"> </span><span class="s2">&quot;webstack&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;webstack&quot;</span><span class="w"> </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="nv">&quot;linux_vm&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
-<span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">kubernetes_namespace.webstack.metadata</span><span class="p">[</span><span class="err">^</span><span class="nv">0].name</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="nb">selector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">      </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">container</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="na">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian&quot;</span>
-<span class="w">          </span><span class="na">image</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian:stable-slim&quot;</span>
-<span class="w">          </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;apt-get update -qq &amp;&amp; apt-get install -y -qq openssh-server &amp;&amp; service ssh start &amp;&amp; while true; do sleep 30; done&quot;</span><span class="p">]</span>
-<span class="w">          </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="p">}</span>
-<span class="w">          </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8080</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+resource<span class="w"> </span><span class="s2">&quot;kubernetes_deployment&quot;</span><span class="w"> </span><span class="s2">&quot;linux_vm&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span>
+<span class="w">    </span><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>kubernetes_namespace.webstack.metadata<span class="o">[</span>^0<span class="o">]</span>.name
+<span class="w">  </span><span class="o">}</span>
+<span class="w">  </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span>selector<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">match_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span>template<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span>metadata<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
+<span class="w">      </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>container<span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="nv">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian&quot;</span>
+<span class="w">          </span><span class="nv">image</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;debian:stable-slim&quot;</span>
+<span class="w">          </span><span class="nb">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;/bin/bash&quot;</span>,<span class="w"> </span><span class="s2">&quot;-c&quot;</span>,<span class="w"> </span><span class="s2">&quot;apt-get update -qq &amp;&amp; apt-get install -y -qq openssh-server &amp;&amp; service ssh start &amp;&amp; while true; do sleep 30; done&quot;</span><span class="o">]</span>
+<span class="w">          </span>port<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="o">}</span>
+<span class="w">          </span>port<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">container_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8080</span><span class="w"> </span><span class="o">}</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_service&quot;</span><span class="w"> </span><span class="nv">&quot;linux_vm_svc&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm-svc&quot;</span>
-<span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">kubernetes_namespace.webstack.metadata</span><span class="p">[</span><span class="err">^</span><span class="nv">0].name</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh&quot;</span>
-<span class="w">      </span><span class="na">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">22</span>
-<span class="w">      </span><span class="na">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30022</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http&quot;</span>
-<span class="w">      </span><span class="na">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">8080</span>
-<span class="w">      </span><span class="na">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30880</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;NodePort&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+resource<span class="w"> </span><span class="s2">&quot;kubernetes_service&quot;</span><span class="w"> </span><span class="s2">&quot;linux_vm_svc&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>metadata<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm-svc&quot;</span>
+<span class="w">    </span><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>kubernetes_namespace.webstack.metadata<span class="o">[</span>^0<span class="o">]</span>.name
+<span class="w">  </span><span class="o">}</span>
+<span class="w">  </span>spec<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linux-vm&quot;</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span>port<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh&quot;</span>
+<span class="w">      </span><span class="nv">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">22</span>
+<span class="w">      </span><span class="nv">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30022</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">    </span>port<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nv">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http&quot;</span>
+<span class="w">      </span><span class="nv">port</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">8080</span>
+<span class="w">      </span><span class="nv">node_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30880</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;NodePort&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="terraformoutputstf">terraform/outputs.tf<a class="headerlink" href="#terraformoutputstf" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;vm_ssh_port&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30022</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>output<span class="w"> </span><span class="s2">&quot;vm_ssh_port&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30022</span>
+<span class="o">}</span>
 
-<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;vm_http_port&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30880</span>
-<span class="p">}</span>
+output<span class="w"> </span><span class="s2">&quot;vm_http_port&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30880</span>
+<span class="o">}</span>
 
-<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;minikube_ip&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;$(minikube ip)&quot;</span>
-<span class="p">}</span>
+output<span class="w"> </span><span class="s2">&quot;minikube_ip&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>minikube<span class="w"> </span>ip<span class="k">)</span><span class="s2">&quot;</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h3 id="ansibleplaybookyml">ansible/playbook.yml<a class="headerlink" href="#ansibleplaybookyml" title="Permanent link">&para;</a></h3>
