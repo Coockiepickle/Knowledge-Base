@@ -1,8 +1,8 @@
-# TP1 :
+# TP1:
 
 ## Cluster prerequisites
 
-##### On the Debian VM  :
+##### On the Debian VM:
 
 ```bash
 kubectl config use-context minikube
@@ -16,6 +16,7 @@ kubectl create namespace cicd
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 helm version
 ```
+
 
 ---
 
@@ -46,6 +47,7 @@ kubectl get svc -n cicd
 `http://<Debian-IP>:3000`
 
 Gitea will be available on this port.
+
 
 ---
 
@@ -783,7 +785,6 @@ test:smoke:
 
 
 You can also add a `destroy` job in GitLab with `when: manual` that runs `terraform destroy -auto-approve` to destroy in one click.
-
 
 
 ### References

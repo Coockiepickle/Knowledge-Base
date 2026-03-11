@@ -19,6 +19,7 @@ sudo apt install -y curl wget ca-certificates gnupg lsb-release apt-transport-ht
 
 ---
 
+
 ## Install Docker Engine on Debian 13
 
 #### 1) Add Docker’s GPG key
@@ -69,6 +70,7 @@ docker ps
 
 ---
 
+
 ## Install Minikube
 
 ```bash
@@ -103,6 +105,7 @@ Note: Minikube also bundles a `kubectl` that can be used as `minikube kubectl --
 
 
 ---
+
 
 ## Start Minikube on Debian (Docker driver)
 
@@ -159,6 +162,7 @@ This should print a URL you can curl to see the echo server response.
 
 ---
 
+
 ## Useful addons and dashboard
 
 ##### List available addons:
@@ -179,6 +183,7 @@ minikube addons enable metrics-server
 
 
 ---
+
 
 ## Daily operations on Debian
 
