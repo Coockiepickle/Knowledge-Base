@@ -13,12 +13,15 @@ Minikube local · Gitea `192.168.1.37:3000` · Jenkins `192.168.1.37:8080`
 
 Les 3 dépôts créés dans l'espace utilisateur `std` sur Gitea  :
 
+![Gitea](/img/1.png)
 
 ---
 
 ### 1.2 Dépôt `terraform-infra`
 
 Il contient tout le code Terraform pour la VM et les services Kubernetes  :
+
+![Terraform](/img/2.png)
 
 
 | Fichier | Rôle                                                                  |
@@ -33,6 +36,8 @@ Il contient tout le code Terraform pour la VM et les services Kubernetes  :
 
 Contient les playbooks Ansible pour configurer la VM provisionnée par Terraform  :
 
+![Ansible](/img/3.png)
+
 
 | Fichier | Rôle                                                                           |
 | :-------- | :-------------------------------------------------------------------------------- |
@@ -45,6 +50,8 @@ Contient les playbooks Ansible pour configurer la VM provisionnée par Terraform
 ### 1.4 Dépôt `proxy-deploy` - Dépôt principal
 
 Il est pointé par Jenkins :
+
+![Proxy](/img/4.png)
 
 
 | Fichier | Rôle                                                    |
@@ -59,10 +66,12 @@ Il est pointé par Jenkins :
 
 Le `Jenkinsfile` stocké dans `proxy-deploy` :
 
+![Jenkinsfile](/img/5.png)
+
 
 Les premières lignes définissent les variables d'environnement vers les 3 repos Gitea :
 
-```groovy
+```bash
 environment {
     GITEA_BASE   = 'http://192.168.1.37:3000/std'
     TF_REPO      = 'terraform-infra'
@@ -80,6 +89,7 @@ environment {
 
 La section "Pipeline" sur la page de configuration du job `devops-stack-pipeline`  :
 
+![Pipeline](/img/6.png)
 
 
 | Paramètre | Valeur |
@@ -90,7 +100,8 @@ La section "Pipeline" sur la page de configuration du job `devops-stack-pipeline
 | **Branch Specifier**           | `*/main`       |
 | **Script Path**           | `Jenkinsfile`       |
 
-⚠️ Il faut choisir  **&quot;Pipeline script from SCM&quot;**  : Jenkins va chercher le `Jenkinsfile` directement dans Gitea à chaque build, pour que le pipeline soit toujours synchronisé.
+!!! warning "Warning:"
+    Il faut choisir  **&quot;Pipeline script from SCM&quot;**  : Jenkins va chercher le `Jenkinsfile` directement dans Gitea à chaque build, pour que le pipeline soit toujours synchronisé.
 
 
 ---
@@ -127,9 +138,7 @@ Crée le Pod Debian (VM Linux) avec ses services. IP dans `deploy.env`
 
 Remplace le placeholder `MINIKUBE_IP` dans `inventory.ini` :
 
-```bash
-sed -i "s/MINIKUBE_IP/${MINIKUBE_IP}/g" inventory.ini
-```
+`sed -i "s/MINIKUBE_IP/${MINIKUBE_IP}/g" inventory.ini`
 
 ### Étape 5 - Ansible Configure
 
@@ -155,9 +164,7 @@ docker compose up -d --force-recreate
 
 Vérif avec `curl` à travers le reverse proxy :
 
-```bash
-STATUS=$(curl -s -o /tmp/body.html -w "%{http_code}" http://${MINIKUBE_IP}:80)
-```
+`STATUS=$(curl -s -o /tmp/body.html -w "%{http_code}" http://${MINIKUBE_IP}:80)`
 
 Il faut vérifier que l'on obtnient "HTTP 200" et "Secure Web Stack" dans le body
 
@@ -182,14 +189,17 @@ Manage Jenkins → Credentials → System → Global → Add Credentials
 
 Sur le job `devops-stack-pipeline` dans Jenkins  :
 
+![Build](/img/7.png)
 
 1. Cliquer sur  **&quot;Build Now&quot;**  dans le menu gauche
 2. Suivre l'exécution dans  **&quot;Build History&quot;**  puis les logs de chaque étape
 3. En cas de succès, affiche :
 
-SUCCESS: custom page served correctly through reverse proxy!
+!!! success "Success:"
+    SUCCESS: custom page served correctly through reverse proxy!
 
-> Pour le moment, mon stack ne fonctionne pas, donc pas de capture d'écran du résultat :(
+!!! info "Information:"
+    Pour le moment, mon stack ne fonctionne pas, donc pas de capture d'écran du résultat :(
 
 ---
 

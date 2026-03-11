@@ -854,9 +854,11 @@
 <h2 id="1-gitea-les-3-depots">1. Gitea - Les 3 dépôts<a class="headerlink" href="#1-gitea-les-3-depots" title="Permanent link">&para;</a></h2>
 <h3 id="11-vue-densemble-des-depots">1.1 Vue d'ensemble des dépôts<a class="headerlink" href="#11-vue-densemble-des-depots" title="Permanent link">&para;</a></h3>
 <p>Les 3 dépôts créés dans l'espace utilisateur <code>std</code> sur Gitea  :</p>
+<p><img alt="Gitea" src="/img/1.png" /></p>
 <hr />
 <h3 id="12-depot-terraform-infra">1.2 Dépôt <code>terraform-infra</code><a class="headerlink" href="#12-depot-terraform-infra" title="Permanent link">&para;</a></h3>
 <p>Il contient tout le code Terraform pour la VM et les services Kubernetes  :</p>
+<p><img alt="Terraform" src="/img/2.png" /></p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -882,6 +884,7 @@
 <hr />
 <h3 id="13-depot-ansible-config">1.3 Dépôt <code>ansible-config</code><a class="headerlink" href="#13-depot-ansible-config" title="Permanent link">&para;</a></h3>
 <p>Contient les playbooks Ansible pour configurer la VM provisionnée par Terraform  :</p>
+<p><img alt="Ansible" src="/img/3.png" /></p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -907,6 +910,7 @@
 <hr />
 <h3 id="14-depot-proxy-deploy-depot-principal">1.4 Dépôt <code>proxy-deploy</code> - Dépôt principal<a class="headerlink" href="#14-depot-proxy-deploy-depot-principal" title="Permanent link">&para;</a></h3>
 <p>Il est pointé par Jenkins :</p>
+<p><img alt="Proxy" src="/img/4.png" /></p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -932,8 +936,9 @@
 <hr />
 <h3 id="15-le-jenkinsfile-dans-gitea">1.5 Le Jenkinsfile dans Gitea<a class="headerlink" href="#15-le-jenkinsfile-dans-gitea" title="Permanent link">&para;</a></h3>
 <p>Le <code>Jenkinsfile</code> stocké dans <code>proxy-deploy</code> :</p>
+<p><img alt="Jenkinsfile" src="/img/5.png" /></p>
 <p>Les premières lignes définissent les variables d'environnement vers les 3 repos Gitea :</p>
-<pre class="codehilite"><code class="language-groovy">environment {
+<pre class="codehilite"><code class="language-bash">environment {
     GITEA_BASE   = 'http://192.168.1.37:3000/std'
     TF_REPO      = 'terraform-infra'
     ANSIBLE_REPO = 'ansible-config'
@@ -946,6 +951,7 @@
 <h2 id="2-jenkins-configuration-du-job">2. Jenkins - Configuration du job<a class="headerlink" href="#2-jenkins-configuration-du-job" title="Permanent link">&para;</a></h2>
 <h3 id="21-parametres-generaux-du-job">2.1 Paramètres généraux du job<a class="headerlink" href="#21-parametres-generaux-du-job" title="Permanent link">&para;</a></h3>
 <p>La section "Pipeline" sur la page de configuration du job <code>devops-stack-pipeline</code>  :</p>
+<p><img alt="Pipeline" src="/img/6.png" /></p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -976,7 +982,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>⚠️ Il faut choisir  <strong>&quot;Pipeline script from SCM&quot;</strong>  : Jenkins va chercher le <code>Jenkinsfile</code> directement dans Gitea à chaque build, pour que le pipeline soit toujours synchronisé.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:</p>
+<p>Il faut choisir  <strong>&quot;Pipeline script from SCM&quot;</strong>  : Jenkins va chercher le <code>Jenkinsfile</code> directement dans Gitea à chaque build, pour que le pipeline soit toujours synchronisé.</p>
+</div>
 <hr />
 <h2 id="3-description-des-7-etapes-du-pipeline">3. Description des 7 étapes du pipeline<a class="headerlink" href="#3-description-des-7-etapes-du-pipeline" title="Permanent link">&para;</a></h2>
 <h3 id="etape-1-checkout">Étape 1 - Checkout<a class="headerlink" href="#etape-1-checkout" title="Permanent link">&para;</a></h3>
@@ -1000,9 +1009,7 @@ echo &quot;MINIKUBE_IP=${MINIKUBE_IP}&quot; &gt; ../deploy.env
 <p>Crée le Pod Debian (VM Linux) avec ses services. IP dans <code>deploy.env</code></p>
 <h3 id="etape-4-generate-inventory">Étape 4 - Generate Inventory<a class="headerlink" href="#etape-4-generate-inventory" title="Permanent link">&para;</a></h3>
 <p>Remplace le placeholder <code>MINIKUBE_IP</code> dans <code>inventory.ini</code> :</p>
-<pre class="codehilite"><code class="language-bash">sed -i &quot;s/MINIKUBE_IP/${MINIKUBE_IP}/g&quot; inventory.ini
-</code></pre>
-
+<p><code>sed -i "s/MINIKUBE_IP/${MINIKUBE_IP}/g" inventory.ini</code></p>
 <h3 id="etape-5-ansible-configure">Étape 5 - Ansible Configure<a class="headerlink" href="#etape-5-ansible-configure" title="Permanent link">&para;</a></h3>
 <p>Lance le playbook sur la VM :</p>
 <pre class="codehilite"><code class="language-bash">ansible-playbook -i inventory.ini \
@@ -1019,9 +1026,7 @@ docker compose up -d --force-recreate
 
 <h3 id="etape-7-test">Étape 7 - Test<a class="headerlink" href="#etape-7-test" title="Permanent link">&para;</a></h3>
 <p>Vérif avec <code>curl</code> à travers le reverse proxy :</p>
-<pre class="codehilite"><code class="language-bash">STATUS=$(curl -s -o /tmp/body.html -w &quot;%{http_code}&quot; http://${MINIKUBE_IP}:80)
-</code></pre>
-
+<p><code>STATUS=$(curl -s -o /tmp/body.html -w "%{http_code}" http://${MINIKUBE_IP}:80)</code></p>
 <p>Il faut vérifier que l'on obtnient "HTTP 200" et "Secure Web Stack" dans le body</p>
 <hr />
 <h2 id="4-credential-ssh-requis-dans-jenkins">4. Credential SSH requis dans Jenkins<a class="headerlink" href="#4-credential-ssh-requis-dans-jenkins" title="Permanent link">&para;</a></h2>
@@ -1056,15 +1061,20 @@ Manage Jenkins → Credentials → System → Global → Add Credentials</p>
 <hr />
 <h2 id="5-lancer-le-pipeline">5. Lancer le pipeline<a class="headerlink" href="#5-lancer-le-pipeline" title="Permanent link">&para;</a></h2>
 <p>Sur le job <code>devops-stack-pipeline</code> dans Jenkins  :</p>
+<p><img alt="Build" src="/img/7.png" /></p>
 <ol>
 <li>Cliquer sur  <strong>&quot;Build Now&quot;</strong>  dans le menu gauche</li>
 <li>Suivre l'exécution dans  <strong>&quot;Build History&quot;</strong>  puis les logs de chaque étape</li>
 <li>En cas de succès, affiche :</li>
 </ol>
+<div class="admonition success">
+<p class="admonition-title">Success:</p>
 <p>SUCCESS: custom page served correctly through reverse proxy!</p>
-<blockquote>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Information:</p>
 <p>Pour le moment, mon stack ne fonctionne pas, donc pas de capture d'écran du résultat :(</p>
-</blockquote>
+</div>
 <hr />
 <h2 id="6detruire">6.Détruire<a class="headerlink" href="#6detruire" title="Permanent link">&para;</a></h2>
 <p>Pour supprimer toute la stack :</p>
