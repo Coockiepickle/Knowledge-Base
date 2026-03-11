@@ -92,6 +92,8 @@ nav:
         - Virtual Machines: eris/infra/vms.md
         - Minikube: eris/infra/minikube.md
         - Automatisation: eris/infra/auto-tf-ans.md
+        - PR1: eris/infra/pr1.html
+        - PR2: eris/infra/pr2.html
   - General:
       - MKDocs: general/mkdocs.md
       - Ansible: general/ansible.md

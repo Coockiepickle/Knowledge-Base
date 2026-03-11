@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="slides-format" content="viewport">
+    <title>PR2 - INFRA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@12/dist/motion.js"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-bg: #0a0a0f;
+            --color-bg-deep: #050508;
+            --color-surface: #14141f;
+            --color-text: #e8eaf6;
+            --color-text-secondary: #b0b8d1;
+            --color-text-muted: #6b7394;
+            --color-accent-1: #00e5ff;
+            --color-accent-2: #7c4dff;
+            --color-accent-3: #ff6d00;
+            --color-glass-bg: rgba(255,255,255,0.04);
+            --color-glass-border: rgba(255,255,255,0.08);
+            --color-vignette: rgba(0,0,0,0.45);
+            --font-display: 'Inter', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+    </style>
+
+    <style>
+        :root { --color-bg: #0a0a0f; --color-text: #e8eaf6; --glow-color-rgb: 0,229,255; }
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { background: var(--color-bg); margin: 0; }
+        body { font-family: var(--font-body); color: var(--color-text); overflow: hidden; height: 100vh; width: 100vw; }
+        .deck { width: 100vw; height: 100vh; position: relative; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--color-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease, transform 0.7s ease; pointer-events: none; overflow: hidden; }
+        .slide.active { opacity: 1; transform: scale(1); pointer-events: all; }
+        .slide > .content { position: relative; z-index: 2; width: 75vw; max-width: 75vw; padding: clamp(1.5rem, 3vw, 3rem); }
+        .nav-controls { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; z-index: 100; background: var(--color-glass-bg); backdrop-filter: blur(10px); padding: 10px 24px; border-radius: 40px; border: 1px solid var(--color-glass-border); }
+        .nav-btn { width: 40px; height: 40px; border: none; background: var(--color-glass-bg); color: var(--color-accent-1); border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+        .nav-btn:hover { background: var(--color-glass-border); }
+        .slide-dots { display: flex; gap: 8px; }
+        .slide-dots .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-glass-border); cursor: pointer; transition: background 0.3s, transform 0.3s; }
+        .slide-dots .dot.active { background: var(--color-accent-1); transform: scale(1.3); }
+        .slide-counter { font-size: 0.8rem; color: var(--color-text-muted); min-width: 40px; text-align: center; }
+        .reveal { opacity: 0; transform: translateY(20px); }
+
+        .text-glow { text-shadow: 0 0 20px rgba(var(--glow-color-rgb), 0.5), 0 0 40px rgba(var(--glow-color-rgb), 0.2); }
+        .stat-glow { text-shadow: 0 0 30px rgba(var(--glow-color-rgb), 0.6), 0 0 60px rgba(var(--glow-color-rgb), 0.25); }
+        @keyframes glow-pulse { 0%, 100% { text-shadow: 0 0 20px rgba(var(--glow-color-rgb), 0.5), 0 0 40px rgba(var(--glow-color-rgb), 0.2); } 50% { text-shadow: 0 0 30px rgba(var(--glow-color-rgb), 0.8), 0 0 60px rgba(var(--glow-color-rgb), 0.3); } }
+        .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+        @keyframes float-slow { 0% { transform: translate(0, 0) scale(1); } 25% { transform: translate(60px, -50px) scale(1.12); } 50% { transform: translate(-40px, 40px) scale(0.9); } 75% { transform: translate(50px, 20px) scale(1.08); } 100% { transform: translate(0, 0) scale(1); } }
+        @keyframes float-drift { 0% { transform: translate(0, 0) scale(1) rotate(0deg); } 33% { transform: translate(-50px, -60px) scale(1.15) rotate(3deg); } 66% { transform: translate(40px, 30px) scale(0.88) rotate(-2deg); } 100% { transform: translate(0, 0) scale(1) rotate(0deg); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .gradient-mesh { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+        .blob { position: absolute; border-radius: 50%; filter: blur(80px); animation: float-slow 10s ease-in-out infinite; }
+        .blob:nth-child(2) { animation: float-drift 14s ease-in-out infinite; }
+        .blob:nth-child(3) { animation: float-slow 18s ease-in-out infinite reverse; }
+
+        .slide::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; opacity: 0.03; mix-blend-mode: overlay; }
+        .slide::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at center, transparent 50%, var(--color-vignette) 100%); }
+
+        .bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .donut-ring { stroke-dasharray: 251.3; stroke-dashoffset: 251.3; stroke-linecap: round; }
+
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+        .site-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="mouse-spotlight" style="position:fixed;inset:0;z-index:99;pointer-events:none;"></div>
+
+<div class="deck">
+
+    <!-- SLIDE 1: TITLE -->
+    <div class="slide slide-1 active" data-slide="1">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 500px; height: 500px; top: -100px; right: -100px; background: var(--color-accent-1); opacity: 0.12;"></div>
+            <div class="blob" style="width: 400px; height: 400px; bottom: -80px; left: -60px; background: var(--color-accent-2); opacity: 0.10;"></div>
+            <div class="blob" style="width: 250px; height: 250px; top: 40%; left: 15%; background: var(--color-accent-3); opacity: 0.08;"></div>
+        </div>
+        <canvas class="particle-canvas" style="position: absolute; inset: 0; z-index: 1;"></canvas>
+        <div class="content text-center">
+            <div class="text-[80px] mb-4 animate-[float_3s_ease-in-out_infinite]">📞</div>
+            <h1 class="font-display text-[clamp(2.2rem,5vw,4rem)] font-black bg-linear-to-br from-accent-1 via-accent-2 to-accent-1 bg-clip-text text-transparent tracking-tight mb-3 reveal">PR2 - INFRA</h1>
+            <p class="text-[clamp(0.8rem,1.3vw,1.2rem)] font-light text-text-muted tracking-[6px] uppercase mb-6 reveal">The Telephone Girls</p>
+            <p class="text-text-secondary text-base reveal">Architecture Réseau · 3 Sites · 100 Utilisateurs · Activité critique</p>
+            <div class="flex gap-4 justify-center mt-6 reveal">
+                <span class="site-badge bg-accent-1/15 text-accent-1 border border-accent-1/20">Limoges - 50 users - Siège</span>
+                <span class="site-badge bg-accent-2/15 text-accent-2 border border-accent-2/20">Brive - 25 users</span>
+                <span class="site-badge bg-accent-3/15 text-accent-3 border border-accent-3/20">Toulouse - 25 users</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: SOMMAIRE -->
+    <div class="slide slide-2" data-slide="2">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -80px; right: -80px; background: var(--color-accent-1); opacity: 0.07;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -60px; left: -40px; background: var(--color-accent-2); opacity: 0.06;"></div>
+        </div>
+        <div class="content">
+            <h2 class="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-8 reveal">Sommaire</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-1/20 flex items-center justify-center text-accent-1 font-bold text-base">01</div><div><p class="font-semibold text-base">Contexte & Besoins</p><p class="text-text-muted text-base">Entreprise, sites, utilisateurs</p></div></div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-1/20 flex items-center justify-center text-accent-1 font-bold text-base">02</div><div><p class="font-semibold text-base">Architecture HA</p><p class="text-text-muted text-base">Réseau, RDS, Téléphonie</p></div></div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-2/20 flex items-center justify-center text-accent-2 font-bold text-base">03</div><div><p class="font-semibold text-base">IAM & Sécurité</p><p class="text-text-muted text-base">Keycloak, AD, Netbird</p></div></div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-2/20 flex items-center justify-center text-accent-2 font-bold text-base">04</div><div><p class="font-semibold text-base">ITAM & Monitoring</p><p class="text-text-muted text-base">Observium, Uptime Kuma, Risques</p></div></div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-3/20 flex items-center justify-center text-accent-3 font-bold text-base">05</div><div><p class="font-semibold text-base">ITSM</p><p class="text-text-muted text-base">osTicket, SLA, base de connaissances</p></div></div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <div class="flex items-center gap-4"><div class="w-9 h-9 rounded-lg bg-accent-3/20 flex items-center justify-center text-accent-3 font-bold text-base">06</div><div><p class="font-semibold text-base">Coûts & PCA/PRA</p><p class="text-text-muted text-base">Budget, SLA, pertes, backup</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: CONTEXTE -->
+    <div class="slide slide-3" data-slide="3">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: -50px; left: -50px; background: var(--color-accent-1); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; right: 10%; background: var(--color-accent-2); opacity: 0.06;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">01 -- Contexte</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-6 reveal">The Telephone Girls</h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="reveal">
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <p class="text-lg font-semibold mb-3">Activité</p>
+                        <p class="text-text-secondary text-base leading-relaxed">Secrétariat & prise de rendez-vous externalisés. Les agents travaillent <strong class="text-accent-1">en session RDP</strong> et utilisent un <strong class="text-accent-1">téléphone IP</strong> connecté à l'IPBX 3CX.</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="tag bg-accent-1/15 text-accent-1">RDP obligatoire</span>
+                            <span class="tag bg-accent-2/15 text-accent-2">VoIP critique</span>
+                            <span class="tag bg-accent-3/15 text-accent-3">Nomadisme</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <p class="text-lg font-semibold mb-3">Répartition</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between"><span class="text-base text-text-secondary">Limoges (Siège)</span><span class="text-accent-1 font-bold text-lg">50</span></div>
+                            <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-linear-to-r from-accent-1 to-accent-2" style="width: 50%;"></div></div>
+                            <div class="flex items-center justify-between"><span class="text-base text-text-secondary">Brive</span><span class="text-accent-2 font-bold text-lg">25</span></div>
+                            <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-linear-to-r from-accent-2 to-accent-3" style="width: 25%;"></div></div>
+                            <div class="flex items-center justify-between"><span class="text-base text-text-secondary">Toulouse</span><span class="text-accent-3 font-bold text-lg">25</span></div>
+                            <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-accent-3" style="width: 25%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 bg-glass-bg backdrop-blur-xl border border-accent-3/20 rounded-xl p-4 reveal">
+                <p class="text-base text-text-secondary">⚠️ <strong class="text-accent-3">Contrainte clé :</strong> Chaque utilisateur = 1 PC fixe/portable (600€) + 1 téléphone IP (100€). 1 seule session RDP par user. Les portables sont pour l'usage nomade hors site.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: ARCHITECTURE RÉSEAU GLOBALE -->
+    <div class="slide slide-4" data-slide="4">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 400px; height: 400px; top: -80px; right: -100px; background: var(--color-accent-2); opacity: 0.08;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -60px; left: 10%; background: var(--color-accent-1); opacity: 0.06;"></div>
+        </div>
+        <canvas class="particle-canvas-ambient" style="position: absolute; inset: 0; z-index: 1;"></canvas>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">02 - Architecture</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Vue Globale Inter-Sites</h2>
+            <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 reveal">
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <!-- Brive -->
+                    <div class="border border-accent-2/20 rounded-lg p-5 bg-accent-2/5">
+                        <p class="text-accent-2 font-bold text-base mb-2">BRIVE</p>
+                        <div class="space-y-1.5 text-base text-text-secondary">
+                            <p>2× pfSense (CARP)</p>
+                            <p>Switch managé L2</p>
+                            <p>25 postes + téléphones IP</p>
+                            <p class="mono text-accent-2/70">10.19.0.0/24</p>
+                        </div>
+                    </div>
+                    <!-- Limoges -->
+                    <div class="border border-accent-1/30 rounded-lg p-5 bg-accent-1/5 ring-1 ring-accent-1/20">
+                        <p class="text-accent-1 font-bold text-base mb-2">LIMOGES (HQ)</p>
+                        <div class="space-y-1.5 text-base text-text-secondary">
+                            <p>2× pfSense (CARP)</p>
+                            <p>3× Windows Server (AD/RDS/SQL)</p>
+                            <p>4× Linux (Docker stack)</p>
+                            <p>50 postes + téléphones IP</p>
+                            <p class="mono text-accent-1/70">10.87.0.0/24</p>
+                        </div>
+                    </div>
+                    <!-- Toulouse -->
+                    <div class="border border-accent-3/20 rounded-lg p-5 bg-accent-3/5">
+                        <p class="text-accent-3 font-bold text-base mb-2">TOULOUSE</p>
+                        <div class="space-y-1.5 text-base text-text-secondary">
+                            <p>2× pfSense (CARP)</p>
+                            <p>Switch managé L2</p>
+                            <p>25 postes + téléphones IP</p>
+                            <p class="mono text-accent-3/70">10.31.0.0/24</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-3 mt-4 pt-3 border-t border-glass-border">
+                    <span class="text-base text-text-muted">Interconnexion :</span>
+                    <span class="tag bg-accent-1/15 text-accent-1">Netbird (WireGuard Mesh VPN)</span>
+                    <span class="text-base text-text-muted">•</span>
+                    <span class="tag bg-accent-2/15 text-accent-2">Chiffré P2P</span>
+                    <span class="text-base text-text-muted">•</span>
+                    <span class="tag bg-accent-3/15 text-accent-3">Zero-Trust</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: CHOIX NETBIRD vs ALTERNATIVES -->
+    <div class="slide slide-5" data-slide="5">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: -60px; left: 20%; background: var(--color-accent-1); opacity: 0.06;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -50px; right: 5%; background: var(--color-accent-3); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">Connexion Inter-Sites</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Pourquoi Netbird ?</h2>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-1/30 rounded-xl p-8 hover:-translate-y-1 transition reveal ring-1 ring-accent-1/10">
+                    <p class="text-accent-1 text-base font-bold uppercase tracking-wider mb-2">✅ Netbird</p>
+                    <ul class="text-base text-text-secondary space-y-2.5">
+                        <li>• Mesh WireGuard P2P</li>
+                        <li>• Open-source & self-hosted</li>
+                        <li>• SSO via Keycloak (OIDC)</li>
+                        <li>• Zero-config pour les peers</li>
+                        <li>• ACL centralisées</li>
+                        <li class="text-accent-1 font-semibold">→ Gratuit, performant</li>
+                    </ul>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal opacity-70">
+                    <p class="text-text-muted text-base font-bold uppercase tracking-wider mb-2">❌ IPsec Site-to-Site</p>
+                    <ul class="text-base text-text-muted space-y-2.5">
+                        <li>• Configuration complexe</li>
+                        <li>• Pas de mesh natif</li>
+                        <li>• Pas de SSO intégré</li>
+                        <li>• Tunnel statique point-à-point</li>
+                        <li>• Nomades = VPN client en plus</li>
+                        <li>→ Lourd à maintenir</li>
+                    </ul>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal opacity-70">
+                    <p class="text-text-muted text-base font-bold uppercase tracking-wider mb-2">❌ Tailscale / ZeroTier</p>
+                    <ul class="text-base text-text-muted space-y-2.5">
+                        <li>• SaaS = données externalisées</li>
+                        <li>• Coût par utilisateur</li>
+                        <li>• Pas de self-hosting complet</li>
+                        <li>• Dépendance fournisseur</li>
+                        <li>• Moins de contrôle ACL</li>
+                        <li>→ Payant, moins souverain</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-accent-1/5 border border-accent-1/15 rounded-lg p-3 reveal">
+                <p class="text-base text-text-secondary"><strong class="text-accent-1">Argument clé :</strong> Netbird unifie VPN site-to-site + accès nomade dans une seule solution. Les PC portables se connectent au mesh depuis n'importe où, sans VPN client séparé.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: FERME RDS HA -->
+    <div class="slide slide-6" data-slide="6">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -70px; right: -60px; background: var(--color-accent-2); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; left: 20%; background: var(--color-accent-1); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-2 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">Haute Disponibilité</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Ferme RDS - Windows Server</h2>
+            <div class="grid grid-cols-4 gap-4 mb-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-2/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-2 text-base font-bold mb-1">Connection Broker</p>
+                    <p class="text-base text-text-muted">2× serveurs en HA</p>
+                    <p class="text-base text-text-muted">Répartit les sessions</p>
+                    <p class="text-base text-text-muted">Base SQL partagée</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-1/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-1 text-base font-bold mb-1">RD Web Access</p>
+                    <p class="text-base text-text-muted">Portail web HTTPS</p>
+                    <p class="text-base text-text-muted">LB (Load Balancer)</p>
+                    <p class="text-base text-text-muted">Accès nomades</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-3/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-3 text-base font-bold mb-1">RD Gateway</p>
+                    <p class="text-base text-text-muted">Tunnel HTTPS</p>
+                    <p class="text-base text-text-muted">Accès extérieur sécurisé</p>
+                    <p class="text-base text-text-muted">Certificat SSL</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-text font-bold text-base mb-1">Session Hosts</p>
+                    <p class="text-base text-text-muted">3× serveurs (1/site)</p>
+                    <p class="text-base text-text-muted">100 sessions max</p>
+                    <p class="text-base text-text-muted">Apps métier installées</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 reveal">
+                <div class="bg-accent-2/5 border border-accent-2/15 rounded-lg p-3">
+                    <p class="text-base font-bold text-accent-2 mb-1">SQL Server</p>
+                    <p class="text-base text-text-secondary">Base partagée pour le Broker HA. Stocke l'état des sessions et permet le failover transparent entre les 2 brokers.</p>
+                </div>
+                <div class="bg-accent-1/5 border border-accent-1/15 rounded-lg p-3">
+                    <p class="text-base font-bold text-accent-1 mb-1">Pourquoi pas Citrix/VMware ?</p>
+                    <p class="text-base text-text-secondary">Coût de licence prohibitif pour 100 users. RDS natif Windows = inclus dans la licence Server. Citrix = +15 000€/an minimum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: PFSENSE CARP + 3CX -->
+    <div class="slide slide-7" data-slide="7">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: 10%; right: -60px; background: var(--color-accent-3); opacity: 0.07;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -50px; left: -30px; background: var(--color-accent-1); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-3 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">Haute Disponibilité</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">pfSense CARP + 3CX Téléphonie</h2>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 reveal">
+                    <p class="text-accent-1 font-bold text-base mb-3">pfSense - 2× par site (CARP)</p>
+                    <ul class="text-base text-text-secondary space-y-2.5">
+                        <li>• <strong>CARP :</strong> IP virtuelle partagée, failover &lt; 2s</li>
+                        <li>• <strong>XMLRPC :</strong> Synchro auto des règles/config</li>
+                        <li>• <strong>Multi-WAN :</strong> 2 FAI par site (failover ISP)</li>
+                        <li>• Firewall + NAT + VPN + DHCP Relay</li>
+                    </ul>
+                    <div class="mt-3 pt-2 border-t border-glass-border">
+                        <p class="text-base text-accent-1">vs OPNsense : communauté + large, maturité CARP éprouvée</p>
+                        <p class="text-base text-accent-1">vs Fortinet : open-source, 0€ licence, pas de vendor lock-in</p>
+                    </div>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 reveal">
+                    <p class="text-accent-3 font-bold text-base mb-3">3CX Enterprise - IPBX</p>
+                    <ul class="text-base text-text-secondary space-y-2.5">
+                        <li>• <strong>Failover natif</strong> (édition Enterprise)</li>
+                        <li>• Softphone / WebRTC dans la session RDS</li>
+                        <li>• Intégration SIP Trunk (OVH/Keyyo)</li>
+                        <li>• 100 utilisateurs, ~16 appels simultanés</li>
+                    </ul>
+                    <div class="mt-3 pt-2 border-t border-glass-border">
+                        <p class="text-base text-accent-3">vs Asterisk : interface web, plus simple à administrer</p>
+                        <p class="text-base text-accent-3">vs Teams Phone : coût récurrent bien moindre, self-hosted</p>
+                        <p class="text-base text-accent-3 font-semibold mt-1">Licence ENT 16SC : ~950€/an</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: IAM - KEYCLOAK + AD -->
+    <div class="slide slide-8" data-slide="8">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -80px; left: -60px; background: var(--color-accent-2); opacity: 0.08;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: 10%; right: 10%; background: var(--color-accent-1); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-2 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">03 - IAM</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Keycloak + Active Directory</h2>
+            <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 mb-4 reveal">
+                <div class="flex items-center justify-center gap-6">
+                    <div class="text-center">
+                        <p class="text-base text-text-muted">Utilisateur</p>
+                    </div>
+                    <p class="text-accent-1 text-lg">→</p>
+                    <div class="text-center px-4 py-2 bg-accent-2/10 border border-accent-2/20 rounded-lg">
+                        <p class="text-base font-bold text-accent-2">Keycloak SSO</p>
+                        <p class="text-base text-text-muted">OIDC / SAML 2.0</p>
+                    </div>
+                    <p class="text-accent-1 text-lg">→</p>
+                    <div class="text-center px-4 py-2 bg-accent-1/10 border border-accent-1/20 rounded-lg">
+                        <p class="text-base font-bold text-accent-1">Active Directory</p>
+                        <p class="text-base text-text-muted">LDAP</p>
+                    </div>
+                    <p class="text-accent-1 text-lg">→</p>
+                    <div class="text-center">
+                        <p class="text-base text-text-muted">Accès apps</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-2 text-base font-bold mb-2">Architecture</p>
+                    <p class="text-base text-text-secondary">AD = source de vérité des comptes. Keycloak synchronise via LDAP (read-only). GPO, DNS, DHCP restent sur l'AD.</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-1 text-base font-bold mb-2">SSO Centralisé</p>
+                    <p class="text-base text-text-secondary">1 login → accès RDS, 3CX, osTicket, Observium, Netbird. Keycloak fournit OIDC pour toutes les apps web.</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-3 text-base font-bold mb-2">Pourquoi pas ADFS ?</p>
+                    <p class="text-base text-text-secondary">ADFS = Windows only, limité SAML. Keycloak = open-source, OIDC + SAML, multi-plateforme, MFA natif, self-hosted.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: ITAM MONITORING -->
+    <div class="slide slide-9" data-slide="9">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -60px; right: 10%; background: var(--color-accent-1); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; left: -30px; background: var(--color-accent-3); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">04 - ITAM & Monitoring</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Supervision & Surveillance</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-1/20 rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-1 text-base font-bold mb-2">Observium - Réseau</p>
+                    <ul class="text-base text-text-secondary space-y-1.5">
+                        <li>• Monitoring SNMP : switchs, pfSense, serveurs</li>
+                        <li>• Graphes bande passante, CPU, RAM, disques</li>
+                        <li>• Auto-discovery des équipements</li>
+                        <li>• Alertes seuils dépassés</li>
+                    </ul>
+                    <p class="text-base text-accent-1 mt-2">vs Zabbix : interface plus claire, SNMP natif, setup rapide</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-3/20 rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-3 text-base font-bold mb-2">Uptime Kuma - Services</p>
+                    <ul class="text-base text-text-secondary space-y-1.5">
+                        <li>• Monitoring HTTP(s), TCP, Ping, DNS</li>
+                        <li>• Status pages publiques/internes</li>
+                        <li>• 78+ intégrations alertes (Slack, mail…)</li>
+                        <li>• Historique uptime & response time</li>
+                    </ul>
+                    <p class="text-base text-accent-3 mt-2">vs UptimeRobot : self-hosted, gratuit, contrôle total</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-2/20 rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-accent-2 text-base font-bold mb-2">Splunk + Elasticsearch</p>
+                    <p class="text-base text-text-secondary">SIEM : centralisation des logs (syslog), détection anomalies, tableaux de bord sécurité. ES indexe, Splunk analyse et alerte.</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 hover:-translate-y-1 transition reveal">
+                    <p class="text-text text-base font-bold mb-2">Stack complète Dockerisée</p>
+                    <p class="text-base text-text-secondary">Observium, Uptime Kuma, Splunk, ES, Keycloak, osTicket, HAProxy : tout sur Docker (4 serveurs Linux) pour faciliter le déploiement et les mises à jour.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: MATRICE DE RISQUES -->
+    <div class="slide slide-10" data-slide="10">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: -50px; left: 15%; background: var(--color-accent-3); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; right: 20%; background: var(--color-accent-1); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-3 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">ITAM - Gestion des risques</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-4 reveal">Matrice de Risques</h2>
+            <div class="reveal" style="overflow-x:auto;">
+                <table class="w-full text-base border-collapse">
+                    <thead>
+                        <tr class="border-b border-glass-border">
+                            <th class="text-left p-2 text-text-muted font-semibold">Risque</th>
+                            <th class="text-center p-2 text-text-muted font-semibold">Impact</th>
+                            <th class="text-center p-2 text-text-muted font-semibold">Probabilité</th>
+                            <th class="text-center p-2 text-text-muted font-semibold">Criticité</th>
+                            <th class="text-left p-2 text-text-muted font-semibold">Mitigation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-glass-border/50">
+                            <td class="p-2 text-text-secondary">Panne serveur RDS</td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Critique</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyen</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Élevée</span></td>
+                            <td class="p-2 text-text-secondary">Broker HA + 3 Session Hosts</td>
+                        </tr>
+                        <tr class="border-b border-glass-border/50">
+                            <td class="p-2 text-text-secondary">Panne firewall</td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Critique</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-green-500/20 text-green-400">Faible</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyenne</span></td>
+                            <td class="p-2 text-text-secondary">pfSense CARP (failover &lt; 2s)</td>
+                        </tr>
+                        <tr class="border-b border-glass-border/50">
+                            <td class="p-2 text-text-secondary">Panne IPBX 3CX</td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Critique</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyen</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Élevée</span></td>
+                            <td class="p-2 text-text-secondary">3CX Enterprise failover + SIP trunk dual</td>
+                        </tr>
+                        <tr class="border-b border-glass-border/50">
+                            <td class="p-2 text-text-secondary">Coupure lien internet</td>
+                            <td class="p-2 text-center"><span class="tag bg-orange-500/20 text-orange-400">Majeur</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyen</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyenne</span></td>
+                            <td class="p-2 text-text-secondary">Multi-WAN pfSense (2 FAI/site)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 text-text-secondary">Ransomware / Cyberattaque</td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Critique</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-yellow-500/20 text-yellow-400">Moyen</span></td>
+                            <td class="p-2 text-center"><span class="tag bg-red-500/20 text-red-400">Élevée</span></td>
+                            <td class="p-2 text-text-secondary">Splunk SIEM + Backups 3-2-1 + MFA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: ITSM - osTicket -->
+    <div class="slide slide-11" data-slide="11">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: -60px; right: -50px; background: var(--color-accent-2); opacity: 0.06;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; left: 10%; background: var(--color-accent-3); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-3 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">05 - ITSM</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">osTicket - Help Desk</h2>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="reveal">
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <p class="text-base font-bold mb-3 text-accent-3">Fonctionnalités</p>
+                        <ul class="text-base text-text-secondary space-y-2.5">
+                            <li>• Création tickets : email, portail web, téléphone</li>
+                            <li>• Assignation par départements et agents</li>
+                            <li>• SLA intégrés avec escalade automatique</li>
+                            <li>• Base de connaissances (FAQ) intégrée</li>
+                            <li>• Dashboard temps réel, métriques</li>
+                        </ul>
+                        <div class="mt-3 pt-2 border-t border-glass-border">
+                            <p class="text-base text-accent-3">vs GLPI : plus léger, UI moderne, axé ticketing pur</p>
+                            <p class="text-base text-accent-3">vs ServiceNow : open-source, 0€, self-hosted</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <p class="text-base font-bold mb-3 text-accent-2">SLA Définis</p>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-base mb-1"><span class="text-red-400 font-bold">P1 - Critique</span><span class="text-text-muted">GTI: 15min · GTR: 1h</span></div>
+                                <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-red-500/60" style="width:100%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-base mb-1"><span class="text-orange-400 font-bold">P2 - Majeur</span><span class="text-text-muted">GTI: 30min · GTR: 4h</span></div>
+                                <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-orange-500/60" style="width:75%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-base mb-1"><span class="text-yellow-400 font-bold">P3 - Mineur</span><span class="text-text-muted">GTI: 2h · GTR: 8h</span></div>
+                                <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-yellow-500/60" style="width:50%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-base mb-1"><span class="text-green-400 font-bold">P4 - Info</span><span class="text-text-muted">GTI: 4h · GTR: 24h</span></div>
+                                <div class="h-2 rounded-full bg-white/5"><div class="h-2 rounded-full bg-green-500/60" style="width:25%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: COÛTS MATÉRIELS -->
+    <div class="slide slide-12" data-slide="12">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -70px; left: -50px; background: var(--color-accent-1); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; right: 15%; background: var(--color-accent-2); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">06 - Budget</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-4 reveal">Coûts d'Acquisition</h2>
+            <div class="reveal" style="overflow-x:auto;">
+                <table class="w-full text-base border-collapse">
+                    <thead>
+                        <tr class="border-b border-glass-border">
+                            <th class="text-left p-2 text-text-muted">Poste</th>
+                            <th class="text-center p-2 text-text-muted">Qté</th>
+                            <th class="text-right p-2 text-text-muted">P.U. (€)</th>
+                            <th class="text-right p-2 text-text-muted">Total (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">PC fixes/portables (utilisateurs)</td><td class="p-2 text-center">100</td><td class="p-2 text-right">600</td><td class="p-2 text-right text-accent-1 font-semibold">60 000</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Téléphones IP (Yealink T33G)</td><td class="p-2 text-center">100</td><td class="p-2 text-right">100</td><td class="p-2 text-right text-accent-1 font-semibold">10 000</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Serveurs Windows (Dell R360)</td><td class="p-2 text-center">3</td><td class="p-2 text-right">3 500</td><td class="p-2 text-right text-accent-1 font-semibold">10 500</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Serveurs Linux (Dell R360)</td><td class="p-2 text-center">4</td><td class="p-2 text-right">2 500</td><td class="p-2 text-right text-accent-1 font-semibold">10 000</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Appliances pfSense (Netgate 2100)</td><td class="p-2 text-center">6</td><td class="p-2 text-right">500</td><td class="p-2 text-right text-accent-1 font-semibold">3 000</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Switchs managés (HP 1920S)</td><td class="p-2 text-center">6</td><td class="p-2 text-right">350</td><td class="p-2 text-right text-accent-1 font-semibold">2 100</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Onduleurs (APC 1500VA) par site</td><td class="p-2 text-center">3</td><td class="p-2 text-right">700</td><td class="p-2 text-right text-accent-1 font-semibold">2 100</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">NAS Synology (backup local/site)</td><td class="p-2 text-center">3</td><td class="p-2 text-right">800</td><td class="p-2 text-right text-accent-1 font-semibold">2 400</td></tr>
+                        <tr class="bg-accent-1/5">
+                            <td class="p-2 font-bold text-accent-1" colspan="3">TOTAL MATÉRIEL</td>
+                            <td class="p-2 text-right font-bold text-accent-1 text-base">100 100 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: COÛTS LOGICIELS + MCO -->
+    <div class="slide slide-13" data-slide="13">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 300px; height: 300px; top: -60px; right: -40px; background: var(--color-accent-2); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -30px; left: 20%; background: var(--color-accent-1); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-2 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">06 - Budget</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-4 reveal">Licences & MCO Annuel</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="reveal">
+                    <p class="text-base font-bold text-accent-2 mb-2">Licences logicielles (one-shot + annuelles)</p>
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <table class="w-full text-base">
+                            <tbody>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Windows Server 2025 Std (×3)</td><td class="p-1.5 text-right text-accent-2 font-semibold">3 528 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">RDS CAL (100 users)</td><td class="p-1.5 text-right text-accent-2 font-semibold">4 000 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Windows Server CAL (100 users)</td><td class="p-1.5 text-right text-accent-2 font-semibold">3 800 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">SQL Server Express</td><td class="p-1.5 text-right text-green-400 font-semibold">Gratuit</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">3CX Enterprise 16SC (/an)</td><td class="p-1.5 text-right text-accent-2 font-semibold">950 €/an</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">pfSense Plus (×6 appliances)</td><td class="p-1.5 text-right text-green-400 font-semibold">Inclus</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Keycloak, Docker, HAProxy…</td><td class="p-1.5 text-right text-green-400 font-semibold">Open-source</td></tr>
+                                <tr class="bg-accent-2/5"><td class="p-1.5 font-bold text-accent-2">TOTAL LICENCES</td><td class="p-1.5 text-right font-bold text-accent-2">~12 278 €</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <p class="text-base font-bold text-accent-3 mb-2">MCO Annuel (Maintien en Conditions Opérationnelles)</p>
+                    <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-6">
+                        <table class="w-full text-base">
+                            <tbody>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Renouvellement 3CX Ent.</td><td class="p-1.5 text-right text-accent-3 font-semibold">950 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Liens internet (2 FAI × 3 sites)</td><td class="p-1.5 text-right text-accent-3 font-semibold">7 200 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">SIP Trunks (OVH/Keyyo)</td><td class="p-1.5 text-right text-accent-3 font-semibold">2 400 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Maintenance matérielle (garantie)</td><td class="p-1.5 text-right text-accent-3 font-semibold">3 000 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Backup cloud (Wasabi/Backblaze)</td><td class="p-1.5 text-right text-accent-3 font-semibold">1 200 €</td></tr>
+                                <tr class="border-b border-glass-border/50"><td class="p-1.5 text-text-secondary">Admin sys/réseau (0.5 ETP estimé)</td><td class="p-1.5 text-right text-accent-3 font-semibold">20 000 €</td></tr>
+                                <tr class="bg-accent-3/5"><td class="p-1.5 font-bold text-accent-3">TOTAL MCO / AN</td><td class="p-1.5 text-right font-bold text-accent-3">~34 750 €</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 bg-glass-bg backdrop-blur-xl border border-accent-1/20 rounded-lg p-3 reveal">
+                <p class="text-base text-text-secondary"><strong class="text-accent-1">Coût total Année 1 :</strong> ~100 100€ (matériel) + ~12 278€ (licences) + ~15 000€ (déploiement/intégration) + ~34 750€ (MCO) = <strong class="text-accent-1 text-base">~162 128 €</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: SLA & PERTES -->
+    <div class="slide slide-14" data-slide="14">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -70px; left: -50px; background: var(--color-accent-3); opacity: 0.07;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -60px; right: -30px; background: var(--color-accent-1); opacity: 0.06;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-3 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">SLA & Indisponibilité</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">Calcul des Pertes</h2>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-1/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-[clamp(1.5rem,3vw,2.2rem)] font-black text-accent-1 stat-glow mb-1">99,9%</p>
+                    <p class="text-base text-text-muted uppercase tracking-wider">SLA RDS</p>
+                    <p class="text-base text-text-muted mt-1">≈ 8h45 indispo/an</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-2/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-[clamp(1.5rem,3vw,2.2rem)] font-black text-accent-2 stat-glow mb-1">99,95%</p>
+                    <p class="text-base text-text-muted uppercase tracking-wider">SLA Téléphonie</p>
+                    <p class="text-base text-text-muted mt-1">≈ 4h23 indispo/an</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-3/20 rounded-xl p-8 text-center hover:-translate-y-1 transition reveal">
+                    <p class="text-[clamp(1.5rem,3vw,2.2rem)] font-black text-accent-3 stat-glow mb-1">99,9%</p>
+                    <p class="text-base text-text-muted uppercase tracking-wider">SLA Réseau</p>
+                    <p class="text-base text-text-muted mt-1">≈ 8h45 indispo/an</p>
+                </div>
+            </div>
+            <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-8 reveal">
+                <p class="text-base font-bold mb-3">Estimation des pertes par heure d'indisponibilité</p>
+                <div class="grid grid-cols-2 gap-4 text-base">
+                    <div>
+                        <p class="text-text-muted mb-2">Hypothèse : CA annuel ≈ 2M€ → CA horaire ≈ 960€/h (2080h ouvrées)</p>
+                        <p class="text-text-secondary">• Perte CA/heure : <strong class="text-accent-3">~960€</strong></p>
+                        <p class="text-text-secondary">• Perte productivité : 100 × 15€/h = <strong class="text-accent-3">~1 500€/h</strong></p>
+                        <p class="text-text-secondary">• Coûts récupération : <strong class="text-accent-3">~500€/h</strong></p>
+                    </div>
+                    <div>
+                        <p class="text-accent-1 font-bold mb-2">Coût total indisponibilité ≈ 2 960€/h</p>
+                        <p class="text-text-secondary">Panne RDS 4h = <strong class="text-red-400">11 840€</strong></p>
+                        <p class="text-text-secondary">Panne téléphonie 2h = <strong class="text-red-400">5 920€</strong></p>
+                        <p class="text-text-secondary mt-2 text-accent-1">→ Justifie l'investissement HA de ~162K€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: PCA / PRA -->
+    <div class="slide slide-15" data-slide="15">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 350px; height: 350px; top: -70px; right: -50px; background: var(--color-accent-1); opacity: 0.07;"></div>
+            <div class="blob" style="width: 200px; height: 200px; bottom: -40px; left: 10%; background: var(--color-accent-2); opacity: 0.05;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-1 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">Continuité & Reprise</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-5 reveal">PCA / PRA & Backups</h2>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-1/20 rounded-xl p-8 reveal">
+                    <p class="text-accent-1 font-bold text-base mb-3">PCA - Plan de Continuité</p>
+                    <ul class="text-base text-text-secondary space-y-2.5">
+                        <li>• <strong>pfSense CARP :</strong> failover firewall &lt; 2 secondes</li>
+                        <li>• <strong>RDS Broker HA :</strong> 2 brokers + SQL, basculement auto</li>
+                        <li>• <strong>3CX Failover :</strong> serveur secondaire prend le relais</li>
+                        <li>• <strong>Multi-WAN :</strong> 2 FAI par site, failover ISP</li>
+                        <li>• <strong>HAProxy :</strong> load-balancing apps web (osTicket, Keycloak)</li>
+                    </ul>
+                    <p class="text-base text-accent-1 mt-3 font-semibold">RPO cible : 15 min · RTO cible : 30 min</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-accent-3/20 rounded-xl p-8 reveal">
+                    <p class="text-accent-3 font-bold text-base mb-3">PRA - Plan de Reprise</p>
+                    <ul class="text-base text-text-secondary space-y-2.5">
+                        <li>• <strong>Règle 3-2-1 :</strong> 3 copies, 2 médias, 1 hors-site</li>
+                        <li>• <strong>Backup local :</strong> NAS Synology/site (snapshots quotidiens)</li>
+                        <li>• <strong>Backup cloud :</strong> Wasabi S3 (chiffré, hors-site)</li>
+                        <li>• <strong>AD :</strong> Backup état système + réplication multi-DC</li>
+                        <li>• <strong>Docker :</strong> Volumes sauvegardés + docker-compose versionné</li>
+                    </ul>
+                    <p class="text-base text-accent-3 mt-3 font-semibold">RPO max (sinistre) : 24h · RTO max : 4h</p>
+                </div>
+            </div>
+            <div class="mt-3 bg-accent-2/5 border border-accent-2/15 rounded-lg p-3 reveal">
+                <p class="text-base text-text-secondary"><strong class="text-accent-2">Documentation :</strong> Procédures PCA/PRA documentées dans la base de connaissances osTicket. Tests de restauration trimestriels planifiés. Chaque serveur a une fiche ITAM avec GTR et contacts fournisseur.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: RÉCAPITULATIF HA -->
+    <div class="slide slide-16" data-slide="16">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 400px; height: 400px; top: -80px; left: 10%; background: var(--color-accent-2); opacity: 0.08;"></div>
+            <div class="blob" style="width: 250px; height: 250px; bottom: -50px; right: 5%; background: var(--color-accent-1); opacity: 0.06;"></div>
+        </div>
+        <div class="content">
+            <p class="text-accent-2 text-base font-bold tracking-[0.12em] uppercase mb-2 reveal">Synthèse</p>
+            <h2 class="font-display text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold mb-4 reveal">Zéro SPOF - Chaque brique redondée</h2>
+            <div class="reveal" style="overflow-x:auto;">
+                <table class="w-full text-base border-collapse">
+                    <thead>
+                        <tr class="border-b border-glass-border">
+                            <th class="text-left p-2 text-text-muted font-semibold">Composant</th>
+                            <th class="text-left p-2 text-text-muted font-semibold">Technologie</th>
+                            <th class="text-left p-2 text-text-muted font-semibold">Redondance</th>
+                            <th class="text-center p-2 text-text-muted font-semibold">Failover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Firewall</td><td class="p-2 text-accent-1">pfSense</td><td class="p-2 text-text-secondary">2× par site (CARP)</td><td class="p-2 text-center text-green-400">&lt; 2s</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Connexion Internet</td><td class="p-2 text-accent-1">Multi-WAN</td><td class="p-2 text-text-secondary">2 FAI par site</td><td class="p-2 text-center text-green-400">Auto</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">VPN Inter-sites</td><td class="p-2 text-accent-1">Netbird</td><td class="p-2 text-text-secondary">Mesh P2P WireGuard</td><td class="p-2 text-center text-green-400">Auto</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">RDS Broker</td><td class="p-2 text-accent-2">Windows HA</td><td class="p-2 text-text-secondary">2× Broker + SQL</td><td class="p-2 text-center text-green-400">Auto</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Session Hosts</td><td class="p-2 text-accent-2">RDS Farm</td><td class="p-2 text-text-secondary">3× serveurs (1/site)</td><td class="p-2 text-center text-yellow-400">Répartition</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">IPBX</td><td class="p-2 text-accent-3">3CX Enterprise</td><td class="p-2 text-text-secondary">Failover natif</td><td class="p-2 text-center text-green-400">Auto</td></tr>
+                        <tr class="border-b border-glass-border/50"><td class="p-2 text-text-secondary">Apps Web</td><td class="p-2 text-accent-1">HAProxy</td><td class="p-2 text-text-secondary">Load-balancer front</td><td class="p-2 text-center text-green-400">Health check</td></tr>
+                        <tr><td class="p-2 text-text-secondary">IAM / SSO</td><td class="p-2 text-accent-2">Keycloak</td><td class="p-2 text-text-secondary">Cluster Docker</td><td class="p-2 text-center text-green-400">Auto</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 17: MERCI -->
+    <div class="slide slide-17" data-slide="17">
+        <div class="gradient-mesh">
+            <div class="blob" style="width: 500px; height: 500px; top: -100px; right: -100px; background: var(--color-accent-1); opacity: 0.12;"></div>
+            <div class="blob" style="width: 400px; height: 400px; bottom: -80px; left: -60px; background: var(--color-accent-2); opacity: 0.10;"></div>
+            <div class="blob" style="width: 250px; height: 250px; top: 40%; left: 30%; background: var(--color-accent-3); opacity: 0.08;"></div>
+        </div>
+        <canvas class="particle-canvas" style="position: absolute; inset: 0; z-index: 1;"></canvas>
+        <div class="content text-center">
+            <div class="text-[80px] mb-4 animate-[float_3s_ease-in-out_infinite] reveal">👨‍💻</div>
+            <h2 class="font-display text-[clamp(2rem,5vw,4rem)] font-black bg-linear-to-br from-accent-1 via-accent-2 to-accent-1 bg-clip-text text-transparent tracking-tight mb-4 reveal">Merci !</h2>
+            <p class="text-text-muted text-base tracking-[4px] uppercase mb-6 reveal">Questions ?</p>
+            <div class="flex gap-6 justify-center reveal">
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-4 text-center">
+                    <p class="text-accent-1 font-bold text-lg">162K€</p>
+                    <p class="text-text-muted text-base">Budget Année 1</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-4 text-center">
+                    <p class="text-accent-2 font-bold text-lg">100%</p>
+                    <p class="text-text-muted text-base">Open-source (hors MS)</p>
+                </div>
+                <div class="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-xl p-4 text-center">
+                    <p class="text-accent-3 font-bold text-lg">0 SPOF</p>
+                    <p class="text-text-muted text-base">Tout est redondé</p>
+                    <p class="text-text-muted text-base">Spoiler: Y a toujours 1 SPOF</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-controls">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8249;</button>
+    <div class="slide-dots" id="dots"></div>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8250;</button>
+    <span class="slide-counter" id="counter">1 / 17</span>
+</div>
+
+<script>
+    let current = 1;
+    const total = document.querySelectorAll('.slide').length;
+    const dotsContainer = document.getElementById('dots');
+    const counter = document.getElementById('counter');
+    for (let i = 1; i <= total; i++) { const dot = document.createElement('div'); dot.className = 'dot' + (i === 1 ? ' active' : ''); dot.onclick = () => goToSlide(i); dotsContainer.appendChild(dot); }
+    function goToSlide(n) {
+        const prev = document.querySelector('.slide.active');
+        const next = document.querySelector(`.slide[data-slide="${n}"]`);
+        if (prev) prev.classList.remove('active');
+        if (next) { next.classList.add('active'); try { animateSlide(next); } catch(e) { console.warn('Motion unavailable:', e); } }
+        current = n; updateNav();
+    }
+    function changeSlide(dir) { let next = current + dir; if (next < 1) next = total; if (next > total) next = 1; goToSlide(next); }
+    function updateNav() { document.querySelectorAll('.dot').forEach((d, i) => { d.classList.toggle('active', i + 1 === current); }); counter.textContent = current + ' / ' + total; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); } });
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    document.addEventListener('touchend', (e) => { const diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1); });
+
+    function animateSlide(slide) {
+        slide.querySelectorAll('.reveal').forEach((el, i) => {
+            el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+            Motion.animate(el, { opacity: 1, transform: 'translateY(0px)' }, { type: 'spring', stiffness: 200, damping: 30, delay: i * 0.12 });
+        });
+        animateSlideEffects(slide);
+    }
+
+    function animateSlideEffects(slide) {
+        slide.querySelectorAll('[data-count]:not(.counted)').forEach(el => {
+            el.classList.add('counted');
+            const target = parseInt(el.dataset.count);
+            const suffix = el.dataset.suffix || '', prefix = el.dataset.prefix || '';
+            let cur = 0; const step = target / 40;
+            const timer = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(timer); } el.textContent = prefix + Math.round(cur).toLocaleString() + suffix; }, 30);
+        });
+        slide.querySelectorAll('.bar-fill:not(.fill-init)').forEach((bar, i) => {
+            bar.classList.add('fill-init');
+            Motion.animate(bar, { width: bar.dataset.width + '%' }, { type: 'spring', stiffness: 100, damping: 20, delay: i * 0.1 });
+        });
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        const spotlight = document.querySelector('.mouse-spotlight');
+        if (spotlight) {
+            const rgb = getComputedStyle(document.documentElement).getPropertyValue('--glow-color-rgb').trim() || '0,229,255';
+            spotlight.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(${rgb}, 0.06), transparent 40%)`;
+        }
+    });
+
+    (function() {
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        (function tick() {
+            const ox = (mouseX - cx) / cx, oy = (mouseY - cy) / cy;
+            document.querySelectorAll('.deco-shape').forEach(shape => {
+                const speed = parseFloat(shape.dataset.speed) || 0.03;
+                shape.style.transform = `translate(${ox * speed * 100}px, ${oy * speed * 100}px)`;
+            });
+            requestAnimationFrame(tick);
+        })();
+    })();
+
+    window.initParticles = function(canvas, options) {
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight;
+        const interactive = options.interactive !== false;
+        const count = options.count || (interactive ? 55 : 18);
+        let mx = -1000, my = -1000;
+        const rgb = getComputedStyle(document.documentElement).getPropertyValue('--glow-color-rgb').trim() || '0,229,255';
+        const [r, g, b] = rgb.split(',').map(Number);
+        const particles = Array.from({ length: count }, () => ({
+            x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+            size: Math.random() * 2.5 + 0.8, alpha: Math.random() * 0.35 + 0.1
+        }));
+        if (interactive) {
+            canvas.addEventListener('mousemove', (e) => { const rect = canvas.getBoundingClientRect(); mx = e.clientX - rect.left; my = e.clientY - rect.top; });
+            canvas.addEventListener('mouseleave', () => { mx = -1000; my = -1000; });
+        }
+        (function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                if (interactive) { const dx = p.x - mx, dy = p.y - my, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 120) { const force = (120 - dist) / 120 * 2; p.vx += (dx / dist) * force * 0.1; p.vy += (dy / dist) * force * 0.1; } }
+                p.vx *= 0.98; p.vy *= 0.98; p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${r},${g},${b},${p.alpha})`; ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        })();
+    };
+    document.querySelectorAll('.particle-canvas').forEach(c => window.initParticles(c, { interactive: true, count: 55 }));
+    document.querySelectorAll('.particle-canvas-ambient').forEach(c => window.initParticles(c, { interactive: false, count: 18 }));
+
+    animateSlide(document.querySelector('.slide.active'));
+</script>
+
+</body>
+</html>
