@@ -36,11 +36,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Machines Virtuelles - Base de connaissances Damien Reynaud</title>
+    <title>Virtual Machines - Base de connaissances Damien Reynaud</title>
     
 
 
-<title>Machines Virtuelles</title>
+<title>Virtual Machines</title>
 
 
 
@@ -55,7 +55,7 @@
 
 <!-- Open Graph (Facebook, LinkedIn) -->
 
-<meta property="og:title" content="Machines Virtuelles">
+<meta property="og:title" content="Virtual Machines">
 
 
 
@@ -70,7 +70,7 @@
 
 <!-- Twitter Card -->
 
-<meta name="twitter:title" content="Machines Virtuelles">
+<meta name="twitter:title" content="Virtual Machines">
 
 
 
@@ -320,7 +320,14 @@
                 <span class="size-8 flex flex-row justify-center items-center">
                     
 
-<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity="0" d="M5 8.5l7 -5.5l7 5.5v12.5h-4v-8l-1 -1h-4l-1 1v8h-4v-12.5Z"><animate fill="freeze" attributeName="fill-opacity" begin="1.1s" dur="0.15s" values="0;0.3"/></path><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 21.5h15"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="16;0"/></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 21.5v-13.5M19.5 21.5v-13.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="16;0"/></path><path stroke-dasharray="28" stroke-dashoffset="28" d="M2 10l10 -8l10 8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="28;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M9.5 21.5v-9h5v9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.4s" values="24;0"/></path></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+    class="size-5">
+    <rect width="256" height="256" fill="none"></rect>
+    <line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="32"></line>
+    <line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="32"></line>
+</svg>
 
 
                 </span>
@@ -335,7 +342,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../../dec/cyber/aaa/">
+        data-slot="button" href="../../../dec/">
         DEC Techniques de l'Informatique
     </a>
     
@@ -343,7 +350,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../../ais/conf/cisco-48p/">
+        data-slot="button" href="../../../ais/">
         Bachelor AIS
     </a>
     
@@ -351,7 +358,7 @@
     
     
     <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5"
-        data-slot="button" href="../../droit/cahier-charges/">
+        data-slot="button" href="../../">
         Master ERIS
     </a>
     
@@ -484,6 +491,33 @@
     
 
     
+    <div data-slot="sidebar-group" data-sidebar="group" class="relative flex w-full min-w-0 flex-col p-2">
+        <div data-slot="sidebar-group-content" data-sidebar="group-content" class="w-full text-sm">
+            <ul data-slot="sidebar-menu" data-sidebar="menu" class="flex w-full min-w-0 flex-col gap-0.5">
+                
+                
+                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+    <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
+        data-size="default" href="/eris/"
+        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+
+        
+        Eris
+        
+
+        
+
+        
+
+        
+    </a>
+</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+    
 
     
     
@@ -547,6 +581,23 @@
                 
                 <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
     <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
+        data-size="default" href="/eris/droit/droit/"
+        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+
+        
+        Droit
+        
+
+        
+
+        
+
+        
+    </a>
+</li>
+                
+                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+    <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
         data-size="default" href="/eris/droit/gestion-couts/"
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
@@ -598,7 +649,7 @@
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
         
-        Cours
+        Class
         
 
         
@@ -649,7 +700,41 @@
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
         
-        Machines Virtuelles
+        Virtual Machines
+        
+
+        
+
+        
+
+        
+    </a>
+</li>
+                
+                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+    <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
+        data-size="default" href="/eris/infra/minikube/"
+        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+
+        
+        Minikube
+        
+
+        
+
+        
+
+        
+    </a>
+</li>
+                
+                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+    <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
+        data-size="default" href="/eris/infra/auto-tf-ans/"
+        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+
+        
+        Automatisation
         
 
         
@@ -682,7 +767,7 @@
         <h1
           class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl"
         >
-          Machines Virtuelles
+          Virtual Machines
         </h1>
 
         <div class="flex items-center gap-2 pt-1.5">
@@ -726,7 +811,7 @@
             data-slot="button"
             id="next-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/daily/14-10-25/"
+            href="/eris/infra/minikube/"
           >
             <span class="sr-only">Next</span>
             <svg
@@ -846,53 +931,53 @@
 70891083
 57961368</p>
 <p>GLPI VHost : </p>
-<pre class="codehilite"><code>&lt;VirtualHost *:80&gt;
-    ServerName 192.168.1.101
-    ServerAlias 192.168.1.101
-    DocumentRoot /var/www/glpi/public
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;VirtualHost</span> <span class="err">*:80</span><span class="nt">&gt;</span>
+<span class="w">    </span>ServerName<span class="w"> </span>192.168.1.101
+<span class="w">    </span>ServerAlias<span class="w"> </span>192.168.1.101
+<span class="w">    </span>DocumentRoot<span class="w"> </span>/var/www/glpi/public
 
-    &lt;Directory /var/www/glpi/public&gt;
-        Options FollowSymLinks
-        AllowOverride All
-        Require all granted
-        RewriteEngine On
+<span class="w">    </span><span class="nt">&lt;Directory</span> <span class="err">/var/www/glpi/public</span><span class="nt">&gt;</span>
+<span class="w">        </span>Options<span class="w"> </span>FollowSymLinks
+<span class="w">        </span>AllowOverride<span class="w"> </span>All
+<span class="w">        </span>Require<span class="w"> </span>all<span class="w"> </span>granted
+<span class="w">        </span>RewriteEngine<span class="w"> </span>On
 
-        RewriteCond %{HTTP:Authorization} ^(.+)$
-        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+<span class="w">        </span>RewriteCond<span class="w"> </span>%{HTTP:Authorization}<span class="w"> </span>^(.+)$
+<span class="w">        </span>RewriteRule<span class="w"> </span>.*<span class="w"> </span>-<span class="w"> </span>[E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteRule ^(.*)$ index.php [QSA,L]
-    &lt;/Directory&gt;
+<span class="w">        </span>RewriteCond<span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<span class="w">        </span>RewriteRule<span class="w"> </span>^(.*)$<span class="w"> </span>index.php<span class="w"> </span>[QSA,L]
+<span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
 
-    # Sécurité basique
-    &lt;Directory /var/www/glpi&gt;
-        Options -Indexes
-        AllowOverride None
-    &lt;/Directory&gt;
+<span class="w">    </span>#<span class="w"> </span>Sécurité<span class="w"> </span>basique
+<span class="w">    </span><span class="nt">&lt;Directory</span> <span class="err">/var/www/glpi</span><span class="nt">&gt;</span>
+<span class="w">        </span>Options<span class="w"> </span>-Indexes
+<span class="w">        </span>AllowOverride<span class="w"> </span>None
+<span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
 
-    # En-têtes utiles
-    Header always set X-Content-Type-Options &quot;nosniff&quot;
-    Header always set X-Frame-Options &quot;SAMEORIGIN&quot;
-    Header always set X-XSS-Protection &quot;1; mode=block&quot;
+<span class="w">    </span>#<span class="w"> </span>En-têtes<span class="w"> </span>utiles
+<span class="w">    </span>Header<span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>X-Content-Type-Options<span class="w"> </span>&quot;nosniff&quot;
+<span class="w">    </span>Header<span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>X-Frame-Options<span class="w"> </span>&quot;SAMEORIGIN&quot;
+<span class="w">    </span>Header<span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>X-XSS-Protection<span class="w"> </span>&quot;1;<span class="w"> </span>mode=block&quot;
 
-    ErrorLog ${APACHE_LOG_DIR}/glpi_error.log
-    CustomLog ${APACHE_LOG_DIR}/glpi_access.log combined
-&lt;/VirtualHost&gt;
-</code></pre>
+<span class="w">    </span>ErrorLog<span class="w"> </span><span class="cp">${</span><span class="n">APACHE_LOG_DIR</span><span class="cp">}</span>/glpi_error.log
+<span class="w">    </span>CustomLog<span class="w"> </span><span class="cp">${</span><span class="n">APACHE_LOG_DIR</span><span class="cp">}</span>/glpi_access.log<span class="w"> </span>combined
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
 
 <h4 id="nextcloud-vhost">Nextcloud VHost :<a class="headerlink" href="#nextcloud-vhost" title="Permanent link">&para;</a></h4>
-<pre class="codehilite"><code>Alias /nextcloud &quot;/var/www/nextcloud/&quot;
+<div class="codehilite"><pre><span></span><code>Alias<span class="w"> </span>/nextcloud<span class="w"> </span>&quot;/var/www/nextcloud/&quot;
 
-&lt;Directory /var/www/nextcloud/&gt;
-  Require all granted
-  AllowOverride All
-  Options FollowSymLinks MultiViews
+<span class="nt">&lt;Directory</span><span class="w"> </span><span class="err">/var/www/nextcloud</span><span class="nt">/&gt;</span>
+<span class="w">  </span>Require<span class="w"> </span>all<span class="w"> </span>granted
+<span class="w">  </span>AllowOverride<span class="w"> </span>All
+<span class="w">  </span>Options<span class="w"> </span>FollowSymLinks<span class="w"> </span>MultiViews
 
-  &lt;IfModule mod_dav.c&gt;
-    Dav off
-  &lt;/IfModule&gt;
-&lt;/Directory&gt;
-</code></pre>
+<span class="w">  </span><span class="nt">&lt;IfModule</span><span class="w"> </span><span class="err">mod_dav.c</span><span class="nt">&gt;</span>
+<span class="w">    </span>Dav<span class="w"> </span>off
+<span class="w">  </span><span class="nt">&lt;/IfModule&gt;</span>
+<span class="nt">&lt;/Directory&gt;</span>
+</code></pre></div>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
@@ -913,8 +998,8 @@
     
     <a data-slot="button"
         class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 h-8 rounded-md gap-1.5 px-3 has-[&gt;svg]:px-2.5 ml-auto shadow-none"
-        href="/daily/14-10-25/">
-        <span class="max-[500px]:hidden">14-10-25</span>
+        href="/eris/infra/minikube/">
+        <span class="max-[500px]:hidden">Minikube</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="tabler-icon tabler-icon-arrow-right ">
@@ -959,6 +1044,12 @@
                     
                     <div class="flex flex-col gap-3">
                         
+                        <a class="text-2xl font-medium" href="../../../dec/">
+                            
+                            Dec
+                            
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -967,6 +1058,12 @@
                     <div class="text-muted-foreground text-sm font-medium">Bachelor AIS</div>
                     
                     <div class="flex flex-col gap-3">
+                        
+                        <a class="text-2xl font-medium" href="../../../ais/">
+                            
+                            Ais
+                            
+                        </a>
                         
                     </div>
                     
@@ -977,12 +1074,18 @@
                     
                     <div class="flex flex-col gap-3">
                         
+                        <a class="text-2xl font-medium" href="../../">
+                            
+                            Eris
+                            
+                        </a>
+                        
                     </div>
                     
                 </div>
                 
                 <div class="flex flex-col gap-4">
-                    <div class="text-muted-foreground text-sm font-medium">Général</div>
+                    <div class="text-muted-foreground text-sm font-medium">General</div>
                     
                     <div class="flex flex-col gap-3">
                         

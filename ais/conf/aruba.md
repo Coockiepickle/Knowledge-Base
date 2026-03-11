@@ -1,4 +1,3 @@
-```
 ip default-gateway 10.23.63.254
 interface 1
    name "SRV-eno1"
@@ -48,4 +47,3 @@ vlan 30
    untagged 5-7
    ip address 10.23.128.128 255.255.192.0
    exit
-```

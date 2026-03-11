@@ -1,4 +1,3 @@
-```
 en
 !
 conf t
@@ -70,4 +69,3 @@ interface f0/21
  description HyperV8-MFDR
  switchport access vlan 10
  switchport mode access
-```
