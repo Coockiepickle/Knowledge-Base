@@ -1,8 +1,8 @@
-## TP1:
+## TP1 :
 
 ## Cluster prerequisites
 
-##### On the Debian VM:
+##### On the Debian VM  :
 
 ```bash
 kubectl config use-context minikube
@@ -16,7 +16,6 @@ kubectl create namespace cicd
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 helm version
 ```
-
 
 ---
 
@@ -47,7 +46,6 @@ kubectl get svc -n cicd
 `http://<Debian-IP>:3000`
 
 Gitea will be available on this port.
-
 
 ---
 
@@ -83,7 +81,6 @@ or via the secret documented in the README of the chart.
 
 ---
 
-
 # TP2: Terraform on Minikube: “Linux VM” + Nginx container + one‑command destroy
 
 ### Architecture
@@ -101,7 +98,7 @@ terraform-minikube/
 
 ### providers.tf
 
-```bash
+```hcl
 terraform {
   required_providers {
     kubernetes = {
@@ -119,7 +116,7 @@ provider "kubernetes" {
 
 ### namespace.tf
 
-```bash
+```hcl
 resource "kubernetes_namespace" "devops_lab" {
   metadata {
     name = "devops-lab"
@@ -133,7 +130,7 @@ resource "kubernetes_namespace" "devops_lab" {
 
 ### linux-vm.tf - “Debian VM” Pod
 
-```bash
+```hcl
 resource "kubernetes_deployment" "linux_vm" {
   metadata {
     name      = "linux-vm"
@@ -186,7 +183,7 @@ resource "kubernetes_deployment" "linux_vm" {
 
 ### nginx.tf - Deployment + Service
 
-```bash
+```hcl
 resource "kubernetes_deployment" "nginx" {
   metadata {
     name      = "nginx-server"
@@ -263,7 +260,7 @@ resource "kubernetes_service" "nginx" {
 
 ### outputs.tf
 
-```bash
+```hcl
 output "nginx_access_url" {
   description = "URL to Nginx via Minikube"
   value       = "http://$(minikube ip):30080"
@@ -477,7 +474,7 @@ devops-stack/
 
 ### terraform/main.tf (VM simulated as Pod + NodePort)
 
-```bash
+```hcl
 terraform {
   required_providers {
     kubernetes = {
@@ -543,7 +540,7 @@ resource "kubernetes_service" "linux_vm_svc" {
 
 ### terraform/outputs.tf
 
-```bash
+```hcl
 output "vm_ssh_port" {
   value = 30022
 }
@@ -785,6 +782,7 @@ test:smoke:
 
 
 You can also add a `destroy` job in GitLab with `when: manual` that runs `terraform destroy -auto-approve` to destroy in one click.
+
 
 
 ### References
