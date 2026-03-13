@@ -39,11 +39,11 @@ kubectl get svc -n cicd
 
 ##### Expose Gitea to the outside with port forwarding (same principle as before (not recommanded for security)):
 
-`kubectl port-forward -n cicd svc/gitea-http --address=0.0.0.0 3000:3000`
+​`kubectl port-forward -n cicd svc/gitea-http --address=0.0.0.0 3000:3000`​
 
 ###### From your remote machine, open:
 
-`http://<Debian-IP>:3000`
+​`http://<Debian-IP>:3000`​
 
 Gitea will be available on this port.
 
@@ -62,26 +62,27 @@ helm install jenkins jenkins/jenkins -n cicd
 
 ##### Wait until the pod is ready:
 
-`kubectl get pods -n cicd -w`
+​`kubectl get pods -n cicd -w`​
 
-##### Expose Jenkins the same way:
+##### Expose Jenkins:
 
-`kubectl port-forward -n cicd svc/jenkins --address=0.0.0.0 8080:8080`
+​`kubectl port-forward -n cicd svc/jenkins --address=0.0.0.0 8080:8080`​
 
 ##### Access from distant machine:
 
-`http://<Debian-IP>:8080`
+​`http://<Debian-IP>:8080`​
 
 ##### The initial admin password can be retrieved via:
 
-`kubectl exec -n cicd deploy/jenkins -- /bin/cat /run/secrets/chart-admin-password`
+​`kubectl exec -n cicd deploy/jenkins -- /bin/cat /run/secrets/chart-admin-password`​
 
 or via the secret documented in the README of the chart.
 
+‍
 
 ---
 
-# TP2: Terraform on Minikube: “Linux VM” + Nginx container + one‑command destroy
+## TP2: Terraform on Minikube: “Linux VM” + Nginx container + one‑command destroy
 
 ### Architecture
 
@@ -98,7 +99,7 @@ terraform-minikube/
 
 ### providers.tf
 
-```hcl
+```bash
 terraform {
   required_providers {
     kubernetes = {
@@ -116,7 +117,7 @@ provider "kubernetes" {
 
 ### namespace.tf
 
-```hcl
+```bash
 resource "kubernetes_namespace" "devops_lab" {
   metadata {
     name = "devops-lab"
@@ -130,7 +131,7 @@ resource "kubernetes_namespace" "devops_lab" {
 
 ### linux-vm.tf - “Debian VM” Pod
 
-```hcl
+```bash
 resource "kubernetes_deployment" "linux_vm" {
   metadata {
     name      = "linux-vm"
@@ -163,7 +164,6 @@ resource "kubernetes_deployment" "linux_vm" {
           image   = "debian:stable-slim"
           command = ["/bin/bash", "-c", "--"]
           args    = ["while true; do sleep 30; done"]
-
           resources {
             requests = {
               cpu    = "100m"
@@ -183,7 +183,7 @@ resource "kubernetes_deployment" "linux_vm" {
 
 ### nginx.tf - Deployment + Service
 
-```hcl
+```bash
 resource "kubernetes_deployment" "nginx" {
   metadata {
     name      = "nginx-server"
@@ -256,11 +256,9 @@ resource "kubernetes_service" "nginx" {
 }
 ```
 
-`NodePort` service on port `30080`
-
 ### outputs.tf
 
-```hcl
+```bash
 output "nginx_access_url" {
   description = "URL to Nginx via Minikube"
   value       = "http://$(minikube ip):30080"
@@ -274,30 +272,31 @@ output "linux_vm_pod_name" {
 
 ### Full workflow
 
-Prerequisite: Minikube is running:
+##### Prerequisite:
 
-`minikube start`
+Minikube is running: `minikube start`​
 
 ```bash
 terraform init
-
 terraform plan
-
 terraform apply -auto-approve
+```
 
-curl http://$(minikube ip):30080
-
+```bash
 kubectl exec -it -n devops-lab deploy/linux-vm -- /bin/bash
 
 terraform destroy -auto-approve
 ```
 
-`terraform destroy -auto-approve` cleans up all Kubernetes objects managed by Terraform
+Résultat de `curl http://$(minikube ip):30080`​
 
+​![curl](/img/10.png)​
+
+‍
 
 ---
 
-# TP3: Ansible: install Apache + custom page + service enabled + idempotence
+## TP3: Ansible: install Apache + custom page + service enabled + idempotence
 
 ### Structure
 
@@ -364,55 +363,79 @@ author: "Reynaud"
 
 ```yaml
 ---
-- name: Deploy Apache + custom web page
+- name: Déploiement Apache + page web personnalisée
   hosts: webservers
-  become: true
+  become: false
   vars_files:
     - vars/main.yml
 
-  handlers:
-    - name: restart apache
-      ansible.builtin.service:
-        name: "{{ apache_service }}"
-        state: restarted
-
   tasks:
 
-    - name: Update APT cache
+    - name: Installer les prérequis système (python3, sudo, python3-apt)
+      ansible.builtin.raw: |
+        apt-get update -qq && apt-get install -y python3 sudo python3-apt
+      changed_when: true
+
+    - name: Mettre à jour le cache APT
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
 
-    - name: Install Apache
+    - name: Installer Apache
       ansible.builtin.apt:
         name: "{{ apache_package }}"
         state: present
 
-    - name: Ensure Apache is started and enabled at boot
-      ansible.builtin.service:
-        name: "{{ apache_service }}"
-        state: started
-        enabled: true
+    - name: Créer le répertoire run d'Apache
+      ansible.builtin.file:
+        path: /var/run/apache2
+        state: directory
+        mode: '0755'
 
-    - name: Deploy web page via Jinja2 template
+    - name: Démarrer Apache directement via apache2ctl
+      ansible.builtin.command:
+        cmd: apache2ctl start
+      register: apache_start
+      failed_when:
+        - apache_start.rc != 0
+        - "'already running' not in apache_start.stderr"
+      changed_when: "'already running' not in apache_start.stderr"
+
+    - name: S'assurer que le dossier web existe
+      ansible.builtin.file:
+        path: "{{ web_root }}"
+        state: directory
+        mode: '0755'
+
+    - name: Déployer la page web via template Jinja2
       ansible.builtin.template:
         src: templates/index.html.j2
         dest: "{{ web_root }}/index.html"
         owner: www-data
         group: www-data
         mode: '0644'
-      notify: restart apache
+      register: page_deployed
 
-    - name: Verify Apache responds on port 80
+    - name: Recharger Apache si la page a changé
+      ansible.builtin.command:
+        cmd: apache2ctl graceful
+      when: page_deployed.changed
+      failed_when: false
+
+    - name: Vérifier qu'Apache répond sur le port 80
       ansible.builtin.uri:
         url: "http://localhost"
         status_code: 200
+      changed_when: false
+      check_mode: false
+      retries: 5
+      delay: 3
       register: apache_check
-      changed_when: false        # This must never report "changed"
+      until: apache_check.status == 200
 
-    - name: Show verification status
+    - name: Afficher le statut final
       ansible.builtin.debug:
-        msg: "Apache is responding - HTTP {{ apache_check.status }}"
+        msg: "Apache répond — HTTP {{ apache_check.status | default('N/A (check mode)') }}"
 ```
 
 ### Commands
@@ -425,56 +448,38 @@ ansible-playbook -i inventory.ini playbook.yml --check --diff
 ansible-playbook -i inventory.ini playbook.yml
 ```
 
+Résultat "`ping`​"
+
+​![ping](/img/8.png)​
+
+‍
+
+Résultat "`--check --diff`​"
+
+​![check_diff](/img/9.png)​
+
 On the second run:
 
-```text
-PLAY RECAP
+PLAY RECAP  
 vm-linux : ok=6  changed=0  unreachable=0  failed=0  skipped=0
-```
 
-`changed=0` confirm the playbookis idempotent.
+​`changed=0`​ confirm the playbookis idempotent.
 
+‍
 
 ---
 
-# TP4: CI/CD pipeline: Terraform VM + Ansible Nginx + Nginx reverse proxy + curl test
+## TP4: CI/CD pipeline: Terraform VM + Ansible Nginx + Nginx reverse proxy + curl test
 
 ### Architecture
 
-```text
-Client HTTP
+Client HTTP  -->  [Container Nginx Reverse Proxy :80]  -->  proxy_pass http://vm-nginx  -->  [Linux VM - Nginx static site :8080]
 
-    ⬇️
-
-[Container Nginx Reverse Proxy :80]
-
-    ⬇️  proxy_pass http://vm-nginx
-
-[Linux VM - Nginx static site :8080]
-```
-
-5 stages: `validate → provision → configure → deploy_proxy → test`.
-
-### Repo structure
-
-```bash
-devops-stack/
-├── .gitlab-ci.yml
-├── terraform/
-│   ├── main.tf
-│   └── outputs.tf
-├── ansible/
-│   ├── inventory.ini
-│   ├── playbook.yml
-│   └── templates/index.html.j2
-└── proxy/
-    ├── nginx.conf
-    └── docker-compose.yml
-```
+5 étapes : `validate → provision → configure → deploy_proxy → test`​.
 
 ### terraform/main.tf (VM simulated as Pod + NodePort)
 
-```hcl
+```bash
 terraform {
   required_providers {
     kubernetes = {
@@ -496,7 +501,7 @@ resource "kubernetes_namespace" "webstack" {
 resource "kubernetes_deployment" "linux_vm" {
   metadata {
     name      = "linux-vm"
-    namespace = kubernetes_namespace.webstack.metadata[^0].name
+    namespace = kubernetes_namespace.webstack.metadata[0].name
   }
   spec {
     replicas = 1
@@ -519,7 +524,7 @@ resource "kubernetes_deployment" "linux_vm" {
 resource "kubernetes_service" "linux_vm_svc" {
   metadata {
     name      = "linux-vm-svc"
-    namespace = kubernetes_namespace.webstack.metadata[^0].name
+    namespace = kubernetes_namespace.webstack.metadata[0].name
   }
   spec {
     selector = { app = "linux-vm" }
@@ -540,7 +545,7 @@ resource "kubernetes_service" "linux_vm_svc" {
 
 ### terraform/outputs.tf
 
-```hcl
+```bash
 output "vm_ssh_port" {
   value = 30022
 }
@@ -619,7 +624,7 @@ output "minikube_ip" {
 
 ### proxy/nginx.conf (reverse proxy container)
 
-```nginx
+```bash
 events {}
 
 http {
@@ -768,53 +773,18 @@ test:smoke:
     - main
 ```
 
-`when: manual` on the `provision` stage is a common best practice for Terraform in CI/CD to avoid accidentally recreating production infrastructure.
+L'option `when: manual`​ à l'étape `provision`​ est une bonne pratique courante dans Terraform pour les environnements CI/CD, afin d'éviter de recréer accidentellement l'infrastructure de production.
 
-### Destroying the stack
+### Détruire le stack
 
-##### Stop reverse proxy
+##### Arrêter le reverse proxy
 
-`cd proxy && docker compose down`
+​`cd proxy && docker compose down`​
 
-###### Destroy Terraform infrastructure
+###### Détruire l'infrastructure Terraform
 
-`cd terraform && terraform destroy -auto-approve`
+​`cd terraform && terraform destroy -auto-approve`​
 
+‍
 
-You can also add a `destroy` job in GitLab with `when: manual` that runs `terraform destroy -auto-approve` to destroy in one click.
-
-
-
-### References
-
-[Terraform with minukube kubernetes provider](https://nodevops.nl/terraform-with-minukube-kubernetes-provider/)
-
-[Deploy kubernetes resources using terraform](https://www.meteorops.com/blog/deploy-kubernetes-resources-using-terraform)
-
-[Terraform minukube deploy nginx helm chart](https://nodevops.nl/terraform-with-minukube-deploy-nginx-helm-chart/)
-
-[Terraform.io kubernetes getting started](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/guides/getting-started.html)
-
-[Ansible playbooks](https://serversforhackers.com/c/ansible-playbooks)
-
-[Configuring apache httpd server idempotent ansible](https://www.linkedin.com/pulse/configuring-apache-httpd-server-idempotent-ansible-sri-krishna-sagar)
-
-[Ansible idempotent playbooks](https://dev.to/admantium/ansible-idempotent-playbooks-4e67)
-
-[Ansible project](https://www.mail-archive.com/ansible-project@googlegroups.com/msg57809.html)
-
-[Terraform ansible cicd pipelines](https://oneuptime.com/blog/post/2026-02-21-terraform-ansible-cicd-pipelines/view)
-
-[Terraform gitlab aws ansible](https://blog.stephane-robert.info/post/terraform-gitlab-aws-ansible/)
-
-[Deploying nginx on azure kubernetes service aks with terraform](https://dev.to/johnogbonna/devops-by-doing-deploying-nginx-on-azure-kubernetes-service-aks-with-terraform-2an0)
-
-[Simple kubernetes infrastructure with nginx image using terraform](https://legiondev.hashnode.dev/simple-kubernetes-infrastructure-with-nginx-image-using-terraform)
-
-[Building a production ready cicd pipeline automating infrastructure with terraform](https://dev.to/primocrypt/building-a-production-ready-cicd-pipeline-automating-infrastructure-with-terraform-github-33gg)
-
-[Terraform nginx k8s](https://github.com/kovid-r/terraform-nginx-k8s)
-
-[How to use Terraform and Ansible together in a CICD Pipeline](https://www.youtube.com/watch?v=geSwD6M1pQs)
-
-[Terraform minikube nginx](https://github.com/jpiedramacas/terraform-minikube-nginx)
+On peut également ajouter une tâche « destroy » dans GitLab avec le paramètre « when: manual », qui exécute la commande « terraform destroy -auto-approve » pour faire la destruction en un clic.

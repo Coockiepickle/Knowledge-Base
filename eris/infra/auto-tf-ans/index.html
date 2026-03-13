@@ -875,9 +875,9 @@ kubectl get svc -n cicd
 </code></pre>
 
 <h5 id="expose-gitea-to-the-outside-with-port-forwarding-same-principle-as-before-not-recommanded-for-security">Expose Gitea to the outside with port forwarding (same principle as before (not recommanded for security)):<a class="headerlink" href="#expose-gitea-to-the-outside-with-port-forwarding-same-principle-as-before-not-recommanded-for-security" title="Permanent link">&para;</a></h5>
-<p><code>kubectl port-forward -n cicd svc/gitea-http --address=0.0.0.0 3000:3000</code></p>
+<p>​<code>kubectl port-forward -n cicd svc/gitea-http --address=0.0.0.0 3000:3000</code>​</p>
 <h6 id="from-your-remote-machine-open">From your remote machine, open:<a class="headerlink" href="#from-your-remote-machine-open" title="Permanent link">&para;</a></h6>
-<p><code>http://&lt;Debian-IP&gt;:3000</code></p>
+<p>​<code>http://&lt;Debian-IP&gt;:3000</code>​</p>
 <p>Gitea will be available on this port.</p>
 <hr />
 <h2 id="install-jenkins">Install Jenkins<a class="headerlink" href="#install-jenkins" title="Permanent link">&para;</a></h2>
@@ -889,16 +889,17 @@ helm install jenkins jenkins/jenkins -n cicd
 </code></pre>
 
 <h5 id="wait-until-the-pod-is-ready">Wait until the pod is ready:<a class="headerlink" href="#wait-until-the-pod-is-ready" title="Permanent link">&para;</a></h5>
-<p><code>kubectl get pods -n cicd -w</code></p>
-<h5 id="expose-jenkins-the-same-way">Expose Jenkins the same way:<a class="headerlink" href="#expose-jenkins-the-same-way" title="Permanent link">&para;</a></h5>
-<p><code>kubectl port-forward -n cicd svc/jenkins --address=0.0.0.0 8080:8080</code></p>
+<p>​<code>kubectl get pods -n cicd -w</code>​</p>
+<h5 id="expose-jenkins">Expose Jenkins:<a class="headerlink" href="#expose-jenkins" title="Permanent link">&para;</a></h5>
+<p>​<code>kubectl port-forward -n cicd svc/jenkins --address=0.0.0.0 8080:8080</code>​</p>
 <h5 id="access-from-distant-machine">Access from distant machine:<a class="headerlink" href="#access-from-distant-machine" title="Permanent link">&para;</a></h5>
-<p><code>http://&lt;Debian-IP&gt;:8080</code></p>
+<p>​<code>http://&lt;Debian-IP&gt;:8080</code>​</p>
 <h5 id="the-initial-admin-password-can-be-retrieved-via">The initial admin password can be retrieved via:<a class="headerlink" href="#the-initial-admin-password-can-be-retrieved-via" title="Permanent link">&para;</a></h5>
-<p><code>kubectl exec -n cicd deploy/jenkins -- /bin/cat /run/secrets/chart-admin-password</code></p>
+<p>​<code>kubectl exec -n cicd deploy/jenkins -- /bin/cat /run/secrets/chart-admin-password</code>​</p>
 <p>or via the secret documented in the README of the chart.</p>
+<p>‍</p>
 <hr />
-<h1 id="tp2-terraform-on-minikube-linux-vm-nginx-container-onecommand-destroy">TP2: Terraform on Minikube: “Linux VM” + Nginx container + one‑command destroy<a class="headerlink" href="#tp2-terraform-on-minikube-linux-vm-nginx-container-onecommand-destroy" title="Permanent link">&para;</a></h1>
+<h2 id="tp2-terraform-on-minikube-linux-vm-nginx-container-onecommand-destroy">TP2: Terraform on Minikube: “Linux VM” + Nginx container + one‑command destroy<a class="headerlink" href="#tp2-terraform-on-minikube-linux-vm-nginx-container-onecommand-destroy" title="Permanent link">&para;</a></h2>
 <h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
 <p>Directory layout:</p>
 <pre class="codehilite"><code class="language-bash">terraform-minikube/
@@ -910,7 +911,7 @@ helm install jenkins jenkins/jenkins -n cicd
 </code></pre>
 
 <h3 id="providerstf">providers.tf<a class="headerlink" href="#providerstf" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">terraform {
+<pre class="codehilite"><code class="language-bash">terraform {
   required_providers {
     kubernetes = {
       source  = &quot;hashicorp/kubernetes&quot;
@@ -926,7 +927,7 @@ provider &quot;kubernetes&quot; {
 </code></pre>
 
 <h3 id="namespacetf">namespace.tf<a class="headerlink" href="#namespacetf" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">resource &quot;kubernetes_namespace&quot; &quot;devops_lab&quot; {
+<pre class="codehilite"><code class="language-bash">resource &quot;kubernetes_namespace&quot; &quot;devops_lab&quot; {
   metadata {
     name = &quot;devops-lab&quot;
     labels = {
@@ -938,7 +939,7 @@ provider &quot;kubernetes&quot; {
 </code></pre>
 
 <h3 id="linux-vmtf-debian-vm-pod">linux-vm.tf - “Debian VM” Pod<a class="headerlink" href="#linux-vmtf-debian-vm-pod" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">resource &quot;kubernetes_deployment&quot; &quot;linux_vm&quot; {
+<pre class="codehilite"><code class="language-bash">resource &quot;kubernetes_deployment&quot; &quot;linux_vm&quot; {
   metadata {
     name      = &quot;linux-vm&quot;
     namespace = kubernetes_namespace.devops_lab.metadata[0].name
@@ -970,7 +971,6 @@ provider &quot;kubernetes&quot; {
           image   = &quot;debian:stable-slim&quot;
           command = [&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;--&quot;]
           args    = [&quot;while true; do sleep 30; done&quot;]
-
           resources {
             requests = {
               cpu    = &quot;100m&quot;
@@ -989,7 +989,7 @@ provider &quot;kubernetes&quot; {
 </code></pre>
 
 <h3 id="nginxtf-deployment-service">nginx.tf - Deployment + Service<a class="headerlink" href="#nginxtf-deployment-service" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">resource &quot;kubernetes_deployment&quot; &quot;nginx&quot; {
+<pre class="codehilite"><code class="language-bash">resource &quot;kubernetes_deployment&quot; &quot;nginx&quot; {
   metadata {
     name      = &quot;nginx-server&quot;
     namespace = kubernetes_namespace.devops_lab.metadata[0].name
@@ -1061,9 +1061,8 @@ resource &quot;kubernetes_service&quot; &quot;nginx&quot; {
 }
 </code></pre>
 
-<p><code>NodePort</code> service on port <code>30080</code></p>
 <h3 id="outputstf">outputs.tf<a class="headerlink" href="#outputstf" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">output &quot;nginx_access_url&quot; {
+<pre class="codehilite"><code class="language-bash">output &quot;nginx_access_url&quot; {
   description = &quot;URL to Nginx via Minikube&quot;
   value       = &quot;http://$(minikube ip):30080&quot;
 }
@@ -1075,24 +1074,23 @@ output &quot;linux_vm_pod_name&quot; {
 </code></pre>
 
 <h3 id="full-workflow">Full workflow<a class="headerlink" href="#full-workflow" title="Permanent link">&para;</a></h3>
-<p>Prerequisite: Minikube is running:</p>
-<p><code>minikube start</code></p>
+<h5 id="prerequisite">Prerequisite:<a class="headerlink" href="#prerequisite" title="Permanent link">&para;</a></h5>
+<p>Minikube is running: <code>minikube start</code>​</p>
 <pre class="codehilite"><code class="language-bash">terraform init
-
 terraform plan
-
 terraform apply -auto-approve
+</code></pre>
 
-curl http://$(minikube ip):30080
-
-kubectl exec -it -n devops-lab deploy/linux-vm -- /bin/bash
+<pre class="codehilite"><code class="language-bash">kubectl exec -it -n devops-lab deploy/linux-vm -- /bin/bash
 
 terraform destroy -auto-approve
 </code></pre>
 
-<p><code>terraform destroy -auto-approve</code> cleans up all Kubernetes objects managed by Terraform</p>
+<p>Résultat de <code>curl http://$(minikube ip):30080</code>​</p>
+<p>​<img alt="curl" src="/img/10.png" />​</p>
+<p>‍</p>
 <hr />
-<h1 id="tp3-ansible-install-apache-custom-page-service-enabled-idempotence">TP3: Ansible: install Apache + custom page + service enabled + idempotence<a class="headerlink" href="#tp3-ansible-install-apache-custom-page-service-enabled-idempotence" title="Permanent link">&para;</a></h1>
+<h2 id="tp3-ansible-install-apache-custom-page-service-enabled-idempotence">TP3: Ansible: install Apache + custom page + service enabled + idempotence<a class="headerlink" href="#tp3-ansible-install-apache-custom-page-service-enabled-idempotence" title="Permanent link">&para;</a></h2>
 <h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
 <pre class="codehilite"><code class="language-bash">ansible-apache/
 ├── inventory.ini
@@ -1148,55 +1146,79 @@ author: &quot;Reynaud&quot;
 
 <h3 id="playbookyml">playbook.yml<a class="headerlink" href="#playbookyml" title="Permanent link">&para;</a></h3>
 <pre class="codehilite"><code class="language-yaml">---
-- name: Deploy Apache + custom web page
+- name: Déploiement Apache + page web personnalisée
   hosts: webservers
-  become: true
+  become: false
   vars_files:
     - vars/main.yml
 
-  handlers:
-    - name: restart apache
-      ansible.builtin.service:
-        name: &quot;{{ apache_service }}&quot;
-        state: restarted
-
   tasks:
 
-    - name: Update APT cache
+    - name: Installer les prérequis système (python3, sudo, python3-apt)
+      ansible.builtin.raw: |
+        apt-get update -qq &amp;&amp; apt-get install -y python3 sudo python3-apt
+      changed_when: true
+
+    - name: Mettre à jour le cache APT
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
 
-    - name: Install Apache
+    - name: Installer Apache
       ansible.builtin.apt:
         name: &quot;{{ apache_package }}&quot;
         state: present
 
-    - name: Ensure Apache is started and enabled at boot
-      ansible.builtin.service:
-        name: &quot;{{ apache_service }}&quot;
-        state: started
-        enabled: true
+    - name: Créer le répertoire run d'Apache
+      ansible.builtin.file:
+        path: /var/run/apache2
+        state: directory
+        mode: '0755'
 
-    - name: Deploy web page via Jinja2 template
+    - name: Démarrer Apache directement via apache2ctl
+      ansible.builtin.command:
+        cmd: apache2ctl start
+      register: apache_start
+      failed_when:
+        - apache_start.rc != 0
+        - &quot;'already running' not in apache_start.stderr&quot;
+      changed_when: &quot;'already running' not in apache_start.stderr&quot;
+
+    - name: S'assurer que le dossier web existe
+      ansible.builtin.file:
+        path: &quot;{{ web_root }}&quot;
+        state: directory
+        mode: '0755'
+
+    - name: Déployer la page web via template Jinja2
       ansible.builtin.template:
         src: templates/index.html.j2
         dest: &quot;{{ web_root }}/index.html&quot;
         owner: www-data
         group: www-data
         mode: '0644'
-      notify: restart apache
+      register: page_deployed
 
-    - name: Verify Apache responds on port 80
+    - name: Recharger Apache si la page a changé
+      ansible.builtin.command:
+        cmd: apache2ctl graceful
+      when: page_deployed.changed
+      failed_when: false
+
+    - name: Vérifier qu'Apache répond sur le port 80
       ansible.builtin.uri:
         url: &quot;http://localhost&quot;
         status_code: 200
+      changed_when: false
+      check_mode: false
+      retries: 5
+      delay: 3
       register: apache_check
-      changed_when: false        # This must never report &quot;changed&quot;
+      until: apache_check.status == 200
 
-    - name: Show verification status
+    - name: Afficher le statut final
       ansible.builtin.debug:
-        msg: &quot;Apache is responding - HTTP {{ apache_check.status }}&quot;
+        msg: &quot;Apache répond — HTTP {{ apache_check.status | default('N/A (check mode)') }}&quot;
 </code></pre>
 
 <h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
@@ -1207,44 +1229,23 @@ ansible-playbook -i inventory.ini playbook.yml --check --diff
 ansible-playbook -i inventory.ini playbook.yml
 </code></pre>
 
+<p>Résultat "<code>ping</code>​"</p>
+<p>​<img alt="ping" src="/img/8.png" />​</p>
+<p>‍</p>
+<p>Résultat "<code>--check --diff</code>​"</p>
+<p>​<img alt="check_diff" src="/img/9.png" />​</p>
 <p>On the second run:</p>
-<pre class="codehilite"><code class="language-text">PLAY RECAP
-vm-linux : ok=6  changed=0  unreachable=0  failed=0  skipped=0
-</code></pre>
-
-<p><code>changed=0</code> confirm the playbookis idempotent.</p>
+<p>PLAY RECAP<br />
+vm-linux : ok=6  changed=0  unreachable=0  failed=0  skipped=0</p>
+<p>​<code>changed=0</code>​ confirm the playbookis idempotent.</p>
+<p>‍</p>
 <hr />
-<h1 id="tp4-cicd-pipeline-terraform-vm-ansible-nginx-nginx-reverse-proxy-curl-test">TP4: CI/CD pipeline: Terraform VM + Ansible Nginx + Nginx reverse proxy + curl test<a class="headerlink" href="#tp4-cicd-pipeline-terraform-vm-ansible-nginx-nginx-reverse-proxy-curl-test" title="Permanent link">&para;</a></h1>
+<h2 id="tp4-cicd-pipeline-terraform-vm-ansible-nginx-nginx-reverse-proxy-curl-test">TP4: CI/CD pipeline: Terraform VM + Ansible Nginx + Nginx reverse proxy + curl test<a class="headerlink" href="#tp4-cicd-pipeline-terraform-vm-ansible-nginx-nginx-reverse-proxy-curl-test" title="Permanent link">&para;</a></h2>
 <h3 id="architecture_1">Architecture<a class="headerlink" href="#architecture_1" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-text">Client HTTP
-
-    ⬇️
-
-[Container Nginx Reverse Proxy :80]
-
-    ⬇️  proxy_pass http://vm-nginx
-
-[Linux VM - Nginx static site :8080]
-</code></pre>
-
-<p>5 stages: <code>validate → provision → configure → deploy_proxy → test</code>.</p>
-<h3 id="repo-structure">Repo structure<a class="headerlink" href="#repo-structure" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-bash">devops-stack/
-├── .gitlab-ci.yml
-├── terraform/
-│   ├── main.tf
-│   └── outputs.tf
-├── ansible/
-│   ├── inventory.ini
-│   ├── playbook.yml
-│   └── templates/index.html.j2
-└── proxy/
-    ├── nginx.conf
-    └── docker-compose.yml
-</code></pre>
-
+<p>Client HTTP  --&gt;  [Container Nginx Reverse Proxy :80]  --&gt;  proxy_pass http://vm-nginx  --&gt;  [Linux VM - Nginx static site :8080]</p>
+<p>5 étapes : <code>validate → provision → configure → deploy_proxy → test</code>​.</p>
 <h3 id="terraformmaintf-vm-simulated-as-pod-nodeport">terraform/main.tf (VM simulated as Pod + NodePort)<a class="headerlink" href="#terraformmaintf-vm-simulated-as-pod-nodeport" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">terraform {
+<pre class="codehilite"><code class="language-bash">terraform {
   required_providers {
     kubernetes = {
       source  = &quot;hashicorp/kubernetes&quot;
@@ -1265,7 +1266,7 @@ resource &quot;kubernetes_namespace&quot; &quot;webstack&quot; {
 resource &quot;kubernetes_deployment&quot; &quot;linux_vm&quot; {
   metadata {
     name      = &quot;linux-vm&quot;
-    namespace = kubernetes_namespace.webstack.metadata[^0].name
+    namespace = kubernetes_namespace.webstack.metadata[0].name
   }
   spec {
     replicas = 1
@@ -1288,7 +1289,7 @@ resource &quot;kubernetes_deployment&quot; &quot;linux_vm&quot; {
 resource &quot;kubernetes_service&quot; &quot;linux_vm_svc&quot; {
   metadata {
     name      = &quot;linux-vm-svc&quot;
-    namespace = kubernetes_namespace.webstack.metadata[^0].name
+    namespace = kubernetes_namespace.webstack.metadata[0].name
   }
   spec {
     selector = { app = &quot;linux-vm&quot; }
@@ -1308,7 +1309,7 @@ resource &quot;kubernetes_service&quot; &quot;linux_vm_svc&quot; {
 </code></pre>
 
 <h3 id="terraformoutputstf">terraform/outputs.tf<a class="headerlink" href="#terraformoutputstf" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-hcl">output &quot;vm_ssh_port&quot; {
+<pre class="codehilite"><code class="language-bash">output &quot;vm_ssh_port&quot; {
   value = 30022
 }
 
@@ -1383,7 +1384,7 @@ output &quot;minikube_ip&quot; {
 </code></pre>
 
 <h3 id="proxynginxconf-reverse-proxy-container">proxy/nginx.conf (reverse proxy container)<a class="headerlink" href="#proxynginxconf-reverse-proxy-container" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-nginx">events {}
+<pre class="codehilite"><code class="language-bash">events {}
 
 http {
   upstream backend_vm {
@@ -1527,30 +1528,14 @@ test:smoke:
     - main
 </code></pre>
 
-<p><code>when: manual</code> on the <code>provision</code> stage is a common best practice for Terraform in CI/CD to avoid accidentally recreating production infrastructure.</p>
-<h3 id="destroying-the-stack">Destroying the stack<a class="headerlink" href="#destroying-the-stack" title="Permanent link">&para;</a></h3>
-<h5 id="stop-reverse-proxy">Stop reverse proxy<a class="headerlink" href="#stop-reverse-proxy" title="Permanent link">&para;</a></h5>
-<p><code>cd proxy &amp;&amp; docker compose down</code></p>
-<h6 id="destroy-terraform-infrastructure">Destroy Terraform infrastructure<a class="headerlink" href="#destroy-terraform-infrastructure" title="Permanent link">&para;</a></h6>
-<p><code>cd terraform &amp;&amp; terraform destroy -auto-approve</code></p>
-<p>You can also add a <code>destroy</code> job in GitLab with <code>when: manual</code> that runs <code>terraform destroy -auto-approve</code> to destroy in one click.</p>
-<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
-<p><a href="https://nodevops.nl/terraform-with-minukube-kubernetes-provider/">Terraform with minukube kubernetes provider</a></p>
-<p><a href="https://www.meteorops.com/blog/deploy-kubernetes-resources-using-terraform">Deploy kubernetes resources using terraform</a></p>
-<p><a href="https://nodevops.nl/terraform-with-minukube-deploy-nginx-helm-chart/">Terraform minukube deploy nginx helm chart</a></p>
-<p><a href="https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/guides/getting-started.html">Terraform.io kubernetes getting started</a></p>
-<p><a href="https://serversforhackers.com/c/ansible-playbooks">Ansible playbooks</a></p>
-<p><a href="https://www.linkedin.com/pulse/configuring-apache-httpd-server-idempotent-ansible-sri-krishna-sagar">Configuring apache httpd server idempotent ansible</a></p>
-<p><a href="https://dev.to/admantium/ansible-idempotent-playbooks-4e67">Ansible idempotent playbooks</a></p>
-<p><a href="https://www.mail-archive.com/ansible-project@googlegroups.com/msg57809.html">Ansible project</a></p>
-<p><a href="https://oneuptime.com/blog/post/2026-02-21-terraform-ansible-cicd-pipelines/view">Terraform ansible cicd pipelines</a></p>
-<p><a href="https://blog.stephane-robert.info/post/terraform-gitlab-aws-ansible/">Terraform gitlab aws ansible</a></p>
-<p><a href="https://dev.to/johnogbonna/devops-by-doing-deploying-nginx-on-azure-kubernetes-service-aks-with-terraform-2an0">Deploying nginx on azure kubernetes service aks with terraform</a></p>
-<p><a href="https://legiondev.hashnode.dev/simple-kubernetes-infrastructure-with-nginx-image-using-terraform">Simple kubernetes infrastructure with nginx image using terraform</a></p>
-<p><a href="https://dev.to/primocrypt/building-a-production-ready-cicd-pipeline-automating-infrastructure-with-terraform-github-33gg">Building a production ready cicd pipeline automating infrastructure with terraform</a></p>
-<p><a href="https://github.com/kovid-r/terraform-nginx-k8s">Terraform nginx k8s</a></p>
-<p><a href="https://www.youtube.com/watch?v=geSwD6M1pQs">How to use Terraform and Ansible together in a CICD Pipeline</a></p>
-<p><a href="https://github.com/jpiedramacas/terraform-minikube-nginx">Terraform minikube nginx</a></p>
+<p>L'option <code>when: manual</code>​ à l'étape <code>provision</code>​ est une bonne pratique courante dans Terraform pour les environnements CI/CD, afin d'éviter de recréer accidentellement l'infrastructure de production.</p>
+<h3 id="detruire-le-stack">Détruire le stack<a class="headerlink" href="#detruire-le-stack" title="Permanent link">&para;</a></h3>
+<h5 id="arreter-le-reverse-proxy">Arrêter le reverse proxy<a class="headerlink" href="#arreter-le-reverse-proxy" title="Permanent link">&para;</a></h5>
+<p>​<code>cd proxy &amp;&amp; docker compose down</code>​</p>
+<h6 id="detruire-linfrastructure-terraform">Détruire l'infrastructure Terraform<a class="headerlink" href="#detruire-linfrastructure-terraform" title="Permanent link">&para;</a></h6>
+<p>​<code>cd terraform &amp;&amp; terraform destroy -auto-approve</code>​</p>
+<p>‍</p>
+<p>On peut également ajouter une tâche « destroy » dans GitLab avec le paramètre « when: manual », qui exécute la commande « terraform destroy -auto-approve » pour faire la destruction en un clic.</p>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
@@ -1788,10 +1773,10 @@ test:smoke:
             Wait until the pod is ready:
         </a>
         
-        <a href="#expose-jenkins-the-same-way"
+        <a href="#expose-jenkins"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
             data-active="false" data-depth="3">
-            Expose Jenkins the same way:
+            Expose Jenkins:
         </a>
         
         <a href="#access-from-distant-machine"
@@ -1920,12 +1905,6 @@ test:smoke:
             Architecture
         </a>
         
-        <a href="#repo-structure"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
-            Repo structure
-        </a>
-        
         <a href="#terraformmaintf-vm-simulated-as-pod-nodeport"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
             data-active="false" data-depth="3">
@@ -1962,16 +1941,10 @@ test:smoke:
             .gitlab-ci.yml - full pipeline
         </a>
         
-        <a href="#destroying-the-stack"
+        <a href="#detruire-le-stack"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
             data-active="false" data-depth="3">
-            Destroying the stack
-        </a>
-        
-        <a href="#references"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
-            References
+            Détruire le stack
         </a>
         
         
