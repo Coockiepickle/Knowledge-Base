@@ -28,7 +28,7 @@ switchport mode trunk
 exit
 ```
 
-Voir [[Modes EtherChannel]] pour savoir quel mode mettre
+Voir [Modes EtherChannel](./dec/routing-switching/etherchannel-modes.md) pour savoir quel mode mettre
 
 ## Sortir un port d'un EtherChannel
 ```

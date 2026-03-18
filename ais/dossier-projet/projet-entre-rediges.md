@@ -3,10 +3,15 @@
 ### 1. Compétences mises en œuvre
 
 J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
+
 - Administration et sécurisation des infrastructures systèmes,
+
 - Administration et sécurisation des infrastructures réseaux,
+
 - Conception d'une solution technique répondant aux besoins d’évolution de l'infrastructure,
+
 - Mise en production des évolutions de l’infrastructure,
+
 - Application des bonnes pratiques dans l’administration des infrastructures.
 
 ### 2. Cahier des charges / Expression des besoins
@@ -14,8 +19,11 @@ J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
 En 2024, le DSI a fait appel à BPI France pour realiser un audit de sécurité. Le score de l'audit était vraiment bas. Puisque mes parents habitent proche de Meta Laser, on m'a chargé d'augmenter le score de BPI France en suivant leurs recommendations. L'objectif principal du projet était d'améliorer la sécurité et l'organisation de l'infrastructure réseau. J'ai travaillé à rendre l'infrastructure plus propre et mieux centralisée, tout en garantissant un accès sécurisé aux serveurs. J'ai également modernisé l'installation en supprimant les anciens équipements obsolètes et en réduisant leur nombre afin d’optimiser l'espace et la gestion du réseau. J'ai éliminé les équipements non utilisés ou non manageables et restreint l'accès aux équipements. Enfin, j'ai facilité la transition d'un stockage local vers un stockage unique à toutes les entreprises sur le cloud.
 
 ![[20241017_124509.jpg]]
+
 ![[20241017_165434.jpg]]
+
 ![[20241018_144601.jpg]]
+
 ### 3. Gestion de projet
 
 J'ai planifié les tâches à l'aide de l'outil Plane, ce qui m'a permis un suivi structuré des différentes étapes. J'ai organisé le placement des équipements dans la baie en réalisant une simulation avec Packet Tracer. Pour minimiser l'impact sur les utilisateurs, j'ai effectué toutes les interventions après leur départ, garantissant ainsi une continuité de service optimale. Avant de mettre en œuvre les modifications, j'ai présenté un plan d'action détaillé au  DSI pour validation.
@@ -53,8 +61,11 @@ Grâce à ce projet, j'ai renforcé mes compétences en administration réseau e
 ### 1. Compétences mises en œuvre
 
 J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
+
 - Mesurer et analyser le niveau de sécurité de l'infrastructure,
+
 - Détecter et traiter les incidents de sécurité,
+
 - Élaborer et mettre en œuvre la politique de sécurité.
 
 ### 2. Cahier des charges / Expression des besoins
@@ -90,8 +101,11 @@ Ce projet m'a permis de renforcer mes compétences en développement, en adminis
 ### 1. Compétences mises en œuvre
 
 J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
+
 - Administrer et sécuriser les infrastructures virtualisées 
+
 - Mettre en production des évolutions de l’infrastructure 
+
 - Participer à l’élaboration et à la mise en œuvre de la politique de sécurité
 
 ### 2. Cahier des charges / Expression des besoins
@@ -105,10 +119,15 @@ On m'a donc demandé de mettre en place une machine virtuelle Windows Server ave
 
 ### 4. Choix des solutions et critères de sélection
 Nous avons choisi de mettre en place le serveur d'impression sur Windows Server pour plusieurs raisons : 
+
 - Des stratégies de groupe peuvent être utilisées pour gérer les imprimantes et leurs accès,
+
 - Windows Server intègre l'outil de gestion de l'impression, qui est très facile à installer et utiliser. Il permet de surveiller l'état des imprimantes, de gérer les pilotes, de suivre les travaux d'impression et de contrôler les accès,
+
 - Les autorisations peuvent être définies avec précision pour chaque utilisateur ou groupe,
+
 - Windows Server propose des fonctionnalités avancées telles que la mise en file d'attente des impressions, la gestion des priorités et la possibilité de configurer des pools d'imprimantes pour une meilleure disponibilité,
+
 - Windows est plus stable pour gérer un grand nombre d'imprimantes sur des réseaux différents, ce qui est notre cas.
 
 ### 5. Organisation de la mise en œuvre
@@ -126,7 +145,9 @@ Nous avons choisi de mettre en place le serveur d'impression sur Windows Server 
 ##### Ressources
 
 - CPU : 4 vCPUs car j'utilise la version Expérience de bureau de Windows Server, qui utilise beaucoup de ressources,
+
 - RAM : 8 Go car nous avons environ une quarantaine d'imprimantes. Il y a beaucoup de modèles de marques différentes, donc beaucoup de pilotes. Encore une fois, l'expérience de bureau de Windows Server consomme de nombreuses ressources,
+
 - Stockage : 50 Go car peu importe la version, Windows Server est très lourd.
 
 #### Installation du rôle serveur d'impression
@@ -134,30 +155,43 @@ Nous avons choisi de mettre en place le serveur d'impression sur Windows Server 
 L'installation du rôle d'impression se fait très facilement sur Windows Server : 
 
 1. Ouvrir le Gestionnaire de serveur
+
 	1. Se connecter au serveur Windows avec un compte ayant des droits d'administrateur.
+
 	2. Ouvrez le **Gestionnaire de serveur**. 
 
 2. Ajouter le rôle de serveur d'impression
+
 	1. Dans le Gestionnaire de serveur, cliquer sur **Ajouter des rôles et des fonctionnalités**.
+
 	2. Dans l'Assistant, cliquer sur **Suivant** jusqu'à atteindre la page **Sélection du type d'installation**.
+
 	3. Choisir **Installation basée sur un rôle ou une fonctionnalité** et cliquer sur **Suivant**.
 
 3. Sélectionner le serveur
+
 	Sélectionner le serveur sur lequel installer le rôle (généralement, c'est le serveur local) et cliquer sur **Suivant**.
 
 4. Sélectionner le rôle
+
 	1. Dans la liste des rôles, rechercher et cochez **Serveur d'impression**.
+
 	2. Une pop-up peut apparaître pour informer des fonctionnalités supplémentaires qui seront installées. Cliquer sur **Ajouter des fonctionnalités** si nécessaire.
+
 	3. Cliquer sur **Suivant**.
 
 5. Installer les fonctionnalités
+
 	Dans notre cas, aucune fonctionnalité supplémentaire n'est nécessaire, il suffit de cliquer sur **Suivant**.
 
 6. Confirmation et installation
+
 	1. Cliquer sur **Installer**.
+
 	2. L'installation peut prendre quelques minutes. Une fois terminée, il y aura un message de confirmation.
 
 8. Vérification
+
 	Pour vérifier que le rôle a été installé correctement, ouvrir le menu Windows 
 
 #### Ajouter les imprimantes et leurs pilotes
@@ -187,7 +221,9 @@ J'ai mis en place cette GPO afin de simplifier le processus d'ajout des impriman
 ### 6. Relations avec les principaux acteurs du projet
 
 Pour réaliser ce projet, j'ai été en contact avec plusieurs personnes : 
+
 - Le tuteur d'alternance : afin de s'assurer du bon déroulement du projet,
+
 - Le prestataire informatique : pour l'ouverture des ports et donc autoriser le partage des imprimantes.
 
 ### 7. Synthèse et conclusion
@@ -202,8 +238,11 @@ Ce projet m'a permis de consolider mes connaissances en virtualisation et de dé
 J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
 
 - Administrer et sécuriser les infrastructures virtualisées,
+
 - Mettre en production des évolutions de l’infrastructure,
+
 - Participer à l’élaboration et à la mise en œuvre de la politique de sécurité,
+
 - Élaborer et mettre en œuvre la politique de sécurité.
 
 ### 2. Cahier des charges / Expression des besoins
@@ -211,17 +250,25 @@ J'ai mobilisé plusieurs compétences pour mener à bien ce projet :
 L'entreprise avait besoin d'une solution efficace et sécurisée pour sauvegarder ses serveurs, en particulier afin de protéger les données sensibles et garantir une récupération rapide en cas de problème ou de panne système. Ce besoin faisait partie d’une stratégie plus large visant à renforcer la sécurité informatique globale et à se préparer à toute éventualité. Le cahier des charges comportait plusieurs objectifs bien définis :
 
 - Mettre en place une infrastructure de sauvegarde fiable basée sur des bandes LTO (Linear Tape-Open), connues pour leur durabilité et leur capacité de stockage élevée.
+
 - Tester la possibilité de récupérer des fichiers provenant d’un système Windows et les restaurer efficacement sur un environnement Debian.
+
 - Réduire les coûts de stockage et de sauvegarde sur le long terme en utilisant des bandes physiques au lieu de services cloud parfois coûteux.
+
 - Assurer une utilisation simple de la solution, accessible aux techniciens même sans connaissances avancées en sauvegarde.
+
 - Préparer des procédures de sauvegarde régulières et documentées pour faciliter la maintenance et les interventions d’urgence.
 
 Plusieurs raisons ont motivé le lancement de ce projet, principalement liées à la sécurité, à la praticité et à l’efficacité :
 
 - **Sécurité renforcée** : Les bandes LTO, une fois stockées hors ligne, sont protégées contre les cyberattaques comme les ransomwares, qui visent souvent les données accessibles en ligne.
+
 - **Économie de ressources** : Contrairement aux solutions en ligne, l’utilisation de bandes réduit les coûts liés aux abonnements cloud et à la gestion de bande passante.
+
 - **Gestion facilitée** : Une fois le système en place, les sauvegardes peuvent être automatisées et les restaurations réalisées à partir d’un support physique stable.
+
 - **Test de compatibilité inter-systèmes** : Vérifier que des fichiers Windows pouvaient être restaurés correctement sur un système Debian permet d’assurer la flexibilité des procédures de récupération en cas d'incident sur un système particulier.
+
 - **Fiabilité à long terme** : Les bandes magnétiques LTO ont une durée de vie estimée à plusieurs décennies, ce qui est essentiel pour la conservation des données archivées.
 
 ### 3. Gestion de projet
@@ -229,9 +276,13 @@ Plusieurs raisons ont motivé le lancement de ce projet, principalement liées �
 Pour mener à bien ce projet, j’ai suivi plusieurs étapes :
 
 - **Planification** : définition des besoins et rédaction du cahier des charges.
+
 - **Étude des solutions** : comparaison des différentes options disponibles.
+
 - **Mise en place** : installation du serveur, configuration de Proxmox et des sauvegardes.
+
 - **Tests** : vérification du bon fonctionnement des machines virtuelles et des sauvegardes.
+
 - **Documentation** : rédaction des procédures pour assurer la pérennité du projet.
 
 ### 4. Choix des solutions et critères de sélection
@@ -239,16 +290,23 @@ Pour mener à bien ce projet, j’ai suivi plusieurs étapes :
 Pour ce projet, j’ai choisi :
 
 - **Proxmox** pour la virtualisation, car il est open source, fiable et offre une bonne gestion des ressources.
+
 - **LTO (Linear Tape-Open)** pour la sauvegarde, car c'est une technologie éprouvée pour la conservation des données sur le long terme.
+
 - **WinSCP** pour l’export initial et planifié des données depuis le serveur Windows vers une **VM Linux** dédiée à la sauvegarde.
+
 - **rsync** pour transférer de manière sûre et incrémentale les données stockées sur la VM Linux vers les cartouches **LTO**.
+
 - **Samba** comme solution de remplacement pour le dépôt continu des fichiers, afin de pallier l’absence de fonction de mirroring dans WinSCP.
 
 Les critères de sélection incluaient :
 
 - La compatibilité avec l’infrastructure existante.
+
 - La facilité de mise en place et de maintenance.
+
 - Le coût par rapport aux solutions concurrentes.
+
 - La performance et la fiabilité.
 
 ### 5. Organisation de la mise en œuvre
@@ -256,17 +314,25 @@ Les critères de sélection incluaient :
 Voici le déroulement détaillé des différentes étapes que j’ai suivies :
 
 1. **Installation de Proxmox** : J’ai commencé par installer Proxmox, un environnement de virtualisation open-source. Il permet de créer facilement des machines virtuelles pour simuler différentes situations, notamment des environnements Windows et Debian.
+
 2. **Préparation du matériel LTO** : J’ai ensuite mis en place le matériel nécessaire, comme le lecteur de bandes, les bandes LTO vierges, et j’ai installé les logiciels de gestion de sauvegarde compatibles.
+
 3. **Création et configuration des machines virtuelles** : J’ai créé plusieurs machines virtuelles : une sous Windows avec des fichiers à sauvegarder, et une autre sous Debian pour simuler le poste de récupération.
+
 4. **Export des données via WinSCP** : Sur le serveur Windows, j’ai programmé des transferts planifiés avec **WinSCP** vers un répertoire sécurisé de la VM Linux de sauvegarde.
+
 5. **Synchronisation vers les bandes avec rsync** : Sur la VM Linux, un **script rsync** incrémental se charge d’envoyer les nouvelles données vers le robot LTO, tout en conservant l’intégrité et l’historique.
+
 6. **Passage à Samba pour le mirroring** : La fonction de mirroring n’étant pas disponible nativement dans WinSCP, j’ai finalement déployé un partage **Samba** sur la VM Linux. Ainsi, le serveur Windows dépose directement ses fichiers dans le partage réseau, ce qui permet une synchronisation continue et plus fiable, tout en simplifiant la supervision des transferts.
+
 7. **Réalisation des tests** : Plusieurs tests ont été faits pour vérifier que les fichiers sauvegardés sous Windows pouvaient être restaurés sans erreurs sur Debian, en gardant leur intégrité.
+
 8. **Contrôles de fiabilité** : J’ai mis en place des vérifications automatiques et manuelles pour m’assurer que les sauvegardes étaient bien effectuées et que les restaurations fonctionnaient correctement.
 
 ### 6. Relations avec les principaux acteurs du projet
 
 - **Moi-même** : J’ai assuré la mise en place technique, la configuration des machines virtuelles, les tests de sauvegarde et la création de la documentation.
+
 - **Mon tuteur** : Il m’a accompagné tout au long du projet pour valider les choix techniques, m’aider à résoudre certains blocages, et vérifier la conformité des résultats.
 
 ### 7. Synthèse et conclusion
@@ -274,18 +340,27 @@ Voici le déroulement détaillé des différentes étapes que j’ai suivies :
 Au cours du projet, j’ai dû faire face à plusieurs difficultés techniques et organisationnelles :
 
 - **Problèmes de compatibilité** : Certains fichiers sauvegardés depuis Windows avaient des autorisations ou des encodages qui posaient problème lors de la restauration sur Debian.
+
 - **Complexité de la gestion des bandes** : Manipuler les bandes LTO demande une certaine rigueur. Il faut bien les identifier, suivre leur rotation, et stocker correctement les anciennes versions.
+
 - **Temps de restauration parfois long** : Restaurer un fichier depuis une bande est plus lent qu’avec un disque dur ou un stockage cloud, ce qui peut être gênant en cas d’urgence.
+
 - **Apprentissage de Proxmox** : Bien que très puissant, Proxmox demande du temps pour être bien maîtrisé, surtout lorsqu’on débute avec la virtualisation.
+
 - **Documentation technique** : J’ai dû créer une documentation claire pour permettre à d’autres personnes de reprendre facilement les opérations si nécessaire.
 
 Ce projet a été particulièrement formateur et enrichissant pour moi. Il m’a permis d’acquérir de nouvelles compétences et de renforcer celles que j’avais déjà :
 
 - **Maîtrise de Proxmox** : J’ai appris à créer, configurer et utiliser des machines virtuelles dans un environnement de production.
+
 - **Utilisation avancée des bandes LTO** : J’ai compris comment fonctionnent les sauvegardes sur bandes, quels sont leurs avantages, mais aussi les précautions à prendre pour éviter les erreurs.
+
 - **Transfert et récupération de fichiers entre systèmes** : J’ai amélioré mes connaissances sur les systèmes de fichiers Windows et Linux, en apprenant à gérer leurs différences.
+
 - **Mise en œuvre de WinSCP, rsync et Samba** : J’ai mis en place une chaîne de transfert complète, du serveur Windows jusqu’aux cartouches LTO, en choisissant les outils les plus adaptés à chaque étape.
+
 - **Rigueur dans la documentation** : J’ai réalisé l’importance de bien documenter toutes les étapes d’un projet pour en faciliter la reprise ou l’évolution.
+
 - **Autonomie et résolution de problèmes** : J’ai dû apprendre à chercher des solutions par moi-même et à tester différentes approches avant de trouver la plus efficace.
 
 La mise en place d’un serveur Proxmox VE et d’une sauvegarde sur bande LTO, couplée à l’usage de WinSCP, rsync et Samba, a été un projet enrichissant. Il a permis de sécuriser les données de l’entreprise tout en optimisant les ressources informatiques. Malgré quelques défis techniques, les objectifs ont été atteints et la solution mise en place est efficace et évolutive. Ce projet m’a également permis de renforcer mes compétences en infrastructure et en gestion de la sécurité des données, ce qui me sera très utile pour la suite de mon parcours professionnel.
@@ -298,7 +373,9 @@ En conclusion, ce projet m’a permis de mieux comprendre l’importance d’un 
 ### 1. Compétences mises en œuvre
 
 J'ai mobilisé plusieurs compétences dans le cadre de ce projet :
+
 - Mesurer et analyser le niveau de sécurité de l’infrastructure,
+
 - Élaborer et mettre en œuvre une politique de sécurité.
 
 ### 2. Cahier des charges / Expression des besoins

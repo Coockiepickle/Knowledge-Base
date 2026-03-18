@@ -1159,10 +1159,10 @@
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
     <h2 id="exclure-des-adresses-ip-qui-ne-seront-pas-en-dhcp">Exclure des adresses IP qui ne seront pas en DHCP<a class="headerlink" href="#exclure-des-adresses-ip-qui-ne-seront-pas-en-dhcp" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!INFO]
-Les adresses qui ont été attribuées statiquement aux périphériques sur des réseaux qui utiliseront DHCP doivent être exclues des pools DHCP. Cela évite les erreurs associées aux adresses IP dupliquées. En outre, les adresses sont exclues pour l'attribution statique à d'autres périphériques tels que des serveurs et des interfaces de gestion de périphériques.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Les adresses qui ont été attribuées statiquement aux périphériques sur des réseaux qui utiliseront DHCP doivent être exclues des pools DHCP. Cela évite les erreurs associées aux adresses IP dupliquées. En outre, les adresses sont exclues pour l'attribution statique à d'autres périphériques tels que des serveurs et des interfaces de gestion de périphériques.</p>
+</div>
 <div class="codehilite"><pre><span></span><code>conf t
 ip dhcp excluded-adress (adresse de début | adresse de fin)
 </code></pre></div>
@@ -1176,10 +1176,10 @@ dns-server (adresse IP)
 </code></pre></div>
 
 <h2 id="configurer-un-relai">Configurer un relai<a class="headerlink" href="#configurer-un-relai" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!INFO]
-Pour que les clients DHCP obtiennent une adresse à partir d'un serveur sur un segment LAN différent, l'interface à laquelle les clients sont attachés doit inclure une adresse d'assistance pointant vers le serveur DHCP. Dans ce cas, les hôtes sur les LAN qui sont attachés à R1 et R3 accèdent au serveur DHCP configuré sur R2. Les adresses IP des interfaces série R2 attachées à R1 et R3 sont utilisées comme adresses d'assistance. Le trafic DHCP à partir des hôtes sur les réseaux locaux de R1 et R3 sera transféré à ces adresses et traité par le serveur DHCP configuré sur R2.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Pour que les clients DHCP obtiennent une adresse à partir d'un serveur sur un segment LAN différent, l'interface à laquelle les clients sont attachés doit inclure une adresse d'assistance pointant vers le serveur DHCP. Dans ce cas, les hôtes sur les LAN qui sont attachés à R1 et R3 accèdent au serveur DHCP configuré sur R2. Les adresses IP des interfaces série R2 attachées à R1 et R3 sont utilisées comme adresses d'assistance. Le trafic DHCP à partir des hôtes sur les réseaux locaux de R1 et R3 sera transféré à ces adresses et traité par le serveur DHCP configuré sur R2.</p>
+</div>
 <div class="codehilite"><pre><span></span><code>conf t
 interface (non d&#39;interface)
 ip helper-adress (adresse du DHCP)

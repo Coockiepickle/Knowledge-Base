@@ -1158,7 +1158,10 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <p>(Zone-based Policy Firewall, Pare-feu à politiques basées sur les zones)</p>
+    <div class="admonition info">
+<p class="admonition-title">Definition</p>
+<p>(Zone-based Policy Firewall, Pare-feu à politiques basées sur les zones)</p>
+</div>
 <h1 id="configurer-un-zpf">Configurer un ZPF<a class="headerlink" href="#configurer-un-zpf" title="Permanent link">&para;</a></h1>
 <h3 id="etape-1-creer-les-zones">Étape 1 : Créer les zones<a class="headerlink" href="#etape-1-creer-les-zones" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>conf t
@@ -1188,23 +1191,23 @@ exit
 <div class="codehilite"><pre><span></span><code>match class-map (nom_du_mappage_de_classe)
 </code></pre></div>
 
-<blockquote>
-<p>[!NOTE]
-<em>Pour le protocole, lorsqu'on autorise le trafic HTTP par exemple, il est recommandé d'inclure le trafic DNS, donc les commandes seront :</em>
-    match protocol http
-    match protocol https
-    match protocol dns</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Pour le protocole, lorsqu'on autorise le trafic HTTP par exemple, il est recommandé d'inclure le trafic DNS, donc les commandes seront :</em>
+<code>match protocol http
+match protocol https
+match protocol dns</code></p>
+</div>
 <h3 id="etape-3-definir-une-action">Étape 3 : Définir une action<a class="headerlink" href="#etape-3-definir-une-action" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="nx">policy</span><span class="o">-</span><span class="nx">map</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_du_mappage_de_politiques</span><span class="p">)</span>
 <span class="kd">class</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_classe_de_mappage</span><span class="p">)</span>
 <span class="p">{</span><span class="nx">inspect</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">drop</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">pass</span><span class="p">}</span>
 </code></pre></div>
 
-<blockquote>
-<p>[!NOTE]
-[[Actions ZPF |Voir la définition des actions ZPF]]</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>[[Actions ZPF |Voir la définition des actions ZPF]]</p>
+</div>
 <h3 id="etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique">Étape 4 : Identifier une paire de zones et l'associer à une politique<a class="headerlink" href="#etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="nx">conf</span><span class="w"> </span><span class="nx">t</span>
 <span class="nx">zone</span><span class="o">-</span><span class="nx">pair</span><span class="w"> </span><span class="nx">security</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_paire_de_zone</span><span class="p">)</span><span class="w"> </span><span class="nx">source</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_source</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kp">self</span><span class="p">)</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_destination</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kp">self</span><span class="p">)</span>
@@ -1217,10 +1220,10 @@ exit
 zone-member security (nom_de_la_zone)
 </code></pre></div>
 
-<blockquote>
-<p>[!WARNING]
-Il faut évidemment attribuer deux interfaces, par exemple une interface publique et une interface privée</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Il faut évidemment attribuer deux interfaces, par exemple une interface publique et une interface privée</p>
+</div>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">

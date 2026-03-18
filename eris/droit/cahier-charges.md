@@ -5,8 +5,11 @@ Il sert à définir précisément les besoins, les objectifs et les attentes du 
 Il constitue la base de référence pour rédiger le contrat de prestation.
 
 - Prudence
+
 - État de l'existant
+
 - Faisabilité
+
 - Pertinence
 
 
@@ -24,7 +27,9 @@ On s'interroge au moment de la mise en place pour éviter les problématiques en
 Cela permet au client de :
 
 - Comparer les offres (prix, compétences, délais, qualité),
+
 - Obtenir le meilleur rapport qualité/prix,
+
 - Stimuler la performance et l’innovation des prestataires.
 
 
@@ -32,16 +37,22 @@ Cela permet au client de :
 
 Il est rédigé par le client (souvent avec l’aide d’un chef de projet ou d’un consultant).
 Oui, il a une valeur juridique, si : 
+
 - Il est intégré ou annexé au contrat (paraphé, daté et paginé)
+
 - Il est accepté par les deux parties (signature ou validation formelle).
 
 #### 3 types de maintenance :
 
 - **Maintenance préventive** : Permet d'assurer une formation aux futurs utilisateurs
 	Soit :
-	- [[Clauses]] du contrat de prestation
+
+	- [Clauses](./eris/droit/clauses.md) du contrat de prestation
+	
 	- Contrat de prestation
+
 - **Maintenance corrective** : Réparer les erreurs d'anciens techniciens
+
 - **Maintenance technologique** : Éviter l’obsolescence et tirer parti des progrès (sécurité, performance, support éditeur)
 
 Cahier des charges = Expression des besoins
@@ -61,24 +72,33 @@ Cahier des charges = Expression des besoins
 
 
 ##### Absents dans le contrat de prestation :
+
 - **Pas de clause RGPD**
+
 - **Prestation peu détaillée** : manque un descriptif précis des missions/livrables
+
 - **Durée, résiliation, réversibilité** : absentes
+
 - **Clauses financières imprécises** (échéances, pénalités, révisions)
+
 - **Sous-traitance, assurance** : non abordées
+
 - **Responsabilité trop vague** : peu protectrice pour le client
+
 - **Propriété intellectuelle** : non traitée (à qui appartiennent les livrables ?)
 
 ##### Clauses contestables : 
+
 - **Responsabilité** : trop limitée pour le prestataire
+
 - **Obligation de moyens** : non précisée
+
 - **Tribunal compétent** : imposé par défaut au siège du prestataire
+
 - **Pas de pénalités** : prévues en cas de retard ou de défaut
 
-
-Par principe, il est interdit de faire évoluer les prix lors de l'exécution du contrat, sauf si : les prix peuvent évoluer (biens...) 
-
-
+!!! info
+	Par principe, il est interdit de faire évoluer les prix lors de l'exécution du contrat, sauf si : les prix peuvent évoluer (biens...) 
 
 
 1. De quel type de prestation informatique est-il question ?

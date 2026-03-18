@@ -21,16 +21,12 @@ standby (n°grp) ip (ip virtuelle)
 
 ## Vérifier la configuration
 
-```
-show standby
+`show standby`
 
-```
-		ou
+ou
 
-```
-show standby brief
-```
+`show standby brief`
 
 Changer les passerelles par défaut
 
-Voir [[Changer Passerelle par défaut |Comment changer la passerelle par défaut switch]]
+Voir [Changer Passerelle par défaut](./dec/routing-switching/change-default-gateway.md)

@@ -17,8 +17,11 @@ Adapte le niveau à un étudiant et reste approximatif dans les chiffres.
 ## 1. Prix des matériaux​
 
 - Bois : 12 €
+
 - Vis : 2 €
+
 - Colle : 1 €
+
 - Peinture/vernis : 3 €
 
 Total pour les matériaux : **18 €**
@@ -37,9 +40,13 @@ Pour chaque chaise fabriquée : 18 € + 28 € = **46 €**
 ## 4. Charges fixes
 
 - Loyer de l'atelier : 4 000 €
+
 - Salaires du chef d'atelier : 4 000 €
+
 - Assurances : 2 000 €
+
 - Électricité/eau : 1 000 €
+
 - Entretien des machines : 1 000 €
 
 Total par mois : **12 000 €**
@@ -49,8 +56,11 @@ Total par mois : **12 000 €**
 Si on a 5 ouvriers qui travaillent 8 heures par jour, 20 jours par mois.​
 
 - 1 ouvrier : 8 h × 20 j = 160 h par mois
+
 - 5 ouvriers : 160 x 5 = 800 h disponibles
+
 - Une chaise prend 2 heures à faire
+
 - Par mois : 800 / 2 = **400 chaises**
 
 On peut produire 400 chaises par mois si tout se passe bien (aucun imprévu, pas d'arrêt maladie...).
@@ -62,7 +72,9 @@ Part des charges fixes par chaise : 12 000 € / 400 = **30 €**
 Donc au final, une chaise coûte :
 
 - Matériaux et main d'œuvre directe : 46 €
+
 - Part des charges fixes : 30 €
+
 - Coût total : **76 €**
 
 ## 7. Tous les coûts du mois
@@ -70,7 +82,9 @@ Donc au final, une chaise coûte :
 Si on produit 400 chaises dans le mois :
 
 - Dépenses : 46 € x 400 = 18 400 €
+
 - Charges fixes : 12 000 €
+
 - Total dépensé : **30 400 €**
 
 ## 8. À quel prix vendre la chaise ?
@@ -84,7 +98,9 @@ On décide de vendre nos chaises à **120 €**.​
 Si on vend les 400 chaises :
 
 - Argent reçu : 120 € x 400 = 48 000 €
+
 - Argent dépensé : 30 400 €
+
 - Bénéfice du mois : **17 600 €**
 
 ## 9. Rentabilité
@@ -124,8 +140,11 @@ On doit vendre assez cher pour gagner de l'argent et pouvoir faire vivre l'entre
 **La marge de 44 € sert à :**
 
 - Avoir une réserve d'argent si les prix du bois augmentent
+
 - Acheter de nouvelles machines
+
 - Payer les réparations imprévues
+
 - Faire grandir l'entreprise
 
 ## Webographie

@@ -1,25 +1,21 @@
 
-> [!IMPORTANT]
-> J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'afficher ce bloc de manière :sparkles: jolie :sparkles:, je recommande donc de l'ouvrir avec Obsidian
-
----
-
 ## Paramètres réseau
 
 Dans **SConfig**, entrer ==8==, puis le numéro de la carte réseau que l'on veut modifier, ensuite, entrer ==1==, choisir ==(S)== puis rentrer la configuration IP :
 
 - Adresse IP,
+
 - Masque de sous-réseau,
+
 - Passerelle par défaut
 
 #### Sinon, en ligne de commande :
-```
-Get-NetIPAddress
-```
+
+`Get-NetIPAddress`
+
 Noter le numéro d'interface, puis :
-```
-New-NetIPAddress -Interface-Index <n° de l'interface> -IPAddress <Adresse IP> -PrefixLength 24 -DefaultGateway 100.0.0.1
-```
+
+`New-NetIPAddress -Interface-Index <n° de l'interface> -IPAddress <Adresse IP> -PrefixLength 24 -DefaultGateway 100.0.0.1`
 
 #### Modifier le DNS
 
@@ -43,8 +39,8 @@ Import-Module ADDSDeployment
 Install-ADDSForest -DomainName infodec.quebec -InstallDNS
 ```
 
-> [!IMPORTANT] 
-> Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage
+!!! important
+	Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage
 
 
 ---
@@ -53,6 +49,7 @@ Install-ADDSForest -DomainName infodec.quebec -InstallDNS
 
 
 ``diskpart``
+
 ```Powershell
 select disk 1
 convert dynamic
@@ -71,33 +68,30 @@ assign letter=W
 
 ## Installation MariaDB
 
-```PowerShell
-.\mariadb-11.3.2-winx64.msi
-```
+`.\mariadb-11.3.2-winx64.msi`
+
 Cocher la case :
+
 "Enable root access..."
 
 Chemin des datas :
+
 "S:\data"
 
 ---
 
 ## Installation IIS
 
-```PowerShell
-Install-WindowsFeature Web-Server -IncludeManagementTools
-```
+`Install-WindowsFeature Web-Server -IncludeManagementTools`
 
-> [!WARNING]
-> Après chaque modification, taper la commande `iisreset`
+!!! warning
+	Après chaque modification, taper la commande `iisreset`
 
 ---
 
 ## Installation PHP
 
-```PowerShell
-Install-WindowsFeature Web-CGI
-```
+`Install-WindowsFeature Web-CGI`
 
 Lancer l'installation de **VC_redist.X64.exe**
 
@@ -109,7 +103,6 @@ Expand-Archive -LiteralPath 'Z:\php-8.3.3-nts-Win32-vs16-x64.zip' -DestinationPa
 cp php.ini-development php.ini
 
 notepad.exe C:\PHP\php.ini
-
 
 New-WebHandler -Name "PHP-FastCGI" -Path "*.php" -Verb "*" -Modules "FastCgiModule" -ScriptProcessor "c:\php\php-cgi.exe" -ResourceType File
 
@@ -126,20 +119,18 @@ notepad.exe C:\Windows\System32\inetsrv\config\applicationHost.config
 ```
 
 Puis, entrer la commande :
+
 `iisreset`
 
 ---
 
 ## Installation PHPMyAdmin
 
-```Powershell
-Expand-Archive -LiteralPath 'Z:\phpMyAdmin-5.2.1-all-languages.zip' -DestinationPath C:\inetpub\wwwroot
-```
+`Expand-Archive -LiteralPath 'Z:\phpMyAdmin-5.2.1-all-languages.zip' -DestinationPath C:\inetpub\wwwroot`
+
 Décommenter, dans `php.ini` à la ligne 770 environ :
 
-```
-extension_dir = "ext"
-```
+`extension_dir = "ext"`
 
 et, à la fin du fichier, rajouter :
 
@@ -150,11 +141,10 @@ extension = "mbstring"
 
 Rendre la machine accessible sur internet, en choisissant "Accès par pont" dans VirtualBox et installer IIS dans WAC.
 
-```PowerShell
-Rename-Item C:\inetpub\wwwroot\phpMyAdmin-5.2.1-all-languages phpMyAdmin
-```
+`Rename-Item C:\inetpub\wwwroot\phpMyAdmin-5.2.1-all-languages phpMyAdmin`
 
 Dans le fichier `C:\Windows\System32\inetsrv\config\applicationHost.config`
+
 ```PowerShell
 directoryBrowse enabled="true"
 <add value="index.php" />
@@ -220,8 +210,8 @@ icacls "W:\antares" /grant "IIS_IUSRS:(OI)(CI)F"
 
 On peut maintenant accéder à [Wordpress](https://antares.local) et suivre les instructions d'installation.
 
-> [!TIP] Pour voir les images
-> `<mimeMap fileExtension=".webp" mimeType="image/webp" />`
+!!! success
+	`<mimeMap fileExtension=".webp" mimeType="image/webp" />`
 
 ---
 
@@ -242,7 +232,7 @@ On peut maintenant accéder à [Wordpress](https://antares.local) et suivre les 
 
 ---
 
->[!QUESTION]- Auteur
->Documentation réalisée par Damien Reynaud le 22 Mars 2024
+!!! info "Auteur"
+	Documentation réalisée par Damien Reynaud le 22 Mars 2024
 
 

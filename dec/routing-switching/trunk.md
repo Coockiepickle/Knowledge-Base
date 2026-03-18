@@ -7,6 +7,6 @@ interface (nom_de_l'interface)
 switchport mode trunk
 ```
 
->[!WARNING]
- Il est obligatoire de mettre un port en trunk si on veut faire de l'[[EtherChannel]]
+!!! warning
+    Il est obligatoire de mettre un port en trunk si on veut faire de l'[[EtherChannel]]
 

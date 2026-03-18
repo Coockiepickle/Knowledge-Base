@@ -1,8 +1,11 @@
 Je peux rejoindre l'entreprise si : 
 
 - La clause de non-concurrence est terminée ou inexistante
+
 - Le poste est attractif
+
 - Le poste est mieux rémunéré
+
 - L'entreprise est prête à indemniser
 
 Je ne peux pas rejoindre l'entreprise si : 

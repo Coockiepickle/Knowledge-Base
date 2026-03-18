@@ -1199,13 +1199,27 @@
 <hr />
 <h2 id="ce-que-jai-realise">Ce que j'ai réalisé<a class="headerlink" href="#ce-que-jai-realise" title="Permanent link">&para;</a></h2>
 <hr />
-<p>J'ai :
-- Installé Kali Linux sur un Raspberry Pi, mis en place un accès à distance,
-- Fais de nombreuses recherches sur le fonctionnement d'attaques réseau,
-- Testé plusieurs types d'attaques très répandues,
-- Designé un réseau de test à attaquer sur <a href="https://app.diagrams.net/">Draw.io</a>,
-- Installé et configuré l'écran et la batterie sur le RPI,
-- Réinstallé Raspbian et les applications de pentesting de Kali.</p>
+<p>J'ai :</p>
+<ul>
+<li>
+<p>Installé Kali Linux sur un Raspberry Pi, mis en place un accès à distance,</p>
+</li>
+<li>
+<p>Fais de nombreuses recherches sur le fonctionnement d'attaques réseau,</p>
+</li>
+<li>
+<p>Testé plusieurs types d'attaques très répandues,</p>
+</li>
+<li>
+<p>Designé un réseau de test à attaquer sur <a href="https://app.diagrams.net/">Draw.io</a>,</p>
+</li>
+<li>
+<p>Installé et configuré l'écran et la batterie sur le RPI,</p>
+</li>
+<li>
+<p>Réinstallé Raspbian et les applications de pentesting de Kali.</p>
+</li>
+</ul>
 <hr />
 <h2 id="le-reseau-cible">Le réseau cible<a class="headerlink" href="#le-reseau-cible" title="Permanent link">&para;</a></h2>
 <p>![[Cégep/Images/Réseau Screenshot.png|400]]</p>
@@ -1214,9 +1228,7 @@
 <hr />
 <h2 id="audit-de-securite">Audit de sécurité<a class="headerlink" href="#audit-de-securite" title="Permanent link">&para;</a></h2>
 <h2 id="avec-lynis">Avec Lynis<a class="headerlink" href="#avec-lynis" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo ./lynis audit system -Q
-</code></pre></div>
-
+<p><code>sudo ./lynis audit system -Q</code></p>
 <hr />
 <h2 id="1ere-attaque">1ère attaque<a class="headerlink" href="#1ere-attaque" title="Permanent link">&para;</a></h2>
 <h2 id="decouverte-de-reseau">Découverte de réseau<a class="headerlink" href="#decouverte-de-reseau" title="Permanent link">&para;</a></h2>
@@ -1262,17 +1274,23 @@
 <p><a href="https://www.kali.org/tools/dhcpig/">dhcpig | Kali Linux Tools</a></p>
 <p><a href="https://github.com/kamorin/DHCPig">DHCPig GitHub</a></p>
 <p>Juste <strong>une</strong> commande à taper :</p>
-<div class="codehilite"><pre><span></span><code>sudo dhcpig -c -v3 -l -a -i -o wlan0
-</code></pre></div>
-
+<p><code>sudo dhcpig -c -v3 -l -a -i -o wlan0</code></p>
 <hr />
 <h2 id="ce-quil-me-reste-a-faire">Ce qu'il me reste à faire<a class="headerlink" href="#ce-quil-me-reste-a-faire" title="Permanent link">&para;</a></h2>
 <hr />
 <ul>
-<li>Faire le réseau de manière physique et/ou sur Packet Tracer,</li>
-<li>Trouver un moyen de s'infiltrer sur le réseau avec une autre attaque :<ul>
-<li>Phishing (<a href="https://www.kali.org/tools/wifiphisher/">wifiphisher | Kali Linux Tools</a>)</li>
-<li>Evil twin (<a href="https://www.kali.org/tools/airgeddon/">airgeddon | Kali Linux Tools</a>)</li>
+<li>
+<p>Faire le réseau de manière physique et/ou sur Packet Tracer,</p>
+</li>
+<li>
+<p>Trouver un moyen de s'infiltrer sur le réseau avec une autre attaque :</p>
+<ul>
+<li>
+<p>Phishing (<a href="https://www.kali.org/tools/wifiphisher/">wifiphisher | Kali Linux Tools</a>)</p>
+</li>
+<li>
+<p>Evil twin (<a href="https://www.kali.org/tools/airgeddon/">airgeddon | Kali Linux Tools</a>)</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1289,17 +1307,31 @@
 <h2 id="les-solutions">Les solutions<a class="headerlink" href="#les-solutions" title="Permanent link">&para;</a></h2>
 <hr />
 <ul>
-<li>Boîtier incluant un écran sur Amazon (37 $CAD),</li>
-<li>Une batterie (40 $CAD),</li>
-<li>Aide du Cégep pour les composants externes, je pourrai ensuite tester les attaques avec la carte en mode "monitoring",</li>
-<li><strong>Alternatives</strong> aux applications amd64.</li>
+<li>
+<p>Boîtier incluant un écran sur Amazon (37 $CAD),</p>
+</li>
+<li>
+<p>Une batterie (40 $CAD),</p>
+</li>
+<li>
+<p>Aide du Cégep pour les composants externes, je pourrai ensuite tester les attaques avec la carte en mode "monitoring",</p>
+</li>
+<li>
+<p><strong>Alternatives</strong> aux applications amd64.</p>
+</li>
 </ul>
 <hr />
 <h2 id="criteres-de-succes">Critères de succès<a class="headerlink" href="#criteres-de-succes" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Pouvoir <strong>infiltrer</strong> un réseau Wi-Fi,</li>
-<li>Pouvoir <strong>lancer plusieurs attaques</strong> à partir du RPI,</li>
-<li>Pouvoir se connecter <strong>à distance</strong> à Raspbian.</li>
+<li>
+<p>Pouvoir <strong>infiltrer</strong> un réseau Wi-Fi,</p>
+</li>
+<li>
+<p>Pouvoir <strong>lancer plusieurs attaques</strong> à partir du RPI,</p>
+</li>
+<li>
+<p>Pouvoir se connecter <strong>à distance</strong> à Raspbian.</p>
+</li>
 </ul>
 <hr />
 <h2 id="timeline">Timeline<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h2>

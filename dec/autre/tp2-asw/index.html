@@ -1158,26 +1158,23 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <blockquote>
-<p>[!IMPORTANT]
-J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'afficher ce bloc de manière :sparkles: jolie :sparkles:, je recommande donc de l'ouvrir avec Obsidian</p>
-</blockquote>
-<hr />
-<h2 id="parametres-reseau">Paramètres réseau<a class="headerlink" href="#parametres-reseau" title="Permanent link">&para;</a></h2>
+    <h2 id="parametres-reseau">Paramètres réseau<a class="headerlink" href="#parametres-reseau" title="Permanent link">&para;</a></h2>
 <p>Dans <strong>SConfig</strong>, entrer ==8==, puis le numéro de la carte réseau que l'on veut modifier, ensuite, entrer ==1==, choisir ==(S)== puis rentrer la configuration IP :</p>
 <ul>
-<li>Adresse IP,</li>
-<li>Masque de sous-réseau,</li>
-<li>Passerelle par défaut</li>
+<li>
+<p>Adresse IP,</p>
+</li>
+<li>
+<p>Masque de sous-réseau,</p>
+</li>
+<li>
+<p>Passerelle par défaut</p>
+</li>
 </ul>
 <h4 id="sinon-en-ligne-de-commande">Sinon, en ligne de commande :<a class="headerlink" href="#sinon-en-ligne-de-commande" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>Get-NetIPAddress
-</code></pre></div>
-
+<p><code>Get-NetIPAddress</code></p>
 <p>Noter le numéro d'interface, puis :</p>
-<div class="codehilite"><pre><span></span><code>New-NetIPAddress -Interface-Index &lt;n° de l&#39;interface&gt; -IPAddress &lt;Adresse IP&gt; -PrefixLength 24 -DefaultGateway 100.0.0.1
-</code></pre></div>
-
+<p><code>New-NetIPAddress -Interface-Index &lt;n° de l'interface&gt; -IPAddress &lt;Adresse IP&gt; -PrefixLength 24 -DefaultGateway 100.0.0.1</code></p>
 <h4 id="modifier-le-dns">Modifier le DNS<a class="headerlink" href="#modifier-le-dns" title="Permanent link">&para;</a></h4>
 <p>Entrer ==8==, puis le numéro de la carte réseau que l'on veut modifier, ensuite, choisir ==2==, puis entrer l'adresse IP du contrôleur de domaine pour les machines <strong>IIS</strong> et <strong>DB</strong>.</p>
 <hr />
@@ -1192,10 +1189,10 @@ J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'affi
 <span class="nb">Install-ADDSForest</span> <span class="n">-DomainName</span> <span class="n">infodec</span><span class="p">.</span><span class="n">quebec</span> <span class="n">-InstallDNS</span>
 </code></pre></div>
 
-<blockquote>
-<p>[!IMPORTANT] 
-Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage</p>
-</blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix apparaît et attendre le redémarrage</p>
+</div>
 <hr />
 <h2 id="raid-1">RAID-1<a class="headerlink" href="#raid-1" title="Permanent link">&para;</a></h2>
 <p><code>diskpart</code></p>
@@ -1214,27 +1211,21 @@ Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix appa
 
 <hr />
 <h2 id="installation-mariadb">Installation MariaDB<a class="headerlink" href="#installation-mariadb" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="p">.\</span><span class="n">mariadb</span><span class="p">-</span><span class="n">11</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">2-winx64</span><span class="p">.</span><span class="n">msi</span>
-</code></pre></div>
-
-<p>Cocher la case :
-"Enable root access..."</p>
-<p>Chemin des datas :
-"S:\data"</p>
+<p><code>.\mariadb-11.3.2-winx64.msi</code></p>
+<p>Cocher la case :</p>
+<p>"Enable root access..."</p>
+<p>Chemin des datas :</p>
+<p>"S:\data"</p>
 <hr />
 <h2 id="installation-iis">Installation IIS<a class="headerlink" href="#installation-iis" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">Web-Server</span> <span class="n">-IncludeManagementTools</span>
-</code></pre></div>
-
-<blockquote>
-<p>[!WARNING]
-Après chaque modification, taper la commande <code>iisreset</code></p>
-</blockquote>
+<p><code>Install-WindowsFeature Web-Server -IncludeManagementTools</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Après chaque modification, taper la commande <code>iisreset</code></p>
+</div>
 <hr />
 <h2 id="installation-php">Installation PHP<a class="headerlink" href="#installation-php" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">Web-CGI</span>
-</code></pre></div>
-
+<p><code>Install-WindowsFeature Web-CGI</code></p>
 <p>Lancer l'installation de <strong>VC_redist.X64.exe</strong></p>
 <p>Redémarrer le serveur</p>
 <div class="codehilite"><pre><span></span><code><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\php-8.3.3-nts-Win32-vs16-x64.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">C</span><span class="p">:\</span><span class="n">PHP</span>
@@ -1242,7 +1233,6 @@ Après chaque modification, taper la commande <code>iisreset</code></p>
 <span class="nb">cp </span><span class="n">php</span><span class="p">.</span><span class="n">ini-development</span> <span class="n">php</span><span class="p">.</span><span class="n">ini</span>
 
 <span class="n">notepad</span><span class="p">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:\</span><span class="n">PHP</span><span class="p">\</span><span class="n">php</span><span class="p">.</span><span class="n">ini</span>
-
 
 <span class="nb">New-WebHandler</span> <span class="n">-Name</span> <span class="s2">&quot;PHP-FastCGI&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;*.php&quot;</span> <span class="n">-Verb</span> <span class="s2">&quot;*&quot;</span> <span class="n">-Modules</span> <span class="s2">&quot;FastCgiModule&quot;</span> <span class="n">-ScriptProcessor</span> <span class="s2">&quot;c:\php\php-cgi.exe&quot;</span> <span class="n">-ResourceType</span> <span class="n">File</span>
 
@@ -1258,26 +1248,20 @@ Après chaque modification, taper la commande <code>iisreset</code></p>
 <span class="p">&lt;/</span><span class="n">fastCgi</span><span class="p">&gt;</span>
 </code></pre></div>
 
-<p>Puis, entrer la commande :
-<code>iisreset</code></p>
+<p>Puis, entrer la commande :</p>
+<p><code>iisreset</code></p>
 <hr />
 <h2 id="installation-phpmyadmin">Installation PHPMyAdmin<a class="headerlink" href="#installation-phpmyadmin" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\phpMyAdmin-5.2.1-all-languages.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">C</span><span class="p">:\</span><span class="n">inetpub</span><span class="p">\</span><span class="n">wwwroot</span>
-</code></pre></div>
-
+<p><code>Expand-Archive -LiteralPath 'Z:\phpMyAdmin-5.2.1-all-languages.zip' -DestinationPath C:\inetpub\wwwroot</code></p>
 <p>Décommenter, dans <code>php.ini</code> à la ligne 770 environ :</p>
-<div class="codehilite"><pre><span></span><code>extension_dir = &quot;ext&quot;
-</code></pre></div>
-
+<p><code>extension_dir = "ext"</code></p>
 <p>et, à la fin du fichier, rajouter :</p>
 <div class="codehilite"><pre><span></span><code>extension = &quot;mysqli&quot;
 extension = &quot;mbstring&quot;
 </code></pre></div>
 
 <p>Rendre la machine accessible sur internet, en choisissant "Accès par pont" dans VirtualBox et installer IIS dans WAC.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">Rename-Item</span> <span class="n">C</span><span class="p">:\</span><span class="n">inetpub</span><span class="p">\</span><span class="n">wwwroot</span><span class="p">\</span><span class="n">phpMyAdmin</span><span class="p">-</span><span class="n">5</span><span class="p">.</span><span class="n">2</span><span class="p">.</span><span class="n">1-all-languages</span> <span class="n">phpMyAdmin</span>
-</code></pre></div>
-
+<p><code>Rename-Item C:\inetpub\wwwroot\phpMyAdmin-5.2.1-all-languages phpMyAdmin</code></p>
 <p>Dans le fichier <code>C:\Windows\System32\inetsrv\config\applicationHost.config</code></p>
 <div class="codehilite"><pre><span></span><code><span class="n">directoryBrowse</span> <span class="n">enabled</span><span class="p">=</span><span class="s2">&quot;true&quot;</span>
 <span class="p">&lt;</span><span class="n">add</span> <span class="n">value</span><span class="p">=</span><span class="s2">&quot;index.php&quot;</span> <span class="p">/&gt;</span>
@@ -1331,10 +1315,10 @@ extension = &quot;mbstring&quot;
 </code></pre></div>
 
 <p>On peut maintenant accéder à <a href="https://antares.local">Wordpress</a> et suivre les instructions d'installation.</p>
-<blockquote>
-<p>[!TIP] Pour voir les images
-<code>&lt;mimeMap fileExtension=".webp" mimeType="image/webp" /&gt;</code></p>
-</blockquote>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><code>&lt;mimeMap fileExtension=".webp" mimeType="image/webp" /&gt;</code></p>
+</div>
 <hr />
 <h2 id="creation-des-utilisateurs">Création des utilisateurs<a class="headerlink" href="#creation-des-utilisateurs" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1380,10 +1364,10 @@ extension = &quot;mbstring&quot;
 <li>Cliquer sur "Créer"</li>
 </ol>
 <hr />
-<blockquote>
-<p>[!QUESTION]- Auteur
-Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Auteur</p>
+<p>Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
+</div>
   </div>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">

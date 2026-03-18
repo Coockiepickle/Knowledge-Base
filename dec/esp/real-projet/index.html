@@ -1158,25 +1158,31 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <blockquote>
-<p>[!IMPORTANT]
-J'ai réalisé cette documentation avec Obsidian, pour afficher les blocs de manière :sparkles: jolie :sparkles:, je recommande de l'ouvrir avec Obsidian</p>
-</blockquote>
+    <div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>J'ai réalisé cette documentation avec Obsidian, pour afficher les blocs de manière :sparkles: jolie :sparkles:, je recommande de l'ouvrir avec Obsidian</p>
+</div>
 <h1 id="demarrage-du-raspberry-pi">Démarrage du Raspberry Pi<a class="headerlink" href="#demarrage-du-raspberry-pi" title="Permanent link">&para;</a></h1>
-<p>Il y a 2 solutions pour démarrer le RPI :
-- Basculer le switch sur le coté du Raspberry,
-![[switch.jpg|250]]
-- Brancher un câble USB-C sur le Raspberry.
-![[usbc.jpg|300]]</p>
-<blockquote>
-<p>[!INFO]
-Le temps de démarrage du Raspberry est d'environ 20 secondes.</p>
-</blockquote>
+<p>Il y a 2 solutions pour démarrer le RPI :</p>
+<ul>
+<li>Basculer le switch sur le coté du Raspberry,</li>
+</ul>
+<p>![[switch.jpg|250]]</p>
+<ul>
+<li>Brancher un câble USB-C sur le Raspberry.</li>
+</ul>
+<p>![[usbc.jpg|300]]</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Le temps de démarrage du Raspberry est d'environ 20 secondes.</p>
+</div>
 <hr />
 <h1 id="eteindre-le-raspberry">Éteindre le Raspberry<a class="headerlink" href="#eteindre-le-raspberry" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Inverser l'interrupteur sur le côté,
-![[switch.jpg|250]]</li>
+<li>Inverser l'interrupteur sur le côté,</li>
+</ul>
+<p>![[switch.jpg|250]]</p>
+<ul>
 <li>Débrancher le câble USB-C.</li>
 </ul>
 <hr />
@@ -1186,56 +1192,61 @@ Le temps de démarrage du Raspberry est d'environ 20 secondes.</p>
 <p>Créer un partage de connexion Wi-Fi sans chiffre ni caractères spéciaux pour le mot de passe (ex : PassWord)</p>
 </li>
 <li>
-<p>Connecter le Raspberry Pi au Wi-Fi en cliquant sur le SSID avec le stylet tactile en haut à droite de l'écran
-![[Wifi.png|250]]</p>
+<p>Connecter le Raspberry Pi au Wi-Fi en cliquant sur le SSID avec le stylet tactile en haut à droite de l'écran</p>
 </li>
-<li>
-<p>Cliquer sur l'icône de clavier et entrer le mot de passe avec le stylet
-![[Screenshot 2024-05-27 161521.png]]</p>
-</li>
+</ol>
+<p>![[Wifi.png|250]]</p>
+<ol>
+<li>Cliquer sur l'icône de clavier et entrer le mot de passe avec le stylet</li>
+</ol>
+<p>![[Screenshot 2024-05-27 161521.png]]</p>
+<ol>
 <li>
 <p>Consulter l'adresse IP du Raspberry dans les paramètres</p>
 </li>
 <li>
-<p>Dans RealVNC, entrer l'adresse IP du Raspberry 
-![[Screenshot 2024-05-27 161810.png]]</p>
+<p>Dans RealVNC, entrer l'adresse IP du Raspberry </p>
 </li>
+</ol>
+<p>![[Screenshot 2024-05-27 161810.png]]</p>
+<ol>
 <li>
 <p>Dans la Pop-up, cliquer sur "Continue" et entrer les informations de connexion :</p>
 <ul>
-<li>Identifiant : pi</li>
-<li>Mot de passe : Billon</li>
+<li>
+<p>Identifiant : pi</p>
+</li>
+<li>
+<p>Mot de passe : Billon</p>
+</li>
 </ul>
 </li>
 </ol>
-<blockquote>
-<p>[!TIP] Félicitations, vous êtes connecté !</p>
-<p>[!WARNING]
-Il est également possible de se connecter simplement en SSH, seulement, j'ai préféré utiliser une vue graphique pour tester l'attaque de phishing en local</p>
-</blockquote>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Félicitations, vous êtes connecté !</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Il est également possible de se connecter simplement en SSH, seulement, j'ai préféré utiliser une vue graphique pour tester l'attaque de phishing en local</p>
+</div>
 <hr />
 <h1 id="lancement-des-applications-de-pentesting">Lancement des applications de pentesting<a class="headerlink" href="#lancement-des-applications-de-pentesting" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>[!INFO]
-Toutes les applications se lancent depuis le terminal</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Toutes les applications se lancent depuis le terminal</p>
+</div>
 <h1 id="applications-testees">Applications testées<a class="headerlink" href="#applications-testees" title="Permanent link">&para;</a></h1>
 <h2 id="zphisher">ZPhisher<a class="headerlink" href="#zphisher" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>cd zphisher
-sudo ./zphisher.sh
-</code></pre></div>
-
+<p><code>cd zphisher &amp;&amp; sudo ./zphisher.sh</code></p>
 <p>![[Screenshot 2024-05-27 163752.png|400]]</p>
 <p>Choisir un template de connexion</p>
-<p>Choisir 2 pour la redirection de ports avec Cloudflared et répondre "<strong>N</strong>" aux deux questions
-![[Screenshot 2024-05-27 163933.png|400]]</p>
+<p>Choisir 2 pour la redirection de ports avec Cloudflared et répondre "<strong>N</strong>" aux deux questions</p>
+<p>![[Screenshot 2024-05-27 163933.png|400]]</p>
 <p>Une fois que les URLs apparaissent, copier la 1ère, lancer un nouveau terminal et PhishMailer.</p>
 <hr />
 <h2 id="phishmailer">PhishMailer<a class="headerlink" href="#phishmailer" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>cd PhishMailer
-sudo python3 PaishMailer.py
-</code></pre></div>
-
+<p><code>cd PhishMailer &amp;&amp; sudo python3 PaishMailer.py</code></p>
 <p>![[Screenshot 2024-05-27 163305.png|400]]</p>
 <p>Choisir le template de phishing et remplir les informations demandées (prénom de la victime, email, date…)</p>
 <p>Coller l'URL de ZPhisher</p>
@@ -1244,38 +1255,28 @@ sudo python3 PaishMailer.py
 Maintenant, il ne reste plus qu'à attendre que la victime clique sur le lien et rentre ses identifiants.</p>
 <hr />
 <h2 id="dhcpig">DHCPig<a class="headerlink" href="#dhcpig" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo dhcpig -c -v3 -l -a -i -o wlan0
-</code></pre></div>
-
+<p><code>sudo dhcpig -c -v3 -l -a -i -o wlan0</code></p>
 <p>Ensuite, attendre.</p>
-<blockquote>
-<p>[!INFO] Si souhaite arrêter l'attaque : CTRL + C</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Si souhaite arrêter l'attaque : CTRL + C</p>
+</div>
 <hr />
 <h2 id="lynis">Lynis<a class="headerlink" href="#lynis" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo ./lynis audit system -Q
-</code></pre></div>
-
+<p><code>sudo ./lynis audit system -Q</code></p>
 <p>Ensuite, attendre que le scan se termine.</p>
 <hr />
 <h1 id="attaques-non-testees">Attaques non testées<a class="headerlink" href="#attaques-non-testees" title="Permanent link">&para;</a></h1>
 <h2 id="metasploit-console">Metasploit Console<a class="headerlink" href="#metasploit-console" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>msfconsole
-</code></pre></div>
-
+<p><code>msfconsole</code></p>
 <p><a href="https://docs.metasploit.com/docs/using-metasploit/basics/">Basics | Metasploit Documentation</a></p>
 <hr />
 <h2 id="aircrack-ng">Aircrack-NG<a class="headerlink" href="#aircrack-ng" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="n">aircrack</span><span class="o">-</span><span class="n">ng</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">capture</span><span class="w"> </span><span class="k">file</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">&gt;</span>
-</code></pre></div>
-
+<p><code>aircrack-ng [options] &lt;capture file(s)&gt;</code></p>
 <p><a href="https://www.aircrack-ng.org/doku.php?id=newbie_guide">newbie_guide [Aircrack-ng]</a></p>
 <hr />
 <h2 id="airgeddon">Airgeddon<a class="headerlink" href="#airgeddon" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>cd airgeddon
-sudo bash airgeddon.sh
-</code></pre></div>
-
+<p><code>cd airgeddon &amp;&amp; sudo bash airgeddon.sh</code></p>
 <p><a href="https://www.golinuxcloud.com/evil-twin-wifi-attack/">How to perform Evil Twin WiFi Attack | GoLinuxCloud</a></p>
 <hr />
 <h2 id="wifiphisher">Wifiphisher<a class="headerlink" href="#wifiphisher" title="Permanent link">&para;</a></h2>
@@ -1289,28 +1290,37 @@ wifiphisher -i wlan0 -e &quot;SSID&quot; -p oauth-login
 <p><a href="https://medium.com/@mikewittenauer/tutorial-wifiphisher-attack-create-fake-wifi-networks-for-hacking-8ac242fb9a37">Tutorial: Wifiphisher Attack | Medium</a></p>
 <hr />
 <h1 id="tester-le-packet-tracer">Tester le Packet Tracer<a class="headerlink" href="#tester-le-packet-tracer" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>[!INFO]
-Le but du Packet Tracer est d'illustrer une attaque Evil Twin sur un réseau</p>
-<p>[!TIP] Ouvrir le fichier <strong>ESP_PT_neuf.pkt</strong>
-![[Cégep/ESP_PT_neuf.pkt]]</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Le but du Packet Tracer est d'illustrer une attaque Evil Twin sur un réseau</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ouvrir le fichier <strong>ESP_PT_neuf.pkt</strong></p>
+</div>
+<p>![[Cégep/ESP_PT_neuf.pkt]]</p>
 <h2 id="se-connecter-au-wi-fi">Se connecter au Wi-Fi<a class="headerlink" href="#se-connecter-au-wi-fi" title="Permanent link">&para;</a></h2>
 <p>Cliquer sur <strong>Laptop0</strong></p>
 <p>Dans <strong>Desktop</strong> &gt; <strong>Wireless PC</strong> &gt; <strong>Profiles</strong> &gt; <strong>New</strong></p>
 <p>Entrer un nom (ex : Wireless1)</p>
-<p>Choisir le réseau sans-fil à rejoindre dans la liste :
-- Wireless-Network = Vrai Wi-Fi
-- Wireless-Netw0rk = Fake Wi-Fi
-![[Pasted image 20240527171948.png]]</p>
+<p>Choisir le réseau sans-fil à rejoindre dans la liste :</p>
+<ul>
+<li>
+<p>Wireless-Network = Vrai Wi-Fi</p>
+</li>
+<li>
+<p>Wireless-Netw0rk = Fake Wi-Fi</p>
+</li>
+</ul>
+<p>![[Pasted image 20240527171948.png]]</p>
 <p>Cliquer sur <strong>Connect</strong></p>
 <p>Si vous avez choisi le <strong>faux Wi-Fi</strong> : Vous êtes connecté</p>
-<blockquote>
-<p>[!WARNING] À savoir
-Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel sera valable, il n'est juste pas possible de faire un réseau avec une authentification mais un mot de passe vide dans Packet Tracer</p>
-</blockquote>
-<p>Si vous avez choisi le <strong>vrai Wi-Fi</strong> :
-![[Pasted image 20240527172049.png]]</p>
+<div class="admonition warning">
+<p class="admonition-title">À savoir</p>
+<p>Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel sera valable, il n'est juste pas possible de faire un réseau avec une authentification mais un mot de passe vide dans Packet Tracer</p>
+</div>
+<p>Si vous avez choisi le <strong>vrai Wi-Fi</strong> :</p>
+<p>![[Pasted image 20240527172049.png]]</p>
 <p>Entrer le mot de passe : <strong>P4ssW0rd</strong></p>
 <p>Vous êtes connecté</p>
   </div>

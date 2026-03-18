@@ -1207,15 +1207,28 @@
 </ul>
 <hr />
 <h2 id="ce-que-jai-realise">Ce que j'ai réalisé<a class="headerlink" href="#ce-que-jai-realise" title="Permanent link">&para;</a></h2>
-<hr />
 <ul>
-<li>Installé Kali Linux sur un Raspberry Pi, mis en place un accès à distance,</li>
-<li>Fais de nombreuses recherches sur le fonctionnement d'attaques réseau,</li>
-<li>Testé plusieurs types d'attaques très répandues,</li>
-<li>Designé un réseau de test à attaquer sur <a href="https://app.diagrams.net/">Draw.io</a>,</li>
-<li>Designé une version améliorée du réseau sur Packet Tracer,</li>
-<li>Installé et configuré l'écran et la batterie sur le RPI,</li>
-<li>Réinstallé Raspbian et les applications de pentesting de Kali.</li>
+<li>
+<p>Installé Kali Linux sur un Raspberry Pi, mis en place un accès à distance,</p>
+</li>
+<li>
+<p>Fais de nombreuses recherches sur le fonctionnement d'attaques réseau,</p>
+</li>
+<li>
+<p>Testé plusieurs types d'attaques très répandues,</p>
+</li>
+<li>
+<p>Designé un réseau de test à attaquer sur <a href="https://app.diagrams.net/">Draw.io</a>,</p>
+</li>
+<li>
+<p>Designé une version améliorée du réseau sur Packet Tracer,</p>
+</li>
+<li>
+<p>Installé et configuré l'écran et la batterie sur le RPI,</p>
+</li>
+<li>
+<p>Réinstallé Raspbian et les applications de pentesting de Kali.</p>
+</li>
 </ul>
 <hr />
 <h2 id="le-reseau-cible">Le réseau cible<a class="headerlink" href="#le-reseau-cible" title="Permanent link">&para;</a></h2>
@@ -1229,30 +1242,22 @@
 <h3 id="audit-de-securite"><font color="#ff0000">Audit de sécurité</font><a class="headerlink" href="#audit-de-securite" title="Permanent link">&para;</a></h3>
 <h4 id="avec-lynis">Avec Lynis<a class="headerlink" href="#avec-lynis" title="Permanent link">&para;</a></h4>
 <p><a href="https://cisofy.com/lynis/">Lynis - Security auditing tool - CISOfy</a></p>
-<div class="codehilite"><pre><span></span><code>sudo ./lynis audit system -Q
-</code></pre></div>
-
+<p><code>sudo ./lynis audit system -Q</code></p>
 <hr />
 <h3 id="1ere-attaque">1ère attaque<a class="headerlink" href="#1ere-attaque" title="Permanent link">&para;</a></h3>
 <h4 id="attaque-de-phishing-avec-zphisher-et-phishmailer"><font color="#ff0000">Attaque de phishing avec Zphisher et PhishMailer</font><a class="headerlink" href="#attaque-de-phishing-avec-zphisher-et-phishmailer" title="Permanent link">&para;</a></h4>
 <p><a href="https://github.com/BiZken/PhishMailer">PhishMailer (github.com)</a> / <a href="https://github.com/htr-tech/zphisher">Zphisher (github.com)</a></p>
 <p>Zphisher : </p>
-<div class="codehilite"><pre><span></span><code>sudo ./zphisher.sh
-</code></pre></div>
-
+<p><code>sudo ./zphisher.sh</code></p>
 <p>PhishMailer : </p>
-<div class="codehilite"><pre><span></span><code>sudo python3 Phishmailer.py
-</code></pre></div>
-
+<p><code>sudo python3 Phishmailer.py</code></p>
 <hr />
 <h3 id="2eme-attaque">2ème attaque<a class="headerlink" href="#2eme-attaque" title="Permanent link">&para;</a></h3>
 <h4 id="dhcp-exhaustion"><font color="#ff0000">DHCP Exhaustion</font><a class="headerlink" href="#dhcp-exhaustion" title="Permanent link">&para;</a></h4>
 <h3 id="avec-dhcpig">Avec DHCPig<a class="headerlink" href="#avec-dhcpig" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.kali.org/tools/dhcpig/">dhcpig | Kali Linux Tools</a> / <a href="https://github.com/kamorin/DHCPig">DHCPig GitHub</a></p>
 <p>Juste <strong>une</strong> commande à taper :</p>
-<div class="codehilite"><pre><span></span><code>dhcpig -c -v3 -l -a -i -o wlan0
-</code></pre></div>
-
+<p><code>dhcpig -c -v3 -l -a -i -o wlan0</code></p>
 <hr />
 <h3 id="3eme-attaque-pas-realisable-pour-le-moment">3ème attaque (pas réalisable pour le moment)<a class="headerlink" href="#3eme-attaque-pas-realisable-pour-le-moment" title="Permanent link">&para;</a></h3>
 <h4 id="capture-wi-fi-crack-de-mot-de-passe-wi-fi"><font color="#ff0000">Capture Wi-Fi + Crack de mot de passe Wi-Fi</font><a class="headerlink" href="#capture-wi-fi-crack-de-mot-de-passe-wi-fi" title="Permanent link">&para;</a></h4>
@@ -1261,11 +1266,21 @@
 <hr />
 <h2 id="ce-quil-me-reste-a-faire">Ce qu'il me reste à faire<a class="headerlink" href="#ce-quil-me-reste-a-faire" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Acheter un dongle Wi-Fi pour le monitoring,</li>
-<li>Lancer l'attaque Evil Twin (<a href="https://www.kali.org/tools/airgeddon/">airgeddon | Kali Linux Tools</a>),</li>
-<li>Lancer l'attaque de crack avec Aircrack-NG et intercepter le trafic réseau,</li>
-<li>Faire le réseau de manière physique,</li>
-<li>Faire fonctionner Kali Linux avec l'écran</li>
+<li>
+<p>Acheter un dongle Wi-Fi pour le monitoring,</p>
+</li>
+<li>
+<p>Lancer l'attaque Evil Twin (<a href="https://www.kali.org/tools/airgeddon/">airgeddon | Kali Linux Tools</a>),</p>
+</li>
+<li>
+<p>Lancer l'attaque de crack avec Aircrack-NG et intercepter le trafic réseau,</p>
+</li>
+<li>
+<p>Faire le réseau de manière physique,</p>
+</li>
+<li>
+<p>Faire fonctionner Kali Linux avec l'écran</p>
+</li>
 </ul>
 <hr />
 <h2 id="les-problemes-que-jai-rencontre">Les problèmes que j'ai rencontré<a class="headerlink" href="#les-problemes-que-jai-rencontre" title="Permanent link">&para;</a></h2>
@@ -1277,53 +1292,107 @@
 <li>
 <p>Plusieurs applications de pentesting <strong>ne fonctionnent que sur une architecture amd64</strong> et pas sur une architecture <strong>arm64</strong> (RPI),</p>
 </li>
-<li>Plusieurs applications nécessitent de mettre la carte réseau en mode "monitoring",</li>
-<li>La carte Wi-Fi du RPI 4 n’est <strong>pas capable de faire du monitoring</strong>,</li>
-<li>L'écran ne fonctionne qu'avec une version spéciale de Raspbian, je dois donc laisser tomber Kali,</li>
-<li>Le réseau du Cégep <strong>ne permet pas la redirection de ports</strong>.</li>
+<li>
+<p>Plusieurs applications nécessitent de mettre la carte réseau en mode "monitoring",</p>
+</li>
+<li>
+<p>La carte Wi-Fi du RPI 4 n’est <strong>pas capable de faire du monitoring</strong>,</p>
+</li>
+<li>
+<p>L'écran ne fonctionne qu'avec une version spéciale de Raspbian, je dois donc laisser tomber Kali,</p>
+</li>
+<li>
+<p>Le réseau du Cégep <strong>ne permet pas la redirection de ports</strong>.</p>
+</li>
 </ul>
 <hr />
 <ul>
-<li>Le modèle de valise que je voulais utiliser coûte <strong>trop cher</strong> (250 $CAD),</li>
-<li>Plusieurs applications de pentesting <strong>ne fonctionnent que sur une architecture amd64</strong> et pas sur une architecture <strong>arm64</strong> (RPI),</li>
-<li>Plusieurs applications nécessitent de mettre la carte réseau en mode "monitoring",</li>
+<li>
+<p>Le modèle de valise que je voulais utiliser coûte <strong>trop cher</strong> (250 $CAD),</p>
+</li>
+<li>
+<p>Plusieurs applications de pentesting <strong>ne fonctionnent que sur une architecture amd64</strong> et pas sur une architecture <strong>arm64</strong> (RPI),</p>
+</li>
+<li>
+<p>Plusieurs applications nécessitent de mettre la carte réseau en mode "monitoring",</p>
+</li>
 </ul>
 <hr />
 <ul>
-<li>La carte Wi-Fi du RPI 4 n’est <strong>pas capable de faire du monitoring</strong>,</li>
-<li>L'écran ne fonctionne qu'avec une version spéciale de Raspbian, je dois donc laisser tomber Kali,</li>
-<li>Le réseau du Cégep <strong>ne permet pas la redirection de ports</strong>.</li>
+<li>
+<p>La carte Wi-Fi du RPI 4 n’est <strong>pas capable de faire du monitoring</strong>,</p>
+</li>
+<li>
+<p>L'écran ne fonctionne qu'avec une version spéciale de Raspbian, je dois donc laisser tomber Kali,</p>
+</li>
+<li>
+<p>Le réseau du Cégep <strong>ne permet pas la redirection de ports</strong>.</p>
+</li>
 </ul>
 <hr />
 <h2 id="les-solutions">Les solutions<a class="headerlink" href="#les-solutions" title="Permanent link">&para;</a></h2>
 <hr />
 <ul>
-<li>Boîtier incluant un écran sur Amazon (37 $CAD),</li>
-<li><strong>Alternatives</strong> aux applications amd64,</li>
-<li>Aide du Cégep pour les composants externes, je pourrai ensuite tester les attaques avec la carte en mode "monitoring" tout en ayant un retour vidéo,</li>
-<li>Acheter, dans le futur, un <strong>dongle Wi-Fi</strong> pour le monitoring,</li>
-<li>Installer les <strong>applications Kali sur Raspbian</strong>,</li>
-<li>J’utilise le <strong>LTE de mon téléphone</strong> pour lancer l’attaque de phishing.</li>
+<li>
+<p>Boîtier incluant un écran sur Amazon (37 $CAD),</p>
+</li>
+<li>
+<p><strong>Alternatives</strong> aux applications amd64,</p>
+</li>
+<li>
+<p>Aide du Cégep pour les composants externes, je pourrai ensuite tester les attaques avec la carte en mode "monitoring" tout en ayant un retour vidéo,</p>
+</li>
+<li>
+<p>Acheter, dans le futur, un <strong>dongle Wi-Fi</strong> pour le monitoring,</p>
+</li>
+<li>
+<p>Installer les <strong>applications Kali sur Raspbian</strong>,</p>
+</li>
+<li>
+<p>J’utilise le <strong>LTE de mon téléphone</strong> pour lancer l’attaque de phishing.</p>
+</li>
 </ul>
 <hr />
 <h2 id="limites-de-la-realisation">Limites de la réalisation<a class="headerlink" href="#limites-de-la-realisation" title="Permanent link">&para;</a></h2>
 <hr />
 <ul>
-<li><strong>L’architecture du RPI</strong> (arm64) qui ne permet pas d’installer certaines applications,</li>
-<li>Je <strong>perds l’accès à distance</strong> si j’essaye d’activer le mode monitoring,</li>
-<li>La <strong>carte Wi-Fi</strong> du RPI 4 qui n’a <strong>pas de mode monitoring</strong>,</li>
-<li>Je n’ai <strong>pas assez d’argent</strong> pour acheter la valise qui aurait dû contenir le RPI,</li>
-<li><strong>L’écran tactile ne fonctionne qu’avec une version de Raspbian spécialement développée pour l’écran</strong>,</li>
-<li>Puisque <strong>le Cégep n’autorise pas la redirection de ports</strong>, les liens pour l’attaque de phishing ne se créaient pas.</li>
+<li>
+<p><strong>L’architecture du RPI</strong> (arm64) qui ne permet pas d’installer certaines applications,</p>
+</li>
+<li>
+<p>Je <strong>perds l’accès à distance</strong> si j’essaye d’activer le mode monitoring,</p>
+</li>
+<li>
+<p>La <strong>carte Wi-Fi</strong> du RPI 4 qui n’a <strong>pas de mode monitoring</strong>,</p>
+</li>
+<li>
+<p>Je n’ai <strong>pas assez d’argent</strong> pour acheter la valise qui aurait dû contenir le RPI,</p>
+</li>
+<li>
+<p><strong>L’écran tactile ne fonctionne qu’avec une version de Raspbian spécialement développée pour l’écran</strong>,</p>
+</li>
+<li>
+<p>Puisque <strong>le Cégep n’autorise pas la redirection de ports</strong>, les liens pour l’attaque de phishing ne se créaient pas.</p>
+</li>
 </ul>
 <hr />
 <h2 id="ce-que-jai-appris">Ce que j'ai appris<a class="headerlink" href="#ce-que-jai-appris" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Fonctionnement d'attaques</strong> de phishing, Evil Twin, DHCP Exhaustion, découverte de réseau,</li>
-<li><strong>Se déplacer dans un réseau et exploiter ses failles</strong> en tant qu'attaquant,</li>
-<li><strong>Nouvelles méthodes d'attaques</strong>,</li>
-<li><strong>Batteries</strong> pour RPI,</li>
-<li>Comment <strong>utiliser des logiciels de piratage réseau</strong>.</li>
+<li>
+<p><strong>Fonctionnement d'attaques</strong> de phishing, Evil Twin, DHCP Exhaustion, découverte de réseau,</p>
+</li>
+<li>
+<p><strong>Se déplacer dans un réseau et exploiter ses failles</strong> en tant qu'attaquant,</p>
+</li>
+<li>
+<p><strong>Nouvelles méthodes d'attaques</strong>,</p>
+</li>
+<li>
+<p><strong>Batteries</strong> pour RPI,</p>
+</li>
+<li>
+<p>Comment <strong>utiliser des logiciels de piratage réseau</strong>.</p>
+</li>
 </ul>
 <hr />
 <h2 id="sources-dinformation">Sources d'information<a class="headerlink" href="#sources-dinformation" title="Permanent link">&para;</a></h2>

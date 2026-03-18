@@ -10,7 +10,7 @@ alpha: true
 ## Contenu types de la base
 
 * Fichiers de configurations entiers. ex : [cisco-48p](./ais/conf/cisco-48p.md),
-* Guides d'installations. ex : [mkdocs](./general/mkdocs.md),
+* Guides d'installations. ex : [zabbix](./ais/conf/zabbix.md),
 * Petites infos diverses dans des fichiers datés. ex : [27-01-25](./daily/27-01-25.md).
 
 ## Quelques liens utiles
@@ -54,10 +54,10 @@ const option = {
         show: false,
       },
       data: [
-        { value: 5, name: "Terminé" },
+        { value: 15, name: "Terminé" },
         { value: 15, name: "En rédaction" },
-        { value: 5, name: "Mise en page en cours" },
-        { value: 75, name: "Pas commencé" },
+        { value: 10, name: "Mise en page en cours" },
+        { value: 60, name: "Pas commencé" },
         { value: 0, name: "Erreur rencontrée" },
       ],
     },
@@ -66,6 +66,6 @@ const option = {
 
 ///
 
-## Theme Docs
 
-[mkdocs-shadcn docs](https://asiffer.github.io/mkdocs-shadcn/) | [iconify](https://icon-sets.iconify.design/)
+
+
