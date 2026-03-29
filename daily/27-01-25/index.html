@@ -3,8 +3,7 @@
 
 <head>
     <script>
-        // for search plugin notably
-        const base_url = "https://docs.dreynaud.ipv64.net/";
+        const base_url = "https://docs.dreynaud.ipv64.net/"; /* for search plugin notably */
     </script>
     <script>
     const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -36,7 +35,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>27-01-25 - Base de connaissances Damien Reynaud</title>
+
     
 
 
@@ -47,6 +46,8 @@
 
 
 
+
+<meta name="author" content="Damien Reynaud">
 
 
 
@@ -371,17 +372,12 @@
             
             <div class="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
                 <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-                    <button data-slot="dialog-trigger" onclick="onSearchBarClick(event)"
-    class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-secondary/80 px-4 py-2 has-[&gt;svg]:px-3 bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
-    type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-«R66plb»" data-state="closed">
-    <span class="text-muted-foreground hidden lg:inline-flex">Search documentation...</span>
-    <span class="text-muted-foreground inline-flex lg:hidden">Search...</span>
-    <div class="absolute top-1.5 right-1.5 hidden gap-1 sm:flex">
-        <kbd
-            class="bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&amp;_svg:not([class*='size-'])]:size-3">Ctrl</kbd><kbd
-            class="bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&amp;_svg:not([class*='size-'])]:size-3 aspect-square">K</kbd>
-    </div>
-</button>
+                    <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
+    <button onclick="onSearchBarClick(event)" data-slot="dialog-trigger" data-variant="outline" data-size="default" class="inline-flex shrink-0 items-center gap-2 text-sm whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*='size-'])]:size-4 border bg-background hover:text-accent-foreground dark:border-input dark:hover:bg-input/50 px-4 py-2 has-[&gt;svg]:px-3 relative h-8 w-full justify-start rounded-lg pl-3 font-normal text-foreground shadow-none hover:bg-muted/50 sm:pr-12 md:w-48 lg:w-56 xl:w-64 dark:bg-card" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r_1_" data-state="closed">
+        <span class="hidden lg:inline-flex">Search documentation...</span>
+        <span class="inline-flex lg:hidden">Search...</span>
+    </button>
+</div>
 <dialog id="search-dialog" onclick="onSearchDialogClick(event)"
     class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background rounded-lg shadow-lg border overflow-hidden p-0">
     <div class="w-lg gap-4">
@@ -463,36 +459,36 @@
 </header>
         <main class="flex flex-1 flex-col">
             <div class="container-wrapper flex flex-1 flex-col px-2">
-                <div data-slot="sidebar-wrapper" style="--sidebar-width: 16rem; --sidebar-width-icon: 3rem;"
+                <div data-slot="sidebar-wrapper" style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
                     class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full 3xl:fixed:container 3xl:fixed:px-3 min-h-min flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]">
                     <div data-slot="sidebar"
-                        class="text-sidebar-foreground w-(--sidebar-width) flex-col sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] bg-transparent lg:flex">
-                        <div data-slot="sidebar-content" data-sidebar="content"
-                            class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden no-scrollbar px-2 pb-12">
-                            <div class="h-(--top-spacing) shrink-0"></div>
-                            <div view-transition-name="sidebar" data-slot="sidebar-group" data-sidebar="group"
-    class="relative flex w-full min-w-0 flex-col p-2 no-scrollbar">
-    
+                        class="w-(--sidebar-width) flex-col text-sidebar-foreground sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex">
+                        <div class="h-9"></div>
+                        <div class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs"></div>
+                        <div class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex"></div>
+                        <div data-slot="sidebar-content" data-sidebar="content" view-transition-name="sidebar"
+                            class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden mx-auto no-scrollbar w-(--sidebar-menu-width) overflow-x-hidden px-2">
+                            
 
-    
-    
-    
 
-    
 
-    
-    
 
-    
-    <div data-slot="sidebar-group" data-sidebar="group" class="relative flex w-full min-w-0 flex-col p-2">
-        <div data-slot="sidebar-group-content" data-sidebar="group-content" class="w-full text-sm">
-            <ul data-slot="sidebar-menu" data-sidebar="menu" class="flex w-full min-w-0 flex-col gap-0.5">
-                
-                
-                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+
+
+
+
+
+
+
+<div data-slot="sidebar-group" data-sidebar="group" class="relative flex w-full min-w-0 flex-col p-2 pt-6">
+    <div data-slot="sidebar-group-content" data-sidebar="group-content" class="w-full text-sm">
+        <ul data-slot="sidebar-menu" data-sidebar="menu" class="flex w-full min-w-0 flex-col gap-0.5">
+            
+            
+            <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
     <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
         data-size="default" href="/daily/14-10-25/"
-        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+        class="hpeer/menu-button flex items-center gap-2 rounded-md p-2 text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48">
 
         
         14-10-25
@@ -505,13 +501,13 @@
         
     </a>
 </li>
-                
-                
-                
-                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+            
+            
+            
+            <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
     <a data-slot="sidebar-menu-button" data-active="true" data-sidebar="menu-button"
         data-size="default" href="/daily/27-01-25/"
-        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+        class="hpeer/menu-button flex items-center gap-2 rounded-md p-2 text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48">
 
         
         27-01-25
@@ -524,13 +520,13 @@
         
     </a>
 </li>
-                
-                
-                
-                <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
+            
+            
+            
+            <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
     <a data-slot="sidebar-menu-button" data-active="false" data-sidebar="menu-button"
         data-size="default" href="/daily/24-01-25/"
-        class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
+        class="hpeer/menu-button flex items-center gap-2 rounded-md p-2 text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48">
 
         
         24-10-25
@@ -543,18 +539,18 @@
         
     </a>
 </li>
-                
-                
-            </ul>
-        </div>
+            
+            
+        </ul>
     </div>
-    
-
-    
-
-
-    
 </div>
+
+
+
+
+
+
+<div class="sticky -bottom-1 z-10 h-16 shrink-0 bg-gradient-to-t from-background via-background/80 to-background/50 blur-xs"></div>
                         </div>
                     </div>
                     <div class="h-full w-full">
@@ -645,52 +641,52 @@
     <h3 id="installer-et-lancer-open-webui">Installer et lancer Open-Webui<a class="headerlink" href="#installer-et-lancer-open-webui" title="Permanent link">&para;</a></h3>
 <p>```batch title:"Ollama"
 docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama</p>
-<div class="codehilite"><pre><span></span><code>```batch title:&quot;Ollama&quot;
+<pre class="codehilite"><code>```batch title:&quot;Ollama&quot;
 docker run -d --network=host --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
-</code></pre></div>
+</code></pre>
 
 <p>```batch title:"With Image Generation"
 docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -e AUTOMATIC1111_BASE_URL=http://host.docker.internal:7860/ -e ENABLE_IMAGE_GENERATION=True -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</p>
-<div class="codehilite"><pre><span></span><code>##<span class="w"> </span><span class="nv">Scripts</span><span class="w"> </span><span class="nv">Powershell</span>
+<pre class="codehilite"><code>## Scripts Powershell
 
-```<span class="nv">Powershell</span><span class="w"> </span><span class="nv">title</span>:<span class="s2">&quot;Écrire du contenu dans un fichier&quot;</span>
-#<span class="nv">D</span>é<span class="nv">fini</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">chemin</span><span class="w"> </span><span class="nv">du</span><span class="w"> </span><span class="nv">r</span>é<span class="nv">pertoire</span>
-<span class="mh">$f</span><span class="nv">older</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C:\Users\Coockiepickle&quot;</span>
+```Powershell title:&quot;Écrire du contenu dans un fichier&quot;
+#Défini le chemin du répertoire
+$folder = &quot;C:\Users\Coockiepickle&quot;
 
-#<span class="nv">Supprime</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">dossier</span><span class="w"> </span><span class="nv">du</span><span class="w"> </span><span class="nv">script</span><span class="w"> </span><span class="nv">pr</span>é<span class="nv">c</span>é<span class="nv">dent</span>
-<span class="nv">Remove</span><span class="o">-</span><span class="nv">Item</span><span class="w"> </span><span class="o">-</span><span class="nv">Recurse</span><span class="w"> </span><span class="s2">&quot;$folder\Test&quot;</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot;Un dossier &#39;Test&#39; existe déjà, il a donc été supprimé&quot;</span>
+#Supprime le dossier du script précédent
+Remove-Item -Recurse &quot;$folder\Test&quot;
+Write-Output &quot; &quot;
+Write-Output &quot;Un dossier 'Test' existe déjà, il a donc été supprimé&quot;
 
-#<span class="nv">Cr</span>é<span class="nv">er</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">dossier</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span>
-<span class="nv">New</span><span class="o">-</span><span class="nv">Item</span><span class="w"> </span><span class="o">-</span><span class="nv">ItemType</span><span class="w"> </span><span class="nv">directory</span><span class="w"> </span><span class="o">-</span><span class="nv">Path</span><span class="w"> </span><span class="mh">$f</span><span class="nv">older</span><span class="w"> </span><span class="o">-</span><span class="nv">Name</span><span class="w"> </span><span class="nv">Test</span>
+#Créer le dossier &quot;Test&quot;
+New-Item -ItemType directory -Path $folder -Name Test
 
-#<span class="nv">V</span>é<span class="nv">rifie</span><span class="w"> </span><span class="nv">que</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">dossier</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span>é<span class="nv">t</span>é<span class="w"> </span><span class="nv">cr</span>é<span class="nv">e</span>
-<span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">Test</span><span class="o">-</span><span class="nv">Path</span><span class="w"> </span><span class="o">-</span><span class="nv">Path</span><span class="w"> </span><span class="mh">$f</span><span class="nv">older</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">    </span><span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="w">    </span><span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot;Dossier crée avec succès&quot;</span>
-<span class="w">    </span><span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="w">    </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span>{
-<span class="w">    </span><span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot;Le dossier n&#39;a pas été crée&quot;</span>
-<span class="w">    </span>}
+#Vérifie que le dossier a été crée
+if (Test-Path -Path $folder) {
+    Write-Output &quot; &quot;
+    Write-Output &quot;Dossier crée avec succès&quot;
+    Write-Output &quot; &quot;
+    } else {
+    Write-Output &quot;Le dossier n'a pas été crée&quot;
+    }
 
-#<span class="nv">D</span>é<span class="nv">fini</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">chemin</span><span class="w"> </span><span class="nv">du</span><span class="w"> </span><span class="nv">fichier</span><span class="w"> </span><span class="nv">txt</span>
-<span class="mh">$f</span><span class="nv">ilePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;$folder\Test\coucou.txt&quot;</span>
+#Défini le chemin du fichier txt
+$filePath = &quot;$folder\Test\coucou.txt&quot;
 
-#<span class="nv">Contenu</span><span class="w"> </span>à<span class="w"> </span>é<span class="nv">crire</span><span class="w"> </span><span class="nv">dans</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">fichier</span><span class="w"> </span><span class="nv">txt</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="mh">$c</span><span class="nv">ontent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;La vie, c&#39;est comme une boîte de chocolat&quot;</span>
+#Contenu à écrire dans le fichier txt
+Write-Output &quot; &quot;
+$content = &quot;La vie, c'est comme une boîte de chocolat&quot;
 
-#<span class="nv">Ajoute</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">contenu</span><span class="w"> </span><span class="nv">dans</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">fichier</span><span class="w"> </span><span class="nv">txt</span>
-<span class="nv">Add</span><span class="o">-</span><span class="nv">Content</span><span class="w"> </span><span class="o">-</span><span class="nv">Path</span><span class="w"> </span><span class="mh">$f</span><span class="nv">ilePath</span><span class="w"> </span><span class="o">-</span><span class="nv">Value</span><span class="w"> </span><span class="mh">$c</span><span class="nv">ontent</span>
+#Ajoute le contenu dans le fichier txt
+Add-Content -Path $filePath -Value $content
 
-#<span class="nv">Affiche</span><span class="w"> </span><span class="nv">le</span><span class="w"> </span><span class="nv">contenu</span><span class="w"> </span><span class="nv">du</span><span class="w"> </span><span class="nv">fichier</span><span class="w"> </span><span class="nv">txt</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot;Le fichier a été crée&quot;</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot;Le fichier contient : &quot;</span>
-<span class="nv">Write</span><span class="o">-</span><span class="nv">Output</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
-<span class="nv">Get</span><span class="o">-</span><span class="nv">Content</span><span class="w"> </span><span class="o">-</span><span class="nv">Path</span><span class="w"> </span><span class="mh">$f</span><span class="nv">ilePath</span>
-</code></pre></div>
+#Affiche le contenu du fichier txt
+Write-Output &quot;Le fichier a été crée&quot;
+Write-Output &quot; &quot;
+Write-Output &quot;Le fichier contient : &quot;
+Write-Output &quot; &quot;
+Get-Content -Path $filePath
+</code></pre>
 
 <p>```Powershell title:"Tester si un nombre est pair ou impair"</p>
 <h1 id="fonction-pour-tester-si-le-chiffre-est-pair-ou-impair">Fonction pour tester si le chiffre est pair ou impair<a class="headerlink" href="#fonction-pour-tester-si-le-chiffre-est-pair-ou-impair" title="Permanent link">&para;</a></h1>
@@ -713,22 +709,22 @@ docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -e AUTOM
 <p>for ($i = 1; $i -le 10; $i++) {
     # Appelle la fonction pour chaque valeur de i et stocke le résultat
     $res = testPairImpair $i</p>
-<div class="codehilite"><pre><span></span><code># Écrit le résultat de chaque chiffre à la fin du fichier
+<pre class="codehilite"><code># Écrit le résultat de chaque chiffre à la fin du fichier
 Add-Content -Path $fichier -Value $res
-</code></pre></div>
+</code></pre>
 
 <p>}</p>
-<div class="codehilite"><pre><span></span><code>```<span class="nv">Powershell</span><span class="w"> </span><span class="nv">title</span>:<span class="s2">&quot;Mineur ou majeur&quot;</span>
-#<span class="nv">Demande</span><span class="w"> </span><span class="nv">l</span><span class="s1">&#39;âge de l&#39;</span><span class="nv">utilisateur</span>
-<span class="mh">$a</span><span class="nv">ge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Read</span><span class="o">-</span><span class="nv">Host</span><span class="w"> </span><span class="s2">&quot;Quel âge avez-vous ?&quot;</span>
+<pre class="codehilite"><code>```Powershell title:&quot;Mineur ou majeur&quot;
+#Demande l'âge de l'utilisateur
+$age = Read-Host &quot;Quel âge avez-vous ?&quot;
 
-#<span class="nv">Compare</span><span class="w"> </span><span class="nv">l</span><span class="err">&#39;âge avec la majorité</span>
-<span class="err">if ($age -lt 18) {</span>
-<span class="err">    Write-Output &quot;Vous êtes mineur&quot;</span>
-<span class="err">    } else {</span>
-<span class="err">    Write-Output &quot;Vous êtes majeur&quot;</span>
-<span class="err">    }</span>
-</code></pre></div>
+#Compare l'âge avec la majorité
+if ($age -lt 18) {
+    Write-Output &quot;Vous êtes mineur&quot;
+    } else {
+    Write-Output &quot;Vous êtes majeur&quot;
+    }
+</code></pre>
 
 <p>```Powershell title:"Liste de pays"</p>
 <h1 id="liste-des-pays">Liste des pays<a class="headerlink" href="#liste-des-pays" title="Permanent link">&para;</a></h1>
@@ -737,19 +733,19 @@ Add-Content -Path $fichier -Value $res
 <p>foreach ($pays in $liste_pays) {
     Write-Output $pays
 }</p>
-<div class="codehilite"><pre><span></span><code>```Powershell title:&quot;Lister les fichiers&quot;
-<span class="gh">#</span>Supprime le dossier du script précédent
+<pre class="codehilite"><code>```Powershell title:&quot;Lister les fichiers&quot;
+#Supprime le dossier du script précédent
 Remove-Item -Recurse &quot;$folderPath\Rapport_Fichiers&quot;
 
 $folderPath = &quot;C:\Users\$Env:UserName&quot;
 
-<span class="gh">#</span> Créer répertoire
+# Créer répertoire
 New-Item -ItemType directory -Name &quot;Rapport_Fichiers&quot; -Path $folderPath
 
-<span class="gh">#</span> Récupère la liste des dossiers
+# Récupère la liste des dossiers
 $liste_rep = @(Get-ChildItem &quot;$folderPath\Documents&quot;)
 
-<span class="gh">#</span> Écrire la liste dans un fichier txt
+# Écrire la liste dans un fichier txt
 $rapport = &quot;$folderPath\Rapport_Fichiers\rapport.txt&quot;
 foreach ($item in $liste_rep) {
     $name = $item.Name
@@ -759,7 +755,7 @@ foreach ($item in $liste_rep) {
 }
 
 Write-Output &quot;Les données ont été écrites dans $rapport&quot;
-</code></pre></div>
+</code></pre>
 
 <p>```Powershell title:"Surveillance utilisation RAM"</p>
 <h1 id="obtenir-la-memoire-totale-du-systeme">Obtenir la mémoire totale du système<a class="headerlink" href="#obtenir-la-memoire-totale-du-systeme" title="Permanent link">&para;</a></h1>
@@ -770,26 +766,26 @@ Write-Output &quot;Les données ont été écrites dans $rapport&quot;
 <p>while ($true) {
     Clear-Host
     Write-Output "Vérification de l'utilisation de la mémoire en temps réel..."</p>
-<div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">Récupérer</span><span class="w"> </span><span class="n">tous</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">processus</span><span class="w"> </span><span class="n">utilisateur</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">leur</span><span class="w"> </span><span class="n">utilisation</span><span class="w"> </span><span class="n">mémoire</span>
-<span class="err">$</span><span class="n">processes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Get</span><span class="o">-</span><span class="n">Process</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Where</span><span class="o">-</span><span class="k">Object</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="err">$</span><span class="n">_</span><span class="p">.</span><span class="k">Path</span><span class="w"> </span><span class="o">-</span><span class="n">ne</span><span class="w"> </span><span class="err">$</span><span class="k">null</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Select</span><span class="o">-</span><span class="k">Object</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="err">@{</span><span class="n">Name</span><span class="o">=</span><span class="s1">&#39;MemoryMB&#39;</span><span class="p">;</span><span class="n">Expression</span><span class="o">=</span><span class="err">{</span><span class="o">[</span><span class="n">math</span><span class="o">]::</span><span class="nf">Round</span><span class="p">(</span><span class="err">$</span><span class="n">_</span><span class="p">.</span><span class="n">WorkingSet</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="err">}}</span>
+<pre class="codehilite"><code># Récupérer tous les processus utilisateur et leur utilisation mémoire
+$processes = Get-Process | Where-Object { $_.Path -ne $null } | Select-Object Name, @{Name='MemoryMB';Expression={[math]::Round($_.WorkingSet / 1MB, 2)}}
 
-<span class="n">foreach</span><span class="w"> </span><span class="p">(</span><span class="err">$</span><span class="n">process</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">$</span><span class="n">processes</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Calculer</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">pourcentage</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">mémoire</span><span class="w"> </span><span class="n">utilisée</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">chaque</span><span class="w"> </span><span class="n">processus</span>
-<span class="w">    </span><span class="err">$</span><span class="n">memoryUsagePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="err">$</span><span class="n">process</span><span class="p">.</span><span class="n">MemoryMB</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="err">$</span><span class="n">TotalMemoryMB</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span>
+foreach ($process in $processes) {
+    # Calculer le pourcentage de mémoire utilisée par chaque processus
+    $memoryUsagePercent = ($process.MemoryMB / $TotalMemoryMB) * 100
 
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Afficher</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">informations</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">processus</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">alignement</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">colonnes</span>
-<span class="w">    </span><span class="err">$</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">process</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">PadRight</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="w">    </span><span class="err">$</span><span class="n">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;$($process.MemoryMB) MB&quot;</span><span class="p">.</span><span class="n">PadLeft</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Write</span><span class="o">-</span><span class="k">Output</span><span class="w"> </span><span class="ss">&quot;Nom : $name | $memory&quot;</span>
+    # Afficher les informations du processus avec alignement des colonnes
+    $name = $process.Name.PadRight(30)
+    $memory = &quot;$($process.MemoryMB) MB&quot;.PadLeft(15)
+    Write-Output &quot;Nom : $name | $memory&quot;
 
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Alerte</span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">processus</span><span class="w"> </span><span class="n">utilise</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="mi">80</span><span class="o">%</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">mémoire</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">$</span><span class="n">memoryUsagePercent</span><span class="w"> </span><span class="o">-</span><span class="n">gt</span><span class="w"> </span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
-<span class="w">        </span><span class="k">Write</span><span class="o">-</span><span class="n">Warning</span><span class="w"> </span><span class="ss">&quot;Alerte: Le processus $($process.Name)) utilise plus de 80% de la mémoire du système!&quot;</span>
-<span class="w">    </span><span class="err">}</span>
-<span class="err">}</span>
+    # Alerte si le processus utilise plus de 80% de la mémoire
+    if ($memoryUsagePercent -gt 80) {
+        Write-Warning &quot;Alerte: Le processus $($process.Name)) utilise plus de 80% de la mémoire du système!&quot;
+    }
+}
 
-<span class="k">Start</span><span class="o">-</span><span class="n">Sleep</span><span class="w"> </span><span class="o">-</span><span class="n">Seconds</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Pause</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">secondes</span><span class="w"> </span><span class="n">avant</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">prochaine</span><span class="w"> </span><span class="n">vérification</span>
-</code></pre></div>
+Start-Sleep -Seconds 5  # Pause de 5 secondes avant la prochaine vérification
+</code></pre>
 
 <p>}
 ```</p>
@@ -944,7 +940,7 @@ Write-Output &quot;Les données ont été écrites dans $rapport&quot;
 </dialog>
                             </div>
                             <div
-                                class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+                                class="sticky top-[calc(var(--header-height)+1px)] ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
                                 <div class="h-(--top-spacing) shrink-0"></div>
                                 <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
@@ -1141,7 +1137,7 @@ Write-Output &quot;Les données ont été écrites dans $rapport&quot;
   "prerender": [
     {
       "where": {
-          "selector_matches": ["#next-button", "#previous-button"],
+          "selector_matches": ["#next-button", "#previous-button"]
       }
     }
   ]

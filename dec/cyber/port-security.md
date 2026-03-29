@@ -6,8 +6,8 @@ interface (nom_de_l'interface)
 switchport port-security
 ```
 
-!!! warning
-    La sécurité des ports ne peut être activée que sur les interfaces en mode access
+> [!WARNING]
+> La sécurité des ports ne peut être activée que sur les interfaces en mode access
 
 
 ### Définir le nombre d'appareil maximum par port

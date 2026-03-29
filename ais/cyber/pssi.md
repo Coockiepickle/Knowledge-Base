@@ -41,13 +41,9 @@ Une analyse de risques est menée régulièrement selon la méthodologie EBIOS R
 Tous les utilisateurs doivent respecter les règles de sécurité applicables :
 
 - Ne pas partager ses identifiants.
-
 - Verrouiller sa session en cas d’absence.
-
 - Signaler toute anomalie ou incident.
-
 - Ne pas installer de logiciels sans autorisation.
-
 - Respecter les règles de gestion des mots de passe (complexité, renouvellement).
 
 **5. Sécurité des ressources humaines**
@@ -85,15 +81,10 @@ La PSSI est alignée sur les normes ISO/IEC 27001 et les exigences réglementair
 **13. Annexes**
 
 - Glossaire des termes utilisés
-
 - Charte informatique utilisateur
-
 - Modèle de plan de gestion des incidents
-
 - Rôles et responsabilités en cybersécurité
-
 - Liste des normes et référentiels applicables
-
 - Plan de sauvegarde
 
 
@@ -124,13 +115,9 @@ Risk assessments are conducted regularly using the EBIOS RM methodology. This he
 All users must comply with the applicable security rules:
 
 - Do not share credentials.
-
 - Lock your session when away from your desk.
-
 - Report any anomaly or incident.
-
 - Do not install software without authorization.
-
 - Follow password policies (complexity, renewal).
 
 5. Human Resources Security
@@ -168,13 +155,8 @@ The ISP is aligned with ISO/IEC 27001 and applicable regulations (GDPR, NIS2, et
 13. Appendices
 
 - Glossary of terms used
-
 - User IT Charter
-
 - Incident management plan template
-
 - Roles and responsibilities in cybersecurity
-
 - List of applicable standards and frameworks
-
 - Backup plan

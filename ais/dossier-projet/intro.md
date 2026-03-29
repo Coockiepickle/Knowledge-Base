@@ -18,41 +18,27 @@ Je veux faire ce que je suis en train de faire en alternance ou similaire.
 #### Études : 
 
 - Bac STI2D à Dautry ---> Mention Assez Bien, 13,66
-
 - BTS SIO à Beaupeyrat ---> 15,88
-
 - Stages de BTS au CHU de Limoges ---> 12 semaines au total
-
 - DEC Techniques de l'informatique au Cégep de La Pocatière
 
 #### Certifications : 
 - **Cégep :**
-
 	- CCNA 2
-
 	- CCNA 3
-
 	- Principes de la cybersécurité
-
 	- IoT
-
 - **BTS :**
-
 	- CNIL
-
 	- ANSSI
-
 	- (Pix)
 
 #### Problématique : 
 Que peut apporter un étudiant en AIS, hors du secteur industriel, à une usine ?
 
 #### Plan :
-
 1. Modernisation de l'infrastructure réseau
-
 2. Développement d'un outil de revue de droits
-
 3. DATTO et GLPI
 
 ### Propal 1 : 

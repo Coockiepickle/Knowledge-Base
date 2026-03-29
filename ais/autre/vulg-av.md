@@ -36,7 +36,6 @@ Avec l’augmentation des cyberattaques, il est crucial de protéger vos donnée
 **S'informer sur l'actualité :**
 
 - S'abonner à des flux RSS
-
 - Chercher des articles sur le web
 
 ---

@@ -1,9 +1,11 @@
 
 
-| Mode | Description |
-|------|-------------|
-| active | Enable LACP unconditionally |
-| auto | Enable PAgP only if a PAgP device is detected |
-| desirable | Enable PAgP unconditionally |
-| on | Enable Etherchannel only |
-| passive | Enable LACP only if a LACP device is detected |
+active = Enable LACP unconditionally
+
+auto = Enable PAgP only if a PAgP device is detected
+
+desirable = Enable PAgP unconditionally
+
+on = Enable Etherchannel only
+
+passive = Enable LACP only if a LACP device is detected
