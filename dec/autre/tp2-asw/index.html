@@ -287,6 +287,25 @@
 
     
 
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a.headerlink").forEach(function (link) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Build the full URL with the anchor fragment
+                const url = window.location.origin + window.location.pathname + this.getAttribute("href");
+
+                navigator.clipboard.writeText(url).then(function () {
+                    // Optional: brief visual feedback
+                });
+            });
+        });
+    });
+</script>
+    
+
 </head>
 
 <body
@@ -407,6 +426,7 @@
     document.addEventListener("keydown", searchShortcutHandler);
 </script>
                 </div>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px ml-2 hidden lg:block">
                 </div>
@@ -420,6 +440,7 @@
                     </svg>
                     
                 </a>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px 3xl:flex hidden">
                 </div>
@@ -459,13 +480,18 @@
 </header>
         <main class="flex flex-1 flex-col">
             <div class="container-wrapper flex flex-1 flex-col px-2">
-                <div data-slot="sidebar-wrapper" style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
+                <div data-slot="sidebar-wrapper"
+                    style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
                     class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full 3xl:fixed:container 3xl:fixed:px-3 min-h-min flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]">
                     <div data-slot="sidebar"
                         class="w-(--sidebar-width) flex-col text-sidebar-foreground sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex">
                         <div class="h-9"></div>
-                        <div class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs"></div>
-                        <div class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex"></div>
+                        <div
+                            class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs">
+                        </div>
+                        <div
+                            class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex">
+                        </div>
                         <div data-slot="sidebar-content" data-sidebar="content" view-transition-name="sidebar"
                             class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden mx-auto no-scrollbar w-(--sidebar-menu-width) overflow-x-hidden px-2">
                             
@@ -1077,9 +1103,7 @@
   <div class="flex flex-col gap-2">
     <div class="flex flex-col gap-2">
       <div id="page-header" class="flex items-start justify-between">
-        <h1
-          class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl"
-        >
+        <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
           Administration de Serveurs Web TP2
         </h1>
 
@@ -1092,53 +1116,29 @@
     <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"></path><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"></path>
 </svg>
 <span class="max-md:hidden">Copy Page</span>
-</button> 
+</button>
           
-          <a
-            data-slot="button"
-            id="previous-button"
+          <a data-slot="button" id="previous-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/esp/real-projet/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-left"
-            >
+            href="/dec/esp/real-projet/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-left">
               <path d="M5 12l14 0"></path>
               <path d="M5 12l6 6"></path>
               <path d="M5 12l6 -6"></path>
             </svg>
             <span class="sr-only">Previous</span>
           </a>
-           
           
-          <a
-            data-slot="button"
-            id="next-button"
+          
+          <a data-slot="button" id="next-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/ais/"
-          >
+            href="/ais/">
             <span class="sr-only">Next</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-right"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-right">
               <path d="M5 12l14 0"></path>
               <path d="M13 18l6 -6"></path>
               <path d="M13 6l6 6"></path>
@@ -1167,12 +1167,12 @@ J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'affi
 <li>Passerelle par défaut</li>
 </ul>
 <h4 id="sinon-en-ligne-de-commande">Sinon, en ligne de commande :<a class="headerlink" href="#sinon-en-ligne-de-commande" title="Permanent link">&para;</a></h4>
-<pre class="codehilite"><code>Get-NetIPAddress
-</code></pre>
+<div class="codehilite"><pre><span></span><code>Get-NetIPAddress
+</code></pre></div>
 
 <p>Noter le numéro d'interface, puis :</p>
-<pre class="codehilite"><code>New-NetIPAddress -Interface-Index &lt;n° de l'interface&gt; -IPAddress &lt;Adresse IP&gt; -PrefixLength 24 -DefaultGateway 100.0.0.1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>New-NetIPAddress -Interface-Index &lt;n° de l&#39;interface&gt; -IPAddress &lt;Adresse IP&gt; -PrefixLength 24 -DefaultGateway 100.0.0.1
+</code></pre></div>
 
 <h4 id="modifier-le-dns">Modifier le DNS<a class="headerlink" href="#modifier-le-dns" title="Permanent link">&para;</a></h4>
 <p>Entrer ==8==, puis le numéro de la carte réseau que l'on veut modifier, ensuite, choisir ==2==, puis entrer l'adresse IP du contrôleur de domaine pour les machines <strong>IIS</strong> et <strong>DB</strong>.</p>
@@ -1181,12 +1181,12 @@ J'ai réalisé cette doc avec Obsidian, or, MarkDown Viewer ne permet pas d'affi
 <p>Dans <strong>SConfig</strong>, entrer ==6==, puis ==1==, ensuite, attendre que les mises à jour se télécharge et répondre ==(O)==ui pour installer toutes les mises à jour, on attend encore et on redémarre si nécessaire.</p>
 <hr />
 <h2 id="ad-ds">AD-DS<a class="headerlink" href="#ad-ds" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+<div class="codehilite"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">-Name</span> <span class="n">AD-Domain-Services</span> <span class="n">-IncludeManagementTools</span>
 
-Import-Module ADDSDeployment
+<span class="nb">Import-Module</span> <span class="n">ADDSDeployment</span>
 
-Install-ADDSForest -DomainName infodec.quebec -InstallDNS
-</code></pre>
+<span class="nb">Install-ADDSForest</span> <span class="n">-DomainName</span> <span class="n">infodec</span><span class="p">.</span><span class="n">quebec</span> <span class="n">-InstallDNS</span>
+</code></pre></div>
 
 <blockquote>
 <p>[!IMPORTANT] 
@@ -1195,23 +1195,23 @@ Rentrer le mot de passe administrateur 2 fois, choisir "Oui" quand un choix appa
 <hr />
 <h2 id="raid-1">RAID-1<a class="headerlink" href="#raid-1" title="Permanent link">&para;</a></h2>
 <p><code>diskpart</code></p>
-<pre class="codehilite"><code class="language-Powershell">select disk 1
-convert dynamic
+<div class="codehilite"><pre><span></span><code><span class="nb">select </span><span class="n">disk</span> <span class="n">1</span>
+<span class="n">convert</span> <span class="n">dynamic</span>
 
-select disk 2
-convert dynamic
+<span class="nb">select </span><span class="n">disk</span> <span class="n">2</span>
+<span class="n">convert</span> <span class="n">dynamic</span>
 
-create volume mirror disk=1,2
+<span class="n">create</span> <span class="n">volume</span> <span class="n">mirror</span> <span class="n">disk</span><span class="p">=</span><span class="n">1</span><span class="p">,</span><span class="n">2</span>
 
-select volume 0
-format fs=ntfs label=&quot;IISWebSites&quot; quick
-assign letter=W
-</code></pre>
+<span class="nb">select </span><span class="n">volume</span> <span class="n">0</span>
+<span class="n">format</span> <span class="n">fs</span><span class="p">=</span><span class="n">ntfs</span> <span class="n">label</span><span class="p">=</span><span class="s2">&quot;IISWebSites&quot;</span> <span class="n">quick</span>
+<span class="n">assign</span> <span class="n">letter</span><span class="p">=</span><span class="n">W</span>
+</code></pre></div>
 
 <hr />
 <h2 id="installation-mariadb">Installation MariaDB<a class="headerlink" href="#installation-mariadb" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">.\mariadb-11.3.2-winx64.msi
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">.\</span><span class="n">mariadb</span><span class="p">-</span><span class="n">11</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">2-winx64</span><span class="p">.</span><span class="n">msi</span>
+</code></pre></div>
 
 <p>Cocher la case :
 "Enable root access..."</p>
@@ -1219,8 +1219,8 @@ assign letter=W
 "S:\data"</p>
 <hr />
 <h2 id="installation-iis">Installation IIS<a class="headerlink" href="#installation-iis" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">Install-WindowsFeature Web-Server -IncludeManagementTools
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">Web-Server</span> <span class="n">-IncludeManagementTools</span>
+</code></pre></div>
 
 <blockquote>
 <p>[!WARNING]
@@ -1228,103 +1228,103 @@ Après chaque modification, taper la commande <code>iisreset</code></p>
 </blockquote>
 <hr />
 <h2 id="installation-php">Installation PHP<a class="headerlink" href="#installation-php" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">Install-WindowsFeature Web-CGI
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">Web-CGI</span>
+</code></pre></div>
 
 <p>Lancer l'installation de <strong>VC_redist.X64.exe</strong></p>
 <p>Redémarrer le serveur</p>
-<pre class="codehilite"><code class="language-PowerShell">Expand-Archive -LiteralPath 'Z:\php-8.3.3-nts-Win32-vs16-x64.zip' -DestinationPath C:\PHP
+<div class="codehilite"><pre><span></span><code><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\php-8.3.3-nts-Win32-vs16-x64.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">C</span><span class="p">:\</span><span class="n">PHP</span>
 
-cp php.ini-development php.ini
+<span class="nb">cp </span><span class="n">php</span><span class="p">.</span><span class="n">ini-development</span> <span class="n">php</span><span class="p">.</span><span class="n">ini</span>
 
-notepad.exe C:\PHP\php.ini
+<span class="n">notepad</span><span class="p">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:\</span><span class="n">PHP</span><span class="p">\</span><span class="n">php</span><span class="p">.</span><span class="n">ini</span>
 
 
-New-WebHandler -Name &quot;PHP-FastCGI&quot; -Path &quot;*.php&quot; -Verb &quot;*&quot; -Modules &quot;FastCgiModule&quot; -ScriptProcessor &quot;c:\php\php-cgi.exe&quot; -ResourceType File
+<span class="nb">New-WebHandler</span> <span class="n">-Name</span> <span class="s2">&quot;PHP-FastCGI&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;*.php&quot;</span> <span class="n">-Verb</span> <span class="s2">&quot;*&quot;</span> <span class="n">-Modules</span> <span class="s2">&quot;FastCgiModule&quot;</span> <span class="n">-ScriptProcessor</span> <span class="s2">&quot;c:\php\php-cgi.exe&quot;</span> <span class="n">-ResourceType</span> <span class="n">File</span>
 
-notepad.exe C:\Windows\System32\inetsrv\config\applicationHost.config
+<span class="n">notepad</span><span class="p">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">System32</span><span class="p">\</span><span class="n">inetsrv</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">applicationHost</span><span class="p">.</span><span class="n">config</span>
 
-&lt;fastCgi&gt;  
-    &lt;application fullPath=&quot;C:\PHP\php-cgi.exe&quot; monitorChangesTo=&quot;C:\PHP\php.ini&quot;&gt; 
-        &lt;environmentVariables&gt;  
-            &lt;environmentVariable name=&quot;PHPRC&quot; value=&quot;C:\PHP\&quot; /&gt;  
-            &lt;environmentVariable name=&quot;PHP_FCGI_MAX_REQUESTS&quot; value=&quot;10050&quot; /&gt;  
-        &lt;/environmentVariables&gt;  
-    &lt;/application&gt;  
-&lt;/fastCgi&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="n">fastCgi</span><span class="p">&gt;</span>  
+    <span class="p">&lt;</span><span class="n">application</span> <span class="n">fullPath</span><span class="p">=</span><span class="s2">&quot;C:\PHP\php-cgi.exe&quot;</span> <span class="n">monitorChangesTo</span><span class="p">=</span><span class="s2">&quot;C:\PHP\php.ini&quot;</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="n">environmentVariables</span><span class="p">&gt;</span>  
+            <span class="p">&lt;</span><span class="n">environmentVariable</span> <span class="n">name</span><span class="p">=</span><span class="s2">&quot;PHPRC&quot;</span> <span class="n">value</span><span class="p">=</span><span class="s2">&quot;C:\PHP\&quot;</span> <span class="p">/&gt;</span>  
+            <span class="p">&lt;</span><span class="n">environmentVariable</span> <span class="n">name</span><span class="p">=</span><span class="s2">&quot;PHP_FCGI_MAX_REQUESTS&quot;</span> <span class="n">value</span><span class="p">=</span><span class="s2">&quot;10050&quot;</span> <span class="p">/&gt;</span>  
+        <span class="p">&lt;/</span><span class="n">environmentVariables</span><span class="p">&gt;</span>  
+    <span class="p">&lt;/</span><span class="n">application</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="n">fastCgi</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <p>Puis, entrer la commande :
 <code>iisreset</code></p>
 <hr />
 <h2 id="installation-phpmyadmin">Installation PHPMyAdmin<a class="headerlink" href="#installation-phpmyadmin" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-Powershell">Expand-Archive -LiteralPath 'Z:\phpMyAdmin-5.2.1-all-languages.zip' -DestinationPath C:\inetpub\wwwroot
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\phpMyAdmin-5.2.1-all-languages.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">C</span><span class="p">:\</span><span class="n">inetpub</span><span class="p">\</span><span class="n">wwwroot</span>
+</code></pre></div>
 
 <p>Décommenter, dans <code>php.ini</code> à la ligne 770 environ :</p>
-<pre class="codehilite"><code>extension_dir = &quot;ext&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>extension_dir = &quot;ext&quot;
+</code></pre></div>
 
 <p>et, à la fin du fichier, rajouter :</p>
-<pre class="codehilite"><code>extension = &quot;mysqli&quot;
+<div class="codehilite"><pre><span></span><code>extension = &quot;mysqli&quot;
 extension = &quot;mbstring&quot;
-</code></pre>
+</code></pre></div>
 
 <p>Rendre la machine accessible sur internet, en choisissant "Accès par pont" dans VirtualBox et installer IIS dans WAC.</p>
-<pre class="codehilite"><code class="language-PowerShell">Rename-Item C:\inetpub\wwwroot\phpMyAdmin-5.2.1-all-languages phpMyAdmin
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">Rename-Item</span> <span class="n">C</span><span class="p">:\</span><span class="n">inetpub</span><span class="p">\</span><span class="n">wwwroot</span><span class="p">\</span><span class="n">phpMyAdmin</span><span class="p">-</span><span class="n">5</span><span class="p">.</span><span class="n">2</span><span class="p">.</span><span class="n">1-all-languages</span> <span class="n">phpMyAdmin</span>
+</code></pre></div>
 
 <p>Dans le fichier <code>C:\Windows\System32\inetsrv\config\applicationHost.config</code></p>
-<pre class="codehilite"><code class="language-PowerShell">directoryBrowse enabled=&quot;true&quot;
-&lt;add value=&quot;index.php&quot; /&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">directoryBrowse</span> <span class="n">enabled</span><span class="p">=</span><span class="s2">&quot;true&quot;</span>
+<span class="p">&lt;</span><span class="n">add</span> <span class="n">value</span><span class="p">=</span><span class="s2">&quot;index.php&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
 
 <p>Copier le fichier <code>config.sample.inc.php</code> en <code>config.inc.php</code></p>
-<pre class="codehilite"><code>icacls.exe &quot;C:\inetpub\wwwroot\phpMyAdmin&quot; /grant &quot;IIS_IUSRS:(OI)(CI)F&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>icacls.exe &quot;C:\inetpub\wwwroot\phpMyAdmin&quot; /grant &quot;IIS_IUSRS:(OI)(CI)F&quot;
+</code></pre></div>
 
 <p>Se rendre sur <code>100.0.0.20/phpmyadmin/config.inc.php</code> pour vérifier que tout va bien.</p>
 <p>On peut maintenant se login sur <a href="https://100.0.0.20/phpmyadmin">phpMyAdmin</a></p>
 <hr />
 <h2 id="creation-du-site-arcadia">Création du site Arcadia<a class="headerlink" href="#creation-du-site-arcadia" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">mkdir W:\arcadia
+<div class="codehilite"><pre><span></span><code><span class="n">mkdir</span> <span class="n">W</span><span class="p">:\</span><span class="n">arcadia</span>
 
-Expand-Archive -LiteralPath 'Z:\Joomla_5.0.3-Stable-Full_Package.zip' -DestinationPath W:\arcadia
+<span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\Joomla_5.0.3-Stable-Full_Package.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">W</span><span class="p">:\</span><span class="n">arcadia</span>
 
-New-IISSite -Name &quot;arcadia&quot; -BindingInformation &quot;*:80:arcadia.lcal&quot; -PhysicalPath &quot;W:\arcadia&quot; -Passthru
+<span class="nb">New-IISSite</span> <span class="n">-Name</span> <span class="s2">&quot;arcadia&quot;</span> <span class="n">-BindingInformation</span> <span class="s2">&quot;*:80:arcadia.lcal&quot;</span> <span class="n">-PhysicalPath</span> <span class="s2">&quot;W:\arcadia&quot;</span> <span class="n">-Passthru</span>
 
-New-WebAppPool -Name &quot;arcadia&quot;
+<span class="nb">New-WebAppPool</span> <span class="n">-Name</span> <span class="s2">&quot;arcadia&quot;</span>
 
-Import-Module WebAdministrator
+<span class="nb">Import-Module</span> <span class="n">WebAdministrator</span>
 
-iis:
+<span class="n">iis</span><span class="p">:</span>
 
-Set-ItemProperty IIS:\Sites\arcadia\ -Name ApplicationPool -Value arcadia
+<span class="nb">Set-ItemProperty</span> <span class="n">IIS</span><span class="p">:\</span><span class="n">Sites</span><span class="p">\</span><span class="n">arcadia</span><span class="p">\</span> <span class="n">-Name</span> <span class="n">ApplicationPool</span> <span class="n">-Value</span> <span class="n">arcadia</span>
 
-Start-IISSite arcadia
+<span class="nb">Start-IISSite</span> <span class="n">arcadia</span>
 
-icacls &quot;W:\arcadia&quot; /grant &quot;IIS_IUSRS:(OI)(CI)F&quot;
-</code></pre>
+<span class="n">icacls</span> <span class="s2">&quot;W:\arcadia&quot;</span> <span class="p">/</span><span class="n">grant</span> <span class="s2">&quot;IIS_IUSRS:(OI)(CI)F&quot;</span>
+</code></pre></div>
 
 <p>On peut maintenant accéder à <a href="https://arcadia.local">Joomla</a> et suivre les instructions d'installation.</p>
 <hr />
 <h2 id="creation-du-site-antares">Création du site Antares<a class="headerlink" href="#creation-du-site-antares" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-PowerShell">mkdir W:\antares
+<div class="codehilite"><pre><span></span><code><span class="n">mkdir</span> <span class="n">W</span><span class="p">:\</span><span class="n">antares</span>
 
-Expand-Archive -LiteralPath 'Z:\wordpress-6.4.3-fr_FR.zip' -DestinationPath W:\antares
+<span class="nb">Expand-Archive</span> <span class="n">-LiteralPath</span> <span class="s1">&#39;Z:\wordpress-6.4.3-fr_FR.zip&#39;</span> <span class="n">-DestinationPath</span> <span class="n">W</span><span class="p">:\</span><span class="n">antares</span>
 
-New-IISSite -Name &quot;antares&quot; -BindingInformation &quot;*:80:antares.local&quot; -PhysicalPath &quot;W:\antares&quot; -Passthru
+<span class="nb">New-IISSite</span> <span class="n">-Name</span> <span class="s2">&quot;antares&quot;</span> <span class="n">-BindingInformation</span> <span class="s2">&quot;*:80:antares.local&quot;</span> <span class="n">-PhysicalPath</span> <span class="s2">&quot;W:\antares&quot;</span> <span class="n">-Passthru</span>
 
-New-WebAppPool -Name &quot;antares&quot;
+<span class="nb">New-WebAppPool</span> <span class="n">-Name</span> <span class="s2">&quot;antares&quot;</span>
 
-Import-Module WebAdministrator
+<span class="nb">Import-Module</span> <span class="n">WebAdministrator</span>
 
-Set-ItemProperty IIS:\Sites\antares\ -Name ApplicationPool -Value antares
+<span class="nb">Set-ItemProperty</span> <span class="n">IIS</span><span class="p">:\</span><span class="n">Sites</span><span class="p">\</span><span class="n">antares</span><span class="p">\</span> <span class="n">-Name</span> <span class="n">ApplicationPool</span> <span class="n">-Value</span> <span class="n">antares</span>
 
-Start-IISSite antares
+<span class="nb">Start-IISSite</span> <span class="n">antares</span>
 
-icacls &quot;W:\antares&quot; /grant &quot;IIS_IUSRS:(OI)(CI)F&quot;
-</code></pre>
+<span class="n">icacls</span> <span class="s2">&quot;W:\antares&quot;</span> <span class="p">/</span><span class="n">grant</span> <span class="s2">&quot;IIS_IUSRS:(OI)(CI)F&quot;</span>
+</code></pre></div>
 
 <p>On peut maintenant accéder à <a href="https://antares.local">Wordpress</a> et suivre les instructions d'installation.</p>
 <blockquote>
@@ -1381,6 +1381,12 @@ icacls &quot;W:\antares&quot; /grant &quot;IIS_IUSRS:(OI)(CI)F&quot;
 Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
 </blockquote>
   </div>
+  
+  <script>
+    document.querySelectorAll('article h2, article h3').forEach((header) => {
+      toc.observer.observe(header);
+    });
+  </script>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
     
@@ -1533,7 +1539,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
                             <div
                                 class="sticky top-[calc(var(--header-height)+1px)] ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
                                 <div class="h-(--top-spacing) shrink-0"></div>
-                                <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
+                                <div id="toc" view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
         
@@ -1542,20 +1548,20 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#parametres-reseau"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#parametres-reseau');">
             Paramètres réseau
         </a>
         
         
         <a href="#sinon-en-ligne-de-commande"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#sinon-en-ligne-de-commande');">
             Sinon, en ligne de commande :
         </a>
         
         <a href="#modifier-le-dns"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#modifier-le-dns');">
             Modifier le DNS
         </a>
         
@@ -1564,7 +1570,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#mettre-a-jour-la-vm"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#mettre-a-jour-la-vm');">
             Mettre à jour la VM
         </a>
         
@@ -1572,7 +1578,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#ad-ds"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#ad-ds');">
             AD-DS
         </a>
         
@@ -1580,7 +1586,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#raid-1"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#raid-1');">
             RAID-1
         </a>
         
@@ -1588,7 +1594,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#installation-mariadb"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#installation-mariadb');">
             Installation MariaDB
         </a>
         
@@ -1596,7 +1602,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#installation-iis"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#installation-iis');">
             Installation IIS
         </a>
         
@@ -1604,7 +1610,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#installation-php"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#installation-php');">
             Installation PHP
         </a>
         
@@ -1612,7 +1618,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#installation-phpmyadmin"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#installation-phpmyadmin');">
             Installation PHPMyAdmin
         </a>
         
@@ -1620,7 +1626,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#creation-du-site-arcadia"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#creation-du-site-arcadia');">
             Création du site Arcadia
         </a>
         
@@ -1628,7 +1634,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#creation-du-site-antares"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#creation-du-site-antares');">
             Création du site Antares
         </a>
         
@@ -1636,7 +1642,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
         
         <a href="#creation-des-utilisateurs"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#creation-des-utilisateurs');">
             Création des utilisateurs
         </a>
         
@@ -1648,6 +1654,7 @@ Documentation réalisée par Damien Reynaud le 22 Mars 2024</p>
 
     </div>
     <div class="h-12"></div>
+
 </div>
                             </div>
                         </div>

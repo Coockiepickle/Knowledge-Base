@@ -287,6 +287,25 @@
 
     
 
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a.headerlink").forEach(function (link) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Build the full URL with the anchor fragment
+                const url = window.location.origin + window.location.pathname + this.getAttribute("href");
+
+                navigator.clipboard.writeText(url).then(function () {
+                    // Optional: brief visual feedback
+                });
+            });
+        });
+    });
+</script>
+    
+
 </head>
 
 <body
@@ -407,6 +426,7 @@
     document.addEventListener("keydown", searchShortcutHandler);
 </script>
                 </div>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px ml-2 hidden lg:block">
                 </div>
@@ -420,6 +440,7 @@
                     </svg>
                     
                 </a>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px 3xl:flex hidden">
                 </div>
@@ -459,13 +480,18 @@
 </header>
         <main class="flex flex-1 flex-col">
             <div class="container-wrapper flex flex-1 flex-col px-2">
-                <div data-slot="sidebar-wrapper" style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
+                <div data-slot="sidebar-wrapper"
+                    style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
                     class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full 3xl:fixed:container 3xl:fixed:px-3 min-h-min flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]">
                     <div data-slot="sidebar"
                         class="w-(--sidebar-width) flex-col text-sidebar-foreground sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex">
                         <div class="h-9"></div>
-                        <div class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs"></div>
-                        <div class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex"></div>
+                        <div
+                            class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs">
+                        </div>
+                        <div
+                            class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex">
+                        </div>
                         <div data-slot="sidebar-content" data-sidebar="content" view-transition-name="sidebar"
                             class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden mx-auto no-scrollbar w-(--sidebar-menu-width) overflow-x-hidden px-2">
                             
@@ -1077,9 +1103,7 @@
   <div class="flex flex-col gap-2">
     <div class="flex flex-col gap-2">
       <div id="page-header" class="flex items-start justify-between">
-        <h1
-          class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl"
-        >
+        <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
           Réalisation du projet
         </h1>
 
@@ -1092,53 +1116,29 @@
     <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"></path><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"></path>
 </svg>
 <span class="max-md:hidden">Copy Page</span>
-</button> 
+</button>
           
-          <a
-            data-slot="button"
-            id="previous-button"
+          <a data-slot="button" id="previous-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/esp/pres-orale/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-left"
-            >
+            href="/dec/esp/pres-orale/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-left">
               <path d="M5 12l14 0"></path>
               <path d="M5 12l6 6"></path>
               <path d="M5 12l6 -6"></path>
             </svg>
             <span class="sr-only">Previous</span>
           </a>
-           
           
-          <a
-            data-slot="button"
-            id="next-button"
+          
+          <a data-slot="button" id="next-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/autre/tp2-asw/"
-          >
+            href="/dec/autre/tp2-asw/">
             <span class="sr-only">Next</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-right"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-right">
               <path d="M5 12l14 0"></path>
               <path d="M13 18l6 -6"></path>
               <path d="M13 6l6 6"></path>
@@ -1217,9 +1217,9 @@ Toutes les applications se lancent depuis le terminal</p>
 </blockquote>
 <h1 id="applications-testees">Applications testées<a class="headerlink" href="#applications-testees" title="Permanent link">&para;</a></h1>
 <h2 id="zphisher">ZPhisher<a class="headerlink" href="#zphisher" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>cd zphisher
+<div class="codehilite"><pre><span></span><code>cd zphisher
 sudo ./zphisher.sh
-</code></pre>
+</code></pre></div>
 
 <p>![[Screenshot 2024-05-27 163752.png|400]]</p>
 <p>Choisir un template de connexion</p>
@@ -1228,9 +1228,9 @@ sudo ./zphisher.sh
 <p>Une fois que les URLs apparaissent, copier la 1ère, lancer un nouveau terminal et PhishMailer.</p>
 <hr />
 <h2 id="phishmailer">PhishMailer<a class="headerlink" href="#phishmailer" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>cd PhishMailer
+<div class="codehilite"><pre><span></span><code>cd PhishMailer
 sudo python3 PaishMailer.py
-</code></pre>
+</code></pre></div>
 
 <p>![[Screenshot 2024-05-27 163305.png|400]]</p>
 <p>Choisir le template de phishing et remplir les informations demandées (prénom de la victime, email, date…)</p>
@@ -1240,8 +1240,8 @@ sudo python3 PaishMailer.py
 Maintenant, il ne reste plus qu'à attendre que la victime clique sur le lien et rentre ses identifiants.</p>
 <hr />
 <h2 id="dhcpig">DHCPig<a class="headerlink" href="#dhcpig" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>sudo dhcpig -c -v3 -l -a -i -o wlan0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo dhcpig -c -v3 -l -a -i -o wlan0
+</code></pre></div>
 
 <p>Ensuite, attendre.</p>
 <blockquote>
@@ -1249,37 +1249,37 @@ Maintenant, il ne reste plus qu'à attendre que la victime clique sur le lien et
 </blockquote>
 <hr />
 <h2 id="lynis">Lynis<a class="headerlink" href="#lynis" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>sudo ./lynis audit system -Q
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo ./lynis audit system -Q
+</code></pre></div>
 
 <p>Ensuite, attendre que le scan se termine.</p>
 <hr />
 <h1 id="attaques-non-testees">Attaques non testées<a class="headerlink" href="#attaques-non-testees" title="Permanent link">&para;</a></h1>
 <h2 id="metasploit-console">Metasploit Console<a class="headerlink" href="#metasploit-console" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>msfconsole
-</code></pre>
+<div class="codehilite"><pre><span></span><code>msfconsole
+</code></pre></div>
 
 <p><a href="https://docs.metasploit.com/docs/using-metasploit/basics/">Basics | Metasploit Documentation</a></p>
 <hr />
 <h2 id="aircrack-ng">Aircrack-NG<a class="headerlink" href="#aircrack-ng" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>aircrack-ng [options] &lt;capture file(s)&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">aircrack</span><span class="o">-</span><span class="n">ng</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">capture</span><span class="w"> </span><span class="k">file</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">&gt;</span>
+</code></pre></div>
 
 <p><a href="https://www.aircrack-ng.org/doku.php?id=newbie_guide">newbie_guide [Aircrack-ng]</a></p>
 <hr />
 <h2 id="airgeddon">Airgeddon<a class="headerlink" href="#airgeddon" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>cd airgeddon
+<div class="codehilite"><pre><span></span><code>cd airgeddon
 sudo bash airgeddon.sh
-</code></pre>
+</code></pre></div>
 
 <p><a href="https://www.golinuxcloud.com/evil-twin-wifi-attack/">How to perform Evil Twin WiFi Attack | GoLinuxCloud</a></p>
 <hr />
 <h2 id="wifiphisher">Wifiphisher<a class="headerlink" href="#wifiphisher" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code>ifconfig wlan0 down  
+<div class="codehilite"><pre><span></span><code>ifconfig wlan0 down  
 iwconfig wlan0 mode monitor  
 ifconfig wlan0 up
 wifiphisher -i wlan0 -e &quot;SSID&quot; -p oauth-login
-</code></pre>
+</code></pre></div>
 
 <p>Attendre que quelqu'un se connecte au réseau.</p>
 <p><a href="https://medium.com/@mikewittenauer/tutorial-wifiphisher-attack-create-fake-wifi-networks-for-hacking-8ac242fb9a37">Tutorial: Wifiphisher Attack | Medium</a></p>
@@ -1310,6 +1310,12 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
 <p>Entrer le mot de passe : <strong>P4ssW0rd</strong></p>
 <p>Vous êtes connecté</p>
   </div>
+  
+  <script>
+    document.querySelectorAll('article h2, article h3').forEach((header) => {
+      toc.observer.observe(header);
+    });
+  </script>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
     
@@ -1462,7 +1468,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
                             <div
                                 class="sticky top-[calc(var(--header-height)+1px)] ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
                                 <div class="h-(--top-spacing) shrink-0"></div>
-                                <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
+                                <div id="toc" view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
         
@@ -1471,7 +1477,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#demarrage-du-raspberry-pi"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#demarrage-du-raspberry-pi');">
             Démarrage du Raspberry Pi
         </a>
         
@@ -1479,7 +1485,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#eteindre-le-raspberry"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#eteindre-le-raspberry');">
             Éteindre le Raspberry
         </a>
         
@@ -1487,7 +1493,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#connexion-a-distance-au-raspberry-pi-en-utilisant-realvnc-viewer"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#connexion-a-distance-au-raspberry-pi-en-utilisant-realvnc-viewer');">
             Connexion à distance au Raspberry Pi en utilisant RealVNC Viewer
         </a>
         
@@ -1495,7 +1501,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#lancement-des-applications-de-pentesting"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#lancement-des-applications-de-pentesting');">
             Lancement des applications de pentesting
         </a>
         
@@ -1503,32 +1509,32 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#applications-testees"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#applications-testees');">
             Applications testées
         </a>
         
         
         <a href="#zphisher"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#zphisher');">
             ZPhisher
         </a>
         
         <a href="#phishmailer"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phishmailer');">
             PhishMailer
         </a>
         
         <a href="#dhcpig"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#dhcpig');">
             DHCPig
         </a>
         
         <a href="#lynis"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#lynis');">
             Lynis
         </a>
         
@@ -1537,32 +1543,32 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#attaques-non-testees"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#attaques-non-testees');">
             Attaques non testées
         </a>
         
         
         <a href="#metasploit-console"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#metasploit-console');">
             Metasploit Console
         </a>
         
         <a href="#aircrack-ng"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#aircrack-ng');">
             Aircrack-NG
         </a>
         
         <a href="#airgeddon"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#airgeddon');">
             Airgeddon
         </a>
         
         <a href="#wifiphisher"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#wifiphisher');">
             Wifiphisher
         </a>
         
@@ -1571,14 +1577,14 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
         
         <a href="#tester-le-packet-tracer"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#tester-le-packet-tracer');">
             Tester le Packet Tracer
         </a>
         
         
         <a href="#se-connecter-au-wi-fi"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#se-connecter-au-wi-fi');">
             Se connecter au Wi-Fi
         </a>
         
@@ -1591,6 +1597,7 @@ Avec un Evil Twin réel, vous devez entrer un mot de passe, n'importe lequel ser
 
     </div>
     <div class="h-12"></div>
+
 </div>
                             </div>
                         </div>

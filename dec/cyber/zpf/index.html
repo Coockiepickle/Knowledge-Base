@@ -287,6 +287,25 @@
 
     
 
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a.headerlink").forEach(function (link) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Build the full URL with the anchor fragment
+                const url = window.location.origin + window.location.pathname + this.getAttribute("href");
+
+                navigator.clipboard.writeText(url).then(function () {
+                    // Optional: brief visual feedback
+                });
+            });
+        });
+    });
+</script>
+    
+
 </head>
 
 <body
@@ -407,6 +426,7 @@
     document.addEventListener("keydown", searchShortcutHandler);
 </script>
                 </div>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px ml-2 hidden lg:block">
                 </div>
@@ -420,6 +440,7 @@
                     </svg>
                     
                 </a>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px 3xl:flex hidden">
                 </div>
@@ -459,13 +480,18 @@
 </header>
         <main class="flex flex-1 flex-col">
             <div class="container-wrapper flex flex-1 flex-col px-2">
-                <div data-slot="sidebar-wrapper" style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
+                <div data-slot="sidebar-wrapper"
+                    style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
                     class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full 3xl:fixed:container 3xl:fixed:px-3 min-h-min flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]">
                     <div data-slot="sidebar"
                         class="w-(--sidebar-width) flex-col text-sidebar-foreground sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex">
                         <div class="h-9"></div>
-                        <div class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs"></div>
-                        <div class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex"></div>
+                        <div
+                            class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs">
+                        </div>
+                        <div
+                            class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex">
+                        </div>
                         <div data-slot="sidebar-content" data-sidebar="content" view-transition-name="sidebar"
                             class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden mx-auto no-scrollbar w-(--sidebar-menu-width) overflow-x-hidden px-2">
                             
@@ -1077,9 +1103,7 @@
   <div class="flex flex-col gap-2">
     <div class="flex flex-col gap-2">
       <div id="page-header" class="flex items-start justify-between">
-        <h1
-          class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl"
-        >
+        <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
           ZPF
         </h1>
 
@@ -1092,53 +1116,29 @@
     <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"></path><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"></path>
 </svg>
 <span class="max-md:hidden">Copy Page</span>
-</button> 
+</button>
           
-          <a
-            data-slot="button"
-            id="previous-button"
+          <a data-slot="button" id="previous-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/cyber/acl/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-left"
-            >
+            href="/dec/cyber/acl/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-left">
               <path d="M5 12l14 0"></path>
               <path d="M5 12l6 6"></path>
               <path d="M5 12l6 -6"></path>
             </svg>
             <span class="sr-only">Previous</span>
           </a>
-           
           
-          <a
-            data-slot="button"
-            id="next-button"
+          
+          <a data-slot="button" id="next-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/cyber/actions-zpf/"
-          >
+            href="/dec/cyber/actions-zpf/">
             <span class="sr-only">Next</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-right"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-right">
               <path d="M5 12l14 0"></path>
               <path d="M13 18l6 -6"></path>
               <path d="M13 6l6 6"></path>
@@ -1157,32 +1157,32 @@
     <p>(Zone-based Policy Firewall, Pare-feu à politiques basées sur les zones)</p>
 <h1 id="configurer-un-zpf">Configurer un ZPF<a class="headerlink" href="#configurer-un-zpf" title="Permanent link">&para;</a></h1>
 <h3 id="etape-1-creer-les-zones">Étape 1 : Créer les zones<a class="headerlink" href="#etape-1-creer-les-zones" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>conf t
+<div class="codehilite"><pre><span></span><code>conf t
 zone security (nom_de_la_zone)
 exit
-</code></pre>
+</code></pre></div>
 
 <h3 id="etape-2-identifier-le-trafic">Étape 2 : Identifier le trafic<a class="headerlink" href="#etape-2-identifier-le-trafic" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>conf t
-class-map type inspect match-any (nom_de_la_classe)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">conf</span><span class="w"> </span><span class="nx">t</span>
+<span class="kd">class</span><span class="o">-</span><span class="nx">map</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="k">match</span><span class="o">-</span><span class="nx">any</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_classe</span><span class="p">)</span>
+</code></pre></div>
 
 <p>ou</p>
-<pre class="codehilite"><code>conf t
-class-map type inspect match-all (nom_de_la_classe)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">conf</span><span class="w"> </span><span class="nx">t</span>
+<span class="kd">class</span><span class="o">-</span><span class="nx">map</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="k">match</span><span class="o">-</span><span class="nx">all</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_classe</span><span class="p">)</span>
+</code></pre></div>
 
 <p>puis</p>
-<pre class="codehilite"><code>match access-group (n°_ou_nom_de_l'acl)
-</code></pre>
+<div class="codehilite"><pre><span></span><code>match access-group (n°_ou_nom_de_l&#39;acl)
+</code></pre></div>
 
 <p>ou</p>
-<pre class="codehilite"><code>match protocol (nom_du_protocole)
-</code></pre>
+<div class="codehilite"><pre><span></span><code>match protocol (nom_du_protocole)
+</code></pre></div>
 
 <p>ou</p>
-<pre class="codehilite"><code>match class-map (nom_du_mappage_de_classe)
-</code></pre>
+<div class="codehilite"><pre><span></span><code>match class-map (nom_du_mappage_de_classe)
+</code></pre></div>
 
 <blockquote>
 <p>[!NOTE]
@@ -1192,32 +1192,38 @@ class-map type inspect match-all (nom_de_la_classe)
     match protocol dns</p>
 </blockquote>
 <h3 id="etape-3-definir-une-action">Étape 3 : Définir une action<a class="headerlink" href="#etape-3-definir-une-action" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>policy-map type inspect (nom_du_mappage_de_politiques)
-class type inspect (nom_de_la_classe_de_mappage)
-{inspect | drop | pass}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">policy</span><span class="o">-</span><span class="nx">map</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_du_mappage_de_politiques</span><span class="p">)</span>
+<span class="kd">class</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_classe_de_mappage</span><span class="p">)</span>
+<span class="p">{</span><span class="nx">inspect</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">drop</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">pass</span><span class="p">}</span>
+</code></pre></div>
 
 <blockquote>
 <p>[!NOTE]
 [[Actions ZPF |Voir la définition des actions ZPF]]</p>
 </blockquote>
 <h3 id="etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique">Étape 4 : Identifier une paire de zones et l'associer à une politique<a class="headerlink" href="#etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>conf t
-zone-pair security (nom_de_la_paire_de_zone) source (nom_de_la_source | self) destination (nom_de_la_destination | self)
-service-policy type inspect (nom_de_la_politique_de_mappage)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">conf</span><span class="w"> </span><span class="nx">t</span>
+<span class="nx">zone</span><span class="o">-</span><span class="nx">pair</span><span class="w"> </span><span class="nx">security</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_paire_de_zone</span><span class="p">)</span><span class="w"> </span><span class="nx">source</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_source</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kp">self</span><span class="p">)</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_destination</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kp">self</span><span class="p">)</span>
+<span class="nx">service</span><span class="o">-</span><span class="nx">policy</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="p">(</span><span class="nx">nom_de_la_politique_de_mappage</span><span class="p">)</span>
+</code></pre></div>
 
 <h3 id="etape-5-attribuer-des-zones-aux-interfaces">Étape 5 : Attribuer des zones aux interfaces<a class="headerlink" href="#etape-5-attribuer-des-zones-aux-interfaces" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>conf t
+<div class="codehilite"><pre><span></span><code>conf t
 (sélectionner_interface)
 zone-member security (nom_de_la_zone)
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>[!WARNING]
 Il faut évidemment attribuer deux interfaces, par exemple une interface publique et une interface privée</p>
 </blockquote>
   </div>
+  
+  <script>
+    document.querySelectorAll('article h2, article h3').forEach((header) => {
+      toc.observer.observe(header);
+    });
+  </script>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
     
@@ -1370,7 +1376,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
                             <div
                                 class="sticky top-[calc(var(--header-height)+1px)] ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
                                 <div class="h-(--top-spacing) shrink-0"></div>
-                                <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
+                                <div id="toc" view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
         
@@ -1379,7 +1385,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
         
         <a href="#etape-1-creer-les-zones"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#etape-1-creer-les-zones');">
             Étape 1 : Créer les zones
         </a>
         
@@ -1387,7 +1393,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
         
         <a href="#etape-2-identifier-le-trafic"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#etape-2-identifier-le-trafic');">
             Étape 2 : Identifier le trafic
         </a>
         
@@ -1395,7 +1401,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
         
         <a href="#etape-3-definir-une-action"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#etape-3-definir-une-action');">
             Étape 3 : Définir une action
         </a>
         
@@ -1403,7 +1409,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
         
         <a href="#etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#etape-4-identifier-une-paire-de-zones-et-lassocier-a-une-politique');">
             Étape 4 : Identifier une paire de zones et l'associer à une politique
         </a>
         
@@ -1411,7 +1417,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
         
         <a href="#etape-5-attribuer-des-zones-aux-interfaces"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#etape-5-attribuer-des-zones-aux-interfaces');">
             Étape 5 : Attribuer des zones aux interfaces
         </a>
         
@@ -1423,6 +1429,7 @@ Il faut évidemment attribuer deux interfaces, par exemple une interface publiqu
 
     </div>
     <div class="h-12"></div>
+
 </div>
                             </div>
                         </div>

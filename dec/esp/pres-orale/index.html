@@ -287,6 +287,25 @@
 
     
 
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a.headerlink").forEach(function (link) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Build the full URL with the anchor fragment
+                const url = window.location.origin + window.location.pathname + this.getAttribute("href");
+
+                navigator.clipboard.writeText(url).then(function () {
+                    // Optional: brief visual feedback
+                });
+            });
+        });
+    });
+</script>
+    
+
 </head>
 
 <body
@@ -407,6 +426,7 @@
     document.addEventListener("keydown", searchShortcutHandler);
 </script>
                 </div>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px ml-2 hidden lg:block">
                 </div>
@@ -420,6 +440,7 @@
                     </svg>
                     
                 </a>
+                
                 <div data-orientation="vertical" role="none" data-slot="separator"
                     class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px 3xl:flex hidden">
                 </div>
@@ -459,13 +480,18 @@
 </header>
         <main class="flex flex-1 flex-col">
             <div class="container-wrapper flex flex-1 flex-col px-2">
-                <div data-slot="sidebar-wrapper" style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
+                <div data-slot="sidebar-wrapper"
+                    style="--sidebar-width:calc(var(--spacing) * 72);--sidebar-width-icon:3rem;"
                     class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full 3xl:fixed:container 3xl:fixed:px-3 min-h-min flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]">
                     <div data-slot="sidebar"
                         class="w-(--sidebar-width) flex-col text-sidebar-foreground sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex">
                         <div class="h-9"></div>
-                        <div class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs"></div>
-                        <div class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex"></div>
+                        <div
+                            class="absolute top-8 z-10 h-8 w-(--sidebar-menu-width) shrink-0 bg-gradient-to-b from-background via-background/80 to-background/50 blur-xs">
+                        </div>
+                        <div
+                            class="absolute top-12 right-2 bottom-0 hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent lg:flex">
+                        </div>
                         <div data-slot="sidebar-content" data-sidebar="content" view-transition-name="sidebar"
                             class="flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden mx-auto no-scrollbar w-(--sidebar-menu-width) overflow-x-hidden px-2">
                             
@@ -1077,9 +1103,7 @@
   <div class="flex flex-col gap-2">
     <div class="flex flex-col gap-2">
       <div id="page-header" class="flex items-start justify-between">
-        <h1
-          class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl"
-        >
+        <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
           Présentation Orale
         </h1>
 
@@ -1092,53 +1116,29 @@
     <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"></path><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"></path>
 </svg>
 <span class="max-md:hidden">Copy Page</span>
-</button> 
+</button>
           
-          <a
-            data-slot="button"
-            id="previous-button"
+          <a data-slot="button" id="previous-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/esp/poc/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-left"
-            >
+            href="/dec/esp/poc/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-left">
               <path d="M5 12l14 0"></path>
               <path d="M5 12l6 6"></path>
               <path d="M5 12l6 -6"></path>
             </svg>
             <span class="sr-only">Previous</span>
           </a>
-           
           
-          <a
-            data-slot="button"
-            id="next-button"
+          
+          <a data-slot="button" id="next-button"
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 extend-touch-target size-8 shadow-none md:size-7"
-            href="/dec/esp/real-projet/"
-          >
+            href="/dec/esp/real-projet/">
             <span class="sr-only">Next</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="tabler-icon tabler-icon-arrow-right"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="tabler-icon tabler-icon-arrow-right">
               <path d="M5 12l14 0"></path>
               <path d="M13 18l6 -6"></path>
               <path d="M13 6l6 6"></path>
@@ -1225,20 +1225,20 @@
 <h3 id="audit-de-securite"><font color="#ff0000">Audit de sécurité</font><a class="headerlink" href="#audit-de-securite" title="Permanent link">&para;</a></h3>
 <h4 id="avec-lynis">Avec Lynis<a class="headerlink" href="#avec-lynis" title="Permanent link">&para;</a></h4>
 <p><a href="https://cisofy.com/lynis/">Lynis - Security auditing tool - CISOfy</a></p>
-<pre class="codehilite"><code>sudo ./lynis audit system -Q
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo ./lynis audit system -Q
+</code></pre></div>
 
 <hr />
 <h3 id="1ere-attaque">1ère attaque<a class="headerlink" href="#1ere-attaque" title="Permanent link">&para;</a></h3>
 <h4 id="attaque-de-phishing-avec-zphisher-et-phishmailer"><font color="#ff0000">Attaque de phishing avec Zphisher et PhishMailer</font><a class="headerlink" href="#attaque-de-phishing-avec-zphisher-et-phishmailer" title="Permanent link">&para;</a></h4>
 <p><a href="https://github.com/BiZken/PhishMailer">PhishMailer (github.com)</a> / <a href="https://github.com/htr-tech/zphisher">Zphisher (github.com)</a></p>
 <p>Zphisher : </p>
-<pre class="codehilite"><code>sudo ./zphisher.sh
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo ./zphisher.sh
+</code></pre></div>
 
 <p>PhishMailer : </p>
-<pre class="codehilite"><code>sudo python3 Phishmailer.py
-</code></pre>
+<div class="codehilite"><pre><span></span><code>sudo python3 Phishmailer.py
+</code></pre></div>
 
 <hr />
 <h3 id="2eme-attaque">2ème attaque<a class="headerlink" href="#2eme-attaque" title="Permanent link">&para;</a></h3>
@@ -1246,8 +1246,8 @@
 <h3 id="avec-dhcpig">Avec DHCPig<a class="headerlink" href="#avec-dhcpig" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.kali.org/tools/dhcpig/">dhcpig | Kali Linux Tools</a> / <a href="https://github.com/kamorin/DHCPig">DHCPig GitHub</a></p>
 <p>Juste <strong>une</strong> commande à taper :</p>
-<pre class="codehilite"><code>dhcpig -c -v3 -l -a -i -o wlan0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>dhcpig -c -v3 -l -a -i -o wlan0
+</code></pre></div>
 
 <hr />
 <h3 id="3eme-attaque-pas-realisable-pour-le-moment">3ème attaque (pas réalisable pour le moment)<a class="headerlink" href="#3eme-attaque-pas-realisable-pour-le-moment" title="Permanent link">&para;</a></h3>
@@ -1325,6 +1325,12 @@
 <h2 id="sources-dinformation">Sources d'information<a class="headerlink" href="#sources-dinformation" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.google.com/document/d/1IzLjMs-Edq09bgt-8ZZXHvkbIb2k9g3TPWagCHdaXEk/edit?usp=sharing">Liste Google Docs</a></p>
   </div>
+  
+  <script>
+    document.querySelectorAll('article h2, article h3').forEach((header) => {
+      toc.observer.observe(header);
+    });
+  </script>
 </article>
                                 <div class="mx-auto flex flex-wrap h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
     
@@ -1477,7 +1483,7 @@
                             <div
                                 class="sticky top-[calc(var(--header-height)+1px)] ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
                                 <div class="h-(--top-spacing) shrink-0"></div>
-                                <div view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
+                                <div id="toc" view-transition-name="toc" class="no-scrollbar overflow-y-auto px-8">
     <div class="flex flex-col gap-2 p-4 pt-0 text-sm">
         <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
         
@@ -1486,7 +1492,7 @@
         
         <a href="#presentation-orale-pp2-damien-reynaud"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#presentation-orale-pp2-damien-reynaud');">
             Présentation Orale PP2 Damien Reynaud
         </a>
         
@@ -1494,7 +1500,7 @@
         
         <a href="#sommaire"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#sommaire');">
             Sommaire
         </a>
         
@@ -1502,7 +1508,7 @@
         
         <a href="#le-but-de-mon-esp"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#le-but-de-mon-esp');">
             Le but de mon ESP
         </a>
         
@@ -1510,7 +1516,7 @@
         
         <a href="#pourquoi"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#pourquoi');">
             Pourquoi ?
         </a>
         
@@ -1518,7 +1524,7 @@
         
         <a href="#criteres-de-succes"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#criteres-de-succes');">
             Critères de succès
         </a>
         
@@ -1526,7 +1532,7 @@
         
         <a href="#ce-que-jai-realise"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#ce-que-jai-realise');">
             Ce que j'ai réalisé
         </a>
         
@@ -1534,7 +1540,7 @@
         
         <a href="#le-reseau-cible"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#le-reseau-cible');">
             Le réseau cible
         </a>
         
@@ -1542,7 +1548,7 @@
         
         <a href="#version-amelioree-du-reseau"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#version-amelioree-du-reseau');">
             Version améliorée du réseau
         </a>
         
@@ -1550,44 +1556,44 @@
         
         <a href="#les-attaques-que-jai-choisi-de-realiser"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#les-attaques-que-jai-choisi-de-realiser');">
             Les attaques que j'ai choisi de réaliser
         </a>
         
         
         <a href="#audit-de-securite"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#audit-de-securite');">
             Audit de sécurité
         </a>
         
         <a href="#1ere-attaque"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#1ere-attaque');">
             1ère attaque
         </a>
         
         <a href="#2eme-attaque"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#2eme-attaque');">
             2ème attaque
         </a>
         
         <a href="#avec-dhcpig"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#avec-dhcpig');">
             Avec DHCPig
         </a>
         
         <a href="#3eme-attaque-pas-realisable-pour-le-moment"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#3eme-attaque-pas-realisable-pour-le-moment');">
             3ème attaque (pas réalisable pour le moment)
         </a>
         
         <a href="#avec-aircrack-ng"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3">
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#avec-aircrack-ng');">
             Avec Aircrack-NG
         </a>
         
@@ -1596,7 +1602,7 @@
         
         <a href="#ce-quil-me-reste-a-faire"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#ce-quil-me-reste-a-faire');">
             Ce qu'il me reste à faire
         </a>
         
@@ -1604,7 +1610,7 @@
         
         <a href="#les-problemes-que-jai-rencontre"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#les-problemes-que-jai-rencontre');">
             Les problèmes que j'ai rencontré
         </a>
         
@@ -1612,7 +1618,7 @@
         
         <a href="#les-solutions"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#les-solutions');">
             Les solutions
         </a>
         
@@ -1620,7 +1626,7 @@
         
         <a href="#limites-de-la-realisation"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#limites-de-la-realisation');">
             Limites de la réalisation
         </a>
         
@@ -1628,7 +1634,7 @@
         
         <a href="#ce-que-jai-appris"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#ce-que-jai-appris');">
             Ce que j'ai appris
         </a>
         
@@ -1636,7 +1642,7 @@
         
         <a href="#sources-dinformation"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2">
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#sources-dinformation');">
             Sources d'information
         </a>
         
@@ -1648,6 +1654,7 @@
 
     </div>
     <div class="h-12"></div>
+
 </div>
                             </div>
                         </div>
