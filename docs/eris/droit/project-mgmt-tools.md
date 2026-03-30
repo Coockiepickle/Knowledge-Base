@@ -1452,13 +1452,6 @@ Je vais surtout couvrir les outils « structurants » (analyses, matrices, diagr
 
 ***
 
-Pour ne pas faire un pavé illisible, je m’arrête là, mais on peut détailler aussi SPI/CPI en exemples chiffrés, la mise en place concrète d’un OBS/RBS dans un contexte infra/DevOps, ou encore comment intégrer tout ça dans Jira/Confluence.
-
-Quelle serait pour toi la prochaine priorité : qu’on prenne un exemple de projet (par ex. mise en place d’une nouvelle plateforme Kubernetes) et qu’on construise ensemble WBS + risques + KPIs, ou que l’on creuse en détail un outil particulier (par exemple EVM ou la matrice des risques) ?
-<span style="display:none">[^10][^11][^12][^13][^14][^15][^6][^7][^8][^9]</span>
-
-<div align="center">⁂</div>
-
 [^1]: https://www.priofy.io/ressources/glossary/project-management-phases
 
 [^2]: https://www.youtube.com/watch?v=_OdF7VYic9I
