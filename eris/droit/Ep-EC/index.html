@@ -51,7 +51,7 @@
 
 
 
-<link rel="canonical" href="https://docs.dreynaud.ipv64.net/eris/droit/management-projet/">
+<link rel="canonical" href="https://docs.dreynaud.ipv64.net/eris/droit/Ep-EC/">
 
 
 <!-- Open Graph (Facebook, LinkedIn) -->
@@ -62,7 +62,7 @@
 
 
 
-<meta property="og:url" content="https://docs.dreynaud.ipv64.net/eris/droit/management-projet/">
+<meta property="og:url" content="https://docs.dreynaud.ipv64.net/eris/droit/Ep-EC/">
 
 
 
@@ -613,7 +613,7 @@
             
             <li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative">
     <a data-slot="sidebar-menu-button" data-active="true" data-sidebar="menu-button"
-        data-size="default" href="/eris/droit/management-projet/"
+        data-size="default" href="/eris/droit/Ep-EC/"
         class="hpeer/menu-button flex items-center gap-2 rounded-md p-2 text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48">
 
         
@@ -853,7 +853,7 @@
 
         <div class="flex items-center gap-2 pt-1.5">
           
-<button onclick="fetch(`https://docs.dreynaud.ipv64.net/eris/droit/management-projet.md`).then((r) => r.blob()).then((blob) => navigator.clipboard.write([new ClipboardItem({ 'text/plain': blob })]))" 
+<button onclick="fetch(`https://docs.dreynaud.ipv64.net/eris/droit/Ep-EC.md`).then((r) => r.blob()).then((blob) => navigator.clipboard.write([new ClipboardItem({ 'text/plain': blob })]))" 
         data-slot="button" 
         class="cursor-pointer inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md gap-1.5 px-3 has-[&>svg]:px-2.5 h-8 shadow-none md:h-7 md:text-[0.8rem]">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-copy ">
@@ -898,914 +898,1358 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Ce guide synthétise l'ensemble des tâches essentielles à réaliser pour piloter efficacement un projet, organisées selon les 6 phases du cycle de vie projet : 
-Avant-Projet, Initialisation, Planification, Exécution, Contrôle et Clôture.</p>
-</div>
-<h2 id="phase-0-avant-projet-identifier-et-comprendre-le-besoin">Phase 0 : AVANT-PROJET - Identifier et comprendre le besoin<a class="headerlink" href="#phase-0-avant-projet-identifier-et-comprendre-le-besoin" title="Permanent link">&para;</a></h2>
-<h3 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">&para;</a></h3>
-<p>Décider du lancement du projet en évaluant sa faisabilité et sa pertinence stratégique.</p>
-<h3 id="taches-a-realiser">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser" title="Permanent link">&para;</a></h3>
-<h4 id="1-identification-du-contexte-et-des-besoins">1. Identification du contexte et des besoins<a class="headerlink" href="#1-identification-du-contexte-et-des-besoins" title="Permanent link">&para;</a></h4>
+    <blockquote>
+<p><strong>Mode d'emploi</strong> : Ce document est ta base de travail. Les zones <code>[À ADAPTER]</code> sont les seules parties que tu dois compléter avec les informations des annexes le jour J. Tout le reste est prêt à recopier et à mettre en forme.</p>
+</blockquote>
+<hr />
+<h2 id="partie-i-note-de-cadrage">PARTIE I — NOTE DE CADRAGE<a class="headerlink" href="#partie-i-note-de-cadrage" title="Permanent link">&para;</a></h2>
+<h3 id="11-objectifs-strategiques-du-projet">1.1 Objectifs stratégiques du projet<a class="headerlink" href="#11-objectifs-strategiques-du-projet" title="Permanent link">&para;</a></h3>
+<p>Le projet NEXA-CLOUD vise trois grands objectifs stratégiques :[^1]</p>
 <ul>
-<li>Analyser le contexte organisationnel et les enjeux stratégiques</li>
-<li>Identifier les facteurs déclencheurs (nouvelle technologie, demande marché, exigences légales, etc.)</li>
-<li>Évaluer l'urgence et l'importance du besoin (Matrice Covey)</li>
+<li><strong>Commercial</strong> : lancer une offre de Cloud Privé Managé compétitive sous 6 mois afin de capter de nouveaux clients et d'éviter la perte de clients stratégiques susceptibles de se tourner vers la concurrence.</li>
+<li><strong>Technique</strong> : industrialiser et fiabiliser l'infrastructure (IaC, supervision 24/7, respect des SLA) pour garantir un service de qualité professionnelle.</li>
+<li><strong>Organisationnel</strong> : réussir la fusion des équipes PRO-IT (35 personnes, on-premise, faible maturité cloud) et NET-SOLUTIONS (15 personnes, réseaux/cybersécurité) en une organisation unifiée, performante et dotée d'une gouvernance claire.</li>
 </ul>
-<h4 id="2-realisation-de-letude-dopportunite">2. Réalisation de l'étude d'opportunité<a class="headerlink" href="#2-realisation-de-letude-dopportunite" title="Permanent link">&para;</a></h4>
+<h3 id="12-exigences-principales-du-projet">1.2 Exigences principales du projet<a class="headerlink" href="#12-exigences-principales-du-projet" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Exigences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Technique</td>
+<td>Mise en place de l'IaC, supervision 24/7, mécanismes de SLA, sécurité réseau et cyber, standardisation des déploiements</td>
+</tr>
+<tr>
+<td>Organisationnelle</td>
+<td>Gouvernance claire, RACI défini, processus d'exploitation formalisés, astreintes opérationnelles</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>Définition réaliste des niveaux de service, outils de mesure et de reporting SLA, procédures d'escalade</td>
+</tr>
+<tr>
+<td>Sécurité</td>
+<td>Politiques de durcissement, cloisonnement réseau, conformité, implication de l'expertise NET-SOLUTIONS</td>
+</tr>
+<tr>
+<td>Humaine</td>
+<td>Fusion culturelle, montée en compétences cloud/IaC, communication interne, accompagnement au changement</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="13-perimetre-du-projet">1.3 Périmètre du projet<a class="headerlink" href="#13-perimetre-du-projet" title="Permanent link">&para;</a></h3>
+<p><strong>Inclus dans le projet :</strong>
+- Conception et déploiement de l'infrastructure Cloud Privé Managé
+- Mise en place de l'IaC (templates, pipelines, automatisation)
+- Déploiement de la supervision 24/7
+- Définition et implémentation des SLA et catalogue de services
+- Fusion organisationnelle des équipes PRO-IT et NET-SOLUTIONS
+- Formation et montée en compétences des équipes
+- Conduite du changement
+- Recrutement stratégique complémentaire
+- <code>[À ADAPTER selon les annexes : services cloud spécifiques inclus]</code></p>
+<p><strong>Hors périmètre :</strong>
+- Refonte du SI des clients finaux
+- Migration des infrastructures clients existantes (hors périmètre de la phase initiale)
+- <code>[À ADAPTER selon les exclusions mentionnées en annexe]</code></p>
+<h3 id="14-contraintes-du-projet-triangle-qualite-cout-delai">1.4 Contraintes du projet (Triangle Qualité-Coût-Délai)<a class="headerlink" href="#14-contraintes-du-projet-triangle-qualite-cout-delai" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Contrainte</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Délais</strong></td>
+<td>6 mois impératifs — jalons fixes : Gouvernance M1, Design M2, Déploiement infra M4, Pilote M5, Mise en prod M6</td>
+</tr>
+<tr>
+<td><strong>Coûts</strong></td>
+<td>Budget global de 850 000 € — inclut infra, licences, formation, recrutement, accompagnement et réserve risques</td>
+</tr>
+<tr>
+<td><strong>Périmètre</strong></td>
+<td>Mise en œuvre complète de l'offre Cloud Privé Managé avec supervision 24/7 et SLA garantis</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Enjeu du non-respect du calendrier</strong> : perte de clients stratégiques, dégradation de l'image de marque perçue comme peu innovante, tensions financières à court terme.</p>
+</blockquote>
+<h3 id="15-methodologie-de-gestion-de-projet">1.5 Méthodologie de gestion de projet<a class="headerlink" href="#15-methodologie-de-gestion-de-projet" title="Permanent link">&para;</a></h3>
+<p><strong>Méthode retenue : Hybride (séquentiel pour les phases de cadrage/gouvernance + itératif pour le déploiement technique)</strong></p>
+<p><strong>Justification :</strong>
+- Le cadrage, la gouvernance et la définition des SLA nécessitent une approche structurée et séquentielle (livrables clairs, jalons définis, validation formelle).
+- Le déploiement de l'infrastructure et de l'IaC bénéficie d'une approche itérative : livraisons progressives, tests rapides, capacité d'ajustement face aux aléas techniques.
+- Cette approche hybride est adaptée à la complexité du projet (fusion de deux cultures, 50 personnes, délai serré de 6 mois) tout en garantissant la rigueur nécessaire pour tenir les SLA et le budget.</p>
+<p><strong>Date de démarrage :</strong> <code>[À COMPLÉTER selon l'annexe ou le sujet]</code></p>
+<h3 id="16-macro-planning-vue-synthetique">1.6 Macro-planning (vue synthétique)<a class="headerlink" href="#16-macro-planning-vue-synthetique" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Mois</th>
+<th>Phase principale</th>
+<th>Activités clés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td><strong>Cadrage et gouvernance</strong></td>
+<td>Note de cadrage, RACI, organisation projet, processus de gouvernance, choix méthodo</td>
+</tr>
+<tr>
+<td>M1–M2</td>
+<td><strong>Design technique</strong></td>
+<td>Architecture cible, choix des outils (IaC, supervision), définition SLA, catalogue de services</td>
+</tr>
+<tr>
+<td>M2–M4</td>
+<td><strong>Déploiement infrastructure</strong></td>
+<td>Mise en place IaC, automatisation, déploiement supervision 24/7, sécurité</td>
+</tr>
+<tr>
+<td>M5</td>
+<td><strong>Phase pilote</strong></td>
+<td>Validation technique, tests SLA, montée en charge, ajustements, formation équipes exploitation</td>
+</tr>
+<tr>
+<td>M6</td>
+<td><strong>Mise en production officielle</strong></td>
+<td>Go live, communication externe, passage en mode récurrent, bilan de projet</td>
+</tr>
+<tr>
+<td>M2–M6</td>
+<td><strong>Conduite du changement</strong></td>
+<td>En continu : communication, formation, accompagnement (transversal à toutes les phases)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="17-gouvernance-du-projet">1.7 Gouvernance du projet<a class="headerlink" href="#17-gouvernance-du-projet" title="Permanent link">&para;</a></h3>
+<p><strong>Ressources identifiées :</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Profil</th>
+<th>Entité d'origine</th>
+<th>Rôle dans le projet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chef de projet SI</td>
+<td><code>[À ADAPTER]</code></td>
+<td>Pilotage global, coordination, reporting direction</td>
+</tr>
+<tr>
+<td>Responsable technique Cloud</td>
+<td>PRO-IT / NET-SOLUTIONS</td>
+<td>Conception et déploiement architecture</td>
+</tr>
+<tr>
+<td>Référent IaC</td>
+<td><code>[À ADAPTER selon annexe]</code></td>
+<td>Mise en place templates, pipelines</td>
+</tr>
+<tr>
+<td>Référent Supervision / NOC</td>
+<td>NET-SOLUTIONS</td>
+<td>Supervision 24/7, alerting</td>
+</tr>
+<tr>
+<td>Référent Sécurité</td>
+<td>NET-SOLUTIONS</td>
+<td>Politiques cyber, conformité</td>
+</tr>
+<tr>
+<td>RH / Accompagnement changement</td>
+<td><code>[À ADAPTER]</code></td>
+<td>Conduite du changement, formation, recrutement</td>
+</tr>
+<tr>
+<td>Direction générale</td>
+<td>NEXA-CLOUD</td>
+<td>Sponsoring, arbitrages, validation jalons</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Matrice RACI :</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Activité</th>
+<th>Direction</th>
+<th>Chef de projet</th>
+<th>Resp. Tech. PRO-IT</th>
+<th>Resp. Tech. NET-SOL</th>
+<th>Équipe infra/cloud</th>
+<th>Équipe réseau/cyber</th>
+<th>RH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Validation note de cadrage</td>
+<td>A</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Définition architecture cible</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>R</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Choix outils IaC / supervision</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>R</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Définition SLA &amp; catalogue services</td>
+<td>A</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Mise en œuvre IaC</td>
+<td>I</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>R</td>
+<td>I</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Mise en place supervision 24/7</td>
+<td>I</td>
+<td>C</td>
+<td>I</td>
+<td>C</td>
+<td>C</td>
+<td>R</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Gouvernance &amp; processus exploitation</td>
+<td>A</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Plan de communication changement</td>
+<td>A</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Ateliers conduite du changement</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Plan de formation</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Validation besoins recrutement</td>
+<td>A</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rédaction fiche de poste</td>
+<td>I</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Sélection candidats</td>
+<td>I</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Décision embauche</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+<td>R</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>R = Responsible (réalise) / A = Accountable (valide) / C = Consulted (consulté) / I = Informed (informé)</em></p>
+<h3 id="18-registre-des-risques-6-risques-maximum">1.8 Registre des risques (6 risques maximum)<a class="headerlink" href="#18-registre-des-risques-6-risques-maximum" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risque</th>
+<th>Cause principale</th>
+<th>Impact</th>
+<th>Probabilité</th>
+<th>Criticité</th>
+<th>Stratégie</th>
+<th>Actions de mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Non-respect du délai de 6 mois</td>
+<td>Complexité sous-estimée, ressources insuffisantes</td>
+<td>Perte clients, image dégradée, tensions financières</td>
+<td>Moyenne</td>
+<td><strong>Élevée</strong></td>
+<td>Réduction</td>
+<td>Phasage strict, jalons de Go/No-Go, renfort externe ponctuel si nécessaire</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Échec de la fusion culturelle PRO-IT / NET-SOLUTIONS</td>
+<td>Résistances, identités fortes, manque de communication</td>
+<td>Conflits, démotivation, fuite de talents, baisse performance</td>
+<td>Élevée</td>
+<td><strong>Élevée</strong></td>
+<td>Réduction</td>
+<td>Plan de communication dédié, ateliers communs, sponsors dans chaque entité, rituels d'équipe</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Supervision 24/7 non opérationnelle à temps</td>
+<td>Outil mal choisi/configuré, manque de compétences</td>
+<td>Incidents non détectés, SLA non tenus, insatisfaction clients</td>
+<td>Moyenne</td>
+<td><strong>Élevée</strong></td>
+<td>Réduction</td>
+<td>POC précoce (M2), accompagnement éditeur, formation ciblée, tests de scénarios d'astreinte</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Manque de compétences IaC</td>
+<td>Faible maturité cloud PRO-IT</td>
+<td>Erreurs manuelles, lenteur déploiements, dépendance experts</td>
+<td>Élevée</td>
+<td>Moyenne</td>
+<td>Réduction</td>
+<td>Plan de formation IaC, binômage avec experts NET-SOLUTIONS, revues de code</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>SLA définis irréalistes ou non tenus</td>
+<td>Mauvaise estimation capacités, absence d'historique</td>
+<td>Pénalités clients, perte de contrats, réputation</td>
+<td>Moyenne</td>
+<td><strong>Élevée</strong></td>
+<td>Prévention</td>
+<td>Co-construction SLA (technique + direction), tests de charge, indicateurs en phase pilote</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Dépassement budgétaire</td>
+<td>Aléas techniques, recrutement urgent, licences supplémentaires</td>
+<td>Blocage projet, arbitrages douloureux</td>
+<td>Faible</td>
+<td>Moyenne</td>
+<td>Acceptation / Réduction</td>
+<td>Suivi budgétaire mensuel, réserve risques dédiée incluse dans le budget de 850 k€</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Matrice de criticité (probabilité × impact) :</strong></p>
+<div class="codehilite"><pre><span></span><code>           │ Impact Faible │ Impact Moyen │ Impact Élevé
+-----------│---------------│--------------│--------------
+Prob. Élevée│               │ R4           │ R2
+Prob. Moyenne│              │ R6           │ R1 / R3 / R5
+Prob. Faible│               │              │ R6
+</code></pre></div>
+
+<h3 id="19-budget-previsionnel-postes-principaux">1.9 Budget prévisionnel (postes principaux)<a class="headerlink" href="#19-budget-previsionnel-postes-principaux" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Poste de coût</th>
+<th>Nature</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infrastructure cloud</td>
+<td>CAPEX / OPEX</td>
+<td>Serveurs, stockage, réseau, hyperviseur</td>
+</tr>
+<tr>
+<td>Licences logicielles</td>
+<td>OPEX</td>
+<td>Outils IaC, supervision, ticketing, sécurité</td>
+</tr>
+<tr>
+<td>Formation des équipes</td>
+<td>OPEX</td>
+<td>Modules IaC, cloud, ITIL, supervision</td>
+</tr>
+<tr>
+<td>Recrutement</td>
+<td>OPEX</td>
+<td>Honoraires cabinet, intégration</td>
+</tr>
+<tr>
+<td>Accompagnement projet</td>
+<td>OPEX</td>
+<td>Éventuellement consultant externe, conduite du changement</td>
+</tr>
+<tr>
+<td>Réserve risques</td>
+<td>Provision</td>
+<td>Incluse dans le budget global de 850 000 €</td>
+</tr>
+<tr>
+<td><code>[À COMPLÉTER]</code></td>
+<td><code>[Annexe 13]</code></td>
+<td>Reprendre la répartition détaillée de l'annexe 13</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Budget global : 850 000 €</strong> — La répartition précise figure en annexe 13 du dossier. Ne pas inventer de montants par ligne.</p>
+</blockquote>
+<hr />
+<h2 id="partie-ii-plan-projet">PARTIE II — PLAN PROJET<a class="headerlink" href="#partie-ii-plan-projet" title="Permanent link">&para;</a></h2>
+<h3 id="21-wbs-work-breakdown-structure-3-niveaux-max">2.1 WBS (Work Breakdown Structure — 3 niveaux max)<a class="headerlink" href="#21-wbs-work-breakdown-structure-3-niveaux-max" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">CADRAGE</span><span class="w"> </span><span class="n">DU</span><span class="w"> </span><span class="n">PROJET</span>
+<span class="w">   </span><span class="mf">1.1</span><span class="w"> </span><span class="n">Analyse</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="kr">cont</span><span class="n">exte</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">besoins</span>
+<span class="w">       </span><span class="mf">1.1.1</span><span class="w"> </span><span class="n">Recueil</span><span class="w"> </span><span class="n">besoins</span><span class="w"> </span><span class="n">métier</span><span class="p">,</span><span class="w"> </span><span class="n">technique</span><span class="p">,</span><span class="w"> </span><span class="n">humain</span>
+<span class="w">       </span><span class="mf">1.1.2</span><span class="w"> </span><span class="n">Analyse</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="kr">cont</span><span class="n">raintes</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">hypothèses</span>
+<span class="w">   </span><span class="mf">1.2</span><span class="w"> </span><span class="ow">Not</span><span class="n">e</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">cadrage</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="kr">go</span><span class="n">uvernance</span>
+<span class="w">       </span><span class="mf">1.2.1</span><span class="w"> </span><span class="n">Rédaction</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="nb">val</span><span class="n">idation</span><span class="w"> </span><span class="ow">not</span><span class="n">e</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">cadrage</span>
+<span class="w">       </span><span class="mf">1.2.2</span><span class="w"> </span><span class="n">Définition</span><span class="w"> </span><span class="n">RACI</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">pilotage</span>
+
+<span class="mf">2.</span><span class="w"> </span><span class="n">CONCEPTION</span><span class="w"> </span><span class="n">DE</span><span class="w"> </span><span class="n">LA</span><span class="w"> </span><span class="n">SOLUTION</span>
+<span class="w">   </span><span class="mf">2.1</span><span class="w"> </span><span class="n">Architecture</span><span class="w"> </span><span class="n">Cloud</span><span class="w"> </span><span class="n">Privé</span><span class="w"> </span><span class="n">Managé</span>
+<span class="w">       </span><span class="mf">2.1.1</span><span class="w"> </span><span class="n">Définition</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">cible</span>
+<span class="w">       </span><span class="mf">2.1.2</span><span class="w"> </span><span class="n">Choix</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">outils</span><span class="w"> </span><span class="p">(</span><span class="n">IaC</span><span class="p">,</span><span class="w"> </span><span class="n">supervision</span><span class="p">,</span><span class="w"> </span><span class="n">sécurité</span><span class="p">)</span>
+<span class="w">   </span><span class="mf">2.2</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">catalogue</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">services</span>
+<span class="w">       </span><span class="mf">2.2.1</span><span class="w"> </span><span class="n">Définition</span><span class="w"> </span><span class="n">niveaux</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">service</span>
+<span class="w">       </span><span class="mf">2.2.2</span><span class="w"> </span><span class="n">Processus</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="nb">exp</span><span class="n">loitation</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">escalade</span>
+
+<span class="mf">3.</span><span class="w"> </span><span class="n">DÉPLOIEMENT</span><span class="w"> </span><span class="n">INFRASTRUCTURE</span>
+<span class="w">   </span><span class="mf">3.1</span><span class="w"> </span><span class="n">Mise</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">place</span><span class="w"> </span><span class="n">IaC</span>
+<span class="w">       </span><span class="mf">3.1.1</span><span class="w"> </span><span class="n">Templates</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">pipelines</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">automatisation</span>
+<span class="w">       </span><span class="mf">3.1.2</span><span class="w"> </span><span class="n">Tests</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="nb">val</span><span class="n">idation</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">déploiements</span><span class="w"> </span><span class="n">automatisés</span>
+<span class="w">   </span><span class="mf">3.2</span><span class="w"> </span><span class="n">Supervision</span><span class="w"> </span><span class="mf">24</span><span class="o">/</span><span class="mf">7</span>
+<span class="w">       </span><span class="mf">3.2.1</span><span class="w"> </span><span class="n">Déploiement</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">outil</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">supervision</span>
+<span class="w">       </span><span class="mf">3.2.2</span><span class="w"> </span><span class="n">Procédures</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">astreinte</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">escalade</span>
+<span class="w">   </span><span class="mf">3.3</span><span class="w"> </span><span class="n">Sécurité</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">conformité</span>
+<span class="w">       </span><span class="mf">3.3.1</span><span class="w"> </span><span class="n">Politiques</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">durcissement</span>
+<span class="w">       </span><span class="mf">3.3.2</span><span class="w"> </span><span class="n">Tests</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">sécurité</span>
+
+<span class="mf">4.</span><span class="w"> </span><span class="n">TESTS</span><span class="w"> </span><span class="n">ET</span><span class="w"> </span><span class="n">MISE</span><span class="w"> </span><span class="n">EN</span><span class="w"> </span><span class="n">PRODUCTION</span>
+<span class="w">   </span><span class="mf">4.1</span><span class="w"> </span><span class="n">Phase</span><span class="w"> </span><span class="n">pilote</span>
+<span class="w">       </span><span class="mf">4.1.1</span><span class="w"> </span><span class="n">Tests</span><span class="w"> </span><span class="n">fonctionnels</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">charge</span>
+<span class="w">       </span><span class="mf">4.1.2</span><span class="w"> </span><span class="nb">Val</span><span class="n">idation</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">supervision</span>
+<span class="w">   </span><span class="mf">4.2</span><span class="w"> </span><span class="n">Mise</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">production</span>
+<span class="w">       </span><span class="mf">4.2.1</span><span class="w"> </span><span class="kr">Go</span><span class="o">-</span><span class="n">live</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">communication</span><span class="w"> </span><span class="n">externe</span>
+<span class="w">       </span><span class="mf">4.2.2</span><span class="w"> </span><span class="n">Bilan</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">projet</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">passage</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">récurrent</span>
+
+<span class="mf">5.</span><span class="w"> </span><span class="n">CONDUITE</span><span class="w"> </span><span class="n">DU</span><span class="w"> </span><span class="n">CHANGEMENT</span><span class="w"> </span><span class="p">(</span><span class="n">transversal</span><span class="p">)</span>
+<span class="w">   </span><span class="mf">5.1</span><span class="w"> </span><span class="n">Communication</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">accompagnement</span>
+<span class="w">       </span><span class="mf">5.1.1</span><span class="w"> </span><span class="n">Plan</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">communication</span><span class="w"> </span><span class="nb">int</span><span class="n">erne</span>
+<span class="w">       </span><span class="mf">5.1.2</span><span class="w"> </span><span class="n">Ateliers</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">pédagogiques</span>
+
+<span class="mf">6.</span><span class="w"> </span><span class="n">DÉVELOPPEMENT</span><span class="w"> </span><span class="n">DES</span><span class="w"> </span><span class="n">COMPÉTENCES</span><span class="w"> </span><span class="p">(</span><span class="n">transversal</span><span class="p">)</span>
+<span class="w">   </span><span class="mf">6.1</span><span class="w"> </span><span class="kr">For</span><span class="n">mation</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">montée</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">compétences</span>
+<span class="w">       </span><span class="mf">6.1.1</span><span class="w"> </span><span class="n">Plan</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="kr">for</span><span class="n">mation</span><span class="w"> </span><span class="n">IaC</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">cloud</span>
+<span class="w">       </span><span class="mf">6.1.2</span><span class="w"> </span><span class="n">Évaluation</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">certification</span>
+</code></pre></div>
+
+<h3 id="22-planning-gantt-representation-textuelle">2.2 Planning Gantt (représentation textuelle)<a class="headerlink" href="#22-planning-gantt-representation-textuelle" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>À recopier sous forme de tableau dans ta copie ou sur papier millimétré.</strong></p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Phase / Activité</th>
+<th>M1</th>
+<th>M2</th>
+<th>M3</th>
+<th>M4</th>
+<th>M5</th>
+<th>M6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Cadrage &amp; gouvernance</strong></td>
+<td>████</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>2. Design technique</strong></td>
+<td>▒▒</td>
+<td>████</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>3. Déploiement infra (IaC, supervision, sécurité)</strong></td>
+<td></td>
+<td>▒▒</td>
+<td>████</td>
+<td>████</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>4. Phase pilote</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>████</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>5. Mise en production</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>████</td>
+</tr>
+<tr>
+<td><strong>Conduite du changement</strong></td>
+<td>▒▒</td>
+<td>████</td>
+<td>████</td>
+<td>████</td>
+<td>████</td>
+<td>████</td>
+</tr>
+<tr>
+<td><strong>Développement compétences</strong></td>
+<td>▒▒</td>
+<td>████</td>
+<td>████</td>
+<td>████</td>
+<td>▒▒</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Recrutement</strong></td>
+<td></td>
+<td></td>
+<td>▒▒</td>
+<td>████</td>
+<td>▒▒</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>████ = phase active / ▒▒ = phase de préparation ou de transition</em></p>
+<p><strong>Jalons clés :</strong>
+- J1 : Fin cadrage et gouvernance → fin M1
+- J2 : Validation architecture et choix outils → fin M2
+- J3 : Déploiement infra complet → fin M4
+- J4 : Go/No-Go pilote → fin M5
+- J5 : Mise en production officielle → fin M6</p>
+<h3 id="23-dispositif-de-suivi-budgetaire">2.3 Dispositif de suivi budgétaire<a class="headerlink" href="#23-dispositif-de-suivi-budgetaire" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Poste de coût</th>
+<th>Budget prévu (€)</th>
+<th>Consommé (€)</th>
+<th>Reste à engager (€)</th>
+<th>Écart (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infrastructure</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Licences</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Formation</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Recrutement</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Accompagnement / conseil</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Réserve risques</td>
+<td><code>[Annexe 13]</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>850 000 €</strong></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mécanisme de suivi :</strong> Revue budgétaire mensuelle en comité de pilotage — comparaison prévu vs réel, déclenchement de la réserve risques si dérive &gt; 10% sur un poste.</p>
+<h3 id="24-tableau-de-bord-de-pilotage-3-kpi">2.4 Tableau de bord de pilotage (3 KPI)<a class="headerlink" href="#24-tableau-de-bord-de-pilotage-3-kpi" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Définition</th>
+<th>Cible</th>
+<th>Fréquence</th>
+<th>Responsable</th>
+<th>Source de données</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>% Avancement global</strong></td>
+<td>Tâches WBS réalisées / total tâches × 100</td>
+<td>≥ planifié à chaque jalon</td>
+<td>Mensuelle</td>
+<td>Chef de projet</td>
+<td>Plan projet</td>
+</tr>
+<tr>
+<td><strong>Respect des jalons</strong></td>
+<td>Jalons atteints à la date prévue / total jalons × 100</td>
+<td>100%</td>
+<td>À chaque jalon</td>
+<td>Chef de projet</td>
+<td>Planning Gantt</td>
+</tr>
+<tr>
+<td><strong>Consommation budgétaire</strong></td>
+<td>Budget consommé / Budget prévu × 100</td>
+<td>≤ 100% (alerte à 85%)</td>
+<td>Mensuelle</td>
+<td>Chef de projet + Finance</td>
+<td>Tableau suivi budget</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="25-instances-de-pilotage-3-maximum">2.5 Instances de pilotage (3 maximum)<a class="headerlink" href="#25-instances-de-pilotage-3-maximum" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Instance</th>
+<th>Participants</th>
+<th>Fréquence</th>
+<th>Objectifs</th>
+<th>Livrables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comité stratégique</strong></td>
+<td>Direction générale, Chef de projet, Sponsors</td>
+<td>Mensuelle (fin de mois)</td>
+<td>Validation des jalons, arbitrages budgétaires et stratégiques, décisions Go/No-Go</td>
+<td>Compte-rendu, décisions formalisées</td>
+</tr>
+<tr>
+<td><strong>Comité de pilotage</strong></td>
+<td>Chef de projet, Responsables techniques, RH</td>
+<td>Bimensuelle</td>
+<td>Suivi avancement, suivi budget, gestion des risques, arbitrages opérationnels</td>
+<td>Tableau de bord, registre des risques mis à jour</td>
+</tr>
+<tr>
+<td><strong>Rituels opérationnels</strong></td>
+<td>Équipes techniques (infra, réseau, IaC, supervision)</td>
+<td>Hebdomadaire</td>
+<td>Suivi des tâches en cours, levée des blocages, coordination inter-équipes</td>
+<td>Compte-rendu hebdo, backlog de tâches mis à jour</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="26-arbitrage-strategique-supervision-247-internaliser-ou-externaliser">2.6 Arbitrage stratégique — Supervision 24/7 : Internaliser ou externaliser ?<a class="headerlink" href="#26-arbitrage-strategique-supervision-247-internaliser-ou-externaliser" title="Permanent link">&para;</a></h3>
+<p><strong>Contexte :</strong> La supervision 24/7 est un service critique pour Nexa Cloud. L'organisation actuelle ne dispose pas de cette capacité opérationnelle.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Internalisation</th>
+<th>Externalisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coût</strong></td>
+<td>Investissement initial fort (outils, formation, astreintes)</td>
+<td>Coût récurrent maîtrisé, sans investissement initial</td>
+</tr>
+<tr>
+<td><strong>Compétences internes</strong></td>
+<td>NET-SOLUTIONS apporte une expertise technique réseaux/cyber, mais manque d'expérience NOC 24/7</td>
+<td>Prestataire spécialisé, opérationnel immédiatement</td>
+</tr>
+<tr>
+<td><strong>SLA / qualité de service</strong></td>
+<td>Risque de délai avant montée en compétences</td>
+<td>Garanties contractuelles immédiates</td>
+</tr>
+<tr>
+<td><strong>Risques organisationnels</strong></td>
+<td>Astreintes : contraintes RH, surcharge en période de démarrage</td>
+<td>Dépendance prestataire, moindre maîtrise</td>
+</tr>
+<tr>
+<td><strong>Délai de mise en œuvre</strong></td>
+<td>Formation + recrutement : 3-4 mois minimum</td>
+<td>Opérationnel en quelques semaines</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Recommandation argumentée :</strong></p>
+<p>Dans le contexte d'un déploiement imposé en 6 mois avec un budget de 850 000 € et une équipe sans expérience NOC 24/7, <strong>une solution hybride est recommandée</strong> :</p>
 <ul>
-<li>Analyser la faisabilité technique, financière et organisationnelle</li>
-<li>Effectuer une analyse SWOT (Forces, Faiblesses, Opportunités, Menaces)</li>
-<li>Réaliser une analyse PESTEL (environnement Politique, Économique, Social, Technologique, Environnemental, Légal)</li>
-<li>Identifier les parties prenantes principales</li>
+<li><strong>Court terme (M1–M6) :</strong> externaliser la supervision 24/7 à un prestataire spécialisé afin de garantir les SLA dès le lancement et de ne pas faire peser ce risque sur le planning.</li>
+<li><strong>Moyen terme (post M6) :</strong> internaliser progressivement via formation et recrutement ciblé, en capitalisant sur l'expérience du prestataire.</li>
 </ul>
-<h4 id="3-validation-de-la-selection-du-projet">3. Validation de la sélection du projet<a class="headerlink" href="#3-validation-de-la-selection-du-projet" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Cette solution garantit la tenue des SLA à court terme (enjeu commercial critique) tout en préservant l'autonomie de Nexa Cloud sur le long terme.</p>
+</blockquote>
+<hr />
+<h2 id="partie-iii-conduite-du-changement">PARTIE III — CONDUITE DU CHANGEMENT<a class="headerlink" href="#partie-iii-conduite-du-changement" title="Permanent link">&para;</a></h2>
+<h3 id="31-analyse-des-impacts-organisationnels">3.1 Analyse des impacts organisationnels<a class="headerlink" href="#31-analyse-des-impacts-organisationnels" title="Permanent link">&para;</a></h3>
+<h4 id="a-fusion-des-equipes-pro-it-et-net-solutions">a) Fusion des équipes PRO-IT et NET-SOLUTIONS<a class="headerlink" href="#a-fusion-des-equipes-pro-it-et-net-solutions" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Impacts identifiés</th>
+<th>Résistances potentielles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identité</strong></td>
+<td>Perte d'appartenance à l'entité d'origine, remise en cause des repères</td>
+<td>Sentiment de « dissolution », crainte de domination d'une culture sur l'autre</td>
+</tr>
+<tr>
+<td><strong>Méthodes de travail</strong></td>
+<td>PRO-IT : culture on-premise, faible IaC → doit adopter de nouveaux outils et réflexes</td>
+<td>Résistance à l'apprentissage forcé de l'IaC, sentiment d'incompétence</td>
+</tr>
+<tr>
+<td><strong>Hiérarchie / rôles</strong></td>
+<td>Redéfinition des rôles et responsabilités dans la nouvelle organisation</td>
+<td>Conflits de légitimité entre anciens managers PRO-IT et NET-SOLUTIONS</td>
+</tr>
+<tr>
+<td><strong>Communication</strong></td>
+<td>2 cultures d'entreprise différentes, risque de silos</td>
+<td>Méfiance réciproque, communication difficile au démarrage</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="b-evolution-vers-un-modele-cloud-prive-manage">b) Évolution vers un modèle Cloud Privé Managé<a class="headerlink" href="#b-evolution-vers-un-modele-cloud-prive-manage" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Impacts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Outils et pratiques</strong></td>
+<td>Passage de pratiques manuelles on-premise à l'IaC (Terraform/Ansible) et à l'automatisation</td>
+</tr>
+<tr>
+<td><strong>Processus d'exploitation</strong></td>
+<td>Introduction de processus ITIL-like (gestion des incidents, des changements, des SLA)</td>
+</tr>
+<tr>
+<td><strong>Responsabilité</strong></td>
+<td>Les équipes deviennent responsables de services managés externes → plus grande rigueur requise</td>
+</tr>
+<tr>
+<td><strong>Compétences</strong></td>
+<td>Besoin de montée en compétences rapide sur cloud privé, IaC, supervision</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="c-introduction-de-la-supervision-247">c) Introduction de la supervision 24/7<a class="headerlink" href="#c-introduction-de-la-supervision-247" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Impacts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Organisation</strong></td>
+<td>Mise en place d'astreintes, rotations, procédures d'escalade</td>
+</tr>
+<tr>
+<td><strong>Charge de travail</strong></td>
+<td>Augmentation de la charge perçue, stress potentiel lié aux astreintes</td>
+</tr>
+<tr>
+<td><strong>Compétences</strong></td>
+<td>Maîtrise des outils de supervision, compréhension des SLA et des seuils d'alerte</td>
+</tr>
+<tr>
+<td><strong>Processus</strong></td>
+<td>Création de runbooks, procédures d'escalade, communication en cas d'incident</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="32-plan-de-conduite-du-changement">3.2 Plan de conduite du changement<a class="headerlink" href="#32-plan-de-conduite-du-changement" title="Permanent link">&para;</a></h3>
+<h4 id="communication-interne">Communication interne<a class="headerlink" href="#communication-interne" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Public cible</th>
+<th>Message clé</th>
+<th>Canal</th>
+<th>Fréquence</th>
+<th>Porteur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annonce officielle du projet Nexa Cloud</td>
+<td>Toutes les équipes</td>
+<td>Vision, objectifs, bénéfices, calendrier</td>
+<td>Réunion plénière</td>
+<td>Dès M1</td>
+<td>Direction générale</td>
+</tr>
+<tr>
+<td>Newsletter projet</td>
+<td>Toutes les équipes</td>
+<td>Avancement, jalons atteints, prochaines étapes</td>
+<td>Email / intranet</td>
+<td>Mensuelle</td>
+<td>Chef de projet</td>
+</tr>
+<tr>
+<td>Réunions d'équipe</td>
+<td>Par entité (PRO-IT / NET-SOLUTIONS)</td>
+<td>Impacts spécifiques, réponses aux questions</td>
+<td>Réunion présentielle</td>
+<td>Bimensuelle</td>
+<td>Managers de proximité</td>
+</tr>
+<tr>
+<td>Communication Go Live</td>
+<td>Toutes les équipes + clients</td>
+<td>Lancement officiel Nexa Cloud</td>
+<td>Email + événement interne</td>
+<td>M6</td>
+<td>Direction + chef de projet</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="dispositifs-daccompagnement">Dispositifs d'accompagnement<a class="headerlink" href="#dispositifs-daccompagnement" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Objectif</th>
+<th>Public</th>
+<th>Période</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ateliers de cohésion PRO-IT / NET-SOLUTIONS</td>
+<td>Créer le lien entre les deux cultures, travailler ensemble</td>
+<td>Toutes les équipes</td>
+<td>M1–M2</td>
+<td>Workshops mixtes (binômage)</td>
+</tr>
+<tr>
+<td>Ateliers d'acculturation au cloud privé managé</td>
+<td>Comprendre le nouveau modèle et ses enjeux</td>
+<td>Équipes techniques</td>
+<td>M2–M3</td>
+<td>Formation / démo</td>
+</tr>
+<tr>
+<td>Accompagnement individuel des managers</td>
+<td>Aligner les managers sur la vision, faire redescendre le discours</td>
+<td>Managers PRO-IT et NET-SOLUTIONS</td>
+<td>M1–M3</td>
+<td>Coaching, échanges</td>
+</tr>
+<tr>
+<td>Support et FAQ projet</td>
+<td>Répondre aux questions, réduire l'anxiété</td>
+<td>Toutes les équipes</td>
+<td>M1–M6</td>
+<td>Intranet / espace projet</td>
+</tr>
+<tr>
+<td>Célébration des quick wins</td>
+<td>Montrer les bénéfices concrets, maintenir la motivation</td>
+<td>Toutes les équipes</td>
+<td>Dès M3</td>
+<td>Communication interne, événements</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="identification-des-parties-prenantes">Identification des parties prenantes<a class="headerlink" href="#identification-des-parties-prenantes" title="Permanent link">&para;</a></h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Partie prenante</th>
+<th>Impact du changement</th>
+<th>Attentes principales</th>
+<th>Niveau d'implication requis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction générale</td>
+<td>Fort (sponsor, décideur)</td>
+<td>ROI, calendrier tenu, image de marque</td>
+<td>Très fort (sponsor et décideur)</td>
+</tr>
+<tr>
+<td>Managers PRO-IT</td>
+<td>Fort (changement de modèle, de culture)</td>
+<td>Reconnaissance, rôle clair dans la nouvelle organisation</td>
+<td>Fort (relais de communication)</td>
+</tr>
+<tr>
+<td>Managers NET-SOLUTIONS</td>
+<td>Moyen (intégration dans une entité plus large)</td>
+<td>Valorisation de leur expertise</td>
+<td>Fort (référents techniques)</td>
+</tr>
+<tr>
+<td>Équipes techniques PRO-IT</td>
+<td>Fort (montée en compétences cloud, IaC)</td>
+<td>Formation, accompagnement, sécurité de l'emploi</td>
+<td>Moyen à fort</td>
+</tr>
+<tr>
+<td>Équipes réseau/cyber NET-SOLUTIONS</td>
+<td>Moyen (nouveaux rôles, supervision 24/7)</td>
+<td>Valorisation expertise, clarté des astreintes</td>
+<td>Moyen</td>
+</tr>
+<tr>
+<td>Clients Nexa Cloud</td>
+<td>Indirect (nouvelle offre, nouveaux SLA)</td>
+<td>Fiabilité du service, respect des engagements</td>
+<td>Informés (communication externe)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="partie-iv-developpement-des-competences">PARTIE IV — DÉVELOPPEMENT DES COMPÉTENCES<a class="headerlink" href="#partie-iv-developpement-des-competences" title="Permanent link">&para;</a></h2>
+<h3 id="41-diagnostic-des-competences">4.1 Diagnostic des compétences<a class="headerlink" href="#41-diagnostic-des-competences" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Compétence</th>
+<th>Niveau actuel PRO-IT</th>
+<th>Niveau actuel NET-SOLUTIONS</th>
+<th>Niveau cible Nexa Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infrastructure as Code (IaC)</td>
+<td>⬛ Absent</td>
+<td>🟨 Partiel</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Cloud Privé (architecture, déploiement)</td>
+<td>🟨 Faible</td>
+<td>🟨 Partiel</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Supervision et monitoring</td>
+<td>🟨 Partiel</td>
+<td>🟩 Bon</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Supervision 24/7 / astreintes NOC</td>
+<td>⬛ Absent</td>
+<td>🟨 Partiel</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Sécurité réseau et cyber</td>
+<td>🟨 Partiel</td>
+<td>🟩 Bon</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Gestion SLA / ITIL</td>
+<td>🟨 Partiel</td>
+<td>🟨 Partiel</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+<tr>
+<td>Automatisation (CI/CD, pipelines)</td>
+<td>⬛ Absent</td>
+<td>🟨 Partiel</td>
+<td>🟩 Maîtrisé</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>⬛ Absent / 🟨 Partiel / 🟩 Maîtrisé</em></p>
+<blockquote>
+<p>Ces niveaux sont à ajuster selon les informations des annexes — ne pas inventer de niveau si une information précise est disponible.</p>
+</blockquote>
+<h3 id="42-plan-de-formation">4.2 Plan de formation<a class="headerlink" href="#42-plan-de-formation" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Module de formation</th>
+<th>Public cible</th>
+<th>Format</th>
+<th>Durée</th>
+<th>Période</th>
+<th>Objectif mesurable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IaC (Terraform / Ansible)</td>
+<td>Équipes infra PRO-IT</td>
+<td>Formation externe + TP</td>
+<td>3 jours</td>
+<td>M2–M3</td>
+<td>Capacité à déployer un environnement complet via IaC</td>
+</tr>
+<tr>
+<td>Architecture Cloud Privé</td>
+<td>Toutes équipes techniques</td>
+<td>Formation interne + cas pratiques</td>
+<td>2 jours</td>
+<td>M2</td>
+<td>Maîtrise de l'architecture cible Nexa Cloud</td>
+</tr>
+<tr>
+<td>Supervision 24/7 et outils NOC</td>
+<td>Équipes exploitation</td>
+<td>Formation outil + simulation d'astreinte</td>
+<td>2 jours</td>
+<td>M3–M4</td>
+<td>Traitement autonome d'incidents en contexte supervisé</td>
+</tr>
+<tr>
+<td>Gestion des SLA et processus ITIL</td>
+<td>Managers + référents techniques</td>
+<td>Formation ITIL / atelier</td>
+<td>1 jour</td>
+<td>M2</td>
+<td>Rédaction et suivi d'un SLA client</td>
+</tr>
+<tr>
+<td>Sécurité cloud</td>
+<td>Équipes réseau + infra</td>
+<td>Formation éditeur + atelier</td>
+<td>1 jour</td>
+<td>M3</td>
+<td>Application des politiques de durcissement sur l'infra</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="43-indicateurs-de-succes-de-la-montee-en-competences">4.3 Indicateurs de succès de la montée en compétences<a class="headerlink" href="#43-indicateurs-de-succes-de-la-montee-en-competences" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Mode de mesure</th>
+<th>Cible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>% de collaborateurs formés sur IaC</td>
+<td>Suivi des présences et validations</td>
+<td>100% des équipes infra avant M4</td>
+</tr>
+<tr>
+<td>Résultat à l'évaluation post-formation</td>
+<td>Test théorique + mise en pratique</td>
+<td>Score ≥ 70%</td>
+</tr>
+<tr>
+<td>Capacité à traiter un incident de supervision</td>
+<td>Simulation en condition réelle</td>
+<td>100% des astreinteurs validés avant Go Live</td>
+</tr>
+<tr>
+<td>Satisfaction des participants</td>
+<td>Questionnaire post-formation</td>
+<td>Note ≥ 4/5</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="partie-v-recrutement">PARTIE V — RECRUTEMENT<a class="headerlink" href="#partie-v-recrutement" title="Permanent link">&para;</a></h2>
+<h3 id="51-fiche-de-poste-ingenieur-cloud-supervision-exemple-aligne-avec-les-besoins-nexa-cloud">5.1 Fiche de poste — Ingénieur Cloud &amp; Supervision (exemple aligné avec les besoins Nexa Cloud)<a class="headerlink" href="#51-fiche-de-poste-ingenieur-cloud-supervision-exemple-aligne-avec-les-besoins-nexa-cloud" title="Permanent link">&para;</a></h3>
+<hr />
+<p><strong>ENTREPRISE</strong></p>
+<p>Nexa Cloud est une entreprise née de la fusion de PRO-IT, spécialiste des infrastructures on-premise, et NET-SOLUTIONS, expert en réseaux et cybersécurité. Fort de 50 collaborateurs, Nexa Cloud ambitionne de proposer une offre de Cloud Privé Managé à destination des entreprises, garantissant disponibilité, sécurité et performance. Dans le cadre du lancement de cette offre, Nexa Cloud recrute pour renforcer ses équipes opérationnelles.</p>
+<hr />
+<p><strong>INTITULÉ DU POSTE</strong></p>
+<p>Ingénieur Cloud &amp; Supervision — <code>[À ADAPTER selon le besoin identifié en annexe]</code></p>
+<hr />
+<p><strong>MISSIONS PRINCIPALES</strong></p>
 <ul>
-<li>Présenter l'étude d'opportunité aux décideurs</li>
-<li>Obtenir l'autorisation de poursuivre vers l'initialisation</li>
-<li>Constituer une matrice de faisabilité</li>
-</ul>
-<h3 id="livrables-cles">Livrables clés<a class="headerlink" href="#livrables-cles" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Étude d'opportunité validée</li>
-<li>Matrice de faisabilité</li>
-<li>Décision GO/NO-GO</li>
+<li>Participer à la conception et au déploiement de l'infrastructure Cloud Privé Managé.</li>
+<li>Mettre en place et maintenir les outils d'Infrastructure as Code (IaC) : templates, pipelines d'automatisation, déploiement continu.</li>
+<li>Assurer la supervision 24/7 de l'infrastructure : monitoring, alerting, gestion des incidents, respect des SLA.</li>
+<li>Contribuer à la rédaction et au maintien des runbooks et procédures d'exploitation.</li>
+<li>Participer aux astreintes opérationnelles selon planning défini.</li>
+<li>Travailler en étroite collaboration avec les équipes réseau, sécurité et les équipes issues de la fusion.</li>
+<li><code>[À COMPLÉTER selon les missions spécifiques mentionnées en annexe]</code></li>
 </ul>
 <hr />
-<h2 id="phase-1-initialisation-definir-et-cadrer-le-projet">Phase 1 : INITIALISATION - Définir et cadrer le projet<a class="headerlink" href="#phase-1-initialisation-definir-et-cadrer-le-projet" title="Permanent link">&para;</a></h2>
-<h3 id="objectif_1">Objectif<a class="headerlink" href="#objectif_1" title="Permanent link">&para;</a></h3>
-<p>Établir les fondations du projet avec une charte formalisée, une gouvernance claire et un premier niveau de planification.</p>
-<h3 id="taches-a-realiser_1">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser_1" title="Permanent link">&para;</a></h3>
-<h4 id="1-elaboration-de-la-charte-de-projet">1. Élaboration de la Charte de Projet<a class="headerlink" href="#1-elaboration-de-la-charte-de-projet" title="Permanent link">&para;</a></h4>
-<h5 id="introduction-et-contexte">Introduction et contexte<a class="headerlink" href="#introduction-et-contexte" title="Permanent link">&para;</a></h5>
+<p><strong>COMPÉTENCES TECHNIQUES REQUISES</strong></p>
 <ul>
-<li>Décrire le contexte dans lequel intervient le projet</li>
-<li>Expliquer les motifs et enjeux du projet</li>
-<li>Définir les objectifs poursuivis (SMART : Spécifiques, Mesurables, Acceptables, Réalistes, Temporellement définis)</li>
-<li>Délimiter le périmètre et les limites du projet</li>
-</ul>
-<h5 id="definition-des-exigences">Définition des exigences<a class="headerlink" href="#definition-des-exigences" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Exigences fonctionnelles</strong> : ce que le projet doit permettre de faire</li>
-<li><strong>Exigences non fonctionnelles</strong> : critères de qualité et performance (sécurité, disponibilité, ergonomie)</li>
-<li><strong>Exigences organisationnelles</strong> : règles de fonctionnement, gouvernance, méthodes de travail</li>
-<li><strong>Contraintes projet</strong> : application du Triangle d'Or (Délai / Coût / Périmètre)</li>
-</ul>
-<h5 id="triangle-dor-arbitrages">Triangle d'Or : arbitrages<a class="headerlink" href="#triangle-dor-arbitrages" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier la contrainte prioritaire entre délai, coût et périmètre</li>
-<li>Documenter les arbitrages possibles</li>
-<li>Définir le niveau de qualité attendu (= respect des exigences)</li>
-</ul>
-<h5 id="benefices-attendus">Bénéfices attendus<a class="headerlink" href="#benefices-attendus" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Bénéfices stratégiques</strong> : amélioration compétitivité, alignement stratégique</li>
-<li><strong>Bénéfices opérationnels</strong> : gains de productivité, simplification processus</li>
-<li><strong>Bénéfices financiers</strong> : réduction coûts, augmentation CA</li>
-<li><strong>Bénéfices utilisateurs</strong> : amélioration expérience, satisfaction client</li>
-</ul>
-<h5 id="ressources-identifiees">Ressources identifiées<a class="headerlink" href="#ressources-identifiees" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Ressources humaines</strong> : équipe interne, prestataires, consultants</li>
-<li><strong>Ressources matérielles</strong> : équipements, logiciels, infrastructures</li>
-<li><strong>Ressources financières</strong> : budget global, distinction CAPEX/OPEX</li>
-</ul>
-<h5 id="macro-planning-previsionnel">Macro-planning prévisionnel<a class="headerlink" href="#macro-planning-previsionnel" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier les grandes phases du projet</li>
-<li>Définir les jalons majeurs</li>
-<li>Estimer les durées des phases principales</li>
-<li>Identifier le chemin critique préliminaire</li>
-</ul>
-<h5 id="budget-previsionnel">Budget prévisionnel<a class="headerlink" href="#budget-previsionnel" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>CAPEX</strong> (Capital Expenditure) : dépenses d'investissement</li>
-<li><strong>OPEX</strong> (Operational Expenditure) : coûts opérationnels récurrents</li>
-<li>Prévoir une marge pour imprévus (5-15%)</li>
-</ul>
-<h5 id="risques-identifies">Risques identifiés<a class="headerlink" href="#risques-identifies" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Lister les risques majeurs identifiés</li>
-<li>Qualifier leur probabilité et impact</li>
-<li>Définir des stratégies de mitigation préliminaires</li>
-</ul>
-<h4 id="2-definition-de-la-gouvernance">2. Définition de la gouvernance<a class="headerlink" href="#2-definition-de-la-gouvernance" title="Permanent link">&para;</a></h4>
-<h5 id="structure-de-gouvernance">Structure de gouvernance<a class="headerlink" href="#structure-de-gouvernance" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier le <strong>Sponsor/Commanditaire</strong> du projet</li>
-<li>Nommer le <strong>Chef de projet MOA</strong> (Maîtrise d'Ouvrage)</li>
-<li>Nommer le <strong>Chef de projet MOE</strong> (Maîtrise d'Œuvre)</li>
-<li>Constituer l'équipe projet</li>
-<li>Définir les rôles des parties prenantes</li>
-</ul>
-<h5 id="instances-de-pilotage-comitologie">Instances de pilotage (Comitologie)<a class="headerlink" href="#instances-de-pilotage-comitologie" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Comité de Pilotage (COPIL)</strong> : décisions stratégiques, arbitrages majeurs</li>
-<li><strong>Comité de Projet (COPROJ)</strong> : suivi opérationnel, coordination</li>
-<li><strong>Comité Technique (COTECH)</strong> : décisions techniques, validation architecture</li>
-<li>Définir fréquence, participants et objectifs de chaque instance</li>
-</ul>
-<h5 id="matrice-raci-preliminaire">Matrice RACI préliminaire<a class="headerlink" href="#matrice-raci-preliminaire" title="Permanent link">&para;</a></h5>
-<ul>
-<li>R (Responsible) : qui réalise la tâche</li>
-<li>A (Accountable) : qui est responsable/garant</li>
-<li>C (Consulted) : qui est consulté</li>
-<li>I (Informed) : qui est informé</li>
-</ul>
-<h4 id="3-gestion-des-risques-initiale">3. Gestion des risques initiale<a class="headerlink" href="#3-gestion-des-risques-initiale" title="Permanent link">&para;</a></h4>
-<h5 id="identification-des-risques">Identification des risques<a class="headerlink" href="#identification-des-risques" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Risques techniques (technologie, compétences, intégration)</li>
-<li>Risques organisationnels (ressources, changements, résistance)</li>
-<li>Risques externes (réglementaire, fournisseurs, marché)</li>
-<li>Risques projet (délais, budget, périmètre)</li>
-</ul>
-<h5 id="evaluation-et-priorisation">Évaluation et priorisation<a class="headerlink" href="#evaluation-et-priorisation" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer une <strong>matrice des risques</strong> (Probabilité × Impact)</li>
-<li>Prioriser les risques critiques</li>
-<li>Définir le seuil d'acceptabilité</li>
-</ul>
-<h5 id="strategies-de-reponse">Stratégies de réponse<a class="headerlink" href="#strategies-de-reponse" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Éviter</strong> : éliminer la menace</li>
-<li><strong>Atténuer</strong> : réduire probabilité ou impact</li>
-<li><strong>Transférer</strong> : assurance, sous-traitance</li>
-<li><strong>Accepter</strong> : provisions budgétaires</li>
-</ul>
-<h4 id="4-kick-off-meeting-reunion-de-lancement">4. Kick-off Meeting (Réunion de lancement)<a class="headerlink" href="#4-kick-off-meeting-reunion-de-lancement" title="Permanent link">&para;</a></h4>
-<h5 id="preparation">Préparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Préparer le support de présentation</li>
-<li>Inviter toutes les parties prenantes clés</li>
-<li>Réserver salle et équipements</li>
-</ul>
-<h5 id="deroulement">Déroulement<a class="headerlink" href="#deroulement" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Présenter la charte de projet</li>
-<li>Expliquer les objectifs et enjeux</li>
-<li>Présenter l'équipe et la gouvernance</li>
-<li>Partager le macro-planning</li>
-<li>Répondre aux questions</li>
-<li>Créer l'engagement collectif</li>
-</ul>
-<h3 id="livrables-cles_1">Livrables clés<a class="headerlink" href="#livrables-cles_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Charte de projet signée</li>
-<li>Macro-planning prévisionnel</li>
-<li>Registre des risques initial</li>
-<li>Matrice des risques</li>
-<li>Analyse des parties prenantes</li>
-<li>Compte-rendu de réunion de lancement (Kick-off)</li>
+<li>Infrastructure as Code : Terraform, Ansible (ou équivalent)</li>
+<li>Cloud Privé : maîtrise d'une solution de virtualisation / cloud (VMware, Proxmox, OpenStack…)</li>
+<li>Supervision et monitoring : <code>[outil mentionné en annexe]</code> — Zabbix, Prometheus, Grafana, Nagios…</li>
+<li>Sécurité : connaissance des bonnes pratiques de durcissement, cloisonnement réseau, pare-feux</li>
+<li>Automatisation et scripting : Bash, Python, YAML</li>
+<li>Gestion des incidents et SLA : connaissance des principes ITIL souhaitée</li>
+<li><code>[À COMPLÉTER selon les outils mentionnés dans le dossier]</code></li>
 </ul>
 <hr />
-<h2 id="phase-2-planification-decider-quoi-faire-et-comment">Phase 2 : PLANIFICATION - Décider quoi faire et comment<a class="headerlink" href="#phase-2-planification-decider-quoi-faire-et-comment" title="Permanent link">&para;</a></h2>
-<h3 id="objectif_2">Objectif<a class="headerlink" href="#objectif_2" title="Permanent link">&para;</a></h3>
-<p>Définir en détail comment le projet sera exécuté, surveillé, contrôlé puis clôturé.</p>
-<h3 id="taches-a-realiser_2">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser_2" title="Permanent link">&para;</a></h3>
-<h4 id="1-definir-et-prioriser-le-contenu-du-projet">1. Définir et prioriser le contenu du projet<a class="headerlink" href="#1-definir-et-prioriser-le-contenu-du-projet" title="Permanent link">&para;</a></h4>
-<h5 id="expression-des-besoins">Expression des besoins<a class="headerlink" href="#expression-des-besoins" title="Permanent link">&para;</a></h5>
+<p><strong>TYPE DE CONTRAT</strong></p>
 <ul>
-<li>Recueillir les besoins auprès des parties prenantes</li>
-<li>Organiser des ateliers de cadrage</li>
-<li>Créer une <strong>matrice des exigences</strong> détaillée</li>
-<li>Valider les besoins avec le client/MOA</li>
-</ul>
-<h5 id="priorisation-moscow">Priorisation MoSCoW<a class="headerlink" href="#priorisation-moscow" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Must Have</strong> : indispensable à la réussite du projet</li>
-<li><strong>Should Have</strong> : très important mais contournable temporairement</li>
-<li><strong>Could Have</strong> : valeur ajoutée ou confort (supprimé en premier si contrainte)</li>
-<li><strong>Won't Have (for now)</strong> : hors périmètre de cette version</li>
-</ul>
-<h5 id="cahier-des-charges">Cahier des charges<a class="headerlink" href="#cahier-des-charges" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Rédiger le cahier des charges fonctionnel</li>
-<li>Définir les spécifications techniques</li>
-<li>Établir les critères d'acceptation</li>
-<li>Faire valider par les parties prenantes</li>
-</ul>
-<h5 id="proof-of-concept-si-necessaire">Proof of Concept (si nécessaire)<a class="headerlink" href="#proof-of-concept-si-necessaire" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Réaliser un PoC pour valider la faisabilité technique</li>
-<li>Tester les technologies envisagées</li>
-<li>Documenter les résultats</li>
-</ul>
-<h4 id="2-decouper-le-projet-wbspbs">2. Découper le projet (WBS/PBS)<a class="headerlink" href="#2-decouper-le-projet-wbspbs" title="Permanent link">&para;</a></h4>
-<h5 id="work-breakdown-structure-wbs">Work Breakdown Structure (WBS)<a class="headerlink" href="#work-breakdown-structure-wbs" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Décomposer le projet en lots de travaux</li>
-<li>Appliquer la <strong>règle des 100%</strong> : couvrir 100% du périmètre</li>
-<li>Appliquer la <strong>règle du 8/80</strong> : tâches entre 8h et 80h d'effort</li>
-<li>Organiser hiérarchiquement (3-4 niveaux recommandés)</li>
-<li>Se concentrer sur les livrables, pas sur les actions</li>
-</ul>
-<h5 id="product-breakdown-structure-pbs">Product Breakdown Structure (PBS)<a class="headerlink" href="#product-breakdown-structure-pbs" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Décomposer le produit final en composants</li>
-<li>Identifier tous les livrables et sous-livrables</li>
-<li>Créer l'arborescence produit</li>
-</ul>
-<h5 id="resource-breakdown-structure-rbs">Resource Breakdown Structure (RBS)<a class="headerlink" href="#resource-breakdown-structure-rbs" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier les types de ressources nécessaires</li>
-<li>Catégoriser : humaines, matérielles, financières</li>
-</ul>
-<h4 id="3-determiner-les-ressources-projet">3. Déterminer les ressources projet<a class="headerlink" href="#3-determiner-les-ressources-projet" title="Permanent link">&para;</a></h4>
-<h5 id="identification-des-competences">Identification des compétences<a class="headerlink" href="#identification-des-competences" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer une <strong>matrice des compétences</strong></li>
-<li>Identifier les compétences requises pour chaque lot</li>
-<li>Évaluer les compétences disponibles vs nécessaires</li>
-<li>Identifier les gaps de compétences</li>
-</ul>
-<h5 id="affectation-des-ressources">Affectation des ressources<a class="headerlink" href="#affectation-des-ressources" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Affecter les ressources aux tâches</li>
-<li>Créer l'OBS (Organizational Breakdown Structure)</li>
-<li>Vérifier la disponibilité réelle des ressources</li>
-<li>Planifier les recrutements/formations si nécessaire</li>
-</ul>
-<h5 id="matrice-raci-detaillee">Matrice RACI détaillée<a class="headerlink" href="#matrice-raci-detaillee" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer une matrice RACI complète pour toutes les tâches</li>
-<li>Valider avec les responsables concernés</li>
-<li>Résoudre les conflits de responsabilités</li>
-</ul>
-<h5 id="plan-de-charge">Plan de charge<a class="headerlink" href="#plan-de-charge" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Calculer la charge de travail par ressource</li>
-<li>Identifier les surcharges et sous-charges</li>
-<li>Équilibrer la charge entre les ressources</li>
-<li>Prévoir les pics d'activité</li>
-</ul>
-<h4 id="4-estimer-les-durees-et-ordonnancer-les-taches">4. Estimer les durées et ordonnancer les tâches<a class="headerlink" href="#4-estimer-les-durees-et-ordonnancer-les-taches" title="Permanent link">&para;</a></h4>
-<h5 id="estimation-des-durees">Estimation des durées<a class="headerlink" href="#estimation-des-durees" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Estimer la durée de chaque tâche (jours/heures)</li>
-<li>Utiliser des techniques d'estimation (jugement d'experts, analogie, PERT)</li>
-<li>Inclure des marges pour les incertitudes</li>
-</ul>
-<h5 id="identification-des-dependances">Identification des dépendances<a class="headerlink" href="#identification-des-dependances" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Définir les relations entre tâches (Fin-Début, Début-Début, etc.)</li>
-<li>Identifier les contraintes temporelles</li>
-<li>Repérer les tâches pouvant être parallélisées</li>
-</ul>
-<h5 id="diagramme-pert">Diagramme PERT<a class="headerlink" href="#diagramme-pert" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer le réseau logique des tâches</li>
-<li>Calculer le chemin critique</li>
-<li>Identifier les tâches critiques et non-critiques</li>
-<li>Calculer les marges (totale et libre)</li>
-</ul>
-<h5 id="diagramme-de-gantt">Diagramme de Gantt<a class="headerlink" href="#diagramme-de-gantt" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Transformer le PERT en planning Gantt</li>
-<li>Positionner les tâches dans le temps</li>
-<li>Visualiser les dépendances</li>
-<li>Identifier les jalons clés</li>
-<li>Affecter les ressources sur le planning</li>
-</ul>
-<h4 id="5-estimer-les-couts-et-creer-le-budget">5. Estimer les coûts et créer le budget<a class="headerlink" href="#5-estimer-les-couts-et-creer-le-budget" title="Permanent link">&para;</a></h4>
-<h5 id="estimation-des-couts">Estimation des coûts<a class="headerlink" href="#estimation-des-couts" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Estimer les coûts par tâche et par ressource</li>
-<li>Calculer les coûts directs (main d'œuvre, matériel)</li>
-<li>Calculer les coûts indirects (frais généraux)</li>
-<li>Prévoir une réserve pour aléas (5-15%)</li>
-</ul>
-<h5 id="budget-detaille">Budget détaillé<a class="headerlink" href="#budget-detaille" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Consolider le budget global</li>
-<li>Répartir CAPEX vs OPEX</li>
-<li>Créer le plan de financement</li>
-<li>Obtenir la validation budgétaire</li>
-</ul>
-<h4 id="6-identifier-et-planifier-la-gestion-des-risques">6. Identifier et planifier la gestion des risques<a class="headerlink" href="#6-identifier-et-planifier-la-gestion-des-risques" title="Permanent link">&para;</a></h4>
-<h5 id="mise-a-jour-du-registre-des-risques">Mise à jour du registre des risques<a class="headerlink" href="#mise-a-jour-du-registre-des-risques" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Compléter le registre avec les risques détaillés</li>
-<li>Identifier les risques par phase et par lot</li>
-<li>Évaluer la criticité (Probabilité × Impact)</li>
-</ul>
-<h5 id="plans-de-mitigation">Plans de mitigation<a class="headerlink" href="#plans-de-mitigation" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Définir les actions préventives</li>
-<li>Définir les plans de contingence</li>
-<li>Allouer un budget risques</li>
-<li>Désigner les responsables de suivi</li>
-</ul>
-<h5 id="planification-du-suivi-des-risques">Planification du suivi des risques<a class="headerlink" href="#planification-du-suivi-des-risques" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Définir la fréquence de revue des risques</li>
-<li>Créer le processus d'escalade</li>
-<li>Intégrer le suivi dans les instances de pilotage</li>
-</ul>
-<h4 id="7-elaborer-les-plans-de-management">7. Élaborer les plans de management<a class="headerlink" href="#7-elaborer-les-plans-de-management" title="Permanent link">&para;</a></h4>
-<h5 id="plan-de-management-de-projet-pmp">Plan de Management de Projet (PMP)<a class="headerlink" href="#plan-de-management-de-projet-pmp" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Consolider tous les plans subsidiaires</li>
-<li>Définir les processus de management</li>
-<li>Établir les règles de gouvernance</li>
-<li>Obtenir l'approbation formelle</li>
-</ul>
-<h5 id="plan-de-communication">Plan de Communication<a class="headerlink" href="#plan-de-communication" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier les besoins en communication</li>
-<li>Définir qui communique quoi, à qui, quand et comment</li>
-<li>Choisir les canaux et outils de communication</li>
-<li>Planifier les réunions récurrentes</li>
-</ul>
-<h5 id="strategie-de-tests-et-recette">Stratégie de tests et recette<a class="headerlink" href="#strategie-de-tests-et-recette" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Définir la stratégie de tests (unitaires, intégration, système, UAT)</li>
-<li>Rédiger le <strong>plan de tests</strong></li>
-<li>Définir les critères d'acceptation</li>
-<li>Planifier les phases de recette</li>
-</ul>
-<h3 id="livrables-cles_2">Livrables clés<a class="headerlink" href="#livrables-cles_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Expression des besoins validée</li>
-<li>Matrice des exigences</li>
-<li>Cahier des charges fonctionnel et technique</li>
-<li>WBS/PBS/RBS complets</li>
-<li>Matrice des compétences</li>
-<li>Matrice RACI détaillée</li>
-<li>Diagramme PERT</li>
-<li>Diagramme de Gantt</li>
-<li>Plan de charge</li>
-<li>Budget détaillé</li>
-<li>Registre des risques actualisé</li>
-<li>Plan de Management de Projet (PMP)</li>
-<li>Plan de Communication</li>
-<li>Stratégie de recette et plan de tests</li>
+<li>CDI — Temps plein</li>
+<li>Localisation : <code>[À COMPLÉTER selon annexe ou contexte]</code></li>
+<li>Prise de poste : <code>[À COMPLÉTER]</code></li>
+<li>Rémunération : <code>[À COMPLÉTER selon annexe ou fourchette donnée dans le dossier]</code></li>
 </ul>
 <hr />
-<h2 id="phase-3-execution-concevoir-realiser-et-deployer">Phase 3 : EXÉCUTION - Concevoir, réaliser et déployer<a class="headerlink" href="#phase-3-execution-concevoir-realiser-et-deployer" title="Permanent link">&para;</a></h2>
-<h3 id="objectif_3">Objectif<a class="headerlink" href="#objectif_3" title="Permanent link">&para;</a></h3>
-<p>Mettre en œuvre le plan de projet pour produire les livrables conformes aux exigences.</p>
-<h3 id="taches-a-realiser_3">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser_3" title="Permanent link">&para;</a></h3>
-<h4 id="1-gestion-des-ressources">1. Gestion des ressources<a class="headerlink" href="#1-gestion-des-ressources" title="Permanent link">&para;</a></h4>
-<h5 id="mobilisation-des-ressources">Mobilisation des ressources<a class="headerlink" href="#mobilisation-des-ressources" title="Permanent link">&para;</a></h5>
+<p><strong>SOFT SKILLS</strong></p>
 <ul>
-<li>Confirmer la disponibilité des ressources</li>
-<li>Intégrer les nouvelles ressources (onboarding)</li>
-<li>Organiser les formations nécessaires</li>
-<li>Mettre en place les outils et environnements de travail</li>
-</ul>
-<h5 id="optimisation-de-lallocation">Optimisation de l'allocation<a class="headerlink" href="#optimisation-de-lallocation" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier les compétences clés et goulots d'étranglement</li>
-<li>Ajuster la charge de travail pour éviter la surcharge</li>
-<li>Suivre la disponibilité réelle (congés, absences)</li>
-<li>Anticiper les besoins en renforts ou sous-traitance</li>
-</ul>
-<h5 id="gestion-de-lequipe">Gestion de l'équipe<a class="headerlink" href="#gestion-de-lequipe" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Organiser les rituels d'équipe (daily, weekly)</li>
-<li>Faciliter la collaboration inter-équipes</li>
-<li>Gérer les conflits et tensions</li>
-<li>Maintenir la motivation</li>
-</ul>
-<h4 id="2-communication-avec-les-parties-prenantes">2. Communication avec les parties prenantes<a class="headerlink" href="#2-communication-avec-les-parties-prenantes" title="Permanent link">&para;</a></h4>
-<h5 id="mise-en-uvre-du-plan-de-communication">Mise en œuvre du plan de communication<a class="headerlink" href="#mise-en-uvre-du-plan-de-communication" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Exécuter le plan de communication défini</li>
-<li>Adapter le message selon le public cible</li>
-<li>Utiliser des supports variés (réunions, rapports, tableaux de bord)</li>
-<li>Maintenir une communication transparente</li>
-</ul>
-<h5 id="documentation-systematique">Documentation systématique<a class="headerlink" href="#documentation-systematique" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Rédiger les <strong>comptes-rendus de réunion</strong></li>
-<li>Documenter les décisions prises</li>
-<li>Tracer les actions et leurs responsables</li>
-<li>Archiver les échanges importants</li>
-</ul>
-<h5 id="communication-de-crise">Communication de crise<a class="headerlink" href="#communication-de-crise" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Identifier rapidement les situations critiques</li>
-<li>Activer le plan d'escalade si nécessaire</li>
-<li>Communiquer de manière proactive avec les parties prenantes impactées</li>
-</ul>
-<h4 id="3-coordination-de-lequipe-projet">3. Coordination de l'équipe projet<a class="headerlink" href="#3-coordination-de-lequipe-projet" title="Permanent link">&para;</a></h4>
-<h5 id="synchronisation-quotidienne">Synchronisation quotidienne<a class="headerlink" href="#synchronisation-quotidienne" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Organiser des daily meetings/stand-ups</li>
-<li>Identifier les obstacles et blocages</li>
-<li>Faciliter la résolution rapide des problèmes</li>
-<li>Assurer l'alignement des objectifs</li>
-</ul>
-<h5 id="gestion-des-dependances">Gestion des dépendances<a class="headerlink" href="#gestion-des-dependances" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Coordonner les équipes interdépendantes</li>
-<li>Synchroniser les livrables entre équipes métiers et techniques</li>
-<li>Anticiper et gérer les impacts en cascade</li>
-</ul>
-<h5 id="animation-collaborative">Animation collaborative<a class="headerlink" href="#animation-collaborative" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Utiliser des outils collaboratifs (Teams, Jira, Confluence, Notion)</li>
-<li>Maintenir la transparence sur l'avancement</li>
-<li>Favoriser l'entraide et le partage de connaissances</li>
-<li>Célébrer les succès collectifs</li>
-</ul>
-<h4 id="4-developpement-des-livrables">4. Développement des livrables<a class="headerlink" href="#4-developpement-des-livrables" title="Permanent link">&para;</a></h4>
-<h5 id="production-des-livrables">Production des livrables<a class="headerlink" href="#production-des-livrables" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Exécuter les tâches selon le planning</li>
-<li>Respecter les spécifications définies</li>
-<li>Appliquer les standards de qualité</li>
-<li>Documenter les développements</li>
-</ul>
-<h5 id="approche-structuree">Approche structurée<a class="headerlink" href="#approche-structuree" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Diviser en lots cohérents et gérables</li>
-<li>Produire de manière progressive avec validations intermédiaires</li>
-<li>Appliquer les méthodes qualité (peer reviews, tests)</li>
-<li>Maintenir la traçabilité complète</li>
-</ul>
-<h5 id="controle-qualite-continu">Contrôle qualité continu<a class="headerlink" href="#controle-qualite-continu" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Réaliser des revues régulières</li>
-<li>Effectuer des tests systématiques (unitaires, intégration)</li>
-<li>Corriger les non-conformités rapidement</li>
-<li>Valider par les utilisateurs clés (key users)</li>
-</ul>
-<h4 id="5-gestion-des-delais-et-suivi-de-lavancement">5. Gestion des délais et suivi de l'avancement<a class="headerlink" href="#5-gestion-des-delais-et-suivi-de-lavancement" title="Permanent link">&para;</a></h4>
-<h5 id="mise-a-jour-reguliere-du-planning">Mise à jour régulière du planning<a class="headerlink" href="#mise-a-jour-reguliere-du-planning" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Actualiser le planning (daily/weekly updates)</li>
-<li>Enregistrer l'avancement réel de chaque tâche</li>
-<li>Calculer le reste à faire (RAF)</li>
-<li>Identifier les dérives et retards</li>
-</ul>
-<h5 id="analyse-des-ecarts">Analyse des écarts<a class="headerlink" href="#analyse-des-ecarts" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Mesurer l'écart prévu/réel</li>
-<li>Analyser les causes des dérives</li>
-<li>Évaluer l'impact sur le chemin critique</li>
-<li>Ajuster le planning si nécessaire</li>
-</ul>
-<h5 id="pilotage-par-les-jalons">Pilotage par les jalons<a class="headerlink" href="#pilotage-par-les-jalons" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Vérifier l'atteinte des jalons</li>
-<li>Organiser les validations formelles</li>
-<li>Escalader les risques de non-respect</li>
-<li>Replanifier si nécessaire</li>
-</ul>
-<h4 id="6-resolution-des-problemes">6. Résolution des problèmes<a class="headerlink" href="#6-resolution-des-problemes" title="Permanent link">&para;</a></h4>
-<h5 id="identification-et-traitement">Identification et traitement<a class="headerlink" href="#identification-et-traitement" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Détecter rapidement les problèmes</li>
-<li>Analyser les causes racines (5 Pourquoi, Ishikawa)</li>
-<li>Définir des actions correctives</li>
-<li>Suivre l'efficacité des solutions</li>
-</ul>
-<h5 id="gestion-des-changements">Gestion des changements<a class="headerlink" href="#gestion-des-changements" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Recevoir les <strong>demandes de changement</strong></li>
-<li>Évaluer l'impact (coût, délai, périmètre)</li>
-<li>Obtenir les validations nécessaires</li>
-<li>Mettre à jour la documentation projet</li>
-</ul>
-<h5 id="registre-des-problemes">Registre des problèmes<a class="headerlink" href="#registre-des-problemes" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Maintenir un <strong>registre des demandes de changements</strong></li>
-<li>Tracer les problèmes et leur résolution</li>
-<li>Capitaliser sur les solutions efficaces</li>
-</ul>
-<h3 id="livrables-cles_3">Livrables clés<a class="headerlink" href="#livrables-cles_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Livrables du projet (selon WBS/PBS)</li>
-<li>Suivi des actions (action log)</li>
-<li>Suivi des livrables (deliverables log)</li>
-<li>Comptes-rendus de réunion</li>
-<li>Registre des demandes de changements</li>
-<li>Documentation technique et utilisateur</li>
-<li>Résultats des tests unitaires et d'intégration</li>
+<li><strong>Esprit collaboratif</strong> : capacité à travailler dans un contexte de fusion d'équipes et de cultures différentes.</li>
+<li><strong>Adaptabilité</strong> : aptitude à évoluer dans un environnement en construction et en forte transformation.</li>
+<li><strong>Rigueur et fiabilité</strong> : sens du service, respect des engagements SLA, capacité à gérer les astreintes avec sérénité.</li>
+<li><strong>Pédagogie et communication</strong> : capacité à partager ses compétences avec des équipes de niveaux variés.</li>
+<li><strong>Curiosité technologique</strong> : veille active, goût pour l'amélioration continue.</li>
 </ul>
 <hr />
-<h2 id="phase-4-controle-surveiller-et-ajuster">Phase 4 : CONTRÔLE - Surveiller et ajuster<a class="headerlink" href="#phase-4-controle-surveiller-et-ajuster" title="Permanent link">&para;</a></h2>
-<h3 id="objectif_4">Objectif<a class="headerlink" href="#objectif_4" title="Permanent link">&para;</a></h3>
-<p>Mesurer la performance du projet, identifier les écarts et prendre les actions correctives nécessaires.</p>
-<h3 id="taches-a-realiser_4">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser_4" title="Permanent link">&para;</a></h3>
-<h4 id="1-suivi-de-la-performance">1. Suivi de la performance<a class="headerlink" href="#1-suivi-de-la-performance" title="Permanent link">&para;</a></h4>
-<h5 id="indicateurs-de-performance-kpi">Indicateurs de performance (KPI)<a class="headerlink" href="#indicateurs-de-performance-kpi" title="Permanent link">&para;</a></h5>
+<p><strong>MODALITÉS D'ÉVALUATION DES CANDIDATS</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Format</th>
+<th>Objectif</th>
+<th>Adaptabilité handicap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screening CV</td>
+<td>Analyse écrite</td>
+<td>Vérifier l'adéquation profil / poste</td>
+<td>S/O</td>
+</tr>
+<tr>
+<td>Test technique écrit</td>
+<td>QCM / exercice pratique (IaC, supervision)</td>
+<td>Évaluer les compétences techniques</td>
+<td>Temps majoré, format adapté si nécessaire</td>
+</tr>
+<tr>
+<td>Entretien technique</td>
+<td>Mise en situation (incident, déploiement)</td>
+<td>Valider les réflexes opérationnels</td>
+<td>Modalités adaptées sur demande</td>
+</tr>
+<tr>
+<td>Entretien RH</td>
+<td>Questions comportementales (STAR)</td>
+<td>Évaluer les soft skills et la motivation</td>
+<td>S/O</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>La fiche de poste et les modalités de sélection respectent le principe d'égalité des chances et de non-discrimination. Les évaluations sont adaptables en cas de situation de handicap.</p>
+</blockquote>
+<hr />
+<h2 id="memo-oral-10-min-de-presentation">MÉMO ORAL (10 min de présentation)<a class="headerlink" href="#memo-oral-10-min-de-presentation" title="Permanent link">&para;</a></h2>
+<h3 id="structure-recommandee-8-slides-max">Structure recommandée (8 slides max)<a class="headerlink" href="#structure-recommandee-8-slides-max" title="Permanent link">&para;</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Slide</th>
+<th>Contenu</th>
+<th>Durée approx.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Contexte Nexa Cloud — enjeux de la fusion et du projet</td>
+<td>1 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Note de cadrage — objectifs, périmètre, contraintes (triangle projet)</td>
+<td>1 min 30</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Risques majeurs (matrice simplifiée)</td>
+<td>1 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Plan projet — WBS + Gantt (vue synthétique)</td>
+<td>1 min 30</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Budget + KPI + instances de pilotage</td>
+<td>1 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Conduite du changement — impacts et plan d'accompagnement</td>
+<td>1 min 30</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Développement des compétences + recrutement</td>
+<td>1 min</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Synthèse — facteurs clés de succès + recommandation supervision</td>
+<td>30 s</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="questions-probables-a-anticiper-20-min-de-questions">Questions probables à anticiper (20 min de questions)<a class="headerlink" href="#questions-probables-a-anticiper-20-min-de-questions" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Délais</strong> : respect du planning, écart prévu/réalisé</li>
-<li><strong>Coûts</strong> : budget consommé vs prévu, burn rate</li>
-<li><strong>Périmètre</strong> : avancement des livrables, fonctionnalités complétées</li>
-<li><strong>Qualité</strong> : nombre de défauts, taux de reprise, satisfaction utilisateur</li>
-<li><strong>Risques</strong> : nombre de risques actifs, efficacité des mitigations</li>
-</ul>
-<h5 id="earned-value-management-evm">Earned Value Management (EVM)<a class="headerlink" href="#earned-value-management-evm" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Calculer la <strong>Valeur Planifiée (PV)</strong></li>
-<li>Mesurer la <strong>Valeur Acquise (EV)</strong></li>
-<li>Mesurer le <strong>Coût Réel (AC)</strong></li>
-<li>Calculer les indicateurs : SPI, CPI, EAC, ETC, VAC</li>
-</ul>
-<h5 id="tableau-de-bord-projet">Tableau de bord projet<a class="headerlink" href="#tableau-de-bord-projet" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer et maintenir un <strong>tableau de bord projet</strong> synthétique</li>
-<li>Visualiser les indicateurs clés</li>
-<li>Utiliser des codes couleur (vert/orange/rouge)</li>
-<li>Partager régulièrement avec les parties prenantes</li>
-</ul>
-<h4 id="2-suivi-budgetaire">2. Suivi budgétaire<a class="headerlink" href="#2-suivi-budgetaire" title="Permanent link">&para;</a></h4>
-<h5 id="controle-des-couts">Contrôle des coûts<a class="headerlink" href="#controle-des-couts" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Suivre les dépenses réelles vs budget</li>
-<li>Analyser les écarts budgétaires</li>
-<li>Anticiper les dépassements</li>
-<li>Proposer des actions correctives</li>
-</ul>
-<h5 id="reporting-financier">Reporting financier<a class="headerlink" href="#reporting-financier" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Produire des rapports financiers réguliers</li>
-<li>Expliquer les variations significatives</li>
-<li>Mettre à jour les prévisions (forecast)</li>
-<li>Gérer les demandes de rallonge budgétaire</li>
-</ul>
-<h4 id="3-maitrise-des-risques">3. Maîtrise des risques<a class="headerlink" href="#3-maitrise-des-risques" title="Permanent link">&para;</a></h4>
-<h5 id="suivi-du-registre-des-risques">Suivi du registre des risques<a class="headerlink" href="#suivi-du-registre-des-risques" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Mettre à jour le registre régulièrement</li>
-<li>Évaluer l'évolution de la criticité</li>
-<li>Identifier les nouveaux risques émergents</li>
-<li>Vérifier l'efficacité des mitigations</li>
-</ul>
-<h5 id="gestion-proactive">Gestion proactive<a class="headerlink" href="#gestion-proactive" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Déclencher les plans de contingence si nécessaire</li>
-<li>Escalader les risques critiques</li>
-<li>Réaffecter les provisions risques</li>
-<li>Communiquer sur les risques majeurs</li>
-</ul>
-<h4 id="4-controle-qualite">4. Contrôle qualité<a class="headerlink" href="#4-controle-qualite" title="Permanent link">&para;</a></h4>
-<h5 id="audits-et-revues">Audits et revues<a class="headerlink" href="#audits-et-revues" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Organiser des audits qualité (selon ISO 19011 si applicable)</li>
-<li>Réaliser des revues de conception/code</li>
-<li>Vérifier la conformité aux standards</li>
-<li>Documenter les écarts et non-conformités</li>
-</ul>
-<h5 id="tests-et-validation">Tests et validation<a class="headerlink" href="#tests-et-validation" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Superviser l'exécution des tests</li>
-<li>Analyser les résultats des tests</li>
-<li>Gérer les anomalies et bugs</li>
-<li>Valider les corrections</li>
-</ul>
-<h4 id="5-reporting-et-communication">5. Reporting et communication<a class="headerlink" href="#5-reporting-et-communication" title="Permanent link">&para;</a></h4>
-<h5 id="rapports-davancement">Rapports d'avancement<a class="headerlink" href="#rapports-davancement" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Produire des <strong>rapports flash</strong> hebdomadaires/mensuels</li>
-<li>Synthétiser l'avancement global</li>
-<li>Mettre en évidence les points d'attention</li>
-<li>Proposer des recommandations</li>
-</ul>
-<h5 id="instances-de-pilotage">Instances de pilotage<a class="headerlink" href="#instances-de-pilotage" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Préparer les <strong>Comités de Projet (COPROJ)</strong></li>
-<li>Animer les <strong>Comités de Pilotage (COPIL)</strong></li>
-<li>Préparer les supports de présentation</li>
-<li>Documenter les décisions et actions</li>
-</ul>
-<h5 id="communication-des-ecarts">Communication des écarts<a class="headerlink" href="#communication-des-ecarts" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Alerter rapidement sur les dérives</li>
-<li>Expliquer les causes et impacts</li>
-<li>Proposer des plans d'action</li>
-<li>Obtenir les arbitrages nécessaires</li>
-</ul>
-<h4 id="6-gestion-des-changements">6. Gestion des changements<a class="headerlink" href="#6-gestion-des-changements" title="Permanent link">&para;</a></h4>
-<h5 id="processus-de-gestion-des-changements">Processus de gestion des changements<a class="headerlink" href="#processus-de-gestion-des-changements" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Recevoir et évaluer les demandes de changement</li>
-<li>Analyser l'impact sur le triangle d'or</li>
-<li>Présenter au comité de pilotage</li>
-<li>Mettre en œuvre les changements validés</li>
-</ul>
-<h5 id="maitrise-du-perimetre-scope-creep">Maîtrise du périmètre (Scope Creep)<a class="headerlink" href="#maitrise-du-perimetre-scope-creep" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Éviter la dérive du périmètre non contrôlée</li>
-<li>Valider tout ajout de fonctionnalité</li>
-<li>Négocier les ajustements (délai, coût ou périmètre)</li>
-<li>Maintenir la baseline du projet</li>
-</ul>
-<h3 id="livrables-cles_4">Livrables clés<a class="headerlink" href="#livrables-cles_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Tableau de bord projet actualisé</li>
-<li>Rapports flash périodiques</li>
-<li>Suivi de budget détaillé</li>
-<li>Comptes-rendus de COPROJ et COPIL</li>
-<li>Registre des risques mis à jour</li>
-<li>Rapports d'audit et de non-conformité</li>
-<li>Documentation des changements approuvés</li>
+<li>Pourquoi avoir choisi une méthode hybride plutôt qu'agile ou cycle en V ?</li>
+<li>Comment gérer concrètement le choc culturel entre PRO-IT et NET-SOLUTIONS ?</li>
+<li>Pourquoi externaliser (ou internaliser) la supervision 24/7 ?</li>
+<li>Comment garantir que les SLA seront tenus dès le Go Live ?</li>
+<li>Que faites-vous si le budget est dépassé en M4 ?</li>
+<li>Comment prouver que la montée en compétences sera effective avant le déploiement ?</li>
+<li>Quel est le profil idéal pour le recrutement prioritaire dans votre contexte ?</li>
+<li>Comment vous assurez-vous que les décisions Go/No-Go sont prises au bon niveau ?</li>
 </ul>
 <hr />
-<h2 id="phase-5-cloture-finaliser-et-capitaliser">Phase 5 : CLÔTURE - Finaliser et capitaliser<a class="headerlink" href="#phase-5-cloture-finaliser-et-capitaliser" title="Permanent link">&para;</a></h2>
-<h3 id="objectif_5">Objectif<a class="headerlink" href="#objectif_5" title="Permanent link">&para;</a></h3>
-<p>Clore formellement le projet, transférer les livrables, capitaliser sur l'expérience et célébrer les succès.</p>
-<h3 id="taches-a-realiser_5">Tâches à réaliser<a class="headerlink" href="#taches-a-realiser_5" title="Permanent link">&para;</a></h3>
-<h4 id="1-validation-et-reception-des-livrables">1. Validation et réception des livrables<a class="headerlink" href="#1-validation-et-reception-des-livrables" title="Permanent link">&para;</a></h4>
-<h5 id="recette-finale">Recette finale<a class="headerlink" href="#recette-finale" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Organiser la recette utilisateur finale (UAT)</li>
-<li>Vérifier la conformité aux critères d'acceptation</li>
-<li>Documenter les résultats des tests</li>
-<li>Obtenir la validation formelle du client/MOA</li>
+<li><strong>Partie I — Note de cadrage</strong> : objectifs, périmètre, contraintes (triangle projet), méthodo justifiée, macro-planning sur 6 mois avec les jalons officiels, RACI complet, matrice des 6 risques max avec cases de criticité, postes budgétaires.</li>
+<li><strong>Partie II — Plan projet</strong> : WBS en 3 niveaux, Gantt textuel aligné sur les jalons imposés (M1 → M6), suivi budgétaire mensuel, 3 KPI uniquement, 3 instances de pilotage, et la section arbitrage supervision 24/7 avec recommandation argumentée.</li>
+<li><strong>Partie III — Conduite du changement</strong> : tableau d'impacts par dimension (fusion, cloud managé, supervision), résistances identifiées, plan de communication, dispositifs d'accompagnement, matrice des parties prenantes.</li>
+<li><strong>Partie IV — Compétences</strong> : matrice des niveaux actuels vs cibles, plan de formation avec objectifs mesurables, indicateurs de succès.</li>
+<li><strong>Partie V — Recrutement</strong> : fiche de poste structurée (Entreprise / Missions / Compétences / Contrat / Soft Skills), modalités d'évaluation avec adaptabilité handicap.</li>
+<li><strong>Mémo oral</strong> : plan des 8 slides + 8 questions probables à anticiper pour les 20 min de questions.</li>
 </ul>
-<h5 id="proces-verbal-pv-de-reception">Procès-Verbal (PV) de réception<a class="headerlink" href="#proces-verbal-pv-de-reception" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Rédiger le <strong>PV de réception des livrables</strong></li>
-<li><strong>Description</strong> : détailler les livrables et objectifs atteints</li>
-<li><strong>Approbations</strong> : confirmer la conformité et la livraison</li>
-<li><strong>Réserves</strong> : lister les points en attente ou à corriger</li>
-<li><strong>Remarques</strong> : documenter les nouveaux accords</li>
-<li><strong>Signatures</strong> : faire signer MOA et MOE</li>
-</ul>
-<h5 id="levee-des-reserves">Levée des réserves<a class="headerlink" href="#levee-des-reserves" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Traiter les réserves émises</li>
-<li>Corriger les non-conformités mineures</li>
-<li>Obtenir l'acceptation définitive</li>
-</ul>
-<h4 id="2-transition-et-transfert">2. Transition et transfert<a class="headerlink" href="#2-transition-et-transfert" title="Permanent link">&para;</a></h4>
-<h5 id="transfert-aux-equipes-operationnelles">Transfert aux équipes opérationnelles<a class="headerlink" href="#transfert-aux-equipes-operationnelles" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Former les exploitants et équipes support</li>
-<li>Transférer la documentation (technique, utilisateur, maintenance)</li>
-<li>Organiser la passation de connaissances</li>
-<li>Établir les procédures de support</li>
-</ul>
-<h5 id="mise-en-production-deploiement">Mise en production / Déploiement<a class="headerlink" href="#mise-en-production-deploiement" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Finaliser le déploiement en production</li>
-<li>Vérifier le bon fonctionnement opérationnel</li>
-<li>Activer le support utilisateur</li>
-<li>Surveiller la période de garantie (hypercare)</li>
-</ul>
-<h5 id="documentation-finale">Documentation finale<a class="headerlink" href="#documentation-finale" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Archiver tous les documents projet</li>
-<li>Créer un dossier de clôture complet</li>
-<li>Mettre à disposition la documentation pour les équipes opérationnelles</li>
-</ul>
-<h4 id="3-bilan-de-projet-lessons-learned">3. Bilan de projet (Lessons Learned)<a class="headerlink" href="#3-bilan-de-projet-lessons-learned" title="Permanent link">&para;</a></h4>
-<h5 id="analyse-de-la-performance">Analyse de la performance<a class="headerlink" href="#analyse-de-la-performance" title="Permanent link">&para;</a></h5>
-<p><strong>Identification du projet</strong>
-- Nom, objectifs, dates, budget, équipe
-- Contexte et parties prenantes</p>
-<p><strong>Analyse des écarts</strong>
-- Écart sur les délais (planning vs réalisé)
-- Écart sur les coûts (budget vs dépensé)
-- Écart sur le périmètre (prévu vs livré)
-- Écart sur la qualité (défauts, reprise)</p>
-<p><strong>Retour sur l'analyse des risques</strong>
-- Efficacité des stratégies de mitigation
-- Risques qui se sont matérialisés
-- Risques non anticipés</p>
-<p><strong>Impacts imprévus</strong>
-- Conséquences inattendues positives
-- Conséquences inattendues négatives
-- Apprentissages émergents</p>
-<p><strong>Satisfaction des parties prenantes</strong>
-- Enquête de satisfaction client/MOA
-- Feedback de l'équipe projet
-- Retours des utilisateurs finaux</p>
-<h5 id="lecons-apprises-et-recommandations">Leçons apprises et recommandations<a class="headerlink" href="#lecons-apprises-et-recommandations" title="Permanent link">&para;</a></h5>
-<p><strong>Ce qui a bien fonctionné (Best Practices)</strong>
-- Pratiques efficaces à reproduire
-- Outils performants
-- Méthodes de travail réussies</p>
-<p><strong>Ce qui n'a pas fonctionné</strong>
-- Difficultés rencontrées
-- Erreurs commises
-- Processus inefficaces</p>
-<p><strong>Recommandations pour les futurs projets</strong>
-- Améliorations suggérées
-- Compétences à développer
-- Outils à adopter</p>
-<h5 id="documentation-du-bilan">Documentation du bilan<a class="headerlink" href="#documentation-du-bilan" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Rédiger le <strong>bilan de projet</strong> complet</li>
-<li>Organiser une réunion de clôture (lessons learned workshop)</li>
-<li>Partager les apprentissages avec l'organisation</li>
-<li>Intégrer dans la base de connaissances</li>
-</ul>
-<h4 id="4-cloture-administrative-et-financiere">4. Clôture administrative et financière<a class="headerlink" href="#4-cloture-administrative-et-financiere" title="Permanent link">&para;</a></h4>
-<h5 id="cloture-des-contrats">Clôture des contrats<a class="headerlink" href="#cloture-des-contrats" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Finaliser les contrats avec les fournisseurs</li>
-<li>Régler les dernières factures</li>
-<li>Obtenir les garanties et certificats</li>
-<li>Clore les commandes et achats</li>
-</ul>
-<h5 id="cloture-budgetaire">Clôture budgétaire<a class="headerlink" href="#cloture-budgetaire" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Consolider les dépenses finales</li>
-<li>Comparer budget vs dépenses réelles</li>
-<li>Justifier les écarts significatifs</li>
-<li>Libérer les provisions non utilisées</li>
-</ul>
-<h5 id="archivage">Archivage<a class="headerlink" href="#archivage" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Créer le <strong>dépôt des documents de projet</strong></li>
-<li>Organiser l'archivage selon les règles de l'entreprise</li>
-<li>Assurer la traçabilité et l'accessibilité</li>
-<li>Respecter les obligations légales de conservation</li>
-</ul>
-<h4 id="5-liberation-des-ressources">5. Libération des ressources<a class="headerlink" href="#5-liberation-des-ressources" title="Permanent link">&para;</a></h4>
-<h5 id="desaffectation-de-lequipe">Désaffectation de l'équipe<a class="headerlink" href="#desaffectation-de-lequipe" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Remercier formellement l'équipe</li>
-<li>Évaluer les performances individuelles</li>
-<li>Fournir des feedbacks constructifs</li>
-<li>Réaffecter les ressources à d'autres projets</li>
-</ul>
-<h5 id="celebration">Célébration<a class="headerlink" href="#celebration" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Organiser un événement de clôture</li>
-<li>Reconnaître les contributions individuelles et collectives</li>
-<li>Célébrer les succès</li>
-<li>Renforcer la cohésion et la motivation</li>
-</ul>
-<h4 id="6-cloture-formelle">6. Clôture formelle<a class="headerlink" href="#6-cloture-formelle" title="Permanent link">&para;</a></h4>
-<h5 id="declaration-de-cloture">Déclaration de clôture<a class="headerlink" href="#declaration-de-cloture" title="Permanent link">&para;</a></h5>
-<ul>
-<li>Produire la déclaration formelle de clôture du projet</li>
-<li>Obtenir la validation du sponsor/commanditaire</li>
-<li>Communiquer la clôture à toutes les parties prenantes</li>
-<li>Mettre à jour les outils de gestion de portefeuille</li>
-</ul>
-<h3 id="livrables-cles_5">Livrables clés<a class="headerlink" href="#livrables-cles_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li>PV de réception des livrables (avec signatures)</li>
-<li>Documentation complète du projet</li>
-<li>Bilan de projet (Lessons Learned)</li>
-<li>Dossier d'archivage projet</li>
-<li>Déclaration formelle de clôture</li>
-<li>Rapport de satisfaction des parties prenantes</li>
-</ul>
-<hr />
-<h2 id="outils-et-methodes-transverses">Outils et Méthodes Transverses<a class="headerlink" href="#outils-et-methodes-transverses" title="Permanent link">&para;</a></h2>
-<h3 id="outils-de-planification-et-suivi">Outils de planification et suivi<a class="headerlink" href="#outils-de-planification-et-suivi" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Diagramme de Gantt</strong> : visualisation chronologique des tâches</li>
-<li><strong>Diagramme PERT</strong> : réseau logique et chemin critique</li>
-<li><strong>WBS</strong> (Work Breakdown Structure) : décomposition hiérarchique du travail</li>
-<li><strong>PBS</strong> (Product Breakdown Structure) : décomposition du produit</li>
-<li><strong>Matrice RACI</strong> : clarification des responsabilités</li>
-</ul>
-<h3 id="outils-de-gestion-des-ressources">Outils de gestion des ressources<a class="headerlink" href="#outils-de-gestion-des-ressources" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Matrice des compétences</strong> : identification des compétences disponibles/requises</li>
-<li><strong>Plan de charge</strong> : allocation et équilibrage de la charge de travail</li>
-<li><strong>OBS</strong> (Organizational Breakdown Structure) : structure organisationnelle</li>
-</ul>
-<h3 id="outils-de-gestion-des-risques">Outils de gestion des risques<a class="headerlink" href="#outils-de-gestion-des-risques" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Registre des risques</strong> : liste et suivi des risques</li>
-<li><strong>Matrice des risques</strong> : évaluation Probabilité × Impact</li>
-<li><strong>Plans de mitigation</strong> : actions préventives et correctives</li>
-</ul>
-<h3 id="outils-de-communication">Outils de communication<a class="headerlink" href="#outils-de-communication" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Plan de communication</strong> : qui, quoi, quand, comment</li>
-<li><strong>Comptes-rendus de réunion</strong> : traçabilité des décisions et actions</li>
-<li><strong>Tableau de bord projet</strong> : indicateurs de performance synthétiques</li>
-<li><strong>Rapports flash</strong> : reporting d'avancement régulier</li>
-</ul>
-<h3 id="outils-de-qualite">Outils de qualité<a class="headerlink" href="#outils-de-qualite" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Cahier des charges</strong> : spécifications fonctionnelles et techniques</li>
-<li><strong>Matrice des exigences</strong> : traçabilité des besoins</li>
-<li><strong>Plan de tests</strong> : stratégie de validation</li>
-<li><strong>Critères d'acceptation</strong> : définition of done</li>
-</ul>
-<h3 id="methodes-danalyse">Méthodes d'analyse<a class="headerlink" href="#methodes-danalyse" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>MoSCoW</strong> : priorisation des besoins (Must/Should/Could/Won't Have)</li>
-<li><strong>Triangle d'Or</strong> : arbitrage Délai/Coût/Périmètre</li>
-<li><strong>SWOT</strong> : Forces/Faiblesses/Opportunités/Menaces</li>
-<li><strong>PESTEL</strong> : analyse environnementale macro</li>
-<li><strong>5 Pourquoi</strong> : analyse de causes racines</li>
-<li><strong>Diagramme d'Ishikawa</strong> : analyse de causes (arête de poisson)</li>
-<li><strong>Matrice Covey</strong> : priorisation Urgent/Important</li>
-</ul>
-<h3 id="indicateurs-de-performance-kpi_1">Indicateurs de performance (KPI)<a class="headerlink" href="#indicateurs-de-performance-kpi_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>SPI</strong> (Schedule Performance Index) : performance délais</li>
-<li><strong>CPI</strong> (Cost Performance Index) : performance coûts</li>
-<li><strong>Burn rate</strong> : vitesse de consommation du budget</li>
-<li><strong>Taux d'avancement</strong> : pourcentage complété</li>
-<li><strong>Taux de qualité</strong> : défauts, reprise, satisfaction</li>
-</ul>
-<h3 id="approches-methodologiques">Approches méthodologiques<a class="headerlink" href="#approches-methodologiques" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Approche prédictive</strong> (Waterfall, Cycle en V) : séquentielle, cahier des charges figé</li>
-<li><strong>Approche agile</strong> (Scrum, Kanban) : itérative et incrémentale</li>
-<li><strong>Approche hybride</strong> : combinaison des deux selon les besoins</li>
-</ul>
-<hr />
-<h2 id="synthese-checklist-du-chef-de-projet">Synthèse : Checklist du Chef de Projet<a class="headerlink" href="#synthese-checklist-du-chef-de-projet" title="Permanent link">&para;</a></h2>
-<h3 id="phase-0-avant-projet">Phase 0 : Avant-Projet<a class="headerlink" href="#phase-0-avant-projet" title="Permanent link">&para;</a></h3>
-<p>☐ Étude d'opportunité réalisée et validée<br />
-☐ Décision GO/NO-GO obtenue</p>
-<h3 id="phase-1-initialisation">Phase 1 : Initialisation<a class="headerlink" href="#phase-1-initialisation" title="Permanent link">&para;</a></h3>
-<p>☐ Charte de projet rédigée et signée<br />
-☐ Gouvernance définie (sponsor, MOA, MOE, équipe)<br />
-☐ Macro-planning établi<br />
-☐ Risques principaux identifiés<br />
-☐ Kick-off meeting organisé</p>
-<h3 id="phase-2-planification">Phase 2 : Planification<a class="headerlink" href="#phase-2-planification" title="Permanent link">&para;</a></h3>
-<p>☐ Besoins exprimés et priorisés (MoSCoW)<br />
-☐ Cahier des charges validé<br />
-☐ WBS/PBS créés<br />
-☐ Ressources identifiées et affectées (RACI)<br />
-☐ Planning détaillé (PERT + Gantt)<br />
-☐ Budget détaillé validé<br />
-☐ Plan de Management de Projet (PMP) approuvé<br />
-☐ Plan de communication défini<br />
-☐ Stratégie de tests établie</p>
-<h3 id="phase-3-execution">Phase 3 : Exécution<a class="headerlink" href="#phase-3-execution" title="Permanent link">&para;</a></h3>
-<p>☐ Ressources mobilisées et opérationnelles<br />
-☐ Communication active avec les parties prenantes<br />
-☐ Coordination d'équipe efficace<br />
-☐ Livrables produits selon planning<br />
-☐ Tests et validation continus<br />
-☐ Problèmes identifiés et résolus rapidement</p>
-<h3 id="phase-4-controle">Phase 4 : Contrôle<a class="headerlink" href="#phase-4-controle" title="Permanent link">&para;</a></h3>
-<p>☐ Indicateurs de performance suivis (KPI)<br />
-☐ Budget contrôlé régulièrement<br />
-☐ Risques mis à jour et gérés<br />
-☐ Qualité auditée et vérifiée<br />
-☐ Rapports d'avancement produits<br />
-☐ Instances de pilotage animées (COPROJ/COPIL)<br />
-☐ Changements maîtrisés</p>
-<h3 id="phase-5-cloture">Phase 5 : Clôture<a class="headerlink" href="#phase-5-cloture" title="Permanent link">&para;</a></h3>
-<p>☐ Recette finale réalisée<br />
-☐ PV de réception signé<br />
-☐ Transfert aux équipes opérationnelles effectué<br />
-☐ Bilan de projet documenté (Lessons Learned)<br />
-☐ Documents archivés<br />
-☐ Clôture administrative et financière<br />
-☐ Équipe libérée et remerciée<br />
-☐ Clôture formelle déclarée</p>
-<hr />
-<h2 id="competences-cles-du-chef-de-projet">Compétences Clés du Chef de Projet<a class="headerlink" href="#competences-cles-du-chef-de-projet" title="Permanent link">&para;</a></h2>
-<h3 id="competences-techniques">Compétences techniques<a class="headerlink" href="#competences-techniques" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Maîtrise des outils de planification (MS Project, Jira, Asana, etc.)</li>
-<li>Connaissance des méthodes de gestion de projet (PMI, PRINCE2, Agile)</li>
-<li>Compétences en estimation et budgétisation</li>
-<li>Capacité d'analyse et de résolution de problèmes</li>
-</ul>
-<h3 id="competences-manageriales">Compétences managériales<a class="headerlink" href="#competences-manageriales" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Leadership et motivation d'équipe</li>
-<li>Gestion des conflits</li>
-<li>Délégation efficace</li>
-<li>Prise de décision et arbitrage</li>
-</ul>
-<h3 id="competences-relationnelles">Compétences relationnelles<a class="headerlink" href="#competences-relationnelles" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Communication claire et adaptée</li>
-<li>Négociation et persuasion</li>
-<li>Gestion des parties prenantes</li>
-<li>Intelligence émotionnelle</li>
-</ul>
-<h3 id="competences-organisationnelles">Compétences organisationnelles<a class="headerlink" href="#competences-organisationnelles" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Priorisation et gestion du temps</li>
-<li>Rigueur et attention aux détails</li>
-<li>Capacité d'adaptation et résilience</li>
-<li>Vision globale et pensée systémique</li>
-</ul>
-<hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Le pilotage d'un projet est un exercice complexe qui nécessite méthode, rigueur et adaptabilité. 
-Ce guide fournit une feuille de route complète pour naviguer à travers les 6 phases du cycle de vie projet.</p>
-</div>
-<p><strong>Principes clés à retenir :</strong></p>
-<ol>
-<li><strong>Planifier avant d'agir</strong> : une planification solide est la clé du succès</li>
-<li><strong>Communiquer constamment</strong> : la transparence réduit les risques</li>
-<li><strong>Piloter par les indicateurs</strong> : mesurer pour décider</li>
-<li><strong>S'adapter au changement</strong> : la flexibilité est essentielle</li>
-<li><strong>Capitaliser sur l'expérience</strong> : chaque projet est une opportunité d'apprentissage</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Le chef de projet est le chef d'orchestre qui harmonise ressources, délais, coûts et qualité pour créer de la valeur. 
-En suivant cette check-list et en utilisant les outils appropriés, vous maximisez vos chances de mener votre projet vers le succès.</p>
-</div>
   </div>
   
   <script>
@@ -1972,317 +2416,201 @@ En suivant cette check-list et en utilisant les outils appropriés, vous maximis
         
         
         
-        <a href="#phase-0-avant-projet-identifier-et-comprendre-le-besoin"
+        <a href="#partie-i-note-de-cadrage"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-0-avant-projet-identifier-et-comprendre-le-besoin');">
-            Phase 0 : AVANT-PROJET - Identifier et comprendre le besoin
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#partie-i-note-de-cadrage');">
+            PARTIE I — NOTE DE CADRAGE
         </a>
         
         
-        <a href="#objectif"
+        <a href="#11-objectifs-strategiques-du-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif');">
-            Objectif
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#11-objectifs-strategiques-du-projet');">
+            1.1 Objectifs stratégiques du projet
         </a>
         
-        <a href="#taches-a-realiser"
+        <a href="#12-exigences-principales-du-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser');">
-            Tâches à réaliser
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#12-exigences-principales-du-projet');">
+            1.2 Exigences principales du projet
         </a>
         
-        <a href="#livrables-cles"
+        <a href="#13-perimetre-du-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#13-perimetre-du-projet');">
+            1.3 Périmètre du projet
         </a>
         
-        
-
-        
-        <a href="#phase-1-initialisation-definir-et-cadrer-le-projet"
+        <a href="#14-contraintes-du-projet-triangle-qualite-cout-delai"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-1-initialisation-definir-et-cadrer-le-projet');">
-            Phase 1 : INITIALISATION - Définir et cadrer le projet
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#14-contraintes-du-projet-triangle-qualite-cout-delai');">
+            1.4 Contraintes du projet (Triangle Qualité-Coût-Délai)
         </a>
         
-        
-        <a href="#objectif_1"
+        <a href="#15-methodologie-de-gestion-de-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif_1');">
-            Objectif
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#15-methodologie-de-gestion-de-projet');">
+            1.5 Méthodologie de gestion de projet
         </a>
         
-        <a href="#taches-a-realiser_1"
+        <a href="#16-macro-planning-vue-synthetique"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser_1');">
-            Tâches à réaliser
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#16-macro-planning-vue-synthetique');">
+            1.6 Macro-planning (vue synthétique)
         </a>
         
-        <a href="#livrables-cles_1"
+        <a href="#17-gouvernance-du-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles_1');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#17-gouvernance-du-projet');">
+            1.7 Gouvernance du projet
         </a>
         
-        
-
-        
-        <a href="#phase-2-planification-decider-quoi-faire-et-comment"
+        <a href="#18-registre-des-risques-6-risques-maximum"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-2-planification-decider-quoi-faire-et-comment');">
-            Phase 2 : PLANIFICATION - Décider quoi faire et comment
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#18-registre-des-risques-6-risques-maximum');">
+            1.8 Registre des risques (6 risques maximum)
         </a>
         
-        
-        <a href="#objectif_2"
+        <a href="#19-budget-previsionnel-postes-principaux"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif_2');">
-            Objectif
-        </a>
-        
-        <a href="#taches-a-realiser_2"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser_2');">
-            Tâches à réaliser
-        </a>
-        
-        <a href="#livrables-cles_2"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles_2');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#19-budget-previsionnel-postes-principaux');">
+            1.9 Budget prévisionnel (postes principaux)
         </a>
         
         
 
         
-        <a href="#phase-3-execution-concevoir-realiser-et-deployer"
+        <a href="#partie-ii-plan-projet"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-3-execution-concevoir-realiser-et-deployer');">
-            Phase 3 : EXÉCUTION - Concevoir, réaliser et déployer
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#partie-ii-plan-projet');">
+            PARTIE II — PLAN PROJET
         </a>
         
         
-        <a href="#objectif_3"
+        <a href="#21-wbs-work-breakdown-structure-3-niveaux-max"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif_3');">
-            Objectif
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#21-wbs-work-breakdown-structure-3-niveaux-max');">
+            2.1 WBS (Work Breakdown Structure — 3 niveaux max)
         </a>
         
-        <a href="#taches-a-realiser_3"
+        <a href="#22-planning-gantt-representation-textuelle"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser_3');">
-            Tâches à réaliser
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#22-planning-gantt-representation-textuelle');">
+            2.2 Planning Gantt (représentation textuelle)
         </a>
         
-        <a href="#livrables-cles_3"
+        <a href="#23-dispositif-de-suivi-budgetaire"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles_3');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#23-dispositif-de-suivi-budgetaire');">
+            2.3 Dispositif de suivi budgétaire
         </a>
         
-        
-
-        
-        <a href="#phase-4-controle-surveiller-et-ajuster"
+        <a href="#24-tableau-de-bord-de-pilotage-3-kpi"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-4-controle-surveiller-et-ajuster');">
-            Phase 4 : CONTRÔLE - Surveiller et ajuster
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#24-tableau-de-bord-de-pilotage-3-kpi');">
+            2.4 Tableau de bord de pilotage (3 KPI)
         </a>
         
-        
-        <a href="#objectif_4"
+        <a href="#25-instances-de-pilotage-3-maximum"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif_4');">
-            Objectif
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#25-instances-de-pilotage-3-maximum');">
+            2.5 Instances de pilotage (3 maximum)
         </a>
         
-        <a href="#taches-a-realiser_4"
+        <a href="#26-arbitrage-strategique-supervision-247-internaliser-ou-externaliser"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser_4');">
-            Tâches à réaliser
-        </a>
-        
-        <a href="#livrables-cles_4"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles_4');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#26-arbitrage-strategique-supervision-247-internaliser-ou-externaliser');">
+            2.6 Arbitrage stratégique — Supervision 24/7 : Internaliser ou externaliser ?
         </a>
         
         
 
         
-        <a href="#phase-5-cloture-finaliser-et-capitaliser"
+        <a href="#partie-iii-conduite-du-changement"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#phase-5-cloture-finaliser-et-capitaliser');">
-            Phase 5 : CLÔTURE - Finaliser et capitaliser
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#partie-iii-conduite-du-changement');">
+            PARTIE III — CONDUITE DU CHANGEMENT
         </a>
         
         
-        <a href="#objectif_5"
+        <a href="#31-analyse-des-impacts-organisationnels"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#objectif_5');">
-            Objectif
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#31-analyse-des-impacts-organisationnels');">
+            3.1 Analyse des impacts organisationnels
         </a>
         
-        <a href="#taches-a-realiser_5"
+        <a href="#32-plan-de-conduite-du-changement"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#taches-a-realiser_5');">
-            Tâches à réaliser
-        </a>
-        
-        <a href="#livrables-cles_5"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#livrables-cles_5');">
-            Livrables clés
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#32-plan-de-conduite-du-changement');">
+            3.2 Plan de conduite du changement
         </a>
         
         
 
         
-        <a href="#outils-et-methodes-transverses"
+        <a href="#partie-iv-developpement-des-competences"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#outils-et-methodes-transverses');">
-            Outils et Méthodes Transverses
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#partie-iv-developpement-des-competences');">
+            PARTIE IV — DÉVELOPPEMENT DES COMPÉTENCES
         </a>
         
         
-        <a href="#outils-de-planification-et-suivi"
+        <a href="#41-diagnostic-des-competences"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#outils-de-planification-et-suivi');">
-            Outils de planification et suivi
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#41-diagnostic-des-competences');">
+            4.1 Diagnostic des compétences
         </a>
         
-        <a href="#outils-de-gestion-des-ressources"
+        <a href="#42-plan-de-formation"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#outils-de-gestion-des-ressources');">
-            Outils de gestion des ressources
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#42-plan-de-formation');">
+            4.2 Plan de formation
         </a>
         
-        <a href="#outils-de-gestion-des-risques"
+        <a href="#43-indicateurs-de-succes-de-la-montee-en-competences"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#outils-de-gestion-des-risques');">
-            Outils de gestion des risques
-        </a>
-        
-        <a href="#outils-de-communication"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#outils-de-communication');">
-            Outils de communication
-        </a>
-        
-        <a href="#outils-de-qualite"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#outils-de-qualite');">
-            Outils de qualité
-        </a>
-        
-        <a href="#methodes-danalyse"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#methodes-danalyse');">
-            Méthodes d'analyse
-        </a>
-        
-        <a href="#indicateurs-de-performance-kpi_1"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#indicateurs-de-performance-kpi_1');">
-            Indicateurs de performance (KPI)
-        </a>
-        
-        <a href="#approches-methodologiques"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#approches-methodologiques');">
-            Approches méthodologiques
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#43-indicateurs-de-succes-de-la-montee-en-competences');">
+            4.3 Indicateurs de succès de la montée en compétences
         </a>
         
         
 
         
-        <a href="#synthese-checklist-du-chef-de-projet"
+        <a href="#partie-v-recrutement"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#synthese-checklist-du-chef-de-projet');">
-            Synthèse : Checklist du Chef de Projet
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#partie-v-recrutement');">
+            PARTIE V — RECRUTEMENT
         </a>
         
         
-        <a href="#phase-0-avant-projet"
+        <a href="#51-fiche-de-poste-ingenieur-cloud-supervision-exemple-aligne-avec-les-besoins-nexa-cloud"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-0-avant-projet');">
-            Phase 0 : Avant-Projet
-        </a>
-        
-        <a href="#phase-1-initialisation"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-1-initialisation');">
-            Phase 1 : Initialisation
-        </a>
-        
-        <a href="#phase-2-planification"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-2-planification');">
-            Phase 2 : Planification
-        </a>
-        
-        <a href="#phase-3-execution"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-3-execution');">
-            Phase 3 : Exécution
-        </a>
-        
-        <a href="#phase-4-controle"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-4-controle');">
-            Phase 4 : Contrôle
-        </a>
-        
-        <a href="#phase-5-cloture"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#phase-5-cloture');">
-            Phase 5 : Clôture
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#51-fiche-de-poste-ingenieur-cloud-supervision-exemple-aligne-avec-les-besoins-nexa-cloud');">
+            5.1 Fiche de poste — Ingénieur Cloud &amp; Supervision (exemple aligné avec les besoins Nexa Cloud)
         </a>
         
         
 
         
-        <a href="#competences-cles-du-chef-de-projet"
+        <a href="#memo-oral-10-min-de-presentation"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#competences-cles-du-chef-de-projet');">
-            Compétences Clés du Chef de Projet
+            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#memo-oral-10-min-de-presentation');">
+            MÉMO ORAL (10 min de présentation)
         </a>
         
         
-        <a href="#competences-techniques"
+        <a href="#structure-recommandee-8-slides-max"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#competences-techniques');">
-            Compétences techniques
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#structure-recommandee-8-slides-max');">
+            Structure recommandée (8 slides max)
         </a>
         
-        <a href="#competences-manageriales"
+        <a href="#questions-probables-a-anticiper-20-min-de-questions"
             class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#competences-manageriales');">
-            Compétences managériales
+            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#questions-probables-a-anticiper-20-min-de-questions');">
+            Questions probables à anticiper (20 min de questions)
         </a>
         
-        <a href="#competences-relationnelles"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#competences-relationnelles');">
-            Compétences relationnelles
-        </a>
-        
-        <a href="#competences-organisationnelles"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="3" onClick="deferSetActiveTocLink('#competences-organisationnelles');">
-            Compétences organisationnelles
-        </a>
-        
-        
-
-        
-        <a href="#conclusion"
-            class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-            data-active="false" data-depth="2" onClick="deferSetActiveTocLink('#conclusion');">
-            Conclusion
-        </a>
         
 
         
