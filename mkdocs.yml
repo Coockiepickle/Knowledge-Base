@@ -84,6 +84,8 @@ nav:
         - Clauses: eris/droit/clauses.md
         - Droit: eris/droit/droit.md
         - Management de projet: eris/droit/management-projet.md
+        - Outils Management de projet: eris/droit/project-mgmt-tools.md
+        - Management de projet ERIS: eris/droit/project-mgmt-eris.md
         - Gestion des coûts: eris/droit/gestion-couts.md
         - Gestion des équipes: eris/droit/gestion-equipes.md
       - Infra:
