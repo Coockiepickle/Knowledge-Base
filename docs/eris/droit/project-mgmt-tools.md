@@ -1,8 +1,8 @@
 # Guide Complet : Liste des Tâches pour Piloter un Projet
 
 !!! info
-Ce guide synthétise l'ensemble des tâches essentielles à réaliser pour piloter efficacement un projet, organisées selon les 6 phases du cycle de vie projet :
-Avant-Projet, Initialisation, Planification, Exécution, Contrôle et Clôture.
+    Ce guide synthétise l'ensemble des tâches essentielles à réaliser pour piloter efficacement un projet, organisées selon les 6 phases du cycle de vie projet :
+    Avant-Projet, Initialisation, Planification, Exécution, Contrôle et Clôture.
 
 ## Phase 0 : AVANT-PROJET - Identifier et comprendre le besoin
 
