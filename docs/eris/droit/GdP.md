@@ -1,9 +1,3 @@
-# Dossier NEXA-CLOUD — Préparation épreuve EC08
-
-> **Mode d'emploi** : Ce document est ta base de travail. Les zones `[À ADAPTER]` sont les seules parties que tu dois compléter avec les informations des annexes le jour J. Tout le reste est prêt à recopier et à mettre en forme.
-
-***
-
 ## PARTIE I — NOTE DE CADRAGE
 
 ### 1.1 Objectifs stratégiques du projet
