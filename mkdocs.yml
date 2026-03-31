@@ -83,7 +83,7 @@ nav:
         - Cas pratique: eris/droit/cas-pratique.md
         - Clauses: eris/droit/clauses.md
         - Droit: eris/droit/droit.md
-        - Management de projet: eris/droit/GdP.md
+        - Gestion du Support: eris/droit/gestion-support.md
         - Outils Management de projet: eris/droit/project-mgmt-tools.md
         - Management de projet ERIS: eris/droit/project-mgmt-eris.md
         - Gestion des coûts: eris/droit/gestion-couts.md
@@ -98,7 +98,6 @@ nav:
         - Doc Automatisation: eris/infra/doc-auto-tf-ans.md
   - General:
       - MKDocs: general/mkdocs.md
-      - Ansible: general/ansible.md
   - Quotidien:
       - 14-10-25: daily/14-10-25.md
       - 27-01-25: daily/27-01-25.md
