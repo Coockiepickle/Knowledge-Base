@@ -97,12 +97,14 @@ nav:
         - Automatisation: eris/infra/auto-tf-ans.md
         - Doc Automatisation: eris/infra/doc-auto-tf-ans.md
   - General:
+      - general.md
       - MKDocs: general/mkdocs.md
       - Nginx Web Server: general/nginx.md
       - Secure Web Server: general/secure-web-server.md
       - Docker: general/docker.md
       - OsTicket: general/osticket.md
-  - Quotidien:
+  - Daily:
+      - daily.md
       - 14-10-25: daily/14-10-25.md
       - 27-01-25: daily/27-01-25.md
       - 24-10-25: daily/24-01-25.md
