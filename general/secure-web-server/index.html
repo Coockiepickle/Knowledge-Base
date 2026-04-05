@@ -818,24 +818,20 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <hr />
 <h2 id="6-resume-operationnel">6. Résumé opérationnel<a class="headerlink" href="#6-resume-operationnel" title="Permanent link">&para;</a></h2>
 <ul>
-<li>SSH :<ul>
-<li>Accès uniquement par clé.</li>
-<li>Port déplacé en 12222.</li>
-<li>Root interdit.</li>
+<li>SSH :  </li>
+<li>Accès uniquement par clé.  </li>
+<li>Port déplacé en 12222.  </li>
+<li>Root interdit.  </li>
+<li>UFW :  </li>
+<li>Tout entrant bloqué, IPv6 bloqué, sauf :  <ul>
+<li>12222/tcp (SSH)  </li>
+<li>80/tcp (HTTP)  </li>
+<li>443/tcp (HTTPS)  </li>
 </ul>
 </li>
-<li>UFW :<ul>
-<li>Tout entrant bloqué, IPv6 bloqué, sauf :</li>
-<li>12222/tcp (SSH)</li>
-<li>80/tcp (HTTP)</li>
-<li>443/tcp (HTTPS)</li>
-</ul>
-</li>
-<li>Fail2Ban :<ul>
-<li>Surveille les logs SSH et Nginx.</li>
+<li>Fail2Ban :  </li>
+<li>Surveille les logs SSH et Nginx.  </li>
 <li>Bannis automatiquement les IP qui bruteforcent.</li>
-</ul>
-</li>
 </ul>
   </div>
   

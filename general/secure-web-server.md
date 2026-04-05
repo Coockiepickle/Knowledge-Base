@@ -136,7 +136,7 @@ puis
 sudo ufw delete 4
 sudo ufw delete 5
 sudo ufw delete 6
-```  
+```
   
 ***
 
@@ -204,21 +204,21 @@ sudo systemctl restart fail2ban
 `sudo fail2ban-client status nginx-http-auth`
 
 Vous verrez les IP bannies, le nombre de tentatives, etc.  
-
+  
 ***
 
 ## 6. Résumé opérationnel
 
-- SSH :
-    - Accès uniquement par clé.
-    - Port déplacé en 12222.
-    - Root interdit.
-- UFW :
-    - Tout entrant bloqué, IPv6 bloqué, sauf :
-      - 12222/tcp (SSH)
-      - 80/tcp (HTTP)
-      - 443/tcp (HTTPS)
-- Fail2Ban :
-    - Surveille les logs SSH et Nginx.
-    - Bannis automatiquement les IP qui bruteforcent.
+- SSH :  
+  - Accès uniquement par clé.  
+  - Port déplacé en 12222.  
+  - Root interdit.  
+- UFW :  
+  - Tout entrant bloqué, IPv6 bloqué, sauf :  
+    - 12222/tcp (SSH)  
+    - 80/tcp (HTTP)  
+    - 443/tcp (HTTPS)  
+- Fail2Ban :  
+  - Surveille les logs SSH et Nginx.  
+  - Bannis automatiquement les IP qui bruteforcent.
 

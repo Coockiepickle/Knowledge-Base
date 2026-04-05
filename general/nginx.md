@@ -125,7 +125,7 @@ server {
 ```
 
 Les navigateurs afficheront un avertissement (Autorité de Certification non reconnue), normal pour de l'auto-signé.  
-
+  
 ***
 
 ## 4. Activer le HTTPS (générique)
@@ -169,7 +169,7 @@ Pour n’importe quel site :
    ```bash
    sudo nginx -t
    sudo systemctl reload nginx
-   ```  
+   ```
   
 ***
 
