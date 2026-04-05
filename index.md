@@ -54,10 +54,10 @@ const option = {
         show: false,
       },
       data: [
-        { value: 5, name: "Terminé" },
-        { value: 15, name: "En rédaction" },
+        { value: 25, name: "Terminé" },
+        { value: 20, name: "En rédaction" },
         { value: 5, name: "Mise en page en cours" },
-        { value: 75, name: "Pas commencé" },
+        { value: 50, name: "Pas commencé" },
         { value: 0, name: "Erreur rencontrée" },
       ],
     },
