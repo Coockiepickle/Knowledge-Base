@@ -20,7 +20,7 @@ Nginx utilise :
 - `/etc/nginx/sites-available/` pour les fichiers de config “déclarés”  
 - `/etc/nginx/sites-enabled/` pour les sites “activés” via symlink  
 - `nginx -t` pour valider la config, puis `systemctl reload nginx`  
-
+  
 ***
 
 ## 2. Certificats avec Certbot (Let’s Encrypt)
@@ -63,8 +63,8 @@ Certbot :
 
 Test du renouvellement :
 
-`sudo certbot renew --dry-run`
-
+`sudo certbot renew --dry-run`  
+  
 ***
 
 ## 3. Certificats self‑signed
@@ -124,7 +124,7 @@ server {
 }
 ```
 
-Les navigateurs afficheront un avertissement (Autorité de Certification non reconnue), normal pour de l'auto-signé.
+Les navigateurs afficheront un avertissement (Autorité de Certification non reconnue), normal pour de l'auto-signé.  
 
 ***
 
@@ -169,8 +169,8 @@ Pour n’importe quel site :
    ```bash
    sudo nginx -t
    sudo systemctl reload nginx
-   ```
-
+   ```  
+  
 ***
 
 ## 5. Héberger plusieurs sites sur le même serveur

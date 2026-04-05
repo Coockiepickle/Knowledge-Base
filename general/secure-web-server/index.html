@@ -685,7 +685,7 @@
 <p><code>sudo apt update &amp;&amp; sudo apt upgrade -y</code></p>
 <h3 id="installer-fail2ban-et-ufw">Installer Fail2Ban et UFW<a class="headerlink" href="#installer-fail2ban-et-ufw" title="Permanent link">&para;</a></h3>
 <p><code>sudo apt install fail2ban ufw</code></p>
-<p>Fail2Ban protège contre le brute-force en bannissant les IP malveillantes via le pare-feu. </p>
+<p>Fail2Ban protège contre le brute-force en bannissant les IP malveillantes via le pare-feu.  </p>
 <hr />
 <h2 id="3-securisation-ssh-cles-config">3. Sécurisation SSH (clés + config)<a class="headerlink" href="#3-securisation-ssh-cles-config" title="Permanent link">&para;</a></h2>
 <h3 id="31-generation-de-la-cle-ssh-cote-client">3.1. Génération de la clé SSH côté client<a class="headerlink" href="#31-generation-de-la-cle-ssh-cote-client" title="Permanent link">&para;</a></h3>
@@ -701,13 +701,19 @@
 <p><code>sudo nano /etc/ssh/sshd_config</code></p>
 <p>Points essentiels :</p>
 <ul>
-<li>Interdire le login root :  </li>
+<li>Interdire le login root :  <ul>
 <li><code>PermitRootLogin no</code>  </li>
-<li>Interdire l’authentification par mot de passe :  </li>
+</ul>
+</li>
+<li>Interdire l’authentification par mot de passe :  <ul>
 <li><code>PasswordAuthentication no</code>  </li>
 <li><code>PermitEmptyPasswords no</code>  </li>
-<li>Optionnel : limiter les comptes autorisés :  </li>
+</ul>
+</li>
+<li>Optionnel : limiter les comptes autorisés :  <ul>
 <li><code>AllowUsers user</code></li>
+</ul>
+</li>
 </ul>
 <p>Avant de recharger :</p>
 <p><code>sudo sshd -t    # vérifier la syntaxe</code></p>
@@ -723,7 +729,7 @@
 <p>Testez la connexion :</p>
 <p><code>ssh -p 12222 user@serveur</code></p>
 <p>Avec la clé créée précédemment :</p>
-<p><code>ssh -i ~/.ssh/id_ed25519 -p 12222 user@serveur</code></p>
+<p><code>ssh -i ~/.ssh/id_ed25519 -p 12222 user@serveur</code>  </p>
 <hr />
 <h2 id="4-configuration-ufw-pare-feu">4. Configuration UFW (pare-feu)<a class="headerlink" href="#4-configuration-ufw-pare-feu" title="Permanent link">&para;</a></h2>
 <h3 id="41-politique-par-defaut">4.1. Politique par défaut<a class="headerlink" href="#41-politique-par-defaut" title="Permanent link">&para;</a></h3>
@@ -808,24 +814,28 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <p><code>sudo fail2ban-client status sshd</code></p>
 <p>État du jail Nginx :</p>
 <p><code>sudo fail2ban-client status nginx-http-auth</code></p>
-<p>Vous verrez les IP bannies, le nombre de tentatives, etc.</p>
+<p>Vous verrez les IP bannies, le nombre de tentatives, etc.  </p>
 <hr />
 <h2 id="6-resume-operationnel">6. Résumé opérationnel<a class="headerlink" href="#6-resume-operationnel" title="Permanent link">&para;</a></h2>
 <ul>
-<li>SSH :</li>
+<li>SSH :<ul>
 <li>Accès uniquement par clé.</li>
 <li>Port déplacé en 12222.</li>
 <li>Root interdit.</li>
-<li>UFW :</li>
-<li>Tout entrant bloqué, IPv6 bloqué, sauf :<ul>
+</ul>
+</li>
+<li>UFW :<ul>
+<li>Tout entrant bloqué, IPv6 bloqué, sauf :</li>
 <li>12222/tcp (SSH)</li>
 <li>80/tcp (HTTP)</li>
 <li>443/tcp (HTTPS)</li>
 </ul>
 </li>
-<li>Fail2Ban :</li>
+<li>Fail2Ban :<ul>
 <li>Surveille les logs SSH et Nginx.</li>
 <li>Bannis automatiquement les IP qui bruteforcent.</li>
+</ul>
+</li>
 </ul>
   </div>
   

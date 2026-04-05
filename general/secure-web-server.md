@@ -7,7 +7,7 @@
   - SSH sur 12222  
   - HTTP sur 80  
   - HTTPS sur 443  
-
+  
 ***
 
 ## 2. Installation des outils
@@ -20,8 +20,8 @@
 
 `sudo apt install fail2ban ufw`
 
-Fail2Ban protège contre le brute-force en bannissant les IP malveillantes via le pare-feu. 
-
+Fail2Ban protège contre le brute-force en bannissant les IP malveillantes via le pare-feu.  
+  
 ***
 
 ## 3. Sécurisation SSH (clés + config)
@@ -51,12 +51,12 @@ Vérifiez que la connexion par clé fonctionne :
 Points essentiels :
 
 - Interdire le login root :  
-  - `PermitRootLogin no`  
+    - `PermitRootLogin no`  
 - Interdire l’authentification par mot de passe :  
-  - `PasswordAuthentication no`  
-  - `PermitEmptyPasswords no`  
+    - `PasswordAuthentication no`  
+    - `PermitEmptyPasswords no`  
 - Optionnel : limiter les comptes autorisés :  
-  - `AllowUsers user`
+    - `AllowUsers user`
 
 Avant de recharger :
 
@@ -82,9 +82,8 @@ Testez la connexion :
 
 Avec la clé créée précédemment :
 
-`ssh -i ~/.ssh/id_ed25519 -p 12222 user@serveur`
-
-
+`ssh -i ~/.ssh/id_ed25519 -p 12222 user@serveur`  
+  
 ***
 
 ## 4. Configuration UFW (pare-feu)
@@ -137,8 +136,8 @@ puis
 sudo ufw delete 4
 sudo ufw delete 5
 sudo ufw delete 6
-```
-
+```  
+  
 ***
 
 ## 5. Configuration Fail2Ban
@@ -204,22 +203,22 @@ sudo systemctl restart fail2ban
 
 `sudo fail2ban-client status nginx-http-auth`
 
-Vous verrez les IP bannies, le nombre de tentatives, etc.
+Vous verrez les IP bannies, le nombre de tentatives, etc.  
 
 ***
 
 ## 6. Résumé opérationnel
 
 - SSH :
-  - Accès uniquement par clé.
-  - Port déplacé en 12222.
-  - Root interdit.
+    - Accès uniquement par clé.
+    - Port déplacé en 12222.
+    - Root interdit.
 - UFW :
-  - Tout entrant bloqué, IPv6 bloqué, sauf :
-    - 12222/tcp (SSH)
-    - 80/tcp (HTTP)
-    - 443/tcp (HTTPS)
+    - Tout entrant bloqué, IPv6 bloqué, sauf :
+      - 12222/tcp (SSH)
+      - 80/tcp (HTTP)
+      - 443/tcp (HTTPS)
 - Fail2Ban :
-  - Surveille les logs SSH et Nginx.
-  - Bannis automatiquement les IP qui bruteforcent.
+    - Surveille les logs SSH et Nginx.
+    - Bannis automatiquement les IP qui bruteforcent.
 
