@@ -103,6 +103,7 @@ nav:
       - Secure Web Server: general/secure-web-server.md
       - Docker: general/docker.md
       - OsTicket: general/osticket.md
+      - Install .tar.gz app: general/linux-app.md
   - Daily:
       - daily.md
       - 14-10-25: daily/14-10-25.md

@@ -13,9 +13,20 @@ alpha: true
 * Guides d'installations. ex : [mkdocs](./general/mkdocs.md),
 * Petites infos diverses dans des fichiers datés. ex : [27-01-25](./daily/27-01-25.md).
 
+## Suivi des modifications :
+
+!!! info "Dernière mise à jour de la doc :" 
+    `Mer 26/08/2026`
+
+!!! info "Dernière page mise à jour :" 
+    [Install .tar.gz app](./general/linux-app.md)
+
 ## Quelques liens utiles
 
-| [ +mdi:web+ Portfolio](https://dreynaud.ipv64.net) | [ +line-md:linkedin+ LinkedIn](https://linkedin.com/in/dreynaud) | [ +line-md:github-loop+ Github](https://github.com/coockiepickle) | [ +cib:ko-fi+ ko-fi](https://ko-fi.com/A0A51NJ7PE) |
+<a class="button outline" href="https://dreynaud.ipv64.net">+mdi:web+ Portfolio</a>
+<a class="button outline" href="https://linkedin.com/in/dreynaud">+line-md:linkedin+ LinkedIn</a>
+<a class="button outline" href="https://github.com/coockiepickle">+line-md:github-loop+ Github</a>
+<a class="button outline" href="https://ko-fi.com/A0A51NJ7PE">+cib:ko-fi+ ko-fi</a>
 
 ## Complétion de la base de connaissances
 
@@ -54,10 +65,10 @@ const option = {
         show: false,
       },
       data: [
-        { value: 25, name: "Terminé" },
+        { value: 30, name: "Terminé" },
         { value: 20, name: "En rédaction" },
-        { value: 5, name: "Mise en page en cours" },
-        { value: 50, name: "Pas commencé" },
+        { value: 5, name: "Mise en page" },
+        { value: 45, name: "Pas commencé" },
         { value: 0, name: "Erreur rencontrée" },
       ],
     },
@@ -68,4 +79,5 @@ const option = {
 
 ## Theme Docs
 
-[mkdocs-shadcn docs](https://asiffer.github.io/mkdocs-shadcn/) | [iconify](https://icon-sets.iconify.design/)
+<a class="button ghost" href="https://asiffer.github.io/mkdocs-shadcn/">+bxl:shadcn-ui+ mkdocs-shadcn docs</a>
+<a class="button ghost" href="https://icon-sets.iconify.design/">+simple-icons:iconify+ iconify</a>
