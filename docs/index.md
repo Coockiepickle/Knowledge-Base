@@ -16,10 +16,10 @@ alpha: true
 ## Suivi des modifications :
 
 !!! info "Dernière mise à jour de la doc :" 
-    `Mer 26/08/2026`
+    `Mer 22/09/2026`
 
 !!! info "Dernière page mise à jour :" 
-    [Install .tar.gz app](./general/linux-app.md)
+    [Daily](./daily.md)
 
 ## Quelques liens utiles
 
