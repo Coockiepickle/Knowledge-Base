@@ -994,55 +994,56 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <p>ip default-gateway 10.23.63.254
-interface 1
-   name "SRV-eno1"
-   exit
-interface 2
-   name "RTR-bge5"
-   exit
-interface 3
-   name "SRV-eno2"
-   exit
-interface 4
-   name "RTR-bge0"
-   exit
-interface 5
-   name "SRV-enp2s0"
-   exit
-interface 6
-   name "RTR-bge1"
-   exit
-interface 7
-   name "VMW-FJTS"
-   exit
-interface 8
-   name "HP-WS"
-   exit
-snmp-server community "public" unrestricted
-vlan 1
-   name "DEFAULT_VLAN"
-   no untagged 1-8
-   untagged 9-10
-   ip address dhcp-bootp
-   exit
-vlan 10
-   name "LAN"
-   untagged 1-2,8
-   tagged 7
-   ip address 10.23.0.128 255.255.192.0
-   exit
-vlan 20
-   name "DMZ"
-   untagged 3-4
-   tagged 7
-   ip address 10.23.64.128 255.255.192.0
-   exit
-vlan 30
-   name "SRV"
-   untagged 5-7
-   ip address 10.23.128.128 255.255.192.0
-   exit</p>
+    <div class="codehilite"><pre><span></span><code>ip<span class="w"> </span>default-gateway<span class="w"> </span><span class="m">10</span>.23.63.254
+interface<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"SRV-eno1"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">2</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"RTR-bge5"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"SRV-eno2"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">4</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"RTR-bge0"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">5</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"SRV-enp2s0"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">6</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"RTR-bge1"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">7</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"VMW-FJTS"</span>
+<span class="w">   </span><span class="nb">exit</span>
+interface<span class="w"> </span><span class="m">8</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"HP-WS"</span>
+<span class="w">   </span><span class="nb">exit</span>
+snmp-server<span class="w"> </span>community<span class="w"> </span><span class="s2">"public"</span><span class="w"> </span>unrestricted
+vlan<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"DEFAULT_VLAN"</span>
+<span class="w">   </span>no<span class="w"> </span>untagged<span class="w"> </span><span class="m">1</span>-8
+<span class="w">   </span>untagged<span class="w"> </span><span class="m">9</span>-10
+<span class="w">   </span>ip<span class="w"> </span>address<span class="w"> </span>dhcp-bootp
+<span class="w">   </span><span class="nb">exit</span>
+vlan<span class="w"> </span><span class="m">10</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"LAN"</span>
+<span class="w">   </span>untagged<span class="w"> </span><span class="m">1</span>-2,8
+<span class="w">   </span>tagged<span class="w"> </span><span class="m">7</span>
+<span class="w">   </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.0.128<span class="w"> </span><span class="m">255</span>.255.192.0
+<span class="w">   </span><span class="nb">exit</span>
+vlan<span class="w"> </span><span class="m">20</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"DMZ"</span>
+<span class="w">   </span>untagged<span class="w"> </span><span class="m">3</span>-4
+<span class="w">   </span>tagged<span class="w"> </span><span class="m">7</span>
+<span class="w">   </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.64.128<span class="w"> </span><span class="m">255</span>.255.192.0
+<span class="w">   </span><span class="nb">exit</span>
+vlan<span class="w"> </span><span class="m">30</span>
+<span class="w">   </span>name<span class="w"> </span><span class="s2">"SRV"</span>
+<span class="w">   </span>untagged<span class="w"> </span><span class="m">5</span>-7
+<span class="w">   </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.128.128<span class="w"> </span><span class="m">255</span>.255.192.0
+<span class="w">   </span><span class="nb">exit</span>
+</code></pre></div>
   </div>
   
   <script>

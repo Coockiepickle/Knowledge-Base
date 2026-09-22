@@ -994,56 +994,74 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <p>sudo apt-get update
-sudo apt-get install build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
-cd /tmp
-wget https://downloads.apache.org/guacamole/1.5.5/source/guacamole-server-1.5.5.tar.gz
-tar -xzf guacamole-server-1.5.5.tar.gz
-cd guacamole-server-1.5.5/
-sudo ./configure --with-init-dir=/etc/init.d</p>
-<p>sudo make
-sudo make install
-sudo ldconfig
-sudo systemctl daemon-reload
-sudo systemctl start guacd
-sudo systemctl enable guacd
-sudo systemctl status guacd</p>
-<p>sudo mkdir -p /etc/guacamole/{extensions,lib}
-sudo apt-get install tomcat9 tomcat9-admin tomcat9-common tomcat9-user</p>
-<p>cd /tmp
-wget https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-1.5.5.war
-sudo mv guacamole-1.5.5.war /var/lib/tomcat9/webapps/guacamole.war
-sudo systemctl restart tomcat9 guacd
-sudo apt-get install mariadb-server
-sudo mysql_secure_installation
-mysql -u root -p</p>
-<p>CREATE DATABASE guacadb;
-CREATE USER 'guaca_user'@'localhost' IDENTIFIED BY 'Password';
-GRANT SELECT,INSERT,UPDATE,DELETE ON guacadb.* TO 'guaca_user'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;</p>
-<p>cd /tmp
-wget https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-auth-jdbc-1.5.5.tar.gz
-tar -xzf guacamole-auth-jdbc-1.5.5.tar.gz
-sudo mv guacamole-auth-jdbc-1.5.5/mysql/guacamole-auth-jdbc-mysql-1.5.5.jar /etc/guacamole/extensions/</p>
-<p>cd /tmp
-wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.0.0.tar.gz
-tar -xzf mysql-connector-j-9.0.0.tar.gz
-sudo cp mysql-connector-j-9.0.0/mysql-connector-j-9.0.0.jar /etc/guacamole/lib/
-cd guacamole-auth-jdbc-1.5.5/mysql/schema/
-cat *.sql | mysql -u root -p guacadb</p>
-<p>sudo nano /etc/guacamole/guacamole.properties</p>
-<h1 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
-<p>mysql-hostname: 127.0.0.1
-mysql-port: 3306
-mysql-database: guacadb
-mysql-username: guaca_user
-mysql-password: Password</p>
-<p>sudo nano /etc/guacamole/guacd.conf</p>
-<p>[server] 
-bind_host = 0.0.0.0
-bind_port = 4822</p>
-<p>sudo systemctl restart tomcat9 guacd mariadb</p>
+    <div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>libcairo2-dev<span class="w"> </span>libjpeg62-turbo-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtool-bin<span class="w"> </span>uuid-dev<span class="w"> </span>libossp-uuid-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libswscale-dev<span class="w"> </span>freerdp2-dev<span class="w"> </span>libpango1.0-dev<span class="w"> </span>libssh2-1-dev<span class="w"> </span>libtelnet-dev<span class="w"> </span>libvncserver-dev<span class="w"> </span>libwebsockets-dev<span class="w"> </span>libpulse-dev<span class="w"> </span>libssl-dev<span class="w"> </span>libvorbis-dev<span class="w"> </span>libwebp-dev<span class="w"> </span>-y
+<span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://downloads.apache.org/guacamole/1.5.5/source/guacamole-server-1.5.5.tar.gz
+tar<span class="w"> </span>-xzf<span class="w"> </span>guacamole-server-1.5.5.tar.gz
+<span class="nb">cd</span><span class="w"> </span>guacamole-server-1.5.5/
+sudo<span class="w"> </span>./configure<span class="w"> </span>--with-init-dir<span class="o">=</span>/etc/init.d
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>make
+sudo<span class="w"> </span>make<span class="w"> </span>install
+sudo<span class="w"> </span>ldconfig
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>guacd
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>guacd
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>guacd
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/guacamole/<span class="o">{</span>extensions,lib<span class="o">}</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>tomcat9<span class="w"> </span>tomcat9-admin<span class="w"> </span>tomcat9-common<span class="w"> </span>tomcat9-user
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-1.5.5.war
+sudo<span class="w"> </span>mv<span class="w"> </span>guacamole-1.5.5.war<span class="w"> </span>/var/lib/tomcat9/webapps/guacamole.war
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>tomcat9<span class="w"> </span>guacd
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mariadb-server
+sudo<span class="w"> </span>mysql_secure_installation
+mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>CREATE<span class="w"> </span>DATABASE<span class="w"> </span>guacadb<span class="p">;</span>
+CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">'guaca_user'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'Password'</span><span class="p">;</span>
+GRANT<span class="w"> </span>SELECT,INSERT,UPDATE,DELETE<span class="w"> </span>ON<span class="w"> </span>guacadb.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">'guaca_user'</span>@<span class="s1">'localhost'</span><span class="p">;</span>
+FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
+EXIT<span class="p">;</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-auth-jdbc-1.5.5.tar.gz
+tar<span class="w"> </span>-xzf<span class="w"> </span>guacamole-auth-jdbc-1.5.5.tar.gz
+sudo<span class="w"> </span>mv<span class="w"> </span>guacamole-auth-jdbc-1.5.5/mysql/guacamole-auth-jdbc-mysql-1.5.5.jar<span class="w"> </span>/etc/guacamole/extensions/
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.0.0.tar.gz
+tar<span class="w"> </span>-xzf<span class="w"> </span>mysql-connector-j-9.0.0.tar.gz
+sudo<span class="w"> </span>cp<span class="w"> </span>mysql-connector-j-9.0.0/mysql-connector-j-9.0.0.jar<span class="w"> </span>/etc/guacamole/lib/
+<span class="nb">cd</span><span class="w"> </span>guacamole-auth-jdbc-1.5.5/mysql/schema/
+cat<span class="w"> </span>*.sql<span class="w"> </span><span class="p">|</span><span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span>guacadb
+</code></pre></div>
+
+<p><code>sudo nano /etc/guacamole/guacamole.properties</code></p>
+<h2 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>mysql-hostname:<span class="w"> </span><span class="m">127</span>.0.0.1
+mysql-port:<span class="w"> </span><span class="m">3306</span>
+mysql-database:<span class="w"> </span>guacadb
+mysql-username:<span class="w"> </span>guaca_user
+mysql-password:<span class="w"> </span>Password
+</code></pre></div>
+
+<p><code>sudo nano /etc/guacamole/guacd.conf</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>server<span class="o">]</span><span class="w"> </span>
+<span class="nv">bind_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.0.0.0
+<span class="nv">bind_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4822</span>
+</code></pre></div>
+
+<p><code>sudo systemctl restart tomcat9 guacd mariadb</code></p>
 <p>http://adresse_ip:8080/guacamole/</p>
   </div>
   
