@@ -994,78 +994,78 @@
     </div>
   </div>
   <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-    <p><code>`bash
-en
+    <div class="codehilite"><pre><span></span><code>en
 !
-conf t
+conf<span class="w"> </span>t
 !
-hostname SW-MFDR
+hostname<span class="w"> </span>SW-MFDR
 !
-interface Vlan1
- ip address dhcp
+interface<span class="w"> </span>Vlan1
+<span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span>dhcp
 !
-interface Vlan10
- description "LAN"
- ip address 10.23.0.128 255.255.192.0
+interface<span class="w"> </span>Vlan10
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"LAN"</span>
+<span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.0.128<span class="w"> </span><span class="m">255</span>.255.192.0
 !
-interface Vlan20
- description "DMZ"
- ip address 10.23.64.128 255.255.192.0
+interface<span class="w"> </span>Vlan20
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"DMZ"</span>
+<span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.64.128<span class="w"> </span><span class="m">255</span>.255.192.0
 !
-interface Vlan30
- description "SRV"
- ip address 10.23.128.128 255.255.192.0
+interface<span class="w"> </span>Vlan30
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"SRV"</span>
+<span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">10</span>.23.128.128<span class="w"> </span><span class="m">255</span>.255.192.0
 !
-ip default-gateway 10.23.63.254
+ip<span class="w"> </span>default-gateway<span class="w"> </span><span class="m">10</span>.23.63.254
 !
-interface f0/1
- description "SRV-eno1"
- switchport access vlan 10
- switchport mode access
+interface<span class="w"> </span>f0/1
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"SRV-eno1"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/2
- description "RTR-bge5"
- switchport access vlan 10
- switchport mode access
+interface<span class="w"> </span>f0/2
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"RTR-bge5"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/3
- description "HP-WS"
- switchport access vlan 10
- switchport mode access
+interface<span class="w"> </span>f0/3
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"HP-WS"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/4
- description Borne_1
- switchport access vlan 10
- switchport mode access
+interface<span class="w"> </span>f0/4
+<span class="w"> </span>description<span class="w"> </span>Borne_1
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/5
- switchport access vlan 10
- switchport mode access
- !
-interface f0/11
- description "SRV-eno2"
- switchport access vlan 20
- switchport mode access
+interface<span class="w"> </span>f0/5
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
+<span class="w"> </span>!
+interface<span class="w"> </span>f0/11
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"SRV-eno2"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">20</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/12
- description "RTR-bge0"
- switchport access vlan 20
- switchport mode access
+interface<span class="w"> </span>f0/12
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"RTR-bge0"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">20</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/13
- description "SRV-enp2s0"
- switchport access vlan 30
- switchport mode access
+interface<span class="w"> </span>f0/13
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"SRV-enp2s0"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">30</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/14
- description "RTR-bge1"
- switchport access vlan 30
- switchport mode access
+interface<span class="w"> </span>f0/14
+<span class="w"> </span>description<span class="w"> </span><span class="s2">"RTR-bge1"</span>
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">30</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
 !
-interface f0/21
- description HyperV8-MFDR
- switchport access vlan 10
- switchport mode access</code></p>
+interface<span class="w"> </span>f0/21
+<span class="w"> </span>description<span class="w"> </span>HyperV8-MFDR
+<span class="w"> </span>switchport<span class="w"> </span>access<span class="w"> </span>vlan<span class="w"> </span><span class="m">10</span>
+<span class="w"> </span>switchport<span class="w"> </span>mode<span class="w"> </span>access
+</code></pre></div>
   </div>
   
   <script>
